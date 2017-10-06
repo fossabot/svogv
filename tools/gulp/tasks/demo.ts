@@ -23,7 +23,7 @@ var paths = {
   assets: DIST_ROOT + 'demo/assets/',
   views: DIST_ROOT + 'demo/views/',
   npm: DEMO_ROOT + 'node_modules/',
-  app: DEMO_ROOT + 'Client/App/'
+  app: DEMO_ROOT + 'client/app/'
 };
 
 task('clean:assets', function (cb) {
@@ -57,8 +57,8 @@ task('copy:systemjs', function () {
 
 task('copy:angular', function () {
   return src([
-        paths.npm + '@angular/**/Bundles/*.umd.js',
-  '!' + paths.npm + '@angular/**/Bundles/*-testing.umd.js'
+        paths.npm + '@angular/**/bundles/*.umd.js',
+  '!' + paths.npm + '@angular/**/bundles/*-testing.umd.js'
   ]).pipe(dest(paths.assets + 'js/lib/@angular'));
 });
 
@@ -69,12 +69,12 @@ task('copy:svogv', function () {
 // Create RxJs bundle 
 task('copy:rxjs', function () {
     var builder = new systemBuilder('./', {
-        paths: {"rxjs/*": "node_modules/rxjs/*.js"},
-        map: {"rxjs": "node_modules/rxjs"},
-        packages: {"rxjs": {main: 'Rx.js', defaultExtension: "js"}}
+        paths: {'rxjs/*': 'node_modules/rxjs/*.js'},
+        map: {'rxjs': 'node_modules/rxjs'},
+        packages: {'rxjs': {main: 'Rx.js', defaultExtension: 'js'}}
     });
     // create the bundle we use from systemjs.config.js
-    builder.bundle('rxjs', paths.assets + 'js/lib/rxjs/Bundles/Rx.min.js', {
+    builder.bundle('rxjs', paths.assets + 'js/lib/rxjs/bundles/Rx.min.js', {
         sourceMaps: true,
         minify: true,
         mangle: true

@@ -32,7 +32,7 @@
             }
         },
         bundles: {
-            '/assets/js/lib/rxjs/Bundles/Rx.min.js': [
+            '/assets/js/lib/rxjs/bundles/Rx.min.js': [
             "rxjs/*",
             "rxjs/rx/*",
             "rxjs/symbol/*",

@@ -68,6 +68,7 @@ export function tsBuildTask(tsConfigPath: string, tsConfigName = 'tsconfig.json'
 
 /** Create a SASS Build Task. */
 export function sassBuildTask(dest: string, root: string) {
+  console.log('## SCSS Resolver path: ' + _globify(root, '**/*.scss') +  ' ==> ' + dest);
   return () => {
     return gulp.src(_globify(root, '**/*.scss'))
       .pipe(gulpSourcemaps.init())

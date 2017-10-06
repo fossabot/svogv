@@ -28,12 +28,11 @@ function promiseify(fn) {
 const readFile = promiseify(fs.readFile);
 const writeFile = promiseify(fs.writeFile);
 
-
 function inlineResources(globs) {
   if (typeof globs == 'string') {
     globs = [globs];
   }
-
+  
   /**
    * For every argument, inline the templates and styles under it and write the new file.
    */
@@ -42,7 +41,7 @@ function inlineResources(globs) {
       // Argument is a directory target, add glob patterns to include every files.
       pattern = path.join(pattern, '**', '*');
     }
-
+   
     const files = glob.sync(pattern, {})
       .filter(name => /\.js$/.test(name));  // Matches only JavaScript files.
 
@@ -54,7 +53,7 @@ function inlineResources(globs) {
         }))
         .then(content => writeFile(filePath, content))
         .catch(err => {
-          console.error('An error occurred: ', err);
+          console.error('An error occurred: ', filePath + ' ==> ' + err);
         });
     }));
   }));
@@ -78,7 +77,6 @@ function inlineResourcesFromString(content, urlResolver) {
 if (require.main === module) {
   inlineResources(process.argv.slice(2));
 }
-
 
 /**
  * Inline the templates for a source file. Simply search for instances of `templateUrl: ...` and

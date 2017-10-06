@@ -59,7 +59,7 @@ task(':build:components:assets:minify', () => {
 });
 
 /** Builds scss into css. */
-task(':build:components:scss', sassBuildTask(DIST_COMPONENTS_ROOT, COMPONENTS_DIR));
+task(':build:components:scss', sassBuildTask(DIST_COMPONENTS_ROOT +  'bundles', COMPONENTS_DIR));
 
 /** Builds the UMD bundle for all of SvOgV. */
 task(':build:components:rollup', () => {
@@ -117,26 +117,52 @@ task(':build:components:copy-for-demo', () => {
   return src(DIST_COMPONENTS_ROOT + '**/*.*').pipe(dest(target));
 });
 
+// prepare external templates for bundling directly
+task(':build:components:copy-inline', () => {
+  let source = [SOURCE_ROOT + 'lib/**/*.html', '!(node_modules)'];
+  let target = DIST_COMPONENTS_ROOT + 'bundles/';
+  console.log(`** immediate copy from ${source} to ${target}`);
+  return src(source).pipe(dest(target));
+});
+// and after this we cleanup the target folder
+task(':build:components:copy-inline:cleanup', () => {
+  let target = DIST_COMPONENTS_ROOT + 'bundles/';
+  del(`${target}widgets/**`);
+});
+
 /** Builds components with resources (html, css) inlined into the built JS (ESM output). */
 task(':build:components:inline', sequenceTask(
-  [':build:components:ts', ':build:components:scss', ':build:components:assets', ':build:components:copy-for-demo'],
+  ':build:components:ts',
+  ':build:components:scss',
+  ':build:components:copy-inline',
+  ':build:components:assets',
+  ':build:components:copy-for-demo',
   ':inline-resources',
+  ':build:components:copy-inline:cleanup',
 ));
 
 /** Builds components with minified HTML and CSS inlined into the built JS. */
 task(':build:components:inline:release', sequenceTask(
-  [':build:components:ts', ':build:components:scss', ':build:components:assets'],
+  ':build:components:ts',
+  ':build:components:scss',
+  ':build:components:copy-inline',
+  ':build:components:assets',
   ':build:components:assets:minify',
-  ':inline-resources'
+  ':inline-resources',
+  ':build:components:copy-inline:cleanup',
 ));
 
 /** Inlines resources (html, css) into the JS output (for either ESM or CJS output). */
 task(':inline-resources', () => inlineResources(DIST_COMPONENTS_ROOT));
 
 /** Builds components to ESM output and UMD bundle. */
-task('build', sequenceTask(':build:components:inline', ':build:components:rollup'));
+task('build', sequenceTask(
+  ':build:components:inline',
+  ':build:components:rollup'));
+
 task('build:components:release', sequenceTask(
-  ':build:components:inline:release', ':build:components:rollup'
+  ':build:components:inline:release',
+  ':build:components:rollup'
 ));
 
 /** Generates metadata.json files for all of the components. */
