@@ -1,4 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import * as wd from './widgets/index';
 
@@ -22,19 +25,20 @@ const SVOGV_MODULES = [
  * The root module with the global exports.
  */
 @NgModule({
+  imports: [BrowserModule, RouterModule, ReactiveFormsModule],
   declarations: SVOGV_MODULES,
   providers: [FormValidatorService],
   exports: SVOGV_MODULES
 })
-export class SvOGvRootModule { }
+export class SvogvRootModule { }
 
 
 /**
  * The actual SVOGV Module definition using the root module.
  */
 @NgModule()
-export class SvOGvModule {
+export class SvogvModule {
   static forRoot(): ModuleWithProviders {
-    return { ngModule: SvOGvRootModule };
+    return { ngModule: SvogvRootModule };
   }
 }

@@ -36,7 +36,25 @@ The SVG stuff (Analog Clock and Loader Icons) both do not work in IE 11. The Loa
 
 ### How does it work?
 
-We did this by using a straight domain model. Let's assume you have a viewmodel like this:
+Import the "SvogvModule" in your module.
+
+~~~
+import { SvogvModule, FormValidatorService } from 'svogv';
+
+@NgModule({
+  imports: [
+    SvogvModule.forRoot()
+  ],
+  providers: [
+    FormValidatorService 
+})
+export class YourMainModule {
+}
+~~~
+
+That's it, all declarations for components and dependencies are in the main module. They are exported as single items, too. The `forRoot` call is necessary because I plan to hang some CSS config in here to make the whole stuff Bootstrap independent. For backward compatibility it will fall back to BT 4. So one is safe to go with the current installation for real life projects.
+
+I did this by using a straight domain model. Let's assume you have a viewmodel like this:
 
 ~~~
 export class UserViewModel {
@@ -168,7 +186,7 @@ The widget complement the editor by adding more parts typically used in form app
 
 * **TreeView**: An advanced treeview with icon support and many options such as selections and checkboxes. Uses `EventEmitter` for actions.
 * **InfoBox**: A simple panel with header and some configuration options, best for creating tile based layouts
-* **DataGrid**: A different approach for a grid, it provides a model to handle paging, filtering, and sorting, but no HTML. So the hard part is in the grid and the easy part is up to you. 
+* **GridPagination**: A different approach for a grid, it provides a model to handle paging, filtering, and sorting, but no HTML. So the hard part is in the grid's model class and the easy part is up to you. 
 
 This comes with two fun components just made for learning purposes:
 
@@ -186,8 +204,8 @@ npm install svogv --save
 You get three parts (at least, this list will grow quickly):
 
 * FormValidatorService -- a static class to build reactive forms
-* Editor -- the universal editor component
-* Decorators -- a set of decorators to manage the behavior of properties
+* AcEditor and AcAutoForm -- the universal editor component (single and complete form)
+* Decorators -- a set of decorators to manage the behavior of properties (@Required() etc.)
 
 ### More to read
 
@@ -206,6 +224,8 @@ To have a running sample in seconds do the following:
 3. Execute this command: `npm run setup`
 4. Execute this command: `npm run demoall` 
 
+Execute the setup manually by calling `npm i` on the root and in the `src/demo` folder. Then run `npm run build` in both in that order. Than you have a working demo you can run by `npm start` in the `src/demo` folder (port 3000 is default).
+
 A browser window shall open automatically and shows a dashboard from where you can navigate the various components. 
 
 Select these options in the left hand menu:
@@ -220,6 +240,23 @@ Select these options in the left hand menu:
 It's ISC licensed and it's free. I deeply believe in Open Source and will support the ecosystem by open sourcing all parts of the project. For commerical users such as enterprises we have support options.
 
 The SVOGV Widget Library was written by Joerg <isageek> Krause, www.joergkrause.de, Berlin / Germany. He has many years of experience with Web-Frameworks. He were in the business in the early JavaScript days, know every single bit in jQuery and learnt a lot about Knockout, Angular, and Durandal. But time goes on. So he moved almost all projects to either AngularJS or Angular 2+. He thinks that knowing one Framework really well is more for our customers than knowing a lot just good. So he decided to do more and start contributing to the Angular ecosystem by creating awesome libraries and components. 
+
+## Is there a roadmap?
+
+Yes, at least an idea.
+
+I'm going to split this into three modules: @svogv/forms, @svogv/blocks, and @svogv/hud
+
+* @svogv/forms: Forms Service and Forms Generator (editor and autoform)
+* @svogv/blocks: Building Blocks for apps, a collection of sophisticated components
+* @svogv/hud: The sci-fi part with Head Up Display components mostly build on top of SVG
+
+Timeline:
+
+* Split into the first two modules: 11/2017
+* @svogv/forms: 12/2017
+* @svogv/blocks: 03/2018
+* @svogv/hud: 08/2018
 
 ## Can I contribute?
 

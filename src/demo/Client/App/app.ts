@@ -13,7 +13,7 @@ import * as cmp from './components/index';
 import routes from './configurations/routes';
 // The SVOGV library (in the demo it's a hard link with paths info in tsconfig,
 // resolves against node_modules without changes)
-import { SvOGvModule, WindowRef, FormValidatorService } from 'svogv';
+import { SvogvModule, FormValidatorService } from 'svogv';
 
 @NgModule({
   imports: [
@@ -22,7 +22,7 @@ import { SvOGvModule, WindowRef, FormValidatorService } from 'svogv';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    SvOGvModule.forRoot()
+    SvogvModule.forRoot()
   ],
   declarations: [
     // Demo app
@@ -46,24 +46,12 @@ import { SvOGvModule, WindowRef, FormValidatorService } from 'svogv';
     , cmp.AcTabsComponent
     // Hud Demo
     , cmp.HudDashboardComponent
-    // // simple Bootstrap widgets
-    // , wd.AcTreeView
-    // , wd.AcTreeViewNode
-    // , wd.AcDataGridPagination
-    // , wd.AcInfoBox
-    // , wd.AcEditor
-    // , wd.AcAutoForm
-    // // SVG widgets, HUD widgets
-    // , wd.AcAnalogClock
-    // , wd.AcLoaderIcon
-    // , wd.HudClock
   ],
   bootstrap: [cmp.SiteRootComponent],
   providers: [
       SiteApiService        // just for demo to get some static data
     , FormValidatorService  // the forms support, manages the decorators
-    , { provide: LocationStrategy, useClass: HashLocationStrategy }
-    , WindowRef]
+    , { provide: LocationStrategy, useClass: HashLocationStrategy }]
 })
 export class RootModule {
 }

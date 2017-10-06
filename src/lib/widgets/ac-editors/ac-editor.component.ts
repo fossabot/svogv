@@ -114,8 +114,9 @@ export class AcEditor implements OnInit {
 
   ngOnInit() {
     // design
-    if (!this.uischema){
-       Object.assign(this.uischema, UISchemaBootstrap);
+    if (!this.uischema) {
+      this.uischema = {};
+      Object.assign(this.uischema, new UISchemaBootstrap());
     }
     this.userForm.valueChanges.subscribe(data => this.onValueChanged(data));
     // this is set by FormValidatorService
@@ -132,7 +133,7 @@ export class AcEditor implements OnInit {
       if (typeof editorModel[this.name] === 'number') {
         this.type = 'number';
       }
-      if (editorModel[this.name] instanceof Date){
+      if (editorModel[this.name] instanceof Date) {
         this.type = 'calendar';
       }
       // make an instance to read the properties
