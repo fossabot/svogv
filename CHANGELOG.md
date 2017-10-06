@@ -69,6 +69,11 @@ These to elements are now working and good for production:
 There are many fixes in both, demo and lib.
 
 <a name="0.2.3"></a>
-# [0.2.3](https://github.com/joergkrause/svogv/releases/tag/0.2.1) (2017-09-15)
+# [0.2.3](https://github.com/joergkrause/svogv/releases/tag/0.2.3) (2017-09-15)
 
 A release mostly dedicated to fixes and reorg. Some components sued just to run the demo were actually in the main lib and hence I have removed them and put in the demo. So the code is still there, but nit as part of the main lib. This makes the lib a lot smaller and it clarifies the intention not competing with the other UI libs but put the focus on forms and validation.
+
+<a name="0.2.5"></a>
+# [0.2.5](https://github.com/joergkrause/svogv/releases/tag/0.2.5) (2017-10-08)
+
+Better module organization for easier usage. Just import the module as once now. Also added a uischema class to make the components independent of bootstrap. Better build experience, it's working well on Linux now (fixed path issues). 

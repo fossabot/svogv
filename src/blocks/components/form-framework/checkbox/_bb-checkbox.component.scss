@@ -1,0 +1,102 @@
+/*
+Checkbox
+TODO: Add right checkmark icon
+----------------------- */
+.form__checkbox-input {
+	@extend %visuallyhidden;
+
+	&:checked {
+		& ~ .form__checkbox-label {
+			&::before {
+				content: '✔';
+				background-color: $color-light;
+				border-color: $color-light;
+			}
+		}
+
+		&.is-white {
+			& ~ .form__checkbox-label {
+				&::before {
+					background-color: $color-picton-blue;
+					border-color: transparent;
+					color: $color-light;
+				}
+			}
+		}
+	}
+}
+
+.form__checkbox-description {
+	margin-top: $form-col-margin-bottom;
+	font-family: $font-text-regular;
+}
+
+.form__checkbox-label {
+	position: relative;
+	padding-left: 45px;
+	line-height: 1.3em;
+	display: inline-block;
+
+	&:empty {
+		min-height: 2em;
+	}
+
+	&::before {
+		content: '';
+		width: $form-checkbox-size;
+		height: $form-checkbox-size;
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		margin-right: $form-checkbox-margin-right;
+		background: $color-picton-blue;
+		border-radius: $border-radius-default;
+		border: 1px solid transparent;
+		line-height: $form-checkbox-size;
+		text-align: center;
+		color: $color-blue-vw;
+	}
+
+	&:hover {
+		cursor: pointer;
+
+		&::before {
+			background: $color-light;
+			border: 1px solid $color-light;
+		}
+	}
+
+	&.is-white {
+		&::before {
+			border: 1px solid $color-grey-calm;
+			background: $color-light;
+		}
+
+		&:hover {
+			&::before {
+				background: $color-light;
+			}
+		}
+	}
+
+	markdown {
+		a {
+			color: #fff !important;
+		}
+	}
+}
+
+/deep/ {
+	.show-validation-results {
+		.form__checkbox-input {
+			&.is-invalid {
+				& ~ .form__checkbox-label {
+					&::before {
+						border-color: $color-invalid;
+					}
+				}
+			}
+		}
+	}
+}

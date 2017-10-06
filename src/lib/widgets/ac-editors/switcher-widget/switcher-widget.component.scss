@@ -1,0 +1,63 @@
+/* ===================================================
+Switcher Widget
+=================================================== */
+
+/* ---------------------------------------------------
+Global Imports
+--------------------------------------------------- */
+@import "../../../shared/styles/vars";
+@import "../../../shared/styles/utilities";
+
+/* ---------------------------------------------------
+Host Context
+--------------------------------------------------- */
+:host {
+	.switcher__item {
+		width: 40px;
+		height: 24px;
+		border-radius: 30px;
+		border: 1px solid #dfdfdf;
+		position: relative;
+		display: inline-block;
+		box-sizing: content-box;
+		overflow: visible;
+		padding: 0;
+		margin: 0;
+		cursor: pointer;
+		box-shadow: #dfdfdf 0 0 0 0 inset;
+		transition: .3s ease-out all;
+	}
+
+	.ui-switch__control {
+		width: 24px;
+		height: 24px;
+		border-radius: 100%;
+		background-color: #fff;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, .4);
+		position: absolute;
+		top: 0;
+		left: 0;
+		transition: .3s ease-out all;
+	}
+
+	&.is-checked .switcher__item {
+		background: #64bd63;
+		border-color: #64bd63;
+
+		.ui-switch__control {
+			left: 16px;
+		}
+	}
+
+	.switcher__label {
+		position: relative;
+		padding-left: .5rem;
+		color: #fff;
+		display: inline-block;
+		vertical-align: super;
+
+		abbr {
+			text-decoration: none;
+		}
+	}
+}

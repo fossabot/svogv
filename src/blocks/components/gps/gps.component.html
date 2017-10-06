@@ -1,0 +1,5 @@
+    <!--<span *ngIf="gps.active; else gpsInactive" class="is-active"> GPS Active</span>-->
+    <!--<ng-template #gpsInactive><span class="is-inactive"> GPS Inactive</span></ng-template>-->
+    <span [ngClass]="{'is-active': activeGps}">
+        <ng-content></ng-content>
+    </span>

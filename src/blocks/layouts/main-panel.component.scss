@@ -1,0 +1,24 @@
+@import "../scss/helpers";
+
+:host {
+	position: relative;
+	display: block;
+	min-height: calc(100vh - #{$nav-top-height + $footer-min-height});
+
+	@include media($breakpoint-main-min) {
+		flex-grow: 1;
+		padding: $padding-box;
+	}
+
+	@include media($breakpoint-main-max) {
+		padding: $padding-box-mobile;
+	}
+
+	&.isnt-padding {
+		padding: 0;
+	}
+}
+
+:host-context(route-details) {
+	height: 100%;
+}

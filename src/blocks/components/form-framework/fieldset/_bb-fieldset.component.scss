@@ -1,0 +1,13 @@
+// Radio
+.form__radio {
+}
+
+.expandable > legend::before {
+	content: '\\25B8';
+	padding-right: .3em;
+}
+
+.expanded > legend::before {
+	content: '\\25BE';
+	padding-right: .2em;
+}

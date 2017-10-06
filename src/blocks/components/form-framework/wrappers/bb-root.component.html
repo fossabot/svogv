@@ -1,0 +1,15 @@
+<div *ngFor="let layoutItem of layout; let i = index">
+	<!-- [dataIndex]="layoutItem?.arrayItem ? (dataIndex || []).concat(i) : (dataIndex || [])"
+	[layoutIndex]="(layoutIndex || []).concat(i)"
+	[layoutNode]="layoutItem"
+	[orderable]="isOrderable !== false && layoutItem?.type !== '$ref' &&
+	  layoutItem?.arrayItem && layoutItem?.options?.arrayItemType === 'list'"> -->
+	<!-- && (layout[layout.length - 1].tupleItems || 0 < (layout.length - 2)) -->
+	<bb-select-framework-widget
+			[i18nStore]="i18nStore"
+			[formID]="formID"
+			[dataIndex]="layoutItem?.arrayItem ? (dataIndex || []).concat(i) : (dataIndex || [])"
+			[layoutIndex]="(layoutIndex || []).concat(i)"
+			[layoutNode]="layoutItem">
+	</bb-select-framework-widget>
+</div>

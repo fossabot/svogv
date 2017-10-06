@@ -1,0 +1,27 @@
+
+<bb-schema-form
+		#formComponent
+		[i18nStore]="i18n"
+        [options]="options"
+        [JSONSchema]="JSONSchema"
+        [UISchema]="UISchema"
+        [formData]="formData"
+        [widgets]="widgets"
+        [framework]="framework"
+		(onSubmit)="onSubmitFn($event)"
+		(onChanges)="onChangesFn($event)"
+		(isValid)="onIsValidFn($event)"
+		(validationErrors)="validateErrors($event)"
+>
+</bb-schema-form>
+
+<!-- <json-schema-form
+	[schema]="JSONSchema"
+	[layout]="UISchema"
+	[data]="formData"
+	[widgets]="widgets"
+	(onChanges)="onChanges.emit($event)"
+	(onSubmit)="onSubmitFn($event)"
+	(validationErrors)="validateErrors($event)">
+</json-schema-form>
+//-->

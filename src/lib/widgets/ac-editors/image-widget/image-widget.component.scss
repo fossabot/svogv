@@ -1,0 +1,145 @@
+/* ===================================================
+Image Widget
+=================================================== */
+
+/* ---------------------------------------------------
+Global Imports
+--------------------------------------------------- */
+@import "../../../shared/styles/vars";
+@import "../../../shared/styles/utilities";
+@import "../../../../building-blocks/scss/global/vars";
+@import "../../../../building-blocks/scss/_helpers";
+
+/* ---------------------------------------------------
+Global Variables
+--------------------------------------------------- */
+$srf-image-icon-size: 33px;
+$srf-image-upload-icon-size: 23px;
+$srf-image-button-width: 40px !default;
+$srf-image-icon-color: $color-blue-vw !default;
+
+$srf-string-color-error-text: #fff !default;
+$srf-string-color-error-bg: $srf-error-color !default;
+$srf-string-color-border: transparent !default;
+$srf-string-color-value: #000 !default;
+$srf-string-color-placeholder: #bbb !default;
+$srf-string-padding: 12px !default;
+$srf-string-border-radius: 4px !default;
+$srf-string-font-size: $srf-field-font-size !default;
+$srf-input-placeholder-color: rgba(#fff, .3);
+
+/* ---------------------------------------------------
+Host Context
+--------------------------------------------------- */
+:host {
+	.image__wrapper {
+		display: flex;
+		justify-content: center;
+	}
+
+	/*
+	Picture element
+	----------------------- */
+	.image__picture {
+		position: relative;
+		max-width: 240px;
+	}
+
+	/*
+	Edit Button
+	----------------------- */
+	.image__edit-wrapper {
+		top: 0;
+	}
+
+	.image__edit-btn {
+	}
+
+	/*
+	Delete Button
+	----------------------- */
+	.image__delete-wrapper {
+		top: $srf-image-icon-size + 15px;
+	}
+
+	/*
+	Input Replacement
+	----------------------- */
+	.image__input-wrapper {
+		width: 100%;
+
+		&::before {
+			@extend .is-icon-upload:before;
+			@extend .icon;
+			@include centering(v);
+			border-radius: $srf-string-border-radius;
+			left: 1rem;
+			font-size: $srf-image-upload-icon-size;
+			color: $srf-image-icon-color;
+		}
+	}
+
+	.image__input {
+		border-radius: $srf-string-border-radius;
+		padding: $srf-string-padding;
+		border: 1px solid $srf-string-color-border;
+		width: 100%;
+		box-sizing: border-box;
+		font-size: $srf-string-font-size;
+		color: $srf-string-color-value;
+		background-color: $color-white;
+		padding-left: $srf-image-button-width;
+
+		&.is-empty {
+			background-color: $srf-field-background-color-empty;
+
+			&:focus {
+				background-color: $color-white;
+			}
+		}
+
+		&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			color: $srf-input-placeholder-color;
+		}
+
+		&::-moz-placeholder { /* Firefox 19+ */
+			color: $srf-input-placeholder-color;
+		}
+
+		&:-ms-input-placeholder { /* IE 10+ */
+			color: $srf-input-placeholder-color;
+		}
+
+		&:-moz-placeholder { /* Firefox 18- */
+			color: $srf-input-placeholder-color;
+		}
+	}
+
+	/*
+	Modifiers
+	----------------------- */
+	.is-button {
+		cursor: pointer;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		left: 0;
+		transform: translate3d(-50%, -50%, 0);
+		width: $srf-image-icon-size;
+		height: $srf-image-icon-size;
+		background-color: #fff;
+		border-radius: 50%;
+		color: $srf-image-icon-color;
+
+		&:hover {
+			background-color: $button-hover-bg-color;
+			color: $button-hover-color;
+		}
+	}
+
+	.is-icon {
+		margin-top: -3px;
+	}
+
+}

@@ -1,0 +1,75 @@
+@import "../../scss/helpers";
+
+:host {
+	display: block;
+
+	.order-widget__container {
+		border: 1px solid $border-color;
+		border-radius: $border-radius-default;
+		width: 5rem;
+		height: 5rem;
+		align-items: center;
+		cursor: pointer;
+		position: relative;
+
+		hr {
+			margin: 0 auto;
+			padding: 0;
+			width: 3rem;
+			border: 0;
+			height: 0;
+			border-top: 1px solid $color-grey-soft;
+			border-bottom: none;
+		}
+	}
+
+	@mixin icon-common {
+		&::before {
+			@extend .is-icon-arrow:before;
+			@extend .icon;
+			color: $color-blue-vw;
+		}
+
+		&:hover {
+			&::before {
+				color: darken($color-blue-vw, $darken-m);
+			}
+		}
+
+		&.active {
+			&::before {
+				color: $color-grey-dark;
+			}
+		}
+	}
+
+	.order-widget__asc {
+		display: block;
+		width: 100%;
+		height: 2.35rem;
+		text-align: center;
+
+		@include media("<mobile-xl") {
+			margin-top: .2rem;
+		}
+
+		&::before {
+			transform: rotate(-90deg);
+		}
+
+		@include icon-common;
+	}
+
+	.order-widget__desc {
+		display: block;
+		width: 100%;
+		height: 2.35rem;
+		text-align: center;
+
+		&::before {
+			transform: rotate(90deg);
+		}
+
+		@include icon-common;
+	}
+}

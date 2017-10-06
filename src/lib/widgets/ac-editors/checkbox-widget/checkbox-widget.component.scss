@@ -1,0 +1,112 @@
+/* ===================================================
+Checkbox Widget
+=================================================== */
+
+/* ---------------------------------------------------
+Global Imports
+--------------------------------------------------- */
+@import "../../../shared/styles/vars";
+@import "../../../shared/styles/utilities";
+@import "../../../../building-blocks/scss/_helpers";
+
+/* ---------------------------------------------------
+Global Variables
+--------------------------------------------------- */
+$srf-checkbox-color-bg: #4fb7e3 !default;
+$srf-checkbox-checked-color-bg: #fff !default;
+$srf-checkbox-color-border: transparent !default;
+$srf-checkbox-checked-color-border: transparent !default;
+$srf-checkbox-checked-color: #0099da !default;
+$srf-checkbox-size: 32px !default;
+$srf-checkbox-item-margin: 13px !default;
+
+/* ---------------------------------------------------
+Host Context
+--------------------------------------------------- */
+:host {
+	margin-top: $srf-checkbox-size/2;
+	margin-bottom: $srf-checkbox-size/2;
+	display: block;
+	min-height: $srf-checkbox-size;
+
+	.checkbox__input {
+		@extend %visuallyhidden;
+
+		&:checked {
+			& ~ .checkbox__label {
+				&::before {
+					@extend .is-icon-check:before;
+					@extend .icon;
+					line-height: $srf-checkbox-size;
+					font-size: 12px;
+					color: $srf-checkbox-checked-color;
+					background-color: $srf-checkbox-checked-color-bg;
+					border-color: $srf-checkbox-checked-color-border;
+				}
+			}
+		}
+	}
+
+	.checkbox__description {
+		margin-top: .5rem;
+		margin-left: $srf-checkbox-size + $srf-checkbox-item-margin;
+	}
+
+	.checkbox__label {
+		position: relative;
+		padding-left: $srf-checkbox-size + $srf-checkbox-item-margin;
+		line-height: $srf-checkbox-size/1.5;
+		color: $srf-label-color;
+		//display: inline-block;
+		padding-top: 6px;
+
+		// Workaround here: the "*" can't be showed at the end of the sentence, the markdown component wraps the text
+		// into a p. Solution is to move the "*" at the beginning of the sentence.
+		// See details here VWNCOVA-1732
+		//@include media("<=tablet-p") {
+		display: flex;
+
+		markdown {
+			order: 2;
+			margin: 0 0 0 1rem;
+		}
+		//}
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		&::before {
+			content: '';
+			width: $srf-checkbox-size;
+			height: $srf-checkbox-size;
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			margin-right: $srf-checkbox-item-margin;
+			background: $srf-checkbox-color-bg;
+			border-radius: 4px;
+			border: 1px solid $srf-checkbox-color-border;
+			line-height: $srf-checkbox-size;
+			text-align: center;
+			color: #fff;
+		}
+
+		abbr {
+			text-decoration: none;
+			display: inline;
+		}
+	}
+
+	/*
+	Error Display
+	----------------------- */
+	.is-error {
+		.checkbox__label {
+			&::before {
+				border: 1px solid $srf-error-color;
+			}
+		}
+	}
+}

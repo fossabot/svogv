@@ -1,0 +1,13 @@
+@import "../scss/helpers";
+
+:host {
+	position: relative;
+	display: block;
+	height: 100%;
+	overflow: hidden;
+
+	@include media($breakpoint-main-min) {
+		display: flex;
+		padding-left: $side-panel-width;
+	}
+}

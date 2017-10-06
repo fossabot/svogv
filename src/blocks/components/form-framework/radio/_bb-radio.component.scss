@@ -1,0 +1,42 @@
+// Radio
+.form__radio-list {
+	display: block;
+}
+
+.form__radio-item {
+	display: inline-block;
+	margin-right: 30px;
+}
+
+.form__radio-input {
+	@extend %visuallyhidden;
+
+	&:checked {
+		& ~ .form__radio-label {
+			&::before {
+				box-shadow: inset 0 0 0 10px $color-blue-vw;
+				border-color: $color-blue-vw;
+			}
+		}
+	}
+}
+
+.form__radio-label {
+	position: relative;
+	padding-left: 45px;
+	line-height: 32px;
+	display: inline-block;
+
+	&::before {
+		content: '';
+		width: 32px;
+		height: 32px;
+		display: inline-block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: #fff;
+		border-radius: 50%;
+		border: 1px solid $color-grey-calm;
+	}
+}

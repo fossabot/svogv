@@ -1,0 +1,26 @@
+<div class="checkbox__wrapper"
+     [ngClass]="{'is-error': props.formControl.touched && props.formControl.invalid }"
+     [formGroup]="props.parentFormGroup">
+	<div class="checkbox__item">
+		<input id="{{props.id}}"
+		       name="{{props.id}}"
+		       type="checkbox"
+		       [formControlName]="props.path"
+		       class="checkbox__input"/>
+		<label for="{{props.id}}"
+		       class="checkbox__label">
+			<markdown *ngIf="ui['ui:options']?.markdownLabel; else regularLabel" [data]="title | translate"
+					  class="is-white"
+					  links-to-router [asExternalLinks]="true"></markdown>
+			<ng-template #regularLabel>{{ title | translate }}</ng-template>
+			<abbr *ngIf="required" title="Required">*</abbr>
+		</label>
+
+		<div class="checkbox__description" *ngIf="description">
+			<markdown *ngIf="markdownDescription; else regularDescription" [data]="description | translate"
+					  links-to-router [asExternalLinks]="true"></markdown>
+			<ng-template #regularDescription>{{ description | translate }}</ng-template>
+		</div>
+
+	</div>
+</div>

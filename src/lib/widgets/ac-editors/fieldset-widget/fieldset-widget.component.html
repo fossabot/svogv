@@ -1,0 +1,24 @@
+<fieldset class="fieldset__wrapper is-fieldset" [formGroup]="formControl">
+	<legend class="fieldset__legend" *ngIf="legend">{{legend | translate}}</legend>
+
+	<div *ngIf="description" class="fieldset__description">
+		<markdown *ngIf="ui['ui:options']?.markdownDescription;"
+				  [data]="description | translate"
+				  class="is-white"
+				  links-to-router [asExternalLinks]="true"></markdown>
+		<ng-template #regularDescription>{{description | translate}}</ng-template>
+	</div>
+
+	<div *ngIf="help" class="fieldset__help">
+		<markdown *ngIf="ui['ui:options']?.markdownHelp; else regularHelp"
+				  [data]="help | translate"
+				  class="is-white"
+				  links-to-router [asExternalLinks]="true"></markdown>
+		<ng-template #regularHelp>{{help | translate}}</ng-template>
+	</div>
+
+	<div class="fieldset__row">
+		<srf-widget-selector path="{{props.path}}" [formGroup]="formControl"></srf-widget-selector>
+	</div>
+
+</fieldset>

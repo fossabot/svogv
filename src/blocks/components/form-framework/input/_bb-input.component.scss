@@ -1,0 +1,47 @@
+
+.form__input-text {
+	&::-webkit-input-placeholder {
+		color: transparent;
+	}
+
+	&::-moz-placeholder {
+		color: transparent;
+	}
+
+	&:-ms-input-placeholder {
+		color: transparent;
+	}
+
+	&:placeholder-shown {
+		background-color: $color-picton-blue;
+	}
+
+	&:active,
+	&:focus {
+		&.form__input-text:placeholder-shown {
+			background-color: $color-light;
+		}
+	}
+}
+
+/deep/ {
+	.show-validation-results {
+		.form__input-text:placeholder-shown,
+		.form__input-text {
+			&.is-invalid {
+				border: 1px solid $color-invalid;
+				background-color: lighten($color-invalid, 50%);
+			}
+		}
+
+	}
+
+}
+
+:host-context(.form-submitted) {
+	.is-invalid {
+		border: 1px solid $color-invalid;
+		background-color: lighten($color-invalid, 50%);
+	}
+}
+

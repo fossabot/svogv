@@ -1,0 +1,35 @@
+@import "../../scss/helpers";
+
+:host {
+	position: static;
+	display: block;
+	margin-bottom: 2rem;
+
+	.list-header__title-container {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 2.6rem;
+
+		@include media($breakpoint-main-max) {
+			display: block;
+		}
+	}
+
+	.list-header__title-link {
+		margin-top: 1.5rem;
+	}
+
+	.list-header__tools-container {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	.list-header__filter-tags {
+		align-self: flex-end;
+		width: calc(100% - 6rem);
+	}
+
+	.list-header__order-widget {
+		align-self: flex-end;
+	}
+}

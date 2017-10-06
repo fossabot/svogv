@@ -1,0 +1,197 @@
+@import "../../scss/helpers";
+
+:host {
+	@include reset-btn();
+	display: flex;
+	cursor: pointer;
+	background-color: $button-bg-color;
+	height: $button-height-med;
+	padding: 0 ($button-height-med / 2);
+	border-radius: ($button-height-med / 2);
+	font-family: $font-text-bold;
+	font-size: $button-font-med;
+	line-height: 1;
+	color: $button-font-color;
+	text-align: $button-font-align;
+	text-decoration: none;
+	min-width: $button-min-width-med;
+	max-width: $button-max-width-med;
+	width: max-content;
+	font-weight: $button-font-weight;
+	margin: 0 $button-margin-side-med $button-margin-side-med;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+
+	@include media($breakpoint-main-max) {
+		height: $button-height-med-mobile;
+		margin: 0 auto $button-margin-side-med;
+		max-width: $button-max-width-med-mobile;
+	}
+
+	/*
+   Modifiers: Sizes
+   ----------------------- */
+	&.is-tiny {
+		height: $button-height-tny;
+		line-height: $button-height-tny;
+		min-width: $button-min-width-tny;
+		//max-width: initial;
+		margin: 0 $button-margin-side-tny $button-margin-side-tny;
+		padding: 0 ($button-height-tny / 2);
+
+		&.is-min-width {
+			min-width: 15rem;
+		}
+
+		&.is-full-width {
+			width: 100%;
+		}
+	}
+
+	&.is-large {
+		min-width: $button-min-width-lrg;
+		max-width: $button-max-width-lrg;
+		height: $button-height-lrg;
+		line-height: $button-height-lrg;
+		padding: 0 ($button-height-lrg / 2);
+		border-radius: ($button-height-lrg / 2);
+	}
+
+	/*
+	Modifiers: Colors
+	----------------------- */
+	&.is-white {
+		background-color: $button-bg-color-white;
+		color: $button-font-color-blue;
+
+		&.is-disabled {
+			background-color: rgba($button-bg-color-white, .2);
+			color: $button-font-color-blue;
+			cursor: default;
+		}
+	}
+
+	/*
+	Modifiers: Position
+	----------------------- */
+	&.is-center {
+		margin: 0 auto;
+	}
+
+	&.is-margin-top {
+		margin-top: 2rem;
+	}
+
+	/*
+	Modifiers: States
+	----------------------- */
+	&:hover {
+		@include media($breakpoint-main-min) {
+			background-color: $button-hover-bg-color;
+			color: $button-hover-color;
+		}
+	}
+
+	&:disabled,
+	&.is-disabled {
+		background-color: $button-bg-color-disabled;
+		color: $button-font-color-disabled;
+	}
+
+	&.is-active {
+		cursor: default;
+		background-color: $button-hover-bg-color;
+		color: $button-hover-color;
+	}
+}
+
+:host-context(bb-pill) {
+	position: relative;
+	display: inline-block;
+	margin: 0;
+	border-radius: 0;
+	border-left: 1px solid #0990ca;
+	min-width: 7.2rem;
+	font-size: 2rem;
+	line-height: 0;
+	background-color: transparent;
+	overflow: visible;
+	box-sizing: border-box;
+
+	@include media($breakpoint-main-max) {
+		display: inline-block;
+		font-size: 1.8rem;
+	}
+
+	/deep/ .icon {
+		@include centering(hv);
+	}
+
+	&:hover {
+		@include media($breakpoint-main-min) {
+			background-color: $button-hover-bg-color;
+			color: $button-hover-color;
+		}
+	}
+
+	&.is-disabled {
+		border-color: $color-grey-warm;
+
+		+ :host {
+			border-color: $color-grey-warm;
+		}
+	}
+
+	&:first-of-type {
+		border-left: none;
+		border-radius: ($button-height-med / 2) 0 0 ($button-height-med / 2);
+	}
+
+	&:last-of-type {
+		border-radius: 0 ($button-height-med / 2) ($button-height-med / 2) 0;
+	}
+
+	&:only-of-type {
+		border-radius: ($button-height-med / 2) ($button-height-med / 2) ($button-height-med / 2) ($button-height-med / 2);
+	}
+}
+
+:host-context(bb-tabs) {
+	margin: 0;
+	border-radius: 0;
+	flex-shrink: 1;
+	max-width: 100%;
+
+	@include media($breakpoint-main-max) {
+		padding: 0 5.5rem;
+		width: 100%;
+		height: $button-height-med;
+	}
+
+	&:first-of-type {
+		@include media($breakpoint-main-min) {
+			border-radius: ($button-height-med / 2) 0 0 ($button-height-med / 2);
+		}
+	}
+
+	&:last-of-type {
+		@include media($breakpoint-main-max) {
+			border-radius: 0 0 ($button-height-med / 2) ($button-height-med / 2);
+		}
+
+		@include media($breakpoint-main-min) {
+			border-radius: 0 ($button-height-med / 2) ($button-height-med / 2) 0;
+		}
+	}
+
+	&.is-active {
+		@include media($breakpoint-main-max) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 2;
+			border-radius: ($button-height-med / 2) ($button-height-med / 2) 0 0;
+		}
+	}
+}

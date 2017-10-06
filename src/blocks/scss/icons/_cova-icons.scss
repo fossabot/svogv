@@ -1,0 +1,244 @@
+/* stylelint-disable */
+
+@font-face {
+	font-family: "cova-icons";
+	src: url("/assets/fonts/cova-icons.eot?be2533017be10ce4beafa8ddc1a5c9cb?#iefix") format("embedded-opentype"),
+	url("/assets/fonts/cova-icons.woff2?be2533017be10ce4beafa8ddc1a5c9cb") format("woff2"),
+	url("/assets/fonts/cova-icons.woff?be2533017be10ce4beafa8ddc1a5c9cb") format("woff"),
+	url("/assets/fonts/cova-icons.ttf?be2533017be10ce4beafa8ddc1a5c9cb") format("truetype"),
+	url("/assets/fonts/cova-icons.svg?be2533017be10ce4beafa8ddc1a5c9cb#cova-icons") format("svg");
+}
+
+i {
+	line-height: 1;
+}
+
+.icon {
+	font-family: "cova-icons" !important;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 1;
+	font-weight: normal;
+	font-style: normal;
+	speak: none;
+	text-decoration: inherit;
+	text-transform: none;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+i:before {
+	font-family: cova-icons !important;
+	font-style: normal;
+	font-weight: normal !important;
+	vertical-align: top;
+}
+
+.is-icon-arrow-double-right:before {
+	content: "\f101";
+}
+
+.is-icon-arrow-down:before {
+	content: "\f102";
+}
+
+.is-icon-arrow:before {
+	content: "\f103";
+}
+
+.is-icon-call-driver:before {
+	content: "\f104";
+}
+
+.is-icon-call-service:before {
+	content: "\f105";
+}
+
+.is-icon-chart:before {
+	content: "\f106";
+}
+
+.is-icon-check:before {
+	content: "\f107";
+}
+
+.is-icon-close:before {
+	content: "\f108";
+}
+
+.is-icon-date:before {
+	content: "\f109";
+}
+
+.is-icon-deactivate:before {
+	content: "\f10a";
+}
+
+.is-icon-dealer:before {
+	content: "\f10b";
+}
+
+.is-icon-delete:before {
+	content: "\f10c";
+}
+
+.is-icon-download:before {
+	content: "\f10d";
+}
+
+.is-icon-driver:before {
+	content: "\f10e";
+}
+
+.is-icon-driver_license:before {
+	content: "\f10f";
+}
+
+.is-icon-edit:before {
+	content: "\f110";
+}
+
+.is-icon-email-driver:before {
+	content: "\f111";
+}
+
+.is-icon-email:before {
+	content: "\f112";
+}
+
+.is-icon-favourite-ribbon:before {
+	content: "\f113";
+}
+
+.is-icon-favourite:before {
+	content: "\f114";
+}
+
+.is-icon-filter:before {
+	content: "\f115";
+}
+
+.is-icon-fuel-pump:before {
+	content: "\f116";
+}
+
+.is-icon-gas-pump:before {
+	content: "\f117";
+}
+
+.is-icon-link:before {
+	content: "\f118";
+}
+
+.is-icon-lock-closed:before {
+	content: "\f119";
+}
+
+.is-icon-map-marker:before {
+	content: "\f11a";
+}
+
+.is-icon-map-marker_destination:before {
+	content: "\f11b";
+}
+
+.is-icon-map-marker_origin:before {
+	content: "\f11c";
+}
+
+.is-icon-menu:before {
+	content: "\f11d";
+}
+
+.is-icon-mileage:before {
+	content: "\f11e";
+}
+
+.is-icon-minus:before {
+	content: "\f11f";
+}
+
+.is-icon-monitor:before {
+	content: "\f120";
+}
+
+.is-icon-new_auto:before {
+	content: "\f121";
+}
+
+.is-icon-notification:before {
+	content: "\f122";
+}
+
+.is-icon-phone:before {
+	content: "\f123";
+}
+
+.is-icon-plug:before {
+	content: "\f124";
+}
+
+.is-icon-plus:before {
+	content: "\f125";
+}
+
+.is-icon-refresh:before {
+	content: "\f126";
+}
+
+.is-icon-route:before {
+	content: "\f127";
+}
+
+.is-icon-score:before {
+	content: "\f128";
+}
+
+.is-icon-search:before {
+	content: "\f129";
+}
+
+.is-icon-service:before {
+	content: "\f12a";
+}
+
+.is-icon-settings:before {
+	content: "\f12b";
+}
+
+.is-icon-star:before {
+	content: "\f12c";
+}
+
+.is-icon-tachymeter:before {
+	content: "\f12d";
+}
+
+.is-icon-tank-pump:before {
+	content: "\f12e";
+}
+
+.is-icon-travel_book:before {
+	content: "\f12f";
+}
+
+.is-icon-upload:before {
+	content: "\f130";
+}
+
+.is-icon-vehicle-assign:before {
+	content: "\f131";
+}
+
+.is-icon-vehicle:before {
+	content: "\f132";
+}
+
+.is-icon-warning:before {
+	content: "\f133";
+}
+
+.is-icon-xclose:before {
+	content: "\f134";
+}

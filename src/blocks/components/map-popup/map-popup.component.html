@@ -1,0 +1,17 @@
+<div class="map-popup__info">
+    <div class="map-popup__licence-plate" [routerLink]="['/', 'profile', 'vehicle', data.data.id]">
+        {{data.data.licencePlate}}
+    </div>
+    <div class="map-popup__vehicle-type">
+        {{data.data.modelName}}
+    </div>
+    <div class="map-popup__driver-tel">
+        {{data.data.lastKnownDriver.phoneNumber}}
+    </div>
+    <div class="map-popup__driver-name">
+        {{data.data.lastKnownDriver.forename}} {{data.data.lastKnownDriver.surename}}
+    </div>
+</div>
+<div class="map-popup__active">
+    {{(data.data.vehicleGPS.active? 'map.i18n_active_since' : 'map.i18n_inactive_since') | translate}} {{data.data.vehicleGPS.timestamp | amTimeAgo:true }}(n)
+</div>

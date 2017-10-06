@@ -1,0 +1,61 @@
+@import "../../scss/helpers";
+
+:host {
+	//z-index: 10;
+	//position: fixed;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
+
+	&.is-dark {
+		.loader {
+			border-top: $margin-base solid rgba(0, 0, 0, .3);
+			border-right: $margin-base solid rgba(0, 0, 0, .3);
+			border-bottom: $margin-base solid rgba(0, 0, 0, .3);
+		}
+	}
+
+	// Loader default dimensions, fallback in case of no modifiers are passed by
+	.loader,
+	.loader::after {
+		border-radius: 50%;
+		width: 10rem;
+		height: 10rem;
+	}
+
+	// Loader common style, text is kept out of the viewport
+	.loader {
+		margin: 50% auto;
+		position: relative;
+		text-indent: -9999em;
+		border-top: $margin-base solid rgba(255, 255, 255, .3);
+		border-right: $margin-base solid rgba(255, 255, 255, .3);
+		border-bottom: $margin-base solid rgba(255, 255, 255, .3);
+		border-left: $margin-base solid $color-white;
+		@include fullRoundRotate;
+	}
+
+	/* ---------------------------------------------------
+	Context
+	--------------------------------------------------- */
+	.preloader--big {
+		.loader,
+		.loader::after {
+			border-radius: 50%;
+			width: 20rem;
+			height: 20rem;
+		}
+	}
+
+	.preloader--small {
+		.loader,
+		.loader::after {
+			border-radius: 50%;
+			width: 3rem;
+			height: 3rem;
+		}
+	}
+}
+

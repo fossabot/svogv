@@ -1,0 +1,66 @@
+@import "../../scss/helpers";
+
+:host {
+	display: inline-block;
+
+	i {
+		color: inherit;
+	}
+
+	&.is-success {
+		color: $icon-background-color-success;
+	}
+
+	&.is-warning {
+		color: $icon-background-color-warning;
+	}
+
+	&.is-danger {
+		color: $icon-background-color-danger;
+	}
+
+	&.is-round {
+		border-radius: 50%;
+		height: 2.1em;
+		width: 2.1em;
+		text-align: center;
+		font-size: .5em;
+		vertical-align: middle;
+		color: white;
+
+		i {
+			vertical-align: sub;
+		}
+
+		&.is-success {
+			background-color: $icon-background-color-success;
+			border: 2px solid $icon-background-color-success;
+		}
+
+		&.is-warning {
+			background-color: $icon-background-color-warning;
+			border: 2px solid $icon-background-color-warning;
+		}
+
+		&.is-danger {
+			background-color: $icon-background-color-danger;
+			border: 2px solid $icon-background-color-danger;
+		}
+
+		&:only-child {
+			margin-left: .5em;
+		}
+	}
+
+	&.is-baseline {
+		i {
+			vertical-align: baseline;
+		}
+	}
+
+}
+
+:host-context(bb-link) {
+	margin-right: 10px;
+	padding-bottom: 5px;
+}

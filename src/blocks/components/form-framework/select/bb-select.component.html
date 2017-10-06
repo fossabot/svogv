@@ -1,0 +1,48 @@
+<div [class]="'form__col form__col-' + controlName">
+    <label *ngIf="options?.title"
+           [attr.for]="'control' + layoutNode?._id"
+           ngClass="form__label"
+           [class.sr-only]="options?.notitle"
+	>{{ options?.title | translate }} <span *ngIf="options?.required">*</span></label>
+    <select
+            [attr.aria-describedby]="'control' + layoutNode?._id + 'Status'"
+            [attr.readonly]="options?.readonly ? 'readonly' : null"
+            [required]="options?.required"
+            class="form__field form__select-input"
+            [disabled]="controlDisabled"
+            [id]="'control' + layoutNode?._id"
+            [name]="controlName"
+            (input)="updateValue($event)"
+    >
+        <option *ngFor="let selectItem of selectList"
+                [value]="selectItem.value === 'empty' ? '' : selectItem.value"
+                [selected]="selectItem.value === controlValue"
+        >{{selectItem.name | translate}}</option>
+    </select>
+
+    <div class="dropdown-container form__field"
+		 [ngClass]="{'is-open': dropdownState === true}"
+		 [class.is-invalid]="formControl.invalid"
+	>
+        <ul class="dropdown" ng-blur="this.closeDropdown(controlValue)">
+            <li *ngFor="let selectItem of selectList"
+                [class.active]="selectItem.value === controlValue"
+                [tabindex]="selectItem._id"
+                class="form__select-option"
+                (click)="toggleDropdown(selectItem.value);">
+                {{selectItem.name | translate }}
+                <input class="form__select-click-area-option"
+                       type="radio"
+                       [name]="controlName"
+                       [id]="'control' + layoutNode?._id"
+                       [(ngModel)]="controlValue"
+                       [value]="selectItem.value"
+                       (blur)="this.onBlur($event)"
+
+                       >
+
+            </li>
+        </ul>
+    </div>
+</div>
+

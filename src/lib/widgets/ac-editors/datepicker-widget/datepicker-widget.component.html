@@ -1,0 +1,34 @@
+<div class="input__wrapper is-text" [ngClass]="{'is-error': props.formControl.touched && props.formControl.invalid,'is-focus': isFocus}" [formGroup]="props.parentFormGroup">
+	<label *ngIf="props.title"
+	       [attr.for]="props.id"
+	       class="input__label is-label"
+	>
+		{{props.title | translate}}
+		<abbr *ngIf="props.schema.required" title="Required">*</abbr>
+	</label>
+
+	<span class="input__description is-description" *ngIf="props.description">
+		{{props.description | translate}}
+	</span>
+
+	<div class="input__text-wrapper">
+		<input class="input__datepicker"
+			   [ngClass]="{'is-empty': !props.formControl.value}"
+		       id="{{props.id}}"
+		       name="{{props.id}}"
+		       [formControlName]="props.path"
+		       placeholder="{{props.ui['ui:placeholder'] | translate}}"
+		       type="text"
+			   (focus)="setFocus()"
+			   (blur)="clearFocus()"
+			   validate-on-blur
+		       [control]="props.formControl"
+			   [value]="props.formControl.value | date: 'shortDate'"
+			   [dpDayPicker]="config"
+			   [theme]="themeString"
+		>
+	</div>
+	<span class="input__error is-form-error" *ngIf="showErrorMessage && errorMessage">
+        {{ errorMessage | translate }}
+    </span>
+</div>

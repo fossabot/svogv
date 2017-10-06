@@ -1,0 +1,19 @@
+<div class="switcher__wrapper">
+
+	<div class="switcher__item">
+		<div class="ui-switch__control"></div>
+    </div>
+    
+    <label for="{{props.id}}" class="switcher__label">
+        <markdown *ngIf="ui['ui:options']?.markdownLabel; else regularLabel" [data]="title | translate"
+                class="is-white"
+                links-to-router [asExternalLinks]="true"></markdown>
+        <ng-template #regularLabel>{{ title | translate }}</ng-template>
+        <abbr *ngIf="required" title="Required">*</abbr>
+    </label>
+
+    <span class="input__description is-description" *ngIf="props.description">
+        {{props.description | translate}}
+    </span>
+
+</div>
