@@ -1,12 +1,12 @@
 import { Component, EventEmitter, HostBinding, HostListener, Input, Output } from '@angular/core';
 
 @Component({
-	selector: 'bb-ui-switch',
+	selector: 'ac-ui-switch',
 	template: '<div class="ui-switch__control"></div>',
 	styleUrls: ['ui-switch.component.scss']
 })
 
-export class BBUiSwitchComponent {
+export class UiSwitchComponent {
 
 	@Output() change = new EventEmitter<boolean>();
 

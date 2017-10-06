@@ -2,11 +2,11 @@ import { Component, Input, OnInit } from '@angular/core';
 import { TextVM } from './text.vm';
 
 @Component({
-	selector: 'bb-text',
+	selector: 'ac-text',
 	templateUrl: 'text.component.html',
 	styleUrls: ['text.component.scss']
 })
-export class BBTextComponent implements OnInit {
+export class TextComponent implements OnInit {
 
 	@Input() vm: TextVM;
 	@Input() params: Object;

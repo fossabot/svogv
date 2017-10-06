@@ -1,11 +1,11 @@
 import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
-	selector: 'bb-description-item',
+	selector: 'ac-description-item',
 	templateUrl: './description-item.component.html',
 	styleUrls: ['./description-item.component.scss']
 })
-export class BBDescriptionItemComponent {
+export class DescriptionItemComponent {
 
 	@Input() public subHeadline: string;
 	@Input() public supraHeadline: string;

@@ -2,9 +2,9 @@ import { Directive, ElementRef, EventEmitter, Input, Output } from '@angular/cor
 
 @Directive({
 	/* tslint:disable-next-line */
-	selector: '[bb-dropdown]'
+	selector: '[ac-dropdown]'
 })
-export class BBDropdownDirective {
+export class DropdownDirective {
 
 	// -------------------------------------------------------------------------
 	// Inputs / Outputs

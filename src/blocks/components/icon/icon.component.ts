@@ -1,16 +1,16 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-	selector: 'bb-icon',
+	selector: 'ac-icon',
 	templateUrl: 'icon.component.html',
 	styleUrls: ['icon.component.scss'],
 })
 
 /**
- * Creates the BBIconComponent.
+ * Creates the IconComponent.
  * @class
  */
-export class BBIconComponent {
+export class IconComponent {
 
 	/**
 	 * Icon name

@@ -1,11 +1,11 @@
 import { Directive, ElementRef, Host, HostListener, OnDestroy } from '@angular/core';
-import { BBDropdownDirective } from './dropdown.directive';
+import { DropdownDirective } from './dropdown.directive';
 
 @Directive({
 	/* tslint:disable-next-line */
 	selector: '[bb-dropdown-open]'
 })
-export class BBDropdownOpenDirective implements OnDestroy {
+export class DropdownOpenDirective implements OnDestroy {
 
 	// -------------------------------------------------------------------------
 	// Private Properties
@@ -22,7 +22,7 @@ export class BBDropdownOpenDirective implements OnDestroy {
 	// Constructor
 	// -------------------------------------------------------------------------
 
-	constructor(@Host() public dropdown: BBDropdownDirective,
+	constructor(@Host() public dropdown: DropdownDirective,
 				private elementRef: ElementRef) {
 		this.closeDropdownOnOutsideClick = evt => this.closeIfInClosableZone(evt);
 	}

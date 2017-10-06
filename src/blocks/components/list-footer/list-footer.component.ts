@@ -1,7 +1,7 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
-	selector: 'list-footer',
+	selector: 'ac-list-footer',
 	templateUrl: 'list-footer.component.html',
 	styleUrls: ['list-footer.component.scss']
 })

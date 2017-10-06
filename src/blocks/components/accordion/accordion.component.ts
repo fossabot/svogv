@@ -5,7 +5,7 @@ import { AccordionItemComponent } from './accordion-item/accordion-item.componen
  * The accordion component
  */
 @Component({
-	selector: 'accordion',
+	selector: 'ac-accordion',
 	styleUrls: ['accordion.component.scss'],
 	template: `<ng-content></ng-content>`
 })

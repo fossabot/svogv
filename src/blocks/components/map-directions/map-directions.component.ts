@@ -4,7 +4,7 @@ import { BBMapComponent } from '../map/map.component';
 declare const google: any;
 
 @Component({
-	selector: 'bb-map-directions',
+	selector: 'ac-map-directions',
 	template: ''
 })
 export class MapDirectionsComponent implements OnInit {

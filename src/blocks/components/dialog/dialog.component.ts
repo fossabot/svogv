@@ -11,7 +11,7 @@ import { SweetAlertService } from '../../../../services/sweetAlert.service';
 import {UiCommonChangeDialog, UiCommonOpenOverlay} from '../../../../../store/ui/common/ui.common.actions';
 
 @Component({
-	selector: 'bb-dialog',
+	selector: 'ac-dialog',
 	templateUrl: 'dialog.component.html',
 	styleUrls: ['dialog.component.scss']
 })
@@ -19,7 +19,7 @@ import {UiCommonChangeDialog, UiCommonOpenOverlay} from '../../../../../store/ui
 /**
  * Create a generic dialog component
  */
-export class BBDialogComponent implements OnInit {
+export class DialogComponent implements OnInit {
 
 	/**
 	 * The dialog info observable

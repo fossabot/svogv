@@ -1,11 +1,11 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 
 @Component({
-	selector: 'bb-cta',
+	selector: 'ac-cta',
 	templateUrl: 'cta.component.html',
 	styleUrls: ['cta.component.scss']
 })
-export class BBCtaComponent implements OnInit {
+export class CtaComponent implements OnInit {
 
 	constructor() {
 	}

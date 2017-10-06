@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { BBDropdownDirective } from './dropdown.directive';
-import { BBDropdownOpenDirective } from './dropdownOpen.directive';
+import { DropdownDirective } from './dropdown.directive';
+import { DropdownOpenDirective } from './dropdownOpen.directive';
 
 export * from './dropdown.directive';
 export * from './dropdownOpen.directive';
@@ -11,12 +11,12 @@ export * from './dropdownOpen.directive';
 		CommonModule
 	],
 	declarations: [
-		BBDropdownDirective,
-		BBDropdownOpenDirective
+		DropdownDirective,
+		DropdownOpenDirective
 	],
 	exports     : [
-		BBDropdownDirective,
-		BBDropdownOpenDirective
+		DropdownDirective,
+		DropdownOpenDirective
 	]
 })
 export class DropdownModule {

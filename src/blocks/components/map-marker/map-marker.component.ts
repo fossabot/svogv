@@ -7,7 +7,7 @@ import { BBMapComponent } from '../map/map.component';
 declare const google: any;
 
 @Component({
-	selector: 'bb-map-marker',
+	selector: 'ac-map-marker',
 	templateUrl: 'map-marker.component.html',
 	styleUrls: ['map-marker.component.scss']
 })

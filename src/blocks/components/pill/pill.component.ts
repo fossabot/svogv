@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-	selector: 'bb-pill',
+	selector: 'ac-pill',
 	template: '<div class="pill--container"><ng-content></ng-content></div>',
 	styleUrls: ['pill.component.scss']
 })

@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
  * @implements {OnInit}
  */
 @Component({
-	selector: 'order-widget',
+	selector: 'ac-order-widget',
 	templateUrl: 'order-widget.component.html',
 	styleUrls: ['order-widget.component.scss']
 })

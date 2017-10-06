@@ -4,7 +4,7 @@ import { getCustomOverlayView } from '../map/api/gmaps-marker';
 import { BBMapComponent } from '../map/map.component';
 
 @Component({
-	selector: 'bb-map-popup',
+	selector: 'ac-map-popup',
 	templateUrl: 'map-popup.component.html',
 	styleUrls: ['map-popup.component.scss']
 })

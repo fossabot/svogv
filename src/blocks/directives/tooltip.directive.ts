@@ -7,7 +7,7 @@ import { TooltipDirective } from 'ng2-tooltip-directive/lib/tooltip.directive';
 @Directive({
 	selector: '[tooltip]'
 })
-export class CovaTooltipDirective extends TooltipDirective {
+export class AcTooltipDirective extends TooltipDirective {
 
 	/**
 	 * Track the appearance to deal with the scroll event

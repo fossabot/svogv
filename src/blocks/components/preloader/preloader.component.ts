@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-	selector: 'bb-preloader',
+	selector: 'ac-preloader',
 	styleUrls: ['preloader.component.scss'],
 	templateUrl: 'preloader.component.html'
 })

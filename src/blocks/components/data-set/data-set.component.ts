@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-	selector: 'data-set',
+	selector: 'ac-data-set',
 	templateUrl: './data-set.component.html',
 	styleUrls: ['./data-set.component.scss']
 })

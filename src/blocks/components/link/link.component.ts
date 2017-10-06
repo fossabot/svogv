@@ -1,7 +1,7 @@
 import { Component, HostBinding, Input, OnInit } from '@angular/core';
 
 @Component({
-	selector: 'bb-link',
+	selector: 'ac-link',
 	templateUrl: 'link.component.html',
 	styleUrls: ['link.component.scss']
 })

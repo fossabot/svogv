@@ -2,19 +2,19 @@ import { Component,  ElementRef, HostBinding, Input , OnInit , Renderer2 } from 
 
 
 /**
- * Creates the BBMarkerComponent.
+ * Creates the MarkerComponent.
  *
  * @export
- * @class BBMarkerComponent
+ * @class MarkerComponent
  * @implements {OnInit}
  */
 @Component({
-	selector: 'bb-marker',
+	selector: 'ac-marker',
 	templateUrl: 'marker.component.html',
 	styleUrls: ['marker.component.scss'],
 })
 
-export class BBMarkerComponent implements OnInit {
+export class MarkerComponent implements OnInit {
 
 	/**
 	 * Disable capttion text

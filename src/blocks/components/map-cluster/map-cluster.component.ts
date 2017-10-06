@@ -4,7 +4,7 @@ import { MapMarkerClusterer } from './map-clusterer';
 
 
 @Component({
-	selector: 'bb-map-cluster',
+	selector: 'ac-map-cluster',
 	template: '<ng-content></ng-content>',
 	styleUrls: ['map-cluster.component.scss']
 })

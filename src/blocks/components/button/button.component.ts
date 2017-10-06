@@ -4,7 +4,7 @@ import { Component, HostBinding, Input } from '@angular/core';
  * The button dumb component
  */
 @Component({
-	selector: 'bb-button',
+	selector: 'ac-button',
 	template: '<ng-content></ng-content>',
 	styleUrls: ['button.component.scss']
 })

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-	selector: 'list-header',
+	selector: 'ac-list-header',
 	templateUrl: 'list-header.component.html',
 	styleUrls: ['list-header.component.scss'],
 })

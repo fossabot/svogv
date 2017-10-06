@@ -1,8 +1,8 @@
 {
-  "name": "svogv",
-  "version": "0.2.3",
-  "description": "An advanced set of Angular 4 (> Angular2) widgets and model driven forms support.",
-  "main": "./bundles/svogv.umd.js",
+  "name": "@svogv/blocks",
+  "version": "0.3.0",
+  "description": "An advanced set of Angular widgets with integrated CSS. No CSS framework needed.",
+  "main": "./bundles/blocks.umd.js",
   "module": "./index.js",
   "typings": "./index.d.ts",
   "repository": {
@@ -13,6 +13,7 @@
     "angular",
     "angular2",
     "angular4",
+    "angular5",
     "Reactive",
     "Forms",
     "Validation",

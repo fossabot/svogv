@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
  * @implements {OnInit}
  */
 @Component({
-	selector: 'gps',
+	selector: 'ac-gps',
 	templateUrl: 'gps.component.html',
 	styleUrls: ['gps.component.scss']
 })

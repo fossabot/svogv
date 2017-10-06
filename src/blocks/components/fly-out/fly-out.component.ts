@@ -1,11 +1,11 @@
 import { Component, HostBinding, Input } from '@angular/core';
 
 @Component({
-	selector: 'bb-fly-out',
+	selector: 'ac-fly-out',
 	templateUrl: './fly-out.component.html',
 	styleUrls: ['./fly-out.component.scss']
 })
-export class BBFlyOutComponent {
+export class FlyOutComponent {
 
 	private openIcon = 'settings';
 	private closeIcon = 'close';

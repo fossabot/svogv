@@ -5,11 +5,11 @@ import {GMapsApiLoader} from './services/api-loader';
 declare const google: any;
 
 @Component({
-	selector: 'bb-map',
+	selector: 'ac-map',
 	templateUrl: 'map.component.html',
 	styleUrls: ['map.component.scss']
 })
-export class BBMapComponent implements AfterViewInit {
+export class MapComponent implements AfterViewInit {
 
 	/**
 	 * Enable traffic layer

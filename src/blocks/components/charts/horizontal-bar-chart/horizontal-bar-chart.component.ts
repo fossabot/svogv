@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-	selector: 'horizontal-bar-chart',
+	selector: 'ac-horizontal-bar-chart',
 	templateUrl: 'horizontal-bar-chart.component.html',
 	styleUrls: ['horizontal-bar-chart.component.scss']
 })

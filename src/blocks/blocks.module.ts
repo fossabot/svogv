@@ -16,28 +16,13 @@ import { TagsComponent } from '../../components/tags/tags.component';
 import { AccordionItemComponent } from './components/accordion/accordion-item/accordion-item.component';
 import { ButtonComponent } from './components/button/button.component';
 import { BBHorizontalBarChartComponent } from './components/charts/horizontal-bar-chart/horizontal-bar-chart.component';
-import { BBCtaComponent } from './components/cta/cta.component';
-import { BBDescriptionItemComponent } from './components/description-item/description-item.component';
-import { BBDialogComponent } from './components/dialog/dialog.component';
+import { CtaComponent } from './components/cta/cta.component';
+import { DescriptionItemComponent } from './components/description-item/description-item.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { BBFlyOutItemComponent } from './components/fly-out/fly-out-item/fly-out-item.component';
-import { BBFlyOutComponent } from './components/fly-out/fly-out.component';
-import { BBFormFrameworkComponent } from './components/form-framework/bb-form-framework.component';
-import { BBCheckboxComponent } from './components/form-framework/checkbox/bb-checkbox.component';
-import { BBEmailComponent } from './components/form-framework/email/bb-email.component';
-import { BBFieldsetComponent } from './components/form-framework/fieldset/bb-fieldset.component';
-import { BBInputNorwayComponent } from './components/form-framework/input-norway/bb-input-norway.component';
-import { BBInputComponent } from './components/form-framework/input/bb-input.component';
-import { BBRadioComponent } from './components/form-framework/radio/bb-radio.component';
-import { BBSelectComponent } from './components/form-framework/select/bb-select.component';
-import { BBSubmitComponent } from './components/form-framework/submit/bb-submit.component';
-import { BBWizardStepComponent } from './components/form-framework/wizard/bb-wizard-step.component';
-import { BBWizardComponent } from './components/form-framework/wizard/bb-wizard.component';
-import { BBRootComponent } from './components/form-framework/wrappers/bb-root.component';
-import { BBSchemaFormComponent } from './components/form-framework/wrappers/bb-schema-form.component';
-import { BBSelectFrameworkComponent } from './components/form-framework/wrappers/bb-select-framework.component';
-import { BBSelectWidgetComponent } from './components/form-framework/wrappers/bb-select-widget.component';
-import { BBIconComponent } from './components/icon/icon.component';
+import { FlyOutComponent } from './components/fly-out/fly-out.component';
+import { IconComponent } from './components/icon/icon.component';
 import { LinkComponent } from './components/link/link.component';
 import { ListFooterComponent } from './components/list-footer/list-footer.component';
 import { ListHeaderComponent } from './components/list-header/list-header.component';
@@ -47,17 +32,17 @@ import { MapClusterComponent } from './components/map-cluster/map-cluster.compon
 import { MapDirectionsComponent } from './components/map-directions/map-directions.component';
 import { MapMarkerComponent } from './components/map-marker/map-marker.component';
 import { MapPopupComponent } from './components/map-popup/map-popup.component';
-import { BBMapComponent } from './components/map/map.component';
+import { MapComponent } from './components/map/map.component';
 import { GMapsApiLoader } from './components/map/services/api-loader';
-import { BBMarkerComponent } from './components/marker/marker.component';
+import { MarkerComponent } from './components/marker/marker.component';
 import { OrderWidgetComponent } from './components/order-widget/order-widget.component';
-import { BBPictureTextComponent } from './components/picture-text/picture-text.component';
-import { BBPictureComponent } from './components/picture/picture.component';
+import { PictureTextComponent } from './components/picture-text/picture-text.component';
+import { PictureComponent } from './components/picture/picture.component';
 import { PillComponent } from './components/pill/pill.component';
 import { PreloaderComponent } from './components/preloader/preloader.component';
 import { TabsComponent } from './components/tabs/tabs.component';
-import { BBTextComponent } from './components/text/text.component';
-import { BBUiSwitchComponent } from './components/ui-switch/ui-switch.component';
+import { TextComponent } from './components/text/text.component';
+import { UiSwitchComponent } from './components/ui-switch/ui-switch.component';
 import { LinksToRouterDirective } from './directives/links-to-router.directive';
 
 // Services
@@ -75,7 +60,7 @@ import { NorwayCompanyApiService } from '../../services/norway_company.service';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { GpsComponent } from './components/gps/gps.component';
 import { ShowAtDirective } from './directives/showAt.directive';
-import { CovaTooltipDirective } from './directives/tooltip.directive';
+import { AcTooltipDirective } from './directives/tooltip.directive';
 import { ArrayToStringConverter } from './pipes/array-to-string.pipe';
 import { CalculateThreshold } from './pipes/calculate-threshold.pipe';
 import { ChartValueNormalizer } from './pipes/chart-value-normalizer.pipe';
@@ -108,44 +93,24 @@ import { ShowNumberOfChars } from './pipes/show-nr-chars.pipe';
 	declarations: [
 		// Components
 		DynamicFormComponent,
-		BBCtaComponent,
-		BBPictureComponent,
-		BBPictureTextComponent,
-		BBTextComponent,
-		BBIconComponent,
-		BBMarkerComponent,
-		BBHorizontalBarChartComponent,
-		BBMapComponent,
+		CtaComponent,
+		PictureComponent,
+		PictureTextComponent,
+		TextComponent,
+		IconComponent,
+		MarkerComponent,
+		HorizontalBarChartComponent,
+		MapComponent,
 		ListViewComponent,
 		ListItemComponent,
 		ListFooterComponent,
 		ListHeaderComponent,
 		OrderWidgetComponent,
 		LinkComponent,
-		BBUiSwitchComponent,
-		BBFlyOutComponent,
-		BBFlyOutItemComponent,
-		BBDescriptionItemComponent,
-		// Forms
-		BBFormFrameworkComponent,
-		BBInputComponent,
-		BBEmailComponent,
-		BBSelectComponent,
-		BBCheckboxComponent,
-		BBRadioComponent,
-		BBSchemaFormComponent,
-		BBRootComponent,
-		BBSelectFrameworkComponent,
-		BBSelectWidgetComponent,
-		BBFieldsetComponent,
-		BBWizardComponent,
-		BBWizardStepComponent,
-		BBInputNorwayComponent,
-		BBSubmitComponent,
-		BBTextComponent,
-		BBCtaComponent,
-		BBPictureComponent,
-		BBPictureTextComponent,
+		UiSwitchComponent,
+		FlyOutComponent,
+		FlyOutItemComponent,
+		DescriptionItemComponent,
 		MapMarkerComponent,
 		MapClusterComponent,
 		MapPopupComponent,
@@ -166,7 +131,7 @@ import { ShowNumberOfChars } from './pipes/show-nr-chars.pipe';
 		ArrayToStringConverter,
 		CalculateThreshold,
 		TooltipDirective,
-		CovaTooltipDirective,
+		AcTooltipDirective,
 		ShowAtDirective,
 		ShowNumberOfChars,
 		LinksToRouterDirective,
@@ -174,19 +139,7 @@ import { ShowNumberOfChars } from './pipes/show-nr-chars.pipe';
 		BBDialogComponent
 	],
 	entryComponents: [
-		BBFieldsetComponent,
-		BBFormFrameworkComponent,
-		BBInputComponent,
-		BBEmailComponent,
-		BBSelectWidgetComponent,
-		BBSelectComponent,
-		BBCheckboxComponent,
-		BBRadioComponent,
-		BBInputNorwayComponent,
-		BBWizardComponent,
-		BBWizardStepComponent,
-		BBSubmitComponent,
-		BBDialogComponent
+		DialogComponent
 	],
 	providers: [
 		GMapsApiLoader,
@@ -203,17 +156,17 @@ import { ShowNumberOfChars } from './pipes/show-nr-chars.pipe';
 		DropdownModule,
 		// Components
 		DynamicFormComponent,
-		BBSchemaFormComponent,
-		BBCtaComponent,
-		BBPictureComponent,
-		BBPictureTextComponent,
-		BBTextComponent,
-		BBIconComponent,
-		BBMarkerComponent,
-		BBHorizontalBarChartComponent,
-		BBMapComponent,
-		BBFlyOutComponent,
-		BBFlyOutItemComponent,
+		SchemaFormComponent,
+		CtaComponent,
+		PictureComponent,
+		PictureTextComponent,
+		TextComponent,
+		IconComponent,
+		MarkerComponent,
+		HorizontalBarChartComponent,
+		MapComponent,
+		FlyOutComponent,
+		FlyOutItemComponent,
 		MapPopupComponent,
 		MapDirectionsComponent,
 		MapMarkerComponent,
@@ -231,9 +184,9 @@ import { ShowNumberOfChars } from './pipes/show-nr-chars.pipe';
 		GpsComponent,
 		TabsComponent,
 		TagsComponent,
-		BBUiSwitchComponent,
-		BBMarkerComponent,
-		BBDescriptionItemComponent,
+		UiSwitchComponent,
+		MarkerComponent,
+		DescriptionItemComponent,
 		AccordionComponent,
 		AccordionItemComponent,
 		// Directives & Pipes
@@ -244,16 +197,16 @@ import { ShowNumberOfChars } from './pipes/show-nr-chars.pipe';
 		ChartValueNormalizer,
 		ArrayToStringConverter,
 		CalculateThreshold,
-		CovaTooltipDirective,
+		AcTooltipDirective,
 		ShowAtDirective,
 		ShowNumberOfChars,
 		LinksToRouterDirective,
 		DataSetModule,
 		PreloaderComponent,
-		BBDialogComponent
+		DialogComponent
 	]
 })
-export class BBModule {
+export class BlocksModule {
 
 	constructor() {
 		// PageScrollConfig.defaultDuration = 300;

@@ -6,7 +6,7 @@ import { Component, ContentChildren, DoCheck, ElementRef, Input, OnDestroy, Quer
  * @implements {OnInit}
  */
 @Component({
-	selector: 'list-view',
+	selector: 'ac-list-view',
 	templateUrl: 'list-view.component.html',
 	styleUrls: ['list-view.component.scss']
 })
