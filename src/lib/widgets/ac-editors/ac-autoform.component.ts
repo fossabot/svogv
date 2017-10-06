@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
+import { IUISchema } from '../../utils/ui-schema';
+
 /**
  * This component creates a complete editor out of a viewmodel.
  * It creates one field for each property not decorated with @Hidden.
@@ -28,6 +30,13 @@ export class AcAutoForm implements OnInit {
      */
     @Input()
     ungroupedAfter = true;
+
+    /**
+     * Assign a schema for CSS. Defaults to Bootstrap 4 in editor if not provided.
+     */
+    @Input()
+    uischema: IUISchema = null;
+
 
     editors: Array<{ key: number, editor: string }>;
     groups: Array<{ key: number, name: string, desc: string, editors: Array<{ key: number, editor: string }> }>;
@@ -65,7 +74,7 @@ export class AcAutoForm implements OnInit {
             } else {
                 // check if group already exists
                 let existingGroupArray = this.groups.filter(g => g.name === groupName);
-                var groupExists = existingGroupArray.length === 1;
+                let groupExists = existingGroupArray.length === 1;
                 if (!groupExists) {
                     this.groups.push({
                         key: groupOrder,

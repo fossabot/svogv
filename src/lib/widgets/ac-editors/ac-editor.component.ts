@@ -1,6 +1,8 @@
 ﻿import { Component, Input, Output, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
+import { IUISchema, UISchemaBootstrap } from '../../utils/ui-schema';
+
 /**
  * The Editor Widget. Creates a field with all required validators using decorators and forms service.
  */
@@ -81,6 +83,9 @@ export class AcEditor implements OnInit {
   @Input()
   value: any;
 
+  @Input()
+  uischema: IUISchema = null;
+
   // additional values provided by TemplateHint decorator
   params: { key: string, value: any }[];
 
@@ -108,6 +113,10 @@ export class AcEditor implements OnInit {
   }
 
   ngOnInit() {
+    // design
+    if (!this.uischema){
+       Object.assign(this.uischema, UISchemaBootstrap);
+    }
     this.userForm.valueChanges.subscribe(data => this.onValueChanged(data));
     // this is set by FormValidatorService
     var editorModel = (<any>this.userForm)['__editorModel__'];

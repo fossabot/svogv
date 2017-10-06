@@ -1,28 +1,29 @@
-<div class="form-group row" 
+<div [class]="this.uischema.formGroup"  
      [formGroup]="userForm" *ngIf="type != 'hidden'"
      [ngClass]="{ 'has-danger': !userForm.controls[name].valid && userForm.controls[name].touched }">
-  <label class="col-form-label col-md-3 col-sm-10"
+  <label 
+    [class]="this.uischema.formLabel"  
     [attr.for]="name" 
     [attr.title]="tooltip" >{{ label }}{{ labelDivider }} </label>
   <div [ngClass]="{ 'col-md-7 col-sm-10': inline }">
     <textarea *ngIf="type == 'textarea'" 
-            class="form-control" 
+            [class]="this.uischema.formControl" 
             [id]="name" 
             [readOnly]='readonly'
             [formControlName]="name" 
             [attr.rows]="getParams('rows')" 
             [attr.cols]="getParams('cols')">
     </textarea>
-    <select *ngIf="type == 'enum' && enumValues" class="form-control" [id]="name" 
+    <select *ngIf="type == 'enum' && enumValues" [class]="this.uischema.formControl" [id]="name" 
           [formControlName]="name" [disabled]='readonly'>
       <option *ngFor="let option of enumValues" [value]="option.key">{{option.val}}</option>
     </select>
-    <select *ngIf="type == 'list' && listValues" class="form-control" [id]="name" 
+    <select *ngIf="type == 'list' && listValues" [class]="this.uischema.formControl" [id]="name" 
           [formControlName]="name" [disabled]='readonly'>
       <option *ngFor="let option of listValues" [value]="option.key">{{option.val}}</option>
     </select>
     <input *ngIf="type == 'range'" type="range" 
-        class="form-control" 
+        [class]="this.uischema.formControl" 
         [placeholder]="waterMark" 
         [attr.minvalue]="fromValue" 
         [attr.maxvalue]="toValue" 
@@ -32,21 +33,21 @@
         [formControlName]="name" 
         [title]="tooltip" />
     <input *ngIf="type == 'calendar'" type="date"
-        class="form-control" 
+        [class]="this.uischema.formControl"  
         [placeholder]="waterMark" 
         [readOnly]='readonly'
         [id]="name" 
         [formControlName]="name" 
         [title]="tooltip" />
     <input *ngIf="type == 'number'" type="number" 
-        class="form-control" 
+        [class]="this.uischema.formControl"  
         [placeholder]="waterMark" 
         [readOnly]='readonly'
         [id]="name" 
         [formControlName]="name" 
         [title]="tooltip" />
     <input *ngIf="type == 'boolean'" type="checkbox" 
-        class="form-control" 
+        [class]="this.uischema.formControl"  
         [readOnly]='readonly'
         [id]="name" 
         [formControlName]="name" 
@@ -54,12 +55,16 @@
     <label *ngIf="type == 'boolean'" [attr.for]="name"></label>
     <input *ngIf="type == 'text' || type == ''" [placeholder]="waterMark" 
         [readOnly]='readonly'
-        type="text" class="form-control" [id]="name" [formControlName]="name" />
-    <span class="fa fa-warning text-danger form-control-feedback" 
+        type="text" 
+        [class]="this.uischema.formControl"  
+        [id]="name" [formControlName]="name" />
+    <span 
+        [class]="this.uischema.formValidationWarningIcon"      
         [hidden]="userForm.controls[name].valid || userForm.controls[name].pristine"></span>
-    <small class="text-danger" 
+    <small  
+        [class]="this.uischema.formValidationWarningText"      
         [hidden]="userForm.controls[name].valid || userForm.controls[name].pristine">
-    <span *ngFor="let error of errors">{{ userForm.controls[name].messages[error] }}</span>
+        <span *ngFor="let error of errors">{{ userForm.controls[name].messages[error] }}</span>
     </small>
   </div>
 </div>
