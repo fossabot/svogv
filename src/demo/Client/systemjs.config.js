@@ -22,7 +22,7 @@
             '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
             'svogv': 'npm:svogv/bundles/svogv.umd.js',
-            'reflect-metadata': 'npm:reflect.js'
+            'reflect-metadata': 'npm:Reflect.js'
         },        
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
@@ -32,7 +32,7 @@
             }
         },
         bundles: {
-            '/assets/js/lib/rxjs/bundles/Rx.min.js': [
+            '/assets/js/lib/rxjs/bundles/rx.min.js': [
             "rxjs/*",
             "rxjs/rx/*",
             "rxjs/symbol/*",

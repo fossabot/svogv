@@ -54,7 +54,7 @@ gulp.task('copy:js', function () {
               paths.npm + 'tether/dist/js/tether.js',
               paths.npm + 'core-js/client/core.js',
               paths.npm + 'zone.js/dist/zone.js',
-              paths.npm + 'reflect-metadata/reflect.js',
+              paths.npm + 'reflect-metadata/Reflect.js',
               paths.npm + 'systemjs/dist/system.js',
               '!/**/*.min.js' // we minify everything by ourselves
             ])
@@ -64,14 +64,14 @@ gulp.task('copy:js', function () {
 
 // This is a simple loader while debugging without going through the WebPack hassle
 gulp.task('copy:systemjs', function () {
-  return gulp.src('./Client/systemjs.config.js')
+  return gulp.src('./client/systemjs.config.js')
             .pipe(gulp.dest(paths.assets + 'js'));
 });
 
 gulp.task('copy:angular', function () {
   return gulp.src([
-                    paths.npm + '@angular/**/Bundles/*.umd.js',
-              '!' + paths.npm + '@angular/**/Bundles/*-testing.umd.js'
+                    paths.npm + '@angular/**/bundles/*.umd.js',
+              '!' + paths.npm + '@angular/**/bundles/*-testing.umd.js'
               ])
               .pipe(uglify())
               .pipe(gulp.dest(paths.assets + 'js/lib/@angular'));
@@ -91,7 +91,7 @@ gulp.task('copy:rxjs', function () {
         packages: {"rxjs": {main: 'Rx.js', defaultExtension: "js"}}
     });
     // create the bundle we use from systemjs.config.js
-    builder.bundle('rxjs', paths.assets + 'js/lib/rxjs/Bundles/Rx.min.js', {
+    builder.bundle('rxjs', paths.assets + 'js/lib/rxjs/bundles/rx.min.js', {
         sourceMaps: false,
         minify: true,
         mangle: true
@@ -133,7 +133,7 @@ gulp.task('copy:views:templates', function () {
              .pipe(gulp.dest(paths.root + 'app/components/'));
 });
 gulp.task('copy:views:index', function () {
-  return gulp.src(['./client/Views/index.html'])
+  return gulp.src(['./client/views/index.html'])
              .pipe(remHtmlCom())
              //.pipe(htmlmin({ collapseWhitespace: true }))
              .pipe(gulp.dest(paths.root));
@@ -141,7 +141,7 @@ gulp.task('copy:views:index', function () {
 gulp.task('copy:views', ['copy:views:index', 'copy:views:templates']);
 
 gulp.task('copy:images', function () {
-  return gulp.src(['./client/Images/**/*.*'])
+  return gulp.src(['./client/images/**/*.*'])
              .pipe(gulp.dest(paths.assets + 'img'));
 });
 

@@ -1,41 +1,29 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 
-import {
-  AcInfoBox,
-  AcLoaderIcon,
-  AcAnalogClock,
-  AcDataGridPagination,
-  AcTreeView,
-  AcTreeViewNode,
-  AcEditor,
-  AcAutoForm,
-  HudClock,
-  HudClockOptions
-} from './widgets/index';
+import * as wd from './widgets/index';
 
 import {
   FormValidatorService
 } from './services/formvalidator.service';
 
 const SVOGV_MODULES = [
-  AcInfoBox,
-  AcDataGridPagination,
-  AcTreeView,
-  AcTreeViewNode,
-  AcEditor,
-  AcAutoForm,
-  AcLoaderIcon,
-  AcAnalogClock,
-  HudClock,
-  HudClockOptions,
-  FormValidatorService
+  wd.AcInfoBox,
+  wd.AcDataGridPagination,
+  wd.AcTreeView,
+  wd.AcTreeViewNode,
+  wd.AcEditor,
+  wd.AcAutoForm,
+  wd.AcLoaderIcon,
+  wd.AcAnalogClock,
+  wd.HudClock
 ];
 
 /**
  * The root module with the global exports.
  */
 @NgModule({
-  imports: SVOGV_MODULES,
+  declarations: SVOGV_MODULES,
+  providers: [FormValidatorService],
   exports: SVOGV_MODULES
 })
 export class SvOGvRootModule { }
