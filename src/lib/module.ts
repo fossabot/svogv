@@ -17,8 +17,6 @@ import {
   FormValidatorService
 } from './services/formvalidator.service';
 
-export * from './decorators/index';
-
 const SVOGV_MODULES = [
   AcInfoBox,
   AcDataGridPagination,
@@ -37,6 +35,7 @@ const SVOGV_MODULES = [
  * The root module with the global exports.
  */
 @NgModule({
+  imports: SVOGV_MODULES,
   exports: SVOGV_MODULES
 })
 export class SvOGvRootModule { }

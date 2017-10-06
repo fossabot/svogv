@@ -18,7 +18,7 @@ import { UserViewModel } from '../../viewmodels/index';
 export class NewEditorComponent implements OnInit {
 
   userForm: FormGroup;
-  saveResult: boolean = false;
+  saveResult = false;
 
   constructor(private apiService: SiteApiService,
               private route: ActivatedRoute,
@@ -27,7 +27,7 @@ export class NewEditorComponent implements OnInit {
   }
 
   ngOnInit() {
-    // get validators and error messages from viewmodel type     
+    // get validators and error messages from viewmodel type
     this.userForm = this.formService.build(UserViewModel);
     // register changes
     this.userForm.valueChanges.subscribe(data => this.onValueChanged(data));

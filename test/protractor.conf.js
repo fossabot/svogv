@@ -35,22 +35,6 @@ const config = {
   ]
 };
 
-// We are currently not on saucelabs
-// if (process.env['TRAVIS']) {
-//   const key = require('../scripts/saucelabs/sauce_config');
-//   config.sauceUser = process.env['SAUCE_USERNAME'];
-//   config.sauceKey = key;
-//   config.capabilities = {
-//     'browserName': 'chrome',
-//     'tunnel-identifier': process.env['TRAVIS_JOB_NUMBER'],
-//     'build': process.env['TRAVIS_JOB_NUMBER'],
-//     'name': 'SVOGV DEMO Tests',
-
-//     // By default Saucelabs tries to record the whole e2e run. This can slow down the builds.
-//     'recordVideo': false,
-//     'recordScreenshots': false
-//   };
-// }
-
+// Hint: We are currently not on saucelabs
 
 exports.config = config;

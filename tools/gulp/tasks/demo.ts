@@ -19,11 +19,11 @@ var systemBuilder = require('systemjs-builder');            // create a rx bundl
 
 // The project's structure
 var paths = {
-  root: DIST_ROOT + "demo/",
-  assets: DIST_ROOT + "demo/assets/",
-  views: DIST_ROOT + "demo/views/",
-  npm: DEMO_ROOT + "node_modules/",
-  app: DEMO_ROOT + "Client/App/"
+  root: DIST_ROOT + 'demo/',
+  assets: DIST_ROOT + 'demo/assets/',
+  views: DIST_ROOT + 'demo/views/',
+  npm: DEMO_ROOT + 'node_modules/',
+  app: DEMO_ROOT + 'Client/App/'
 };
 
 task('clean:assets', function (cb) {
