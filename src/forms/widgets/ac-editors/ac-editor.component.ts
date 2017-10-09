@@ -18,7 +18,7 @@ import { IUISchema, UISchemaBootstrap } from '../../utils/ui-schema';
       display:inline-block; width:15px; height: 20px; margin: -1px 4px 0 0; vertical-align:middle; cursor: pointer; 
     }`,
   ],
-  templateUrl: './ac-editor.component.html'
+  templateUrl: 'ac-editor.component.html'
 }) //
 export class AcEditor implements OnInit {
 

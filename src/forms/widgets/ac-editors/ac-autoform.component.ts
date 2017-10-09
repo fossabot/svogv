@@ -15,7 +15,7 @@ import { IUISchema } from '../../utils/ui-schema';
         'fieldset { border-top: 1px silver solid; padding: 10px; }',
         'legend { width: auto; padding-left: 10px; padding-right: 10px; font-size: 1em;}'
     ],
-    templateUrl: './ac-autoform.component.html'
+    templateUrl: 'ac-autoform.component.html'
 })
 export class AcAutoForm implements OnInit {
 

@@ -10,7 +10,7 @@ import {
 } from '../task_helpers';
 
 // No typings for these.
-const inlineResources = require('../../../scripts/release/inline-resources');
+const inlineResources = require('../inline-resources');
 const gulpRollup = require('gulp-better-rollup');
 const gulpMinifyCss = require('gulp-clean-css');
 const gulpMinifyHtml = require('gulp-htmlmin');
@@ -59,7 +59,7 @@ task(':build:forms:components:assets:minify', () => {
 });
 
 /** Builds scss into css. */
-task(':build:forms:components:scss', sassBuildTask(DIST_COMPONENTS_ROOT_FORMS +  'bundles', COMPONENTS_DIR_FORMS));
+task(':build:forms:components:scss', sassBuildTask(DIST_COMPONENTS_ROOT_FORMS, COMPONENTS_DIR_FORMS));
 
 /** Builds the UMD bundle for all of SvOgV. */
 task(':build:forms:components:rollup', () => {
@@ -69,6 +69,7 @@ task(':build:forms:components:rollup', () => {
     '@angular/common': 'ng.common',
     '@angular/forms': 'ng.forms',
     '@angular/http': 'ng.http',
+    '@angular/router': 'ng.router',
     '@angular/platform-browser': 'ng.platformBrowser',
     '@angular/platform-browser-dynamic': 'ng.platformBrowserDynamic',
 
@@ -112,44 +113,27 @@ task(':build:forms:components:rollup', () => {
 
 // refresh the package immediately to simplify local testing with current version
 task(':build:forms:components:copy-for-demo', () => {
-  let target = SOURCE_ROOT + 'demo/node_modules/svogv';
+  let target = SOURCE_ROOT + 'demo/node_modules/@svogv/forms';
   console.log(`** immediate copy from ${DIST_COMPONENTS_ROOT_FORMS}  to ${target}`);
   return src(DIST_COMPONENTS_ROOT_FORMS + '**/*.*').pipe(dest(target));
-});
-
-// prepare external templates for bundling directly
-task(':build:forms:components:copy-inline', () => {
-  let source = [SOURCE_ROOT + 'lib/**/*.html', '!(node_modules)'];
-  let target = DIST_COMPONENTS_ROOT_FORMS + 'bundles/';
-  console.log(`** immediate copy from ${source} to ${target}`);
-  return src(source).pipe(dest(target));
-});
-// and after this we cleanup the target folder
-task(':build:forms:components:copy-inline:cleanup', () => {
-  let target = DIST_COMPONENTS_ROOT_FORMS + 'bundles/';
-  del(`${target}widgets/**`);
 });
 
 /** Builds components with resources (html, css) inlined into the built JS (ESM output). */
 task(':build:forms:components:inline', sequenceTask(
   ':build:forms:components:ts',
   ':build:forms:components:scss',
-  ':build:forms:components:copy-inline',
   ':build:forms:components:assets',
   ':build:forms:components:copy-for-demo',
-  ':forms:inline-resources',
-  ':build:forms:components:copy-inline:cleanup',
+  ':forms:inline-resources'
 ));
 
 /** Builds components with minified HTML and CSS inlined into the built JS. */
 task(':build:forms:components:inline:release', sequenceTask(
   ':build:forms:components:ts',
   ':build:forms:components:scss',
-  ':build:forms:components:copy-inline',
   ':build:forms:components:assets',
   ':build:forms:components:assets:minify',
-  ':forms:inline-resources',
-  ':build:forms:components:copy-inline:cleanup',
+  ':forms:inline-resources'
 ));
 
 /** Inlines resources (html, css) into the JS output (for either ESM or CJS output). */

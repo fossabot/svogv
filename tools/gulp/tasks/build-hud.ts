@@ -10,7 +10,7 @@ import {
 } from '../task_helpers';
 
 // No typings for these.
-const inlineResources = require('../../../scripts/release/inline-resources');
+const inlineResources = require('../inline-resources');
 const gulpRollup = require('gulp-better-rollup');
 const gulpMinifyCss = require('gulp-clean-css');
 const gulpMinifyHtml = require('gulp-htmlmin');

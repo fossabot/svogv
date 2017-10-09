@@ -10,7 +10,7 @@ import {
 } from '../task_helpers';
 
 // No typings for these.
-const inlineResources = require('../../../scripts/release/inline-resources');
+const inlineResources = require('../inline-resources');
 const gulpRollup = require('gulp-better-rollup');
 const gulpMinifyCss = require('gulp-clean-css');
 const gulpMinifyHtml = require('gulp-htmlmin');
@@ -117,39 +117,22 @@ task(':build:blocks:components:copy-for-demo', () => {
   return src(DIST_COMPONENTS_ROOT_BLOCK + '**/*.*').pipe(dest(target));
 });
 
-// prepare external templates for bundling directly
-task(':build:blocks:components:copy-inline', () => {
-  let source = [SOURCE_ROOT + 'lib/**/*.html', '!(node_modules)'];
-  let target = DIST_COMPONENTS_ROOT_BLOCK + 'bundles/';
-  console.log(`** immediate copy from ${source} to ${target}`);
-  return src(source).pipe(dest(target));
-});
-// and after this we cleanup the target folder
-task(':build:blocks:components:copy-inline:cleanup', () => {
-  let target = DIST_COMPONENTS_ROOT_BLOCK + 'bundles/';
-  del(`${target}widgets/**`);
-});
-
 /** Builds components with resources (html, css) inlined into the built JS (ESM output). */
 task(':build:blocks:components:inline', sequenceTask(
   ':build:blocks:components:ts',
   ':build:blocks:components:scss',
-  ':build:blocks:components:copy-inline',
   ':build:blocks:components:assets',
   ':build:blocks:components:copy-for-demo',
-  ':blocks:inline-resources',
-  ':build:blocks:components:copy-inline:cleanup',
+  ':blocks:inline-resources'
 ));
 
 /** Builds components with minified HTML and CSS inlined into the built JS. */
 task(':build:blocks:components:inline:release', sequenceTask(
   ':build:blocks:components:ts',
   ':build:blocks:components:scss',
-  ':build:blocks:components:copy-inline',
   ':build:blocks:components:assets',
   ':build:blocks:components:assets:minify',
-  ':blocks:inline-resources',
-  ':build:blocks:components:copy-inline:cleanup',
+  ':blocks:inline-resources'
 ));
 
 /** Inlines resources (html, css) into the JS output (for either ESM or CJS output). */

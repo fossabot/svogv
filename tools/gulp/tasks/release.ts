@@ -18,7 +18,9 @@ task('build:release', function(done: () => void) {
   // Synchronously run those tasks.
   gulpRunSequence(
     'clean',
-    ':build:components:ngc',
+    ':build:forms:components:ngc',
+    // ':build:blocks:components:ngc',
+    // ':build:hud:components:ngc',
     ':build:release:clean-spec',
     done
   );

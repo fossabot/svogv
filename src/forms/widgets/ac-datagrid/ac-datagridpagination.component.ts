@@ -10,8 +10,8 @@ import {
 @Component({
   moduleId: module.id,
   selector: 'ac-pagination',
-  styleUrls: ['./ac-datagridpagination.component.css'],
-  templateUrl: './ac-datagridpagination.component.html'
+  styleUrls: ['ac-datagridpagination.component.scss'],
+  templateUrl: 'ac-datagridpagination.component.html'
 })
 export class AcDataGridPagination implements OnInit, OnChanges {
   /**

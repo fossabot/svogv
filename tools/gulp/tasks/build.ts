@@ -3,6 +3,7 @@ import {task} from 'gulp';
 /** Builds all components to ESM output and UMD bundle. */
 task('build', [
   'build:forms',
-  'build:blocks',
-  'build:hud']
+  // 'build:blocks',
+  // 'build:hud'
+]
 );
