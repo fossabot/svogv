@@ -1,4 +1,5 @@
-import gulp = require('gulp');
+import {task, src, dest, watch } from 'gulp';
+
 import path = require('path');
 import gulpMerge = require('merge2');
 
@@ -9,7 +10,7 @@ const karma = require('karma');
 const runSequence = require('run-sequence');
 
 /** Copies deps for unit tests to the build output. */
-gulp.task(':build:test:vendor', function() {
+task(':build:test:vendor', function() {
   const npmVendorFiles = [
     '@angular', 'core-js/client', 'rxjs', 'systemjs/dist', 'zone.js/dist'
   ];
@@ -17,32 +18,32 @@ gulp.task(':build:test:vendor', function() {
   return gulpMerge(
     npmVendorFiles.map(function(root) {
       const glob = path.join(root, '**/*.+(js|js.map)');
-      return gulp.src(path.join('node_modules', glob))
-        .pipe(gulp.dest(path.join('dist/vendor', root)));
+      return src(path.join('node_modules', glob))
+        .pipe(dest(path.join('dist/vendor', root)));
     }));
 });
 
 /** Builds dependencies for unit tests. */
-gulp.task(':test:deps', sequenceTask(
+task(':test:deps', sequenceTask(
   'clean',
   [
     ':build:test:vendor',
-    ':build:components:assets',
-    ':build:components:scss',
-    ':build:components:spec',
+    ':build:forms:components:assets',
+    ':build:forms:components:scss',
+    ':build:forms:components:spec',
   ]
 ));
 
 
 /** Build unit test dependencies and then inlines resources (html, css) into the JS output. */
-gulp.task(':test:deps:inline', sequenceTask(':test:deps', ':inline-resources'));
+task(':test:deps:inline', sequenceTask(':test:deps', ':inline-resources'));
 
 /**
  * Runs the unit tests once with inlined resources (html, css). Does not watch for changes.
  *
  * This task should be used when running tests on the CI server.
  */
-gulp.task('test:single-run', [':test:deps:inline'], (done: () => void) => {
+task('test:single-run', [':test:deps:inline'], (done: () => void) => {
   new karma.Server({
     configFile: path.join(PROJECT_ROOT, 'test/karma.conf.js'),
     singleRun: true
@@ -60,7 +61,7 @@ gulp.task('test:single-run', [':test:deps:inline'], (done: () => void) => {
  *
  * This task should be used when running unit tests locally.
  */
-gulp.task('test', [':test:deps'], () => {
+task('test', [':test:deps'], () => {
   let patternRoot = path.join(COMPONENTS_DIR, '**/*');
 
   // Configure the Karma server and override the autoWatch and singleRun just in case.
@@ -80,7 +81,7 @@ gulp.task('test', [':test:deps'], () => {
   server.on('browser_register', runTests);
 
   // Watch for file changes, rebuild and run the tests.
-  gulp.watch(patternRoot + '.ts', () => runSequence(':build:components:spec', runTests));
-  gulp.watch(patternRoot + '.scss', () => runSequence(':build:components:scss', runTests));
-  gulp.watch(patternRoot + '.html', () => runSequence(':build:components:assets', runTests));
+  watch(patternRoot + '.ts', () => runSequence(':build:forms:components:spec', runTests));
+  watch(patternRoot + '.scss', () => runSequence(':build:forms:components:scss', runTests));
+  watch(patternRoot + '.html', () => runSequence(':build:forms:components:assets', runTests));
 });

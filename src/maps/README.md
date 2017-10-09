@@ -12,7 +12,20 @@
 
 ## Introduction
 
-This is a wrapper to Google maps.
+There are a lot of libraries, extensions, and packages for Angular available. This is just another one. It has, of course, a few special parts which I think other don't have. The intention was to have a package that helps developers of commercial products and intranet apps alike to create their stuff quickly and efficently.
+
+## What is it?
+
+This is a wrapper to Google maps. It makes the integration of maps in your Angular app a lot easier.
+
+The (currently) four projects are named like this:
+
+* @svogv/forms: decorator or json driven forms and validation generator
+* @svogv/blocks: a collection of widgets for all day use (needs @svogs/forms)
+* @svogv/maps: a nice wrapper around Google's maps API (needs @svogs/forms)
+* @svogv/hud: a fun project that consists of sci-fi Head Up display widgets
+
+> This is the README für @svogv/maps.
 
 ## Does it cost something?
 

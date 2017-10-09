@@ -16,15 +16,21 @@ Now that Angular 2 is widely used we have – the very first time in years – s
 And it goes on. TypeScript is here and know we have something that’s an improvement for front end developers that matters:
 
 TypeScript brings a whole new level to pros like us. And it makes our world easier – at least a bit. And it improves the quality of our product – not just a bit, a whole new step.
-The last year (yes, we’re in 2017 already) brought a lot experience and some nice projects and the outcome is an advanced peace of software that’s going to make our life with Angular 4+ a lot easier.
 
-It’s a widget library that bring the power of Bootstrap 4 to Angular and adds some very cool stuff to build sophisticated forms – faster than ever.
+The last year (yes, we’re in 2017 already) brought a lot experience and some nice projects and the outcome is an advanced peace of software that’s going to make our life with Angular 4+ a lot easier.
 
 ## What is it?
 
-The approach was simply the usage of forms as simple as ever in Angular 2+. It's an extension to Angular 2+ that comes as a set of classes and components. 
+The approach was simply the usage of forms as simple as ever in Angular 2+. It's an extension to Angular 2+ that comes as a set of classes and components. The base project is called 'Forms' and makes the creation of forms as easy as possible (that means, you don't have to create anything, it's just created for you). And yes, complex forms and server driven stuff works, too.
 
-It's available as source or as ready to use umd-bundle. The bundle is plane JavaScript. The sources are available via *npm* and from *github*. 
+The (currently) four projects are named like this:
+
+* @svogv/forms: decorator or json driven forms and validation generator
+* @svogv/blocks: a collection of widgets for all day use (needs @svogs/forms)
+* @svogv/maps: a nice wrapper around Google's maps API (needs @svogs/forms)
+* @svogv/hud: a fun project that consists of sci-fi Head Up display widgets
+
+> This is the README für @svogv/forms.
 
 ## Issues?
 

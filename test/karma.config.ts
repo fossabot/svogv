@@ -44,7 +44,7 @@ export function config(config) {
     ],
     proxies: {
       // required for component assets fetched by Angular's compiler
-      '/components/': '/dist/svogv/widgets/'
+      '/components/': '/dist/@svogv/forms/widgets/'
     },
 
     customLaunchers: customLaunchers,

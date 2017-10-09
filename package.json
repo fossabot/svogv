@@ -8,10 +8,14 @@
     "demoall": "gulp build && cd src/demo && npm run exec",
     "execdemo": "cd src/demo && npm run exec",
     "test": "gulp test",
-    "tslint": "gulp lint",
-    "stylelint": "gulp lint",
+    "lint": "gulp lint",
+    "tslint": "gulp tslint",
+    "stylelint": "gulp stylelint",
     "docs": "gulp docs",
-    "codedoc": "./node_modules/.bin/compodoc -p src/forms/tsconfig-srcs.json",
+    "codedoc": "npm run codedoc-forms && npm run codedoc-blocks && npm run codedoc-hud",
+    "codedoc-forms": "./node_modules/.bin/compodoc -p src/forms/tsconfig-srcs.json -d ./documentation/forms -t ",
+    "codedoc-blocks": "./node_modules/.bin/compodoc -p src/blocks/tsconfig-srcs.json -d ./documentation/blocks -t ",
+    "codedoc-hud": "./node_modules/.bin/compodoc -p src/hud/tsconfig-srcs.json -d ./documentation/hud -t ",
     "setup": "npm install && cd src/demo && npm install && cd ../../"
   },
   "repository": {
