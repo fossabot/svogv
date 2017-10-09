@@ -6,7 +6,7 @@ import path = require('path');
 import minimist = require('minimist');
 
 import {execTask, cleanTask} from '../task_helpers';
-import {DIST_COMPONENTS_ROOT} from '../constants';
+import {DIST_COMPONENTS_ROOT_FORMS, DIST_COMPONENTS_ROOT_BLOCK, DIST_COMPONENTS_ROOT_HUD } from '../constants';
 
 const argv = minimist(process.argv.slice(3));
 
@@ -34,8 +34,7 @@ task(':publish:whoami', execTask('npm', ['whoami'], {
 task(':publish:logout', execTask('npm', ['logout']));
 
 
-function _execNpmPublish(label: string): Promise<{}> {
-  const packageDir = DIST_COMPONENTS_ROOT;
+function _execNpmPublish(label: string, packageDir: string): Promise<{}> {
   if (!statSync(packageDir).isDirectory()) {
     return;
   }
@@ -74,7 +73,7 @@ function _execNpmPublish(label: string): Promise<{}> {
   });
 }
 
-task(':publish', function(done: (err?: any) => void) {
+task(':publish:forms', function(done: (err?: any) => void) {
   const label = argv['tag'];
   const currentDir = process.cwd();
 
@@ -87,7 +86,45 @@ task(':publish', function(done: (err?: any) => void) {
   console.log('\n\n');
 
   // Publish only the SVOGV package.
-  return _execNpmPublish(label)
+  return _execNpmPublish(label, DIST_COMPONENTS_ROOT_FORMS)
+    .then(() => done())
+    .catch((err: Error) => done(err))
+    .then(() => process.chdir(currentDir));
+});
+
+task(':publish:blocks', function(done: (err?: any) => void) {
+  const label = argv['tag'];
+  const currentDir = process.cwd();
+
+  if (!label) {
+    console.log('You can use a label with --tag=labelName.');
+    console.log('Publishing using the latest tag.');
+  } else {
+    console.log(`Publishing using the ${label} tag.`);
+  }
+  console.log('\n\n');
+
+  // Publish only the SVOGV package.
+  return _execNpmPublish(label, DIST_COMPONENTS_ROOT_BLOCK)
+    .then(() => done())
+    .catch((err: Error) => done(err))
+    .then(() => process.chdir(currentDir));
+});
+
+task(':publish:hud', function(done: (err?: any) => void) {
+  const label = argv['tag'];
+  const currentDir = process.cwd();
+
+  if (!label) {
+    console.log('You can use a label with --tag=labelName.');
+    console.log('Publishing using the latest tag.');
+  } else {
+    console.log(`Publishing using the ${label} tag.`);
+  }
+  console.log('\n\n');
+
+  // Publish only the SVOGV package.
+  return _execNpmPublish(label, DIST_COMPONENTS_ROOT_HUD)
     .then(() => done())
     .catch((err: Error) => done(err))
     .then(() => process.chdir(currentDir));
@@ -97,7 +134,9 @@ task('publish', function(done: () => void) {
   gulpRunSequence(
     ':publish:whoami',
     'build:release',
-    ':publish',
+    ':publish:forms',
+    ':publish:blocks',
+    ':publish:hud',
     ':publish:logout',
     done
   );

@@ -15,11 +15,10 @@ import { Ng2PageScrollModule } from 'ng2-page-scroll';
 import { TagsComponent } from '../../components/tags/tags.component';
 import { AccordionItemComponent } from './components/accordion/accordion-item/accordion-item.component';
 import { ButtonComponent } from './components/button/button.component';
-import { BBHorizontalBarChartComponent } from './components/charts/horizontal-bar-chart/horizontal-bar-chart.component';
+import { HorizontalBarChartComponent } from './components/charts/horizontal-bar-chart/horizontal-bar-chart.component';
 import { CtaComponent } from './components/cta/cta.component';
 import { DescriptionItemComponent } from './components/description-item/description-item.component';
 import { DialogComponent } from './components/dialog/dialog.component';
-import { DynamicFormComponent } from './components/dynamic-form/dynamic-form.component';
 import { BBFlyOutItemComponent } from './components/fly-out/fly-out-item/fly-out-item.component';
 import { FlyOutComponent } from './components/fly-out/fly-out.component';
 import { IconComponent } from './components/icon/icon.component';
@@ -54,9 +53,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { DpDatePickerModule } from 'ng2-date-picker';
 import { TooltipDirective } from 'ng2-tooltip-directive/components';
-import { TranslateModule } from 'ng2-translate';
-import { I18nService } from '../../services/i18n.service';
-import { NorwayCompanyApiService } from '../../services/norway_company.service';
 import { AccordionComponent } from './components/accordion/accordion.component';
 import { GpsComponent } from './components/gps/gps.component';
 import { ShowAtDirective } from './directives/showAt.directive';
@@ -87,12 +83,10 @@ import { ShowNumberOfChars } from './pipes/show-nr-chars.pipe';
 		Ng2PageScrollModule.forRoot(),
 		DpDatePickerModule,
 		AngularSvgIconModule,
-		DataSetModule,
-		TranslateModule
+		DataSetModule
 	],
 	declarations: [
 		// Components
-		DynamicFormComponent,
 		CtaComponent,
 		PictureComponent,
 		PictureTextComponent,

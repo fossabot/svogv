@@ -1,6 +1,9 @@
 import './tasks/ci';
 import './tasks/clean';
 import './tasks/build';
+import './tasks/build-forms';
+import './tasks/build-blocks';
+import './tasks/build-hud';
 import './tasks/demo';
 import './tasks/default';
 import './tasks/development';
