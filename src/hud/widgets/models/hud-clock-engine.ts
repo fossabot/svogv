@@ -2,7 +2,7 @@ import { ElementRef } from '@angular/core';
 
 import { IHudClockStrokeOption } from './hud-clock-strokeoption';
 import { HudClockOptions } from './hud-clock-options';
-import { WindowRef } from '../../../utils/windowref';
+import { WindowRef } from '../../utils/windowref';
 
 import { CanvasElementRef } from '../types/hud-types';
 

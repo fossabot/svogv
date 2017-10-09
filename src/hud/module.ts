@@ -5,19 +5,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import * as wd from './widgets/index';
 
-import {
-  FormValidatorService
-} from './services/formvalidator.service';
 
-const SVOGV_MODULES = [
-  wd.AcInfoBox,
-  wd.AcDataGridPagination,
-  wd.AcTreeView,
-  wd.AcTreeViewNode,
-  wd.AcEditor,
-  wd.AcAutoForm,
-  wd.AcLoaderIcon,
-  wd.AcAnalogClock,
+const SVOGV_HUD_MODULES = [
   wd.HudClock
 ];
 
@@ -26,19 +15,18 @@ const SVOGV_MODULES = [
  */
 @NgModule({
   imports: [BrowserModule, RouterModule, ReactiveFormsModule],
-  declarations: SVOGV_MODULES,
-  providers: [FormValidatorService],
-  exports: SVOGV_MODULES
+  declarations: SVOGV_HUD_MODULES,
+  exports: SVOGV_HUD_MODULES
 })
-export class SvogvRootModule { }
+export class SvogvHudRootModule { }
 
 
 /**
  * The actual SVOGV Module definition using the root module.
  */
 @NgModule()
-export class SvogvModule {
+export class SvogvHudModule {
   static forRoot(): ModuleWithProviders {
-    return { ngModule: SvogvRootModule };
+    return { ngModule: SvogvHudRootModule };
   }
 }

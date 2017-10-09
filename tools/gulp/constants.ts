@@ -8,9 +8,9 @@ export const DEMO_ROOT = join(PROJECT_ROOT, 'src/demo/');
 
 export const DIST_ROOT = join(PROJECT_ROOT, 'dist/');
 // We can generate all three parts in one step
-export const DIST_COMPONENTS_ROOT_FORMS = join(DIST_ROOT, '@svogv/forms');
-export const DIST_COMPONENTS_ROOT_HUD = join(DIST_ROOT, '@svogv/hud');
-export const DIST_COMPONENTS_ROOT_BLOCK = join(DIST_ROOT, '@svogv/blocks');
+export const DIST_COMPONENTS_ROOT_FORMS = join(DIST_ROOT, '@svogv/forms/');
+export const DIST_COMPONENTS_ROOT_HUD = join(DIST_ROOT, '@svogv/hud/');
+export const DIST_COMPONENTS_ROOT_BLOCK = join(DIST_ROOT, '@svogv/blocks/');
 
 export const SASS_AUTOPREFIXER_OPTIONS = {
   browsers: [
@@ -42,3 +42,6 @@ export const COMPONENTS_DIR_FORMS = join(SOURCE_ROOT, 'lib/');
 // The projects consists of two submodules, which are independent of each other
 export const COMPONENTS_DIR_HUD = join(SOURCE_ROOT, 'hud/');
 export const COMPONENTS_DIR_BLOCKS = join(SOURCE_ROOT, 'blocks/');
+
+// Testing is not yet splitted, so we keep this as a placeholder
+export const COMPONENTS_DIR = SOURCE_ROOT;

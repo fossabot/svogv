@@ -17,8 +17,7 @@ const SVOGV_MODULES = [
   wd.AcEditor,
   wd.AcAutoForm,
   wd.AcLoaderIcon,
-  wd.AcAnalogClock,
-  wd.HudClock
+  wd.AcAnalogClock
 ];
 
 /**
