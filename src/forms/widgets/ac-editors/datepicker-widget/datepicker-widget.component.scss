@@ -44,8 +44,8 @@ Host
 		border: 1px solid transparent;
 
 		&::after {
-			@extend .is-icon-date:before;
-			@extend .icon;
+			// @extend .is-icon-date:before;
+			// @extend .icon;
 			position: absolute;
 			bottom: 12px;
 			right: $srf-string-padding;

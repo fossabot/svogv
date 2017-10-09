@@ -9,12 +9,88 @@ TODO: Copy only stuff we need from veams, package is to huge for us
 
 @import "../../../../../../../node_modules/veams/src/scss/veams";
 --------------------------------------------------- */
-@import "../../../../node_modules/bourbon-neat/app/assets/stylesheets/neat";
+@import "neat";
 @import "vars";
 
 /* ---------------------------------------------------
-Mixins
+Mixins (partially pulled from VEAMS)
 --------------------------------------------------- */
+
+@mixin bp($bp-1, $bp-2: null, $min-width: $min-width) {
+	@if $bp-2 != null {
+		@media only screen and (min-width: $bp-1) and (max-width: $bp-2) {
+			@content;
+		}
+	} @else {
+		@if $min-width == true {
+			@media only screen and (min-width: $bp-1) {
+				@content;
+			}
+		} @else {
+			$bp-2: $bp-1;
+			@media only screen and (max-width: $bp-2) {
+				@content;
+			}
+		}
+	}
+}
+
+
+@mixin prefix($property, $value) {
+	@if $svogv-webkit == true {
+		-webkit-#{$property}: #{$value};
+	}
+
+	@if $svogv-moz == true {
+		-moz-#{$property}: #{$value};
+	}
+
+	@if $svogv-ms == true {
+		-ms-#{$property}: #{$value};
+	}
+
+	@if $svogv-o == true {
+		-o-#{$property}: #{$value};
+	}
+
+	#{$property}: #{$value};
+}
+
+@mixin centering($scope: "hv", $position: absolute) {
+	position: $position;
+
+	@if $scope == "v" {
+		top: 50%;
+		@include prefix('transform', translateY(-50%));
+	}
+
+	@if $scope == "h" {
+		left: 50%;
+		@include prefix('transform', translateX(-50%));
+
+	}
+
+	@if $scope == "hv" {
+		top: 50%;
+		left: 50%;
+		@include prefix('transform', translate(-50%, -50%));
+	}
+}
+
+@mixin reset-btn() {
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	outline: none;
+	font-style: inherit;
+}
+
+/*
+Extend
+----------------------- */
+%reset-btn {
+	@include reset-btn();
+}
 
 /*
 Label Mixin

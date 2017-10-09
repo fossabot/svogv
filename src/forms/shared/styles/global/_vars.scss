@@ -3,6 +3,14 @@ VEAMS SETTINGS
 =================================================== */
 $min-width: false !default; // This variable will be used in veams-sass
 
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
 // Define Your Breakpoints For Bourbon Neat
 @import "breakpoints";
 

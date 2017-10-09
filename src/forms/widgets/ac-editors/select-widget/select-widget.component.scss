@@ -8,6 +8,7 @@ Imports
 @import "../../../shared/styles/vars";
 @import "../../../shared/styles/utilities";
 @import "../../../shared/styles/global/grid";
+@import "include-media";
 
 /* ---------------------------------------------------
 Global Variables
@@ -280,8 +281,8 @@ Host Context
 		position: relative;
 
 		&::after {
-			@extend .is-icon-arrow:before;
-			@extend .icon;
+			// @extend .is-icon-arrow:before;
+			// @extend .icon;
 			pointer-events: none;
 			position: absolute;
 			right: 15px;

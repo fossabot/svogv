@@ -30,13 +30,13 @@ Host Context
 	min-height: $srf-checkbox-size;
 
 	.checkbox__input {
-		@extend %visuallyhidden;
+		@extend %visuallyhidden !optional;
 
 		&:checked {
 			& ~ .checkbox__label {
 				&::before {
-					@extend .is-icon-check:before;
-					@extend .icon;
+					/* @extend .is-icon-check:before; // TODO: Use FontAwesome instead */
+					/* @extend .icon; // TODO: Use FontAwesome instead */
 					line-height: $srf-checkbox-size;
 					font-size: 12px;
 					color: $srf-checkbox-checked-color;

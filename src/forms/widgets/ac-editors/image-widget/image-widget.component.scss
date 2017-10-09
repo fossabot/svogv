@@ -68,8 +68,8 @@ Host Context
 		width: 100%;
 
 		&::before {
-			@extend .is-icon-upload:before;
-			@extend .icon;
+			// @extend .is-icon-upload:before;
+			// @extend .icon;
 			@include centering(v);
 			border-radius: $srf-string-border-radius;
 			left: 1rem;

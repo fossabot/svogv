@@ -8,6 +8,7 @@ Imports
 @import "../../../shared/styles/vars";
 @import "../../../shared/styles/utilities";
 @import "../../../shared/styles/global/grid";
+@import "include-media";
 
 /* ---------------------------------------------------
 Global Variables
@@ -75,7 +76,7 @@ Host
 	}
 
 	.input__radio-input {
-		@extend %visuallyhidden;
+		@extend %visuallyhidden !optional;
 
 		&:checked {
 			& ~ .input__radio-label {
