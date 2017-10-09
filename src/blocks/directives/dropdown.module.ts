@@ -1,20 +1,20 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { DropdownDirective } from './dropdown.directive';
-import { DropdownOpenDirective } from './dropdownOpen.directive';
+import { DropdownOpenDirective } from './dropdown-open.directive';
 
 export * from './dropdown.directive';
-export * from './dropdownOpen.directive';
+export * from './dropdown-open.directive';
 
 @NgModule({
-	imports     : [
+	imports: [
 		CommonModule
 	],
 	declarations: [
 		DropdownDirective,
 		DropdownOpenDirective
 	],
-	exports     : [
+	exports: [
 		DropdownDirective,
 		DropdownOpenDirective
 	]

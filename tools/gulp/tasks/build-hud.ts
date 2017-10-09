@@ -97,11 +97,11 @@ task(':build:hud:components:rollup', () => {
   const rollupGenerateOptions = {
     // Keep the moduleId empty because we don't want to force developers to a specific moduleId.
     moduleId: '',
-    moduleName: 'ac.svogv',
+    moduleName: 'ac.svogv.hud',
     format: 'umd',
     globals,
     banner: LICENSE_BANNER,
-    dest: 'svogv.umd.js'
+    dest: 'svogv-hud.umd.js'
   };
 
   return src(path.join(DIST_COMPONENTS_ROOT_HUD, 'index.js'))

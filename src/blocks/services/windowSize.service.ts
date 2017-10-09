@@ -1,6 +1,11 @@
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
+import 'rxjs/add/operator/distinctUntilChanged';
+import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/map';
+
 export class WindowSizeService {
 	width$: Observable<number>;
 
@@ -12,7 +17,7 @@ export class WindowSizeService {
 
 	constructor() {
 		const windowSize$ = new BehaviorSubject(this.getWindowSize());
-		this.width$ = (windowSize$.pluck('width') as Observable<number>).distinctUntilChanged();
+		this.width$ = ((<any>windowSize$).pluck('width') as Observable<number>).distinctUntilChanged();
 
 		Observable.fromEvent(window, 'resize')
 			.debounceTime(250)

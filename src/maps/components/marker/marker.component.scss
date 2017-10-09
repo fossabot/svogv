@@ -1,0 +1,78 @@
+@import "../../scss/helpers";
+
+:host {
+	font-family: $font-head-bold;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	&:hover {
+		.marker__icon {
+			background-color: darken($icon-background-color, $darken-m);
+		}
+	}
+
+	&.is-success {
+		.marker__icon {
+			background-color: $icon-background-color-success;
+		}
+	}
+
+	&.is-info {
+		.marker__icon {
+			background-color: $icon-background-color-info;
+		}
+	}
+
+	&.is-warning {
+		.marker__icon {
+			background-color: $icon-background-color-warning;
+		}
+	}
+
+	&.is-danger {
+		.marker__icon {
+			background-color: $icon-background-color-danger;
+
+		}
+	}
+
+	&.is-deactivated {
+		.marker__icon {
+			background-color: $color-grey-soft;
+		}
+	}
+
+	.marker__icon {
+		display: flex;
+		border-radius: 50%;
+		width: 30px;
+		height: 30px;
+		font-size: $fs-text-small;
+		align-items: center;
+		justify-content: center;
+
+		&:first-of-type {
+			margin-bottom: .2rem;
+		}
+
+		&.is-text-white {
+			color: $color-grey-calm;
+		}
+	}
+}
+
+:host-context(bb-map-marker) {
+	.marker__icon {
+		position: absolute;
+		top: 0;
+		right: 0;
+		transform: translate3d(40%, -40%, 0);
+		width: 20px;
+		height: 20px;
+	}
+}
+
+:host-context(list-item) {
+	min-width: 5rem;
+}

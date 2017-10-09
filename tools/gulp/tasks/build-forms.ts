@@ -97,11 +97,11 @@ task(':build:forms:components:rollup', () => {
   const rollupGenerateOptions = {
     // Keep the moduleId empty because we don't want to force developers to a specific moduleId.
     moduleId: '',
-    moduleName: 'ac.svogv.lib',
+    moduleName: 'ac.svogv.forms',
     format: 'umd',
     globals,
     banner: LICENSE_BANNER,
-    dest: 'svogv-lib.umd.js'
+    dest: 'svogv-forms.umd.js'
   };
 
   return src(path.join(DIST_COMPONENTS_ROOT_FORMS, 'index.js'))

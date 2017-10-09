@@ -11,8 +11,8 @@ import * as path from 'path';
 // viewer.
 const EXAMPLE_PATTERN = /<!--\W*example\(([^)]+)\)\W*-->/g;
 
-gulp.task('docs', () => {
-  return gulp.src(['src/lib/**/*.md', 'guides/*.md'])
+task('docs', () => {
+  return gulp.src(['src/**/*.md', 'guides/*.md'])
     .pipe(markdown({
       // Add syntax highlight using highlight.js
       highlight: (code: string, language: string) => {
@@ -31,12 +31,3 @@ gulp.task('docs', () => {
     .pipe(gulp.dest('dist/docs'));
 });
 
-const fs = require("fs");
-
-var typedoc = require("gulp-typedoc");
-gulp.task("api", function () {  
-  let typeDocCfg : any = JSON.parse(fs.readFileSync("./src/lib/typedoc.json", "utf-8"));
-  return gulp
-    .src(["./src/lib/**/*.ts", "!./src/lib/**/*.spec.ts", "!./src/lib/**/typings.d.ts", "!./src/lib/**/system-config-spec.ts"])
-    .pipe(typedoc(typeDocCfg));
-});

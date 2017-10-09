@@ -29,7 +29,11 @@ const blocked_statements = [
   '\\r'
 ];
 
-const sourceFolders = ['./src/lib', './src/demo'];
+const sourceFolders = [
+  './src/forms/tsconfig-srcs.json', 
+  './src/blocks/tsconfig-srcs.json',
+  './src/hud/tsconfig-srcs.json',
+  './src/demo'];
 const blockedRegex = new RegExp(blocked_statements.join('|'), 'g');
 
 /*

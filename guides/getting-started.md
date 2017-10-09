@@ -9,7 +9,7 @@ This document describes the usage of the SVOGV library for Angular 2+ (currently
 ### Build the Lib
 
  ```bash
- cd src/lib 
+ cd src/forms 
  npm run build
  ```
 

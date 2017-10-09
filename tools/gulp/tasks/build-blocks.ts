@@ -97,11 +97,11 @@ task(':build:blocks:components:rollup', () => {
   const rollupGenerateOptions = {
     // Keep the moduleId empty because we don't want to force developers to a specific moduleId.
     moduleId: '',
-    moduleName: 'ac.svogv',
+    moduleName: 'ac.svogv.blocks',
     format: 'umd',
     globals,
     banner: LICENSE_BANNER,
-    dest: 'svogv.umd.js'
+    dest: 'svogv-blocks.umd.js'
   };
 
   return src(path.join(DIST_COMPONENTS_ROOT_BLOCK, 'index.js'))

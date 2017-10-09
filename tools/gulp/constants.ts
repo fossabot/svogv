@@ -38,7 +38,7 @@ export const NPM_VENDOR_FILES = [
   '@angular', 'core-js/client', 'rxjs', 'systemjs/dist', 'zone.js/dist'
 ];
 // This is the forms project that is the components foundation
-export const COMPONENTS_DIR_FORMS = join(SOURCE_ROOT, 'lib/');
+export const COMPONENTS_DIR_FORMS = join(SOURCE_ROOT, 'forms/');
 // The projects consists of two submodules, which are independent of each other
 export const COMPONENTS_DIR_HUD = join(SOURCE_ROOT, 'hud/');
 export const COMPONENTS_DIR_BLOCKS = join(SOURCE_ROOT, 'blocks/');

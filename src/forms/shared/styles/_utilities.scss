@@ -1,0 +1,43 @@
+/* ===================================================
+Utilities
+=================================================== */
+
+/* ---------------------------------------------------
+Imports
+
+TODO: Copy only stuff we need from veams, package is to huge for us
+
+@import "../../../../../../../node_modules/veams/src/scss/veams";
+--------------------------------------------------- */
+@import "../../../../node_modules/bourbon-neat/app/assets/stylesheets/neat";
+@import "vars";
+
+/* ---------------------------------------------------
+Mixins
+--------------------------------------------------- */
+
+/*
+Label Mixin
+----------------------- */
+@mixin srf-label {
+	margin-bottom: $srf-margin-base/2;
+	display: block;
+	color: $srf-label-color;
+	font-size: $srf-label-size;
+	text-overflow: ellipsis;
+
+	abbr {
+		text-decoration: none;
+	}
+}
+
+/*
+Error Message Mixin
+----------------------- */
+@mixin error-message($bg-color: #c70000, $color: #fff) {
+	display: block;
+	margin-top: $srf-margin-base;
+	padding: $srf-margin-base/2 $srf-margin-base/1.5;
+	background: $bg-color;
+	color: $color;
+}

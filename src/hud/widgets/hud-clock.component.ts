@@ -6,7 +6,7 @@
 } from '@angular/core';
 import { HudClockEngine } from './models/hud-clock-engine';
 import { HudClockOptions } from './models/hud-clock-options';
-import { WindowRef } from '../../utils/windowref';
+import { WindowRef } from '../utils/windowref';
 
 import { CanvasElementRef } from './types/hud-types';
 

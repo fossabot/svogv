@@ -1,13 +1,13 @@
 import { Directive, HostListener } from '@angular/core';
-import { TooltipDirective } from 'ng2-tooltip-directive/lib/tooltip.directive';
+import { BaseTooltipDirective } from './basetooltip.directive';
 
 /**
- * The cova tooltip directive
+ * The tooltip directive
  */
 @Directive({
 	selector: '[tooltip]'
 })
-export class AcTooltipDirective extends TooltipDirective {
+export class TooltipDirective extends BaseTooltipDirective {
 
 	/**
 	 * Track the appearance to deal with the scroll event

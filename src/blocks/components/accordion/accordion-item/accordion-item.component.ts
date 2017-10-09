@@ -5,7 +5,7 @@ import { AccordionComponent } from '../accordion.component';
  * The accordion item dumb component
  */
 @Component({
-	selector: 'accordion-item',
+	selector: 'ac-accordion-item',
 	styleUrls: ['accordion-item.component.scss'],
 	template: `
     <div class="accordion-item" [ngClass]="{'is-open': isOpen}">

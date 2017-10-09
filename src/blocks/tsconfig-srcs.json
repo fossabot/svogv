@@ -30,7 +30,7 @@
     "system-config-spec.ts"
   ],
   "angularCompilerOptions": {
-    "genDir": "../../dist/svogv",
+    "genDir": "../../dist/@svogv/blocks",
     "skipTemplateCodegen": true,
     "debug": true
   }
