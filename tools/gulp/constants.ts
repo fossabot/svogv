@@ -30,8 +30,11 @@ export const HTML_MINIFIER_OPTIONS = {
 
 export const LICENSE_BANNER = `/**
   * @license SVOGV v${SVOGV_VERSION}
+  * 
   * Copyright (c) 2011-2018 Joerg <IsAGeek> Krause, Berlin https://www.joergkrause.de/
-  * License: ICS 
+  * License: ICS
+  *
+  * For documentation and further instructions see http://www.svogv.com   
   */`;
 
 export const NPM_VENDOR_FILES = [
@@ -42,6 +45,7 @@ export const COMPONENTS_DIR_FORMS = join(SOURCE_ROOT, 'forms/');
 // The projects consists of two submodules, which are independent of each other
 export const COMPONENTS_DIR_HUD = join(SOURCE_ROOT, 'hud/');
 export const COMPONENTS_DIR_BLOCKS = join(SOURCE_ROOT, 'blocks/');
+export const COMPONENTS_DIR_MAPS = join(SOURCE_ROOT, 'maps/');
 
 // Testing is not yet splitted, so we keep this as a placeholder
 export const COMPONENTS_DIR = SOURCE_ROOT;

@@ -2,7 +2,7 @@ import {task, watch, src, dest} from 'gulp';
 import * as path from 'path';
 
 import {
-  DIST_COMPONENTS_ROOT_BLOCK, PROJECT_ROOT, COMPONENTS_DIR_BLOCKS, HTML_MINIFIER_OPTIONS, LICENSE_BANNER, SOURCE_ROOT
+  DIST_COMPONENTS_ROOT_MAPS, PROJECT_ROOT, COMPONENTS_DIR_HUD, HTML_MINIFIER_OPTIONS, LICENSE_BANNER, SOURCE_ROOT
 } from '../constants';
 import {
   sassBuildTask, tsBuildTask, execNodeTask, copyTask, sequenceTask,
@@ -26,43 +26,43 @@ const del = require('del');
 // for unit tests (karma).
 
 /** Path to the tsconfig used for ESM output. */
-const tsconfigPath = path.relative(PROJECT_ROOT, path.join(COMPONENTS_DIR_BLOCKS, 'tsconfig.json'));
+const tsconfigPath = path.relative(PROJECT_ROOT, path.join(COMPONENTS_DIR_MAPS, 'tsconfig.json'));
 
 console.log('Using this config file: ' + tsconfigPath);
 
 /** [Watch task] Rebuilds (ESM output) whenever ts, scss, or html sources change. */
-task(':watch:blocks:components', () => {
-  watch(path.join(COMPONENTS_DIR_BLOCKS, '**/*.ts'), ['build:blocks:components', triggerLivereload]);
-  watch(path.join(COMPONENTS_DIR_BLOCKS, '**/*.scss'), ['build:blocks:components', triggerLivereload]);
-  watch(path.join(COMPONENTS_DIR_BLOCKS, '**/*.html'), ['build:blocks:components', triggerLivereload]);
+task(':watch:maps:components', () => {
+  watch(path.join(COMPONENTS_DIR_MAPS, '**/*.ts'), ['build:maps:components', triggerLivereload]);
+  watch(path.join(COMPONENTS_DIR_MAPS, '**/*.scss'), ['build:maps:components', triggerLivereload]);
+  watch(path.join(COMPONENTS_DIR_MAPS, '**/*.html'), ['build:maps:components', triggerLivereload]);
 });
 
 
 /** Builds component typescript only (ESM output). */
-task(':build:blocks:components:ts', tsBuildTask(path.join(COMPONENTS_DIR_BLOCKS, 'tsconfig-srcs.json')));
+task(':build:maps:components:ts', tsBuildTask(path.join(COMPONENTS_DIR_MAPS, 'tsconfig-srcs.json')));
 
 /** Builds components typescript for tests (CJS output). */
-task(':build:blocks:components:spec', tsBuildTask(COMPONENTS_DIR_BLOCKS));
+task(':build:maps:components:spec', tsBuildTask(COMPONENTS_DIR_MAPS));
 
 /** Copies assets (html, markdown) to build output. */
-task(':build:blocks:components:assets', copyTask([
-  path.join(COMPONENTS_DIR_BLOCKS, '**/*.!(ts|spec.ts)'),
+task(':build:maps:components:assets', copyTask([
+  path.join(COMPONENTS_DIR_MAPS, '**/*.!(ts|spec.ts)'),
   path.join(PROJECT_ROOT, 'README.md'),
   path.join(PROJECT_ROOT, 'LICENSE'),
-], DIST_COMPONENTS_ROOT_BLOCK));
+], DIST_COMPONENTS_ROOT_MAPS));
 
 /** Minifies the HTML and CSS assets in the distribution folder. */
-task(':build:blocks:components:assets:minify', () => {
-  return src('**/*.+(html|css)', { cwd: DIST_COMPONENTS_ROOT_BLOCK})
+task(':build:maps:components:assets:minify', () => {
+  return src('**/*.+(html|css)', { cwd: DIST_COMPONENTS_ROOT_MAPS})
     .pipe(gulpIf(/.css$/, gulpMinifyCss(), gulpMinifyHtml(HTML_MINIFIER_OPTIONS)))
-    .pipe(dest(DIST_COMPONENTS_ROOT_BLOCK));
+    .pipe(dest(DIST_COMPONENTS_ROOT_MAPS));
 });
 
 /** Builds scss into css. */
-task(':build:blocks:components:scss', sassBuildTask(DIST_COMPONENTS_ROOT_BLOCK +  'bundles', COMPONENTS_DIR_BLOCKS));
+task(':build:maps:components:scss', sassBuildTask(DIST_COMPONENTS_ROOT_MAPS +  'bundles', COMPONENTS_DIR_MAPS));
 
 /** Builds the UMD bundle for all of SvOgV. */
-task(':build:blocks:components:rollup', () => {
+task(':build:maps:components:rollup', () => {
   const globals: {[name: string]: string} = {
     // Angular dependencies
     '@angular/core': 'ng.core',
@@ -97,58 +97,75 @@ task(':build:blocks:components:rollup', () => {
   const rollupGenerateOptions = {
     // Keep the moduleId empty because we don't want to force developers to a specific moduleId.
     moduleId: '',
-    moduleName: 'ac.svogv.blocks',
+    moduleName: 'ac.svogv.maps',
     format: 'umd',
     globals,
     banner: LICENSE_BANNER,
-    dest: 'svogv-blocks.umd.js'
+    dest: 'svogv-maps.umd.js'
   };
 
-  return src(path.join(DIST_COMPONENTS_ROOT_BLOCK, 'index.js'))
+  return src(path.join(DIST_COMPONENTS_ROOT_MAPS, 'index.js'))
     .pipe(gulpRollup(rollupOptions, rollupGenerateOptions))
-    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_BLOCK, 'bundles')))         // copy to dist for reference
+    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_MAPS, 'bundles')))         // copy to dist for reference
     .pipe(dest(path.join(SOURCE_ROOT, 'demo/dist/bundles')));       // copy to demo for immediate usage
 });
 
 // refresh the package immediately to simplify local testing with current version
-task(':build:blocks:components:copy-for-demo', () => {
-  let target = SOURCE_ROOT + 'demo/node_modules/@svogv/blocks';
-  console.log(`** immediate copy from ${DIST_COMPONENTS_ROOT_BLOCK}  to ${target}`);
-  return src(DIST_COMPONENTS_ROOT_BLOCK + '**/*.*').pipe(dest(target));
+task(':build:maps:components:copy-for-demo', () => {
+  let target = SOURCE_ROOT + 'demo/node_modules/@svogv/maps';
+  console.log(`** immediate copy from ${DIST_COMPONENTS_ROOT_MAPS}  to ${target}`);
+  return src(DIST_COMPONENTS_ROOT_MAPS + '**/*.*').pipe(dest(target));
+});
+
+// prepare external templates for bundling directly
+task(':build:maps:components:copy-inline', () => {
+  let source = [SOURCE_ROOT + 'lib/**/*.html', '!(node_modules)'];
+  let target = DIST_COMPONENTS_ROOT_MAPS + 'bundles/';
+  console.log(`** immediate copy from ${source} to ${target}`);
+  return src(source).pipe(dest(target));
+});
+// and after this we cleanup the target folder
+task(':build:maps:components:copy-inline:cleanup', () => {
+  let target = DIST_COMPONENTS_ROOT_MAPS + 'bundles/';
+  del(`${target}widgets/**`);
 });
 
 /** Builds components with resources (html, css) inlined into the built JS (ESM output). */
-task(':build:blocks:components:inline', sequenceTask(
-  ':build:blocks:components:ts',
-  ':build:blocks:components:scss',
-  ':build:blocks:components:assets',
-  ':build:blocks:components:copy-for-demo',
-  ':blocks:inline-resources'
+task(':build:maps:components:inline', sequenceTask(
+  ':build:maps:components:ts',
+  ':build:maps:components:scss',
+  ':build:maps:components:copy-inline',
+  ':build:maps:components:assets',
+  ':build:maps:components:copy-for-demo',
+  ':maps:inline-resources',
+  ':build:maps:components:copy-inline:cleanup',
 ));
 
 /** Builds components with minified HTML and CSS inlined into the built JS. */
-task(':build:blocks:components:inline:release', sequenceTask(
-  ':build:blocks:components:ts',
-  ':build:blocks:components:scss',
-  ':build:blocks:components:assets',
-  ':build:blocks:components:assets:minify',
-  ':blocks:inline-resources'
+task(':build:maps:components:inline:release', sequenceTask(
+  ':build:maps:components:ts',
+  ':build:maps:components:scss',
+  ':build:maps:components:copy-inline',
+  ':build:maps:components:assets',
+  ':build:maps:components:assets:minify',
+  ':maps:inline-resources',
+  ':build:maps:components:copy-inline:cleanup',
 ));
 
 /** Inlines resources (html, css) into the JS output (for either ESM or CJS output). */
-task(':blocks:inline-resources', () => inlineResources(DIST_COMPONENTS_ROOT_BLOCK));
+task(':maps:inline-resources', () => inlineResources(DIST_COMPONENTS_ROOT_MAPS));
 
 /** Builds components to ESM output and UMD bundle. */
-task('build:blocks', sequenceTask(
-  ':build:blocks:components:inline',
-  ':build:blocks:components:rollup'));
+task('build:maps', sequenceTask(
+  ':build:maps:components:inline',
+  ':build:maps:components:rollup'));
 
-task('build:blocks:components:release', sequenceTask(
-  ':build:blocks:components:inline:release',
-  ':build:blocks:components:rollup'
+task('build:maps:components:release', sequenceTask(
+  ':build:maps:components:inline:release',
+  ':build:maps:components:rollup'
 ));
 
 /** Generates metadata.json files for all of the components. */
-task(':build:blocks:components:ngc', ['build:blocks:components:release'], execNodeTask(
+task(':build:maps:components:ngc', ['build:maps:components:release'], execNodeTask(
   '@angular/compiler-cli', 'ngc', ['-p', tsconfigPath]
 ));

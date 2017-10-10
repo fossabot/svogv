@@ -112,7 +112,7 @@ task(':build:hud:components:rollup', () => {
 
 // refresh the package immediately to simplify local testing with current version
 task(':build:hud:components:copy-for-demo', () => {
-  let target = SOURCE_ROOT + 'demo/node_modules/svogv';
+  let target = SOURCE_ROOT + 'demo/node_modules/@svogv/hud';
   console.log(`** immediate copy from ${DIST_COMPONENTS_ROOT_HUD}  to ${target}`);
   return src(DIST_COMPONENTS_ROOT_HUD + '**/*.*').pipe(dest(target));
 });

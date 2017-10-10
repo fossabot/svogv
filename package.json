@@ -12,10 +12,11 @@
     "tslint": "gulp tslint",
     "stylelint": "gulp stylelint",
     "docs": "gulp docs",
-    "codedoc": "npm run codedoc-forms && npm run codedoc-blocks && npm run codedoc-hud",
-    "codedoc-forms": "./node_modules/.bin/compodoc -p src/forms/tsconfig-srcs.json -d ./documentation/forms -t ",
-    "codedoc-blocks": "./node_modules/.bin/compodoc -p src/blocks/tsconfig-srcs.json -d ./documentation/blocks -t ",
-    "codedoc-hud": "./node_modules/.bin/compodoc -p src/hud/tsconfig-srcs.json -d ./documentation/hud -t ",
+    "codedoc": "npm run codedoc-forms && npm run codedoc-blocks && npm run codedoc-maps && npm run codedoc-hud",
+    "codedoc-forms": "./node_modules/.bin/compodoc -p src/forms/tsconfig-srcs.json -d ./docs/api/forms -t ",
+    "codedoc-blocks": "./node_modules/.bin/compodoc -p src/blocks/tsconfig-srcs.json -d ./docs/api/blocks -t ",
+    "codedoc-hud": "./node_modules/.bin/compodoc -p src/hud/tsconfig-srcs.json -d ./docs/api/hud -t ",
+    "codedoc-maps": "./node_modules/.bin/compodoc -p src/maps/tsconfig-srcs.json -d ./docs/api/maps -t ",
     "setup": "npm install && cd src/demo && npm install && cd ../../"
   },
   "repository": {
@@ -56,6 +57,7 @@
     "zone.js": "^0.8.18"
   },
   "devDependencies": {
+    "@angular/cli": "^1.4.5",
     "@angular/compiler-cli": "^2.2.0",
     "@compodoc/compodoc": "^1.0.1",
     "@types/core-js": "^0.9.43",
@@ -121,8 +123,7 @@
     "travis-after-modes": "0.0.6-2",
     "ts-node": "^2.0.0",
     "tslint": "^4.3.1",
-    "typedoc": "^0.5.10",
-    "typescript": "~2.1.4",
+    "typescript": "^2.1.4",
     "which": "^1.3.0"
   }
 }
