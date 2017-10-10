@@ -13,10 +13,10 @@ import * as cmp from './components/index';
 import routes from './configurations/routes';
 // The SVOGV library (in the demo it's a hard link with paths info in tsconfig,
 // resolves against node_modules without changes)
-import { SvogvModule, FormValidatorService } from '@svogv/forms';
-import { BlocksModule } from '@svogv/blocks';
+import { SvogvFormsModule, FormValidatorService } from '@svogv/forms';
+import { SvogvBlocksModule } from '@svogv/blocks';
 // TODO: Rename and Peer Dev for google maps
-//import { MapsModule } from '@svogv/maps';
+import { SvogvMapsModule } from '@svogv/maps';
 import { SvogvHudModule } from '@svogv/hud';
 
 
@@ -27,9 +27,9 @@ import { SvogvHudModule } from '@svogv/hud';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    SvogvModule.forRoot(),
-    BlocksModule,
-  //  MapsModule,
+    SvogvFormsModule.forRoot(),
+    SvogvBlocksModule,
+    SvogvMapsModule,
     SvogvHudModule.forRoot()
   ],
   declarations: [

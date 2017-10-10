@@ -29,15 +29,15 @@ const SVOGV_MODULES = [
   providers: [FormValidatorService],
   exports: SVOGV_MODULES
 })
-export class SvogvRootModule { }
+export class SvogvFormsRootModule { }
 
 
 /**
  * The actual SVOGV Module definition using the root module.
  */
 @NgModule()
-export class SvogvModule {
+export class SvogvFormsModule {
   static forRoot(): ModuleWithProviders {
-    return { ngModule: SvogvRootModule };
+    return { ngModule: SvogvFormsRootModule };
   }
 }

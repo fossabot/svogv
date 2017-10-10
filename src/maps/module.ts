@@ -52,7 +52,7 @@ import {
 		MapClusterComponent
 	]
 })
-export class MapsModule {
+export class SvogvMapsModule {
 
 	constructor() {
 	}

@@ -1,10 +1,33 @@
-/* ===================================================
-VEAMS SETTINGS
-=================================================== */
 $min-width: false !default; // This variable will be used in veams-sass
 
 // Define Your Breakpoints For Bourbon Neat
-@import "breakpoints";
+@import "global/breakpoints";
+
+/* ===================================================
+Global Variables
+=================================================== */
+
+/*
+Layout
+----------------------- */
+$srf-margin-base: 1rem !default;
+
+/*
+Fonts
+----------------------- */
+$srf-label-size: 1.6rem !default;
+$srf-label-color: #fff !default;
+
+/*
+Colors
+----------------------- */
+$srf-error-color: #c70000 !default;
+
+$svogv-webkit: false;
+$svogv-moz: false;
+$svogv-ms: false;
+$svogv-o: faslse;
+
 
 /* ===================================================
 BOURBON NEAT SETTINGS

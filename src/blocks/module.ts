@@ -134,7 +134,7 @@ import { ArrayToStringConverter
 		DialogComponent
 	]
 })
-export class BlocksModule {
+export class SvogvBlocksModule {
 
 	constructor() {
 	}
