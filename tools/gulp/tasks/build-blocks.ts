@@ -87,7 +87,10 @@ task(':build:blocks:components:rollup', () => {
     'rxjs/add/operator/finally': 'Rx.Observable.prototype',
     'rxjs/add/operator/catch': 'Rx.Observable.prototype',
     'rxjs/add/operator/first': 'Rx.Observable.prototype',
-    'rxjs/Observable': 'Rx'
+    'rxjs/add/operator/debounceTime': 'Rx.Observable.prototype',
+    'rxjs/add/operator/distinctUntilChanged': 'Rx.Observable.prototype',
+    'rxjs/Observable': 'Rx',
+    'rxjs/BehaviorSubject': 'Rx'
   };
 
   const rollupOptions = {

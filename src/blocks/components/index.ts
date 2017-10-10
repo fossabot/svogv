@@ -7,7 +7,6 @@ export * from './description-item/description-item.component';
 export * from './dialog/dialog.component';
 export * from './fly-out/fly-out.component';
 export * from './fly-out/fly-out-item/fly-out-item.component';
-export * from './gps/gps.component';
 export * from './icon/icon.component';
 export * from './link/link.component';
 export * from './list-footer/list-footer.component';

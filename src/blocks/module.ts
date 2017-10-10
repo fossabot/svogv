@@ -39,9 +39,6 @@ import { LinksToRouterDirective, TooltipDirective, ShowAtDirective } from './dir
 // Services
 import { WindowSizeService } from './services/window-size.service';
 
-// Modules
-import { DpDatePickerModule } from 'ng2-date-picker';
-
 // Pipes
 import { ArrayToStringConverter
 	, CalculateThreshold
@@ -107,7 +104,6 @@ import { ArrayToStringConverter
 		PictureTextComponent,
 		TextComponent,
 		IconComponent,
-		MarkerComponent,
 		FlyOutComponent,
 		FlyOutItemComponent,
 		ListViewComponent,
@@ -119,10 +115,8 @@ import { ArrayToStringConverter
 		ButtonComponent,
 		PillComponent,
 		LinkComponent,
-		GpsComponent,
 		TabsComponent,
 		UiSwitchComponent,
-		MarkerComponent,
 		DescriptionItemComponent,
 		AccordionComponent,
 		AccordionItemComponent,

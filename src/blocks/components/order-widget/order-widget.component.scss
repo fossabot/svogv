@@ -23,7 +23,7 @@
 		}
 	}
 
-	@mixin icon-common {
+	@mixin fa-common {
 		&::before {
 			@extend .is-icon-arrow:before;
 			@extend .icon;

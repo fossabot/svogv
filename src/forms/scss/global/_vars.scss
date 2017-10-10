@@ -1,12 +1,10 @@
-$min-width: false !default; // This variable will be used in veams-sass
+// Define Your Breakpoints For Bourbon Neat
+@import "breakpoints";
 
 $svogv-webkit: false;
 $svogv-moz: false;
 $svogv-ms: false;
 $svogv-o: faslse;
-
-// Define Your Breakpoints For Bourbon Neat
-@import "breakpoints";
 
 /* ===================================================
 BOURBON NEAT SETTINGS

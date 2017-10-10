@@ -11,7 +11,7 @@ export class DescriptionItemComponent {
 	@Input() public supraHeadline: string;
 	@Input() public markerType: string;
 	@Input() public markerLevel: string;
-	@HostBinding('class.is-deactivated') @Input() public inactive;
+	@HostBinding('class.is-deactivated') @Input() public inactive: boolean;
 
 	get marker()  {
 		return {
