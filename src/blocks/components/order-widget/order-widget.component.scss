@@ -23,10 +23,11 @@
 		}
 	}
 
-	@mixin fa-common {
+	@mixin icon-common {
 		&::before {
-			@extend .is-icon-arrow:before;
-			@extend .icon;
+			// TODO: Include FontAwesome here
+			// @extend .is-icon-arrow:before;
+			// @extend .icon;
 			color: $color-blue;
 		}
 
