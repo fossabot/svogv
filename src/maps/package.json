@@ -1,8 +1,8 @@
 {
-  "name": "@svogv/blocks",
+  "name": "@svogv/maps",
   "version": "0.3.0",
-  "description": "An advanced set of Angular widgets with integrated CSS. No CSS framework needed.",
-  "main": "./bundles/blocks.umd.js",
+  "description": "An advanced set of Angular widgets with integrated CSS. This part is a Google Maps wrapper library.",
+  "main": "./bundles/svogv-maps.umd.js",
   "module": "./index.js",
   "typings": "./index.d.ts",
   "repository": {
@@ -16,8 +16,8 @@
     "angular5",
     "Reactive",
     "Forms",
-    "Validation",
-    "Viewmodel",
+    "Google",
+    "Maps",
     "decorators",
     "components"
   ],

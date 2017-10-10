@@ -2,7 +2,7 @@ import {task, watch, src, dest} from 'gulp';
 import * as path from 'path';
 
 import {
-  DIST_COMPONENTS_ROOT_MAPS, PROJECT_ROOT, COMPONENTS_DIR_HUD, HTML_MINIFIER_OPTIONS, LICENSE_BANNER, SOURCE_ROOT
+  DIST_COMPONENTS_ROOT_MAPS, PROJECT_ROOT, COMPONENTS_DIR_MAPS, HTML_MINIFIER_OPTIONS, LICENSE_BANNER, SOURCE_ROOT
 } from '../constants';
 import {
   sassBuildTask, tsBuildTask, execNodeTask, copyTask, sequenceTask,

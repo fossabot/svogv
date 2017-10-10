@@ -1,12 +1,12 @@
 /* stylelint-disable */
 
 @font-face {
-	font-family: "cova-icons";
-	src: url("/assets/fonts/cova-icons.eot?be2533017be10ce4beafa8ddc1a5c9cb?#iefix") format("embedded-opentype"),
-	url("/assets/fonts/cova-icons.woff2?be2533017be10ce4beafa8ddc1a5c9cb") format("woff2"),
-	url("/assets/fonts/cova-icons.woff?be2533017be10ce4beafa8ddc1a5c9cb") format("woff"),
-	url("/assets/fonts/cova-icons.ttf?be2533017be10ce4beafa8ddc1a5c9cb") format("truetype"),
-	url("/assets/fonts/cova-icons.svg?be2533017be10ce4beafa8ddc1a5c9cb#cova-icons") format("svg");
+	font-family: "svogv-icons";
+	src: url("/assets/fonts/svogv-icons.eot?be2533017be10ce4beafa8ddc1a5c9cb?#iefix") format("embedded-opentype"),
+	url("/assets/fonts/svogv-icons.woff2?be2533017be10ce4beafa8ddc1a5c9cb") format("woff2"),
+	url("/assets/fonts/svogv-icons.woff?be2533017be10ce4beafa8ddc1a5c9cb") format("woff"),
+	url("/assets/fonts/svogv-icons.ttf?be2533017be10ce4beafa8ddc1a5c9cb") format("truetype"),
+	url("/assets/fonts/svogv-icons.svg?be2533017be10ce4beafa8ddc1a5c9cb#svogv-icons") format("svg");
 }
 
 i {
@@ -14,7 +14,7 @@ i {
 }
 
 .icon {
-	font-family: "cova-icons" !important;
+	font-family: "svogv-icons" !important;
 	display: inline-block;
 	vertical-align: middle;
 	line-height: 1;
@@ -29,7 +29,7 @@ i {
 }
 
 i:before {
-	font-family: cova-icons !important;
+	font-family: svogv-icons !important;
 	font-style: normal;
 	font-weight: normal !important;
 	vertical-align: top;

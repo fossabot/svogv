@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BBMapComponent } from '../map/map.component';
+import { MapComponent } from '../map/map.component';
 import { MapMarkerClusterer } from './map-clusterer';
 
 
@@ -16,14 +16,14 @@ export class MapClusterComponent implements OnInit {
 	private clustererOptions: object = {
 		styles: [{
 			height: 100,
-			url: 'assets/img/cova_marker-cluster1.png',
+			url: 'assets/img/maps_marker-cluster1.png',
 			width: 72,
 			textColor: '#808890',
 			anchor: [13, 15],
 			backgroundPosition: '-18px -25px'
 		}, {
 			height: 100,
-			url: 'assets/img/cova_marker-cluster1.png',
+			url: 'assets/img/maps_marker-cluster1.png',
 			width: 72,
 			textColor: '#808890',
 			anchor: [13, 13],
@@ -31,7 +31,7 @@ export class MapClusterComponent implements OnInit {
 		}]
 	};
 
-	constructor(private mapComponent: BBMapComponent) {
+	constructor(private mapComponent: MapComponent) {
 
 	}
 

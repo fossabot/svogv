@@ -11,6 +11,7 @@ export const DIST_ROOT = join(PROJECT_ROOT, 'dist/');
 export const DIST_COMPONENTS_ROOT_FORMS = join(DIST_ROOT, '@svogv/forms/');
 export const DIST_COMPONENTS_ROOT_HUD = join(DIST_ROOT, '@svogv/hud/');
 export const DIST_COMPONENTS_ROOT_BLOCK = join(DIST_ROOT, '@svogv/blocks/');
+export const DIST_COMPONENTS_ROOT_MAPS = join(DIST_ROOT, '@svogv/maps/');
 
 export const SASS_AUTOPREFIXER_OPTIONS = {
   browsers: [
@@ -42,7 +43,7 @@ export const NPM_VENDOR_FILES = [
 ];
 // This is the forms project that is the components foundation
 export const COMPONENTS_DIR_FORMS = join(SOURCE_ROOT, 'forms/');
-// The projects consists of two submodules, which are independent of each other
+// The projects consists of more submodules, which are independent of each other
 export const COMPONENTS_DIR_HUD = join(SOURCE_ROOT, 'hud/');
 export const COMPONENTS_DIR_BLOCKS = join(SOURCE_ROOT, 'blocks/');
 export const COMPONENTS_DIR_MAPS = join(SOURCE_ROOT, 'maps/');

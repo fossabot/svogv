@@ -152,22 +152,22 @@ export class MapComponent implements AfterViewInit {
 		const icon = {url: '', anchor: '', scaledSize: ''};
 		switch (type) {
 			case 'origin':
-				icon.url = '../../../assets/img/svg/cova_map_origin_marker.svg';
+				icon.url = '../../../assets/img/svg/svogv_map_origin_marker.svg';
 				icon.anchor = new google.maps.Point(18, 46);
 				icon.scaledSize = new google.maps.Size(38, 50);
 				break;
 			case 'destination':
-				icon.url = '../../../assets/img/svg/cova_map_destination_marker.svg';
+				icon.url = '../../../assets/img/svg/svogv_map_destination_marker.svg';
 				icon.anchor = new google.maps.Point(19, 19);
 				icon.scaledSize = new google.maps.Size(38, 38);
 				break;
 			case 'disabled':
-				icon.url = '../../../assets/img/svg/cova_map_marker_disabled.svg';
+				icon.url = '../../../assets/img/svg/svogv_map_marker_disabled.svg';
 				icon.anchor = new google.maps.Point(18, 46);
 				icon.scaledSize = new google.maps.Size(38, 50);
 				break;
 			default:
-				icon.url = '../../../assets/img/svg/cova_map_marker.svg';
+				icon.url = '../../../assets/img/svg/svogv_map_marker.svg';
 				icon.anchor = new google.maps.Point(18, 46);
 				icon.scaledSize = new google.maps.Size(38, 50);
 		}

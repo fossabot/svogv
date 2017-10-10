@@ -1,7 +1,7 @@
 import { Component, ElementRef, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { getCustomOverlayView } from '../map/api/gmaps-marker';
-import { BBMapComponent } from '../map/map.component';
+import { getCustomOverlayView } from '../../services/gmaps-marker';
+import { MapComponent } from '../map/map.component';
 
 @Component({
 	selector: 'ac-map-popup',
@@ -17,7 +17,7 @@ export class MapPopupComponent implements OnInit, OnChanges, OnDestroy {
 	private popup: any;
 	private subscription: Subscription;
 
-	constructor(private mapComponent: BBMapComponent,
+	constructor(private mapComponent: MapComponent,
 				private elementRef: ElementRef) {
 	}
 

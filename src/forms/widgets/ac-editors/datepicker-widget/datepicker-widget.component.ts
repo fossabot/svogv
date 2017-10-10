@@ -53,7 +53,7 @@ export class DatepickerWidgetComponent implements OnInit, Widget {
 		weekDayFormat: 'dd'
 	};
 
-	public themeString = 'datepicker--cova is-directive';
+	public themeString = 'datepicker--svogv is-directive';
 
 
 	/**

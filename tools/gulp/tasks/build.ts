@@ -4,6 +4,7 @@ import {task} from 'gulp';
 task('build', [
   'build:forms',
   // 'build:blocks',
+  // 'build:maps',
   // 'build:hud'
 ]
 );

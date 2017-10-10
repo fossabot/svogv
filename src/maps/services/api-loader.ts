@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { first } from 'rxjs/operator/first';
 import { ReplaySubject } from 'rxjs/ReplaySubject';
 
-const url = '//maps.googleapis.com/maps/api/js?key=AIzaSyCJ6ww5_pO7Z0eeg_dtWyGJGhgU2kRsAGA&callback=__onGoogleLoaded';
+// AIzaSyCJ6ww5_pO7Z0eeg_dtWyGJGhgU2kRsAGA
+const url = '//maps.googleapis.com/maps/api/js?key=<key>&callback=__onGoogleLoaded';
 
 declare const google: any;
 
@@ -10,20 +11,20 @@ declare const google: any;
 export class GMapsApiLoader {
 	api$: ReplaySubject<any> = first.call(new ReplaySubject(1));
 
-	load() {
+	load(key: string) {
 		if (this.isMapsApiLoaded()) {
 			this.api$.next(google.maps);
 		} else {
-			this.addGoogleMapsApi();
-			window['__onGoogleLoaded'] = () => {
+			this.addGoogleMapsApi(key);
+			(<any>window)['__onGoogleLoaded'] = () => {
 				this.api$.next(google.maps);
 			};
 		}
 	}
 
-	private addGoogleMapsApi() {
+	private addGoogleMapsApi(key: string) {
 		const node = document.createElement('script');
-		node.src = url;
+		node.src = url.replace('<key>', key);
 		node.type = 'text/javascript';
 		document.querySelector('body').appendChild(node);
 	}

@@ -1,8 +1,8 @@
 import { Component, ElementRef, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { MapClusterComponent } from '../map-cluster/map-cluster.component';
-import { getCustomOverlayView } from '../map/api/gmaps-marker';
-import { BBMapComponent } from '../map/map.component';
+import { getCustomOverlayView } from '../../services/gmaps-marker';
+import { MapComponent } from '../map/map.component';
 
 declare const google: any;
 
@@ -54,7 +54,7 @@ export class MapMarkerComponent implements OnInit, OnDestroy {
 	 */
 	@Output() markerToggled = new EventEmitter();
 
-	constructor(private mapComponent: BBMapComponent,
+	constructor(private mapComponent: MapComponent,
 				private elementRef: ElementRef,
 				private mapCluster: MapClusterComponent) {
 	}

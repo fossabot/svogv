@@ -51,7 +51,7 @@ export class MarkerComponent implements OnInit {
 
 	/**
 	 * Inits sytles  for Icons component
-	 * @memberof BBMarkerComponent
+	 * @memberof MarkerComponent
 	 */
 	ngOnInit() {
 		this.iconName = this.markerType[this.vm.type] || 'fuel-pump';

@@ -16,10 +16,8 @@ import {
 	, MapPopupComponent
 	, MapComponent
 	, GMapsApiLoader
-	, GpsComponent
 	, MarkerComponent
-} from './components/index';
-
+} from './index';
 
 @NgModule({
 	imports: [
@@ -38,8 +36,7 @@ import {
 		MapMarkerComponent,
 		MapClusterComponent,
 		MapPopupComponent,
-		MapDirectionsComponent,
-		GpsComponent
+		MapDirectionsComponent
 	],
 	providers: [
 		GMapsApiLoader
@@ -52,11 +49,10 @@ import {
 		MapDirectionsComponent,
 		MapMarkerComponent,
 		MapPopupComponent,
-		MapClusterComponent,
-		GpsComponent
+		MapClusterComponent
 	]
 })
-export class BlocksModule {
+export class MapsModule {
 
 	constructor() {
 	}
