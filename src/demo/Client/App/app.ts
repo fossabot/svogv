@@ -13,7 +13,7 @@ import * as cmp from './components/index';
 import routes from './configurations/routes';
 // The SVOGV library (in the demo it's a hard link with paths info in tsconfig,
 // resolves against node_modules without changes)
-import { SvogvModule, FormValidatorService } from 'svogv';
+import { SvogvModule, FormValidatorService } from '@svogv/forms';
 
 @NgModule({
   imports: [

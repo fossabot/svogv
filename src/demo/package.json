@@ -28,7 +28,10 @@
     "font-awesome": "^4.7.0",
     "reflect-metadata": "^0.1.8",
     "rxjs": "^5.4.2",
-    "svogv": "^0.2.3",
+    "@svogv/forms": "^0.3.0",
+    "@svogv/blocks": "^0.3.0",
+    "@svogv/maps": "^0.3.0",
+    "@svogv/hud": "^0.3.0",
     "systemjs": "^0.19.40",
     "zone.js": "^0.8.4"
   },

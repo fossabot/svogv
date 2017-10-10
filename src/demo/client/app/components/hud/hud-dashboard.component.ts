@@ -1,6 +1,6 @@
 ﻿import { Component, ViewChild } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import { HudClock, HudClockOptions } from 'svogv';
+import { HudClock, HudClockOptions } from '@svogv/hud';
 
 /**
  * Dashboard to demonstrate HUD components.
