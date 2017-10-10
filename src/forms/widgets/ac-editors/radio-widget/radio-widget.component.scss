@@ -81,8 +81,8 @@ Host
 		&:checked {
 			& ~ .input__radio-label {
 				&::before {
-					box-shadow: inset 0 0 0 10px $color-bluesvogv;
-					border-color: $color-bluesvogv;
+					box-shadow: inset 0 0 0 10px $color-blue;
+					border-color: $color-blue;
 				}
 			}
 		}

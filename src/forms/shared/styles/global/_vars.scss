@@ -1,16 +1,3 @@
-/* ===================================================
-VEAMS SETTINGS
-=================================================== */
-$min-width: false !default; // This variable will be used in veams-sass
-
-@mixin clearfix {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-}
-
 // Define Your Breakpoints For Bourbon Neat
 @import "breakpoints";
 
@@ -79,7 +66,7 @@ $breakpoint-main-min: ">=tablet-l";
 Colors
 --------------------------------------------------- */
 // Primary colors
-$color-bluesvogv: #0099da !default;
+$color-blue: #0099da !default;
 $color-grey-sky: #f3f5f6 !default;
 
 // Accent colors
@@ -157,7 +144,7 @@ $border-color: $color-grey-calm;
 Icons
 --------------------------------------------------- */
 $icon-background-color: $color-grey-calm !default;
-$icon-background-color-success: $color-bluesvogv;
+$icon-background-color-success: $color-blue;
 $icon-background-color-info: $color-valid;
 $icon-background-color-warning: $color-orange-warm;
 $icon-background-color-danger: $color-red;
@@ -314,7 +301,7 @@ $button-margin-side-med: 1rem;
 $button-margin-side-tny: .5rem;
 
 // Background colors
-$button-bg-color: $color-bluesvogv;
+$button-bg-color: $color-blue;
 $button-bg-color-white: $color-light;
 $button-bg-color-disabled: $color-grey-soft;
 
@@ -331,13 +318,13 @@ $button-font-align: center;
 
 // Font colors
 $button-font-color: $color-light;
-$button-font-color-blue: $color-bluesvogv;
+$button-font-color-blue: $color-blue;
 $button-font-color-disabled: $color-grey-calm;
 
 /* ---------------------------------------------------
 Link
 --------------------------------------------------- */
-$link-color: $color-bluesvogv;
+$link-color: $color-blue;
 $link-color-hover: $color-blue-ocean;
 
 /* ---------------------------------------------------
@@ -422,7 +409,7 @@ $srf-field-background-color-focus: $color-white;
 $srf-field-background-color-empty: #35aadc;
 $srf-field-height: 4.3rem;
 $srf-field-font-size: 1.4rem;
-$srf-select-color-btn: $color-bluesvogv;
+$srf-select-color-btn: $color-blue;
 
 /* ---------------------------------------------------
 Filtering

@@ -1,4 +1,4 @@
-import {task, watch, src, dest} from 'gulp';
+import { task, watch, src, dest } from 'gulp';
 import * as path from 'path';
 
 import {
@@ -53,7 +53,7 @@ task(':build:forms:components:assets', copyTask([
 
 /** Minifies the HTML and CSS assets in the distribution folder. */
 task(':build:forms:components:assets:minify', () => {
-  return src('**/*.+(html|css)', { cwd: DIST_COMPONENTS_ROOT_FORMS})
+  return src('**/*.+(html|css)', { cwd: DIST_COMPONENTS_ROOT_FORMS })
     .pipe(gulpIf(/.css$/, gulpMinifyCss(), gulpMinifyHtml(HTML_MINIFIER_OPTIONS)))
     .pipe(dest(DIST_COMPONENTS_ROOT_FORMS));
 });
@@ -63,7 +63,7 @@ task(':build:forms:components:scss', sassBuildTask(DIST_COMPONENTS_ROOT_FORMS, C
 
 /** Builds the UMD bundle for all of SvOgV. */
 task(':build:forms:components:rollup', () => {
-  const globals: {[name: string]: string} = {
+  const globals: { [name: string]: string } = {
     // Angular dependencies
     '@angular/core': 'ng.core',
     '@angular/common': 'ng.common',
@@ -118,8 +118,13 @@ task(':build:forms:components:copy-for-demo', () => {
   return src(DIST_COMPONENTS_ROOT_FORMS + '**/*.*').pipe(dest(target));
 });
 
+task(':build:forms:cleanup', () => {
+  return del(DIST_COMPONENTS_ROOT_FORMS);
+});
+
 /** Builds components with resources (html, css) inlined into the built JS (ESM output). */
 task(':build:forms:components:inline', sequenceTask(
+  ':build:forms:cleanup',
   ':build:forms:components:ts',
   ':build:forms:components:scss',
   ':build:forms:components:assets',
@@ -129,6 +134,7 @@ task(':build:forms:components:inline', sequenceTask(
 
 /** Builds components with minified HTML and CSS inlined into the built JS. */
 task(':build:forms:components:inline:release', sequenceTask(
+  ':build:forms:cleanup',
   ':build:forms:components:ts',
   ':build:forms:components:scss',
   ':build:forms:components:assets',

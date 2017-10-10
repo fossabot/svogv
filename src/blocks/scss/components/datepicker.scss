@@ -24,7 +24,7 @@
 		&::before {
 			height: 22px !important;
 			width: 22px !important;
-			color: $color-bluesvogv !important;
+			color: $color-blue !important;
 			border-width: 6px 6px 0 0 !important;
 			margin: 0 18px;
 		}
@@ -78,7 +78,7 @@
 	}
 
 	.dp-selected {
-		background-color: $color-bluesvogv !important;
+		background-color: $color-blue !important;
 		color: $color-text-white;
 		font-family: $font-text-bold;
 
@@ -146,7 +146,7 @@
 		}
 
 		.dp-nav-header {
-			color: $color-bluesvogv;
+			color: $color-blue;
 		}
 
 		.dp-selected {

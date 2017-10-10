@@ -127,32 +127,32 @@ task(':build:maps:components:copy-inline', () => {
   console.log(`** immediate copy from ${source} to ${target}`);
   return src(source).pipe(dest(target));
 });
+
 // and after this we cleanup the target folder
-task(':build:maps:components:copy-inline:cleanup', () => {
-  let target = DIST_COMPONENTS_ROOT_MAPS + 'bundles/';
-  del(`${target}widgets/**`);
+task(':build:maps:cleanup', () => {
+  return del(DIST_COMPONENTS_ROOT_MAPS);
 });
 
 /** Builds components with resources (html, css) inlined into the built JS (ESM output). */
 task(':build:maps:components:inline', sequenceTask(
+  ':build:maps:cleanup',
   ':build:maps:components:ts',
   ':build:maps:components:scss',
   ':build:maps:components:copy-inline',
   ':build:maps:components:assets',
   ':build:maps:components:copy-for-demo',
-  ':maps:inline-resources',
-  ':build:maps:components:copy-inline:cleanup',
+  ':maps:inline-resources'
 ));
 
 /** Builds components with minified HTML and CSS inlined into the built JS. */
 task(':build:maps:components:inline:release', sequenceTask(
+  ':build:maps:cleanup',
   ':build:maps:components:ts',
   ':build:maps:components:scss',
   ':build:maps:components:copy-inline',
   ':build:maps:components:assets',
   ':build:maps:components:assets:minify',
-  ':maps:inline-resources',
-  ':build:maps:components:copy-inline:cleanup',
+  ':maps:inline-resources'
 ));
 
 /** Inlines resources (html, css) into the JS output (for either ESM or CJS output). */

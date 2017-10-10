@@ -124,32 +124,32 @@ task(':build:hud:components:copy-inline', () => {
   console.log(`** immediate copy from ${source} to ${target}`);
   return src(source).pipe(dest(target));
 });
+
 // and after this we cleanup the target folder
-task(':build:hud:components:copy-inline:cleanup', () => {
-  let target = DIST_COMPONENTS_ROOT_HUD + 'bundles/';
-  del(`${target}widgets/**`);
+task(':build:hud:cleanup', () => {
+  return del(DIST_COMPONENTS_ROOT_HUD);
 });
 
 /** Builds components with resources (html, css) inlined into the built JS (ESM output). */
 task(':build:hud:components:inline', sequenceTask(
+  ':build:hud:cleanup',
   ':build:hud:components:ts',
   ':build:hud:components:scss',
   ':build:hud:components:copy-inline',
   ':build:hud:components:assets',
   ':build:hud:components:copy-for-demo',
-  ':hud:inline-resources',
-  ':build:hud:components:copy-inline:cleanup',
+  ':hud:inline-resources'
 ));
 
 /** Builds components with minified HTML and CSS inlined into the built JS. */
 task(':build:hud:components:inline:release', sequenceTask(
+  ':build:hud:cleanup',
   ':build:hud:components:ts',
   ':build:hud:components:scss',
   ':build:hud:components:copy-inline',
   ':build:hud:components:assets',
   ':build:hud:components:assets:minify',
-  ':hud:inline-resources',
-  ':build:hud:components:copy-inline:cleanup',
+  ':hud:inline-resources'
 ));
 
 /** Inlines resources (html, css) into the JS output (for either ESM or CJS output). */

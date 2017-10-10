@@ -117,8 +117,14 @@ task(':build:blocks:components:copy-for-demo', () => {
   return src(DIST_COMPONENTS_ROOT_BLOCK + '**/*.*').pipe(dest(target));
 });
 
+// and after this we cleanup the target folder
+task(':build:blocks:cleanup', () => {
+  return del(DIST_COMPONENTS_ROOT_BLOCK);
+});
+
 /** Builds components with resources (html, css) inlined into the built JS (ESM output). */
 task(':build:blocks:components:inline', sequenceTask(
+  ':build:blocks:cleanup',
   ':build:blocks:components:ts',
   ':build:blocks:components:scss',
   ':build:blocks:components:assets',
@@ -128,6 +134,7 @@ task(':build:blocks:components:inline', sequenceTask(
 
 /** Builds components with minified HTML and CSS inlined into the built JS. */
 task(':build:blocks:components:inline:release', sequenceTask(
+  ':build:blocks:cleanup',
   ':build:blocks:components:ts',
   ':build:blocks:components:scss',
   ':build:blocks:components:assets',
