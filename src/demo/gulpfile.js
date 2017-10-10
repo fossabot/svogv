@@ -78,9 +78,13 @@ gulp.task('copy:angular', function () {
 });
 
 gulp.task('copy:svogv', function () {
-  return gulp.src([upPath + 'svogv/bundles/svogv.umd.js'])
-             //.pipe(uglify())
-             .pipe(gulp.dest(paths.assets + 'js/lib/svogv/bundles/'));
+  return gulp.src([
+    './dist/bundles/svogv-forms.umd.js',
+    './dist/bundles/svogv-blocks.umd.js',
+    './dist/bundles/svogv-maps.umd.js',
+    './dist/bundles/svogv-hud.umd.js'
+  ])
+    .pipe(gulp.dest(paths.assets + 'js/lib/@svogv/'));
 });
 
 // Create RxJs bundle 

@@ -14,6 +14,11 @@ import routes from './configurations/routes';
 // The SVOGV library (in the demo it's a hard link with paths info in tsconfig,
 // resolves against node_modules without changes)
 import { SvogvModule, FormValidatorService } from '@svogv/forms';
+import { BlocksModule } from '@svogv/blocks';
+// TODO: Rename and Peer Dev for google maps
+//import { MapsModule } from '@svogv/maps';
+import { SvogvHudModule } from '@svogv/hud';
+
 
 @NgModule({
   imports: [
@@ -22,7 +27,10 @@ import { SvogvModule, FormValidatorService } from '@svogv/forms';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    SvogvModule.forRoot()
+    SvogvModule.forRoot(),
+    BlocksModule,
+  //  MapsModule,
+    SvogvHudModule.forRoot()
   ],
   declarations: [
     // Demo app
