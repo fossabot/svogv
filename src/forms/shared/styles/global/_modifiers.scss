@@ -367,7 +367,7 @@ Font colors
 }
 
 .is-color-blue {
-	color: $color-blue-vw !important;
+	color: $color-bluesvogv !important;
 }
 
 /* ---------------------------------------------------
@@ -378,7 +378,7 @@ Links
 	display: inline-block;
 	font-family: $font-head-bold;
 	font-size: $fs-text-default;
-	color: $color-blue-vw;
+	color: $color-bluesvogv;
 	text-decoration: none;
 	cursor: pointer;
 	word-wrap: break-word;
@@ -390,7 +390,7 @@ Links
 		@extend .is-icon-link:before;
 		@extend .icon;
 		left: 0;
-		color: $color-blue-vw;
+		color: $color-bluesvogv;
 		font-size: $fs-text-xsmall;
 		transition: all $transition-duration-xs $transition-ease-1;
 	}

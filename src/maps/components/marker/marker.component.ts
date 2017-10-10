@@ -1,5 +1,6 @@
-import { Component,  ElementRef, HostBinding, Input , OnInit , Renderer2 } from '@angular/core';
+import { Component, ElementRef, HostBinding, Input, OnInit, Renderer2 } from '@angular/core';
 
+export type indexType = { [key: string]: string };
 
 /**
  * Creates the MarkerComponent.
@@ -23,7 +24,7 @@ export class MarkerComponent implements OnInit {
 
 	public iconName: string;
 
-	public readonly markerType = {
+	public readonly markerType: indexType = {
 		'SERVICE': 'fuel-pump',
 		'REMINDER': 'date',
 		'HIGHFUELCONSUMPTION': 'fuel-pump',
@@ -35,7 +36,7 @@ export class MarkerComponent implements OnInit {
 		'WARNING': 'warning'
 	};
 
-	public readonly markerLevel = {
+	public readonly markerLevel: indexType = {
 		'ERROR': 'is-danger',
 		'WARNING': 'is-warning',
 		'NOTICE': 'is-success',
@@ -43,11 +44,11 @@ export class MarkerComponent implements OnInit {
 	};
 
 	@Input() public vm: any;
-	@Input() public iconSize;
+	@Input() public iconSize: any;
 	@Input() public markerSize = '30px';
 	@HostBinding('class.is-deactivated') @Input() public inactive;
 
-	constructor(private renderer: Renderer2, private elementRef: ElementRef) {}
+	constructor(private renderer: Renderer2, private elementRef: ElementRef) { }
 
 	/**
 	 * Inits sytles  for Icons component

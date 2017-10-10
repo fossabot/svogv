@@ -71,7 +71,7 @@ $breakpoint-main-min: ">=tablet-l";
 Colors
 --------------------------------------------------- */
 // Primary colors
-$color-blue-vw: #0099da !default;
+$color-bluesvogv: #0099da !default;
 $color-grey-sky: #f3f5f6 !default;
 
 // Accent colors
@@ -149,7 +149,7 @@ $border-color: $color-grey-calm;
 Icons
 --------------------------------------------------- */
 $icon-background-color: $color-grey-calm !default;
-$icon-background-color-success: $color-blue-vw;
+$icon-background-color-success: $color-bluesvogv;
 $icon-background-color-info: $color-valid;
 $icon-background-color-warning: $color-orange-warm;
 $icon-background-color-danger: $color-red;
@@ -306,7 +306,7 @@ $button-margin-side-med: 1rem;
 $button-margin-side-tny: .5rem;
 
 // Background colors
-$button-bg-color: $color-blue-vw;
+$button-bg-color: $color-bluesvogv;
 $button-bg-color-white: $color-light;
 $button-bg-color-disabled: $color-grey-soft;
 
@@ -323,13 +323,13 @@ $button-font-align: center;
 
 // Font colors
 $button-font-color: $color-light;
-$button-font-color-blue: $color-blue-vw;
+$button-font-color-blue: $color-bluesvogv;
 $button-font-color-disabled: $color-grey-calm;
 
 /* ---------------------------------------------------
 Link
 --------------------------------------------------- */
-$link-color: $color-blue-vw;
+$link-color: $color-bluesvogv;
 $link-color-hover: $color-blue-ocean;
 
 /* ---------------------------------------------------
@@ -414,7 +414,7 @@ $srf-field-background-color-focus: $color-white;
 $srf-field-background-color-empty: #35aadc;
 $srf-field-height: 4.3rem;
 $srf-field-font-size: 1.4rem;
-$srf-select-color-btn: $color-blue-vw;
+$srf-select-color-btn: $color-bluesvogv;
 
 /* ---------------------------------------------------
 Filtering

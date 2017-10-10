@@ -27,12 +27,12 @@
 		&::before {
 			@extend .is-icon-arrow:before;
 			@extend .icon;
-			color: $color-blue-vw;
+			color: $color-bluesvogv;
 		}
 
 		&:hover {
 			&::before {
-				color: darken($color-blue-vw, $darken-m);
+				color: darken($color-bluesvogv, $darken-m);
 			}
 		}
 

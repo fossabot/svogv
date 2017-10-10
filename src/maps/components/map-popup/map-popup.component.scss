@@ -1,7 +1,7 @@
-@import "../../scss/helpers";
+//@import "../../scss/helpers";
 
 :host {
-	background-color: $color-blue-vw;
+	background-color: $color-blue;
 	border-radius: $border-radius-default;
 	width: 256px;
 	font-size: 16px;
@@ -17,7 +17,7 @@
 	}
 
 	&::before {
-		background-color: $color-blue-vw;
+		background-color: $color-blue;
 		content: '';
 		position: absolute;
 		top: 50%;

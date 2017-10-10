@@ -1,6 +1,6 @@
-import {AfterViewInit, Component, ElementRef, EventEmitter, Input, NgZone, Output} from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, NgZone, Output } from '@angular/core';
 import 'js-marker-clusterer';
-import {GMapsApiLoader} from './services/api-loader';
+import { GMapsApiLoader } from '../../services/api-loader';
 
 declare const google: any;
 
@@ -20,7 +20,7 @@ export class MapComponent implements AfterViewInit {
 	/**
 	 * Enables scroll wheel
 	 */
-	@Input() scrollwheel: boolean;
+	@Input() scrollWheel: boolean;
 
 	/**
 	 * Emits if map is ready
@@ -60,9 +60,11 @@ export class MapComponent implements AfterViewInit {
 	public bounds: google.maps.LatLngBounds;
 
 	constructor(private elementRef: ElementRef,
-				private apiLoader: GMapsApiLoader,
-				private zone: NgZone) {
-		apiLoader.load();
+		private apiLoader: GMapsApiLoader,
+		private zone: NgZone) {
+		// TODO: make configurable and save
+		const apiKey = '';
+		apiLoader.load(apiKey);
 	}
 
 	ngAfterViewInit() {
@@ -93,10 +95,10 @@ export class MapComponent implements AfterViewInit {
 		this.zone.runOutsideAngular(() => {
 
 			const mapOptions = <google.maps.MapOptions>{
-				center: {lat: -34.397, lng: 150.644},
+				center: { lat: -34.397, lng: 150.644 },
 				zoom: 8,
 				disableDefaultUI: false,
-				scrollwheel: (this.scrollwheel) ? this.scrollwheel : false,
+				scrollwheel: (this.scrollWheel) ? this.scrollWheel : false,
 				draggable: true,
 				fullscreenControl: true,
 				mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -149,7 +151,7 @@ export class MapComponent implements AfterViewInit {
 	 * @returns {string}
 	 */
 	getMarkerIcon(type: string): object {
-		const icon = {url: '', anchor: '', scaledSize: ''};
+		const icon = { url: '', anchor: '', scaledSize: '' };
 		switch (type) {
 			case 'origin':
 				icon.url = '../../../assets/img/svg/svogv_map_origin_marker.svg';

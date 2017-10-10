@@ -69,6 +69,7 @@ task(':build:maps:components:rollup', () => {
     '@angular/common': 'ng.common',
     '@angular/forms': 'ng.forms',
     '@angular/http': 'ng.http',
+    '@angular/router': 'ng.router',
     '@angular/platform-browser': 'ng.platformBrowser',
     '@angular/platform-browser-dynamic': 'ng.platformBrowserDynamic',
 
@@ -86,6 +87,8 @@ task(':build:maps:components:rollup', () => {
     'rxjs/add/operator/finally': 'Rx.Observable.prototype',
     'rxjs/add/operator/catch': 'Rx.Observable.prototype',
     'rxjs/add/operator/first': 'Rx.Observable.prototype',
+    'rxjs/operator/first': 'Rx.Observable.prototype',
+    'rxjs/ReplaySubject': 'Rx',
     'rxjs/Observable': 'Rx'
   };
 
