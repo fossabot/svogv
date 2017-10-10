@@ -59,7 +59,7 @@ task(':build:maps:components:assets:minify', () => {
 });
 
 /** Builds scss into css. */
-task(':build:maps:components:scss', sassBuildTask(DIST_COMPONENTS_ROOT_MAPS +  'bundles', COMPONENTS_DIR_MAPS));
+task(':build:maps:components:scss', sassBuildTask(DIST_COMPONENTS_ROOT_MAPS, COMPONENTS_DIR_MAPS));
 
 /** Builds the UMD bundle for all of SvOgV. */
 task(':build:maps:components:rollup', () => {
@@ -89,7 +89,10 @@ task(':build:maps:components:rollup', () => {
     'rxjs/add/operator/first': 'Rx.Observable.prototype',
     'rxjs/operator/first': 'Rx.Observable.prototype',
     'rxjs/ReplaySubject': 'Rx',
-    'rxjs/Observable': 'Rx'
+    'rxjs/Observable': 'Rx',
+
+    // others
+    'js-marker-clusterer': 'js-marker-clusterer'
   };
 
   const rollupOptions = {

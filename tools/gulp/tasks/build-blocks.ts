@@ -59,7 +59,7 @@ task(':build:blocks:components:assets:minify', () => {
 });
 
 /** Builds scss into css. */
-task(':build:blocks:components:scss', sassBuildTask(DIST_COMPONENTS_ROOT_BLOCK +  'bundles', COMPONENTS_DIR_BLOCKS));
+task(':build:blocks:components:scss', sassBuildTask(DIST_COMPONENTS_ROOT_BLOCK, COMPONENTS_DIR_BLOCKS));
 
 /** Builds the UMD bundle for all of SvOgV. */
 task(':build:blocks:components:rollup', () => {
@@ -69,6 +69,7 @@ task(':build:blocks:components:rollup', () => {
     '@angular/common': 'ng.common',
     '@angular/forms': 'ng.forms',
     '@angular/http': 'ng.http',
+    '@angular/router': 'ng.router',
     '@angular/platform-browser': 'ng.platformBrowser',
     '@angular/platform-browser-dynamic': 'ng.platformBrowserDynamic',
 

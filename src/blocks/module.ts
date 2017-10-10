@@ -24,8 +24,6 @@ import {
 	, ListHeaderComponent
 	, ListItemComponent
 	, ListViewComponent
-	, GpsComponent
-	, MarkerComponent
 	, OrderWidgetComponent
 	, PictureTextComponent
 	, PictureComponent
@@ -39,7 +37,7 @@ import {
 import { LinksToRouterDirective, TooltipDirective, ShowAtDirective } from './directives/index';
 
 // Services
-import { WindowSizeService } from './services/windowSize.service';
+import { WindowSizeService } from './services/window-size.service';
 
 // Modules
 import { DpDatePickerModule } from 'ng2-date-picker';
@@ -69,7 +67,6 @@ import { ArrayToStringConverter
 		PictureTextComponent,
 		TextComponent,
 		IconComponent,
-		MarkerComponent,
 		ListViewComponent,
 		ListItemComponent,
 		ListFooterComponent,
@@ -82,7 +79,6 @@ import { ArrayToStringConverter
 		DescriptionItemComponent,
 		ButtonComponent,
 		PillComponent,
-		GpsComponent,
 		TabsComponent,
 		AccordionComponent,
 		AccordionItemComponent,

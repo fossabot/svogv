@@ -23,8 +23,8 @@ export class OrderBy implements PipeTransform {
 	 * @param asc
 	 * @returns {any}
 	 */
-	transform(sourceArray, orderBy, direction = 'DESC') {
-		;
+	transform(sourceArray: any[], orderBy: string, direction = 'DESC') {
+
 		/**
 		 * Return the same array if no orderBy param provided.
 		 */
@@ -69,7 +69,7 @@ export class OrderBy implements PipeTransform {
 	 * @param customDirection
 	 * @returns {T[]|Array<T>}
 	 */
-	prepareFinalList(sourceArray, orderBy, direction, customOrderBy, customDirection) {
+	prepareFinalList(sourceArray: any[], orderBy: string, direction: string, customOrderBy: string, customDirection: string): any[] {
 
 		const faultyItemsList = this.extractAndOrderFaulty(sourceArray, orderBy, customOrderBy, customDirection);
 		// Remove them from the overall list
@@ -86,7 +86,7 @@ export class OrderBy implements PipeTransform {
 	 * @param sourceArray
 	 * @param faultyItemsList
 	 */
-	removeFaultyFromList(sourceArray, faultyItemsList) {
+	removeFaultyFromList(sourceArray: any[], faultyItemsList: {}[]) {
 		// Prepare a set so it's easy to filter
 		const faultyItemsSet = new Set(faultyItemsList);
 		// Return filtered items, all valid results
@@ -102,7 +102,7 @@ export class OrderBy implements PipeTransform {
 	 * @param customDirection - The new custom directory
 	 * @returns {Array<T>|Array<T>}
 	 */
-	extractAndOrderFaulty(sourceArray, orderBy, customOrderBy, customDirection) {
+	extractAndOrderFaulty(sourceArray: any[], orderBy: string, customOrderBy: string, customDirection: string) {
 		// Consider empty as the criteria to mark an item as faulty
 
 		const faultyItemsList = sourceArray.filter(o => [''].indexOf(o[orderBy]) !== -1);
@@ -125,7 +125,7 @@ export class OrderBy implements PipeTransform {
 	 * @param direction
 	 * @returns {Array<T>}
 	 */
-	orderByHelper(sourceArray, key, direction) {
+	orderByHelper(sourceArray: any[], key: string, direction: string) {
 		if (direction === 'ASC') {
 			return Array.from(sourceArray).sort((item1: any, item2: any) => {
 				return this.orderByComparator(item1[key], item2[key]);

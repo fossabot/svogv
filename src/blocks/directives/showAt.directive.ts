@@ -21,7 +21,7 @@ export class ShowAtDirective {
 	}
 
 
-	private checkMinMaxCondition(target) {
+	private checkMinMaxCondition(target: any) {
 		if (this.condition.max && this.condition.min) {
 			return target.innerWidth > this.condition.min && target.innerWidth < this.condition.max;
 		} else if (this.condition.min) {
@@ -33,7 +33,7 @@ export class ShowAtDirective {
 		}
 	}
 
-	checkConditions(target) {
+	checkConditions(target: any) {
 		if (this.checkMinMaxCondition(target) && !this.hasView) {
 			this.show();
 		} else if (!this.checkMinMaxCondition(target) && this.hasView) {

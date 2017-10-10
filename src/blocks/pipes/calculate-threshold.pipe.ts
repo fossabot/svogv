@@ -21,7 +21,7 @@ export class CalculateThreshold implements PipeTransform {
 	 * @param property - The property from which extract the values, for ex. fuelConsumption, mileage, score
 	 * @returns {number} - The higher value is returned and act as threshold
 	 */
-	transform(items, property): Number {
+	transform(items: any[], property: string): Number {
 		// Calculate the threshold only when needed
 		// Iterate through the list of items extracting one property
 		// and let the math function return the highest value in the array

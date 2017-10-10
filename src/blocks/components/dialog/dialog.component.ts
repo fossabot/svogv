@@ -50,11 +50,11 @@ export class DialogComponent implements OnInit {
 	 * Handle confirm button, emit an event for it
 	 * @param data
 	 */
-	confirmed(data) {
+	confirmed(data: any) {
 		this.dialogOutput.emit(data);
 	}
 
-	canceled(data) {
+	canceled(data: any) {
 		this.dialogOutput.emit(data);
 	}
 

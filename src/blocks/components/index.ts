@@ -14,7 +14,6 @@ export * from './list-footer/list-footer.component';
 export * from './list-header/list-header.component';
 export * from './list-view/list-view.component';
 export * from './list-view/list-item/list-item.component';
-export * from './marker/marker.component';
 export * from './order-widget/order-widget.component';
 export * from './picture/picture.component';
 export * from './picture-text/picture-text.component';

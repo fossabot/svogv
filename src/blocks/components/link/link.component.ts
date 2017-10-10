@@ -7,9 +7,9 @@ import { Component, HostBinding, Input, OnInit } from '@angular/core';
 })
 export class LinkComponent implements OnInit {
 
-	@HostBinding('class.is-disabled') @Input() public disabled;
-	@Input() public iconName;
-	@Input() public iconSize;
+	@HostBinding('class.is-disabled') @Input() public disabled: boolean;
+	@Input() public iconName: string;
+	@Input() public iconSize: string;
 
 	ngOnInit() {}
 }

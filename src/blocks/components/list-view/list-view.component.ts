@@ -57,7 +57,7 @@ export class ListViewComponent implements DoCheck, OnDestroy {
 	 */
 	ngDoCheck() {
 		if (typeof this.scrollableList !== 'undefined' && this.changeDetectionIndex === 0) {
-			this.scrollableList.nativeElement.addEventListener('scroll', (event) => {
+			this.scrollableList.nativeElement.addEventListener('scroll', (event: any) => {
 				// There's a buffer of 20px as we want to remove the gradient a little before the user reaches the end
 				this.showShade = event.target.scrollHeight - event.target.scrollTop > event.target.clientHeight + 20 ? true : false;
 			}, true);

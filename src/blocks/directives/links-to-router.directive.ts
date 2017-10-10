@@ -49,7 +49,7 @@ export class LinksToRouterDirective {
 	}
 
 	@HostListener('click', ['$event'])
-	onHostClick($event) {
+	onHostClick($event: MouseEvent) {
 
 		const el = $event.target as HTMLAnchorElement;
 		const anchor: HTMLAnchorElement = el && el.tagName === 'A' ? el : null;
