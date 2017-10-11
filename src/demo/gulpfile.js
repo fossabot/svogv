@@ -49,9 +49,6 @@ gulp.task('clean', ['clean:assets', 'clean:views', 'clean:views:index']);
 gulp.task('copy:js', function () {
   console.log("Assets target: " + paths.assets + 'js/lib');
   return gulp.src([
-              paths.npm + 'jquery/dist/jquery.js',
-              paths.npm + 'bootstrap/dist/js/bootstrap.js',
-              paths.npm + 'tether/dist/js/tether.js',
               paths.npm + 'core-js/client/core.js',
               paths.npm + 'zone.js/dist/zone.js',
               paths.npm + 'reflect-metadata/Reflect.js',

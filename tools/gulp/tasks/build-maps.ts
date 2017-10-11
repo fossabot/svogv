@@ -89,10 +89,7 @@ task(':build:maps:components:rollup', () => {
     'rxjs/add/operator/first': 'Rx.Observable.prototype',
     'rxjs/operator/first': 'Rx.Observable.prototype',
     'rxjs/ReplaySubject': 'Rx',
-    'rxjs/Observable': 'Rx',
-
-    // others
-    'js-marker-clusterer': 'js-marker-clusterer'
+    'rxjs/Observable': 'Rx'
   };
 
   const rollupOptions = {

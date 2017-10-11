@@ -1,5 +1,4 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, Input, NgZone, Output } from '@angular/core';
-import 'js-marker-clusterer';
 import { GMapsApiLoader } from '../../services/api-loader';
 
 declare const google: any;

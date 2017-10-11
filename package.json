@@ -52,7 +52,6 @@
     "@angular/router": "^4.4.4",
     "core-js": "^2.5.1",
     "font-awesome": "^4.7.0",
-    "js-marker-clusterer": "^1.0.0",
     "ng2-date-picker": "^2.5.0-beta",
     "rxjs": "^5.4.3",
     "systemjs": "0.19.38",

@@ -10,8 +10,7 @@ import { } from '@types/googlemaps';
 
 // Components
 import {
-	MapClusterComponent
-	, MapDirectionsComponent
+	  MapDirectionsComponent
 	, MapMarkerComponent
 	, MapPopupComponent
 	, MapComponent
@@ -34,7 +33,6 @@ import {
 		MarkerComponent,
 		MapComponent,
 		MapMarkerComponent,
-		MapClusterComponent,
 		MapPopupComponent,
 		MapDirectionsComponent
 	],
@@ -48,8 +46,7 @@ import {
 		MapPopupComponent,
 		MapDirectionsComponent,
 		MapMarkerComponent,
-		MapPopupComponent,
-		MapClusterComponent
+		MapPopupComponent
 	]
 })
 export class SvogvMapsModule {

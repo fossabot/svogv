@@ -1,6 +1,5 @@
 import { Component, ElementRef, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { MapClusterComponent } from '../map-cluster/map-cluster.component';
 import { getCustomOverlayView } from '../../services/gmaps-marker';
 import { MapComponent } from '../map/map.component';
 
@@ -55,8 +54,7 @@ export class MapMarkerComponent implements OnInit, OnDestroy {
 	@Output() markerToggled = new EventEmitter();
 
 	constructor(private mapComponent: MapComponent,
-				private elementRef: ElementRef,
-				private mapCluster: MapClusterComponent) {
+				private elementRef: ElementRef) {
 	}
 
 	/**
@@ -80,8 +78,8 @@ export class MapMarkerComponent implements OnInit, OnDestroy {
 			this.el = this.elementRef.nativeElement;
 			this.position = new google.maps.LatLng(this.lat, this.lng);
 			this.marker = getCustomOverlayView(this.el, this.position);
-			this.mapCluster.clusterer.addMarker(this.marker);
-
+			// TODO: Add cluster function here
+			// this.mapCluster.clusterer.addMarker(this.marker);
 			if (!this.mapComponent.zoomed) {
 				this.mapComponent.bounds.extend(this.marker.getPosition());
 				map.fitBounds(this.mapComponent.bounds);
@@ -120,7 +118,7 @@ export class MapMarkerComponent implements OnInit, OnDestroy {
 		}
 
 		if (this.marker !== undefined) {
-			this.mapCluster.clusterer.removeMarker(this.marker);
+			// this.mapCluster.clusterer.removeMarker(this.marker);
 		}
 	}
 }

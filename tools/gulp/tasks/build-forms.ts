@@ -128,6 +128,7 @@ task(':build:forms:components:inline', sequenceTask(
   ':build:forms:components:ts',
   ':build:forms:components:scss',
   ':build:forms:components:assets',
+  ':build:forms:components:assets:minify',
   ':build:forms:components:copy-for-demo',
   ':forms:inline-resources'
 ));
