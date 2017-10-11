@@ -3,7 +3,7 @@ import { Component, ContentChildren, DoCheck, ElementRef, Input, OnDestroy, Quer
 /**
  * @export
  * @class ListViewComponent
- * @implements {OnInit}
+ * @implements {DoCheck}, {OnDestroy}
  */
 @Component({
 	selector: 'ac-list-view',

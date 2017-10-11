@@ -4,10 +4,9 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
  *
  * @export
  * @class ListItemComponent
- * @implements {OnInit}
  */
 @Component({
-	selector: 'list-item',
+	selector: 'ac-list-item',
 	templateUrl: 'list-item.component.html',
 	styleUrls: ['list-item.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush

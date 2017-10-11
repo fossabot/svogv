@@ -24,6 +24,7 @@ import {
 	, ListHeaderComponent
 	, ListItemComponent
 	, ListViewComponent
+	, MarkerComponent
 	, OrderWidgetComponent
 	, PictureTextComponent
 	, PictureComponent
@@ -68,6 +69,7 @@ import { ArrayToStringConverter
 		ListItemComponent,
 		ListFooterComponent,
 		ListHeaderComponent,
+		MarkerComponent,
 		OrderWidgetComponent,
 		LinkComponent,
 		UiSwitchComponent,
@@ -110,6 +112,7 @@ import { ArrayToStringConverter
 		ListItemComponent,
 		ListFooterComponent,
 		ListHeaderComponent,
+		MarkerComponent,
 		OrderWidgetComponent,
 		OrderWidgetComponent,
 		ButtonComponent,

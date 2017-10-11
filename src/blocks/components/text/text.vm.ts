@@ -1,9 +1,4 @@
-/**
- * Created by sven.friedemann on 26.06.17.
- */
-
-
-export interface TextVM {
+export interface TextViewModel {
 	settings: {
 		headlineClasses?: string;
 		subheadlineClasses?: string;

@@ -1,8 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PictureVM } from '../picture/picture.vm';
-import { TextVM } from '../text/text.vm';
+import { PictureViewModel } from '../picture/picture.vm';
+import { TextViewModel } from '../text/text.vm';
 import { PictureTextViewModel } from './picture-text.vm';
 
+/**
+ * A picture with text that consists of three parts, h1, h2, and paragraph.
+ */
 @Component({
 	selector: 'ac-picture-text',
 	templateUrl: 'picture-text.component.html',
@@ -10,8 +13,8 @@ import { PictureTextViewModel } from './picture-text.vm';
 })
 export class PictureTextComponent implements OnInit {
 
-	@Input() textVM: TextVM;
-	@Input() pictureVM: PictureVM;
+	@Input() textVM: TextViewModel;
+	@Input() pictureVM: PictureViewModel;
 	@Input() vm: PictureTextViewModel;
 
 	constructor() {

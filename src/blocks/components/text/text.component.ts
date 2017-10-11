@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TextVM } from './text.vm';
+import { TextViewModel } from './text.vm';
 
+/**
+ * A page header construct that consists of h1, h2, and a paragraph.
+ */
 @Component({
 	selector: 'ac-text',
 	templateUrl: 'text.component.html',
@@ -8,8 +11,10 @@ import { TextVM } from './text.vm';
 })
 export class TextComponent implements OnInit {
 
-	@Input() vm: TextVM;
-	@Input() params: Object;
+	/**
+	 * The components data structure. All parameters are optional.
+	 */
+	@Input() vm: TextViewModel;
 
 	constructor() {
 	}

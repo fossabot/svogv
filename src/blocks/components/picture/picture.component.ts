@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PictureVM } from './picture.vm';
+import { PictureViewModel } from './picture.vm';
 
+/**
+ * A styled picture.
+ */
 @Component({
 	selector: 'ac-picture',
 	templateUrl: 'picture.component.html',
@@ -8,7 +11,7 @@ import { PictureVM } from './picture.vm';
 })
 export class PictureComponent implements OnInit {
 
-	@Input() vm: PictureVM;
+	@Input() vm: PictureViewModel;
 
 	ngOnInit() {
 	}
