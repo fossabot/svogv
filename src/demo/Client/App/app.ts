@@ -49,9 +49,9 @@ import { SvogvHudModule } from '@svogv/hud';
     , cmp.TreeviewComponent
     , cmp.LoaderIconComponent
     // Custom Widgets just for Demo
-    , cmp.AcSideMenuComponent
-    , cmp.AcBreadCrumbComponent
-    , cmp.AcTabsComponent
+    , cmp.DemoSideMenuComponent
+    , cmp.DemoBreadCrumbComponent
+    , cmp.DemoTabsComponent
     // Hud Demo
     , cmp.HudDashboardComponent
   ],

@@ -1,3 +1,3 @@
-export * from './ac-menu/ac-sidemenu.component';
-export * from './ac-breadcrumb.component';
-export * from './ac-tabs.component'; 
+export * from './demo-menu/demo-sidemenu.component';
+export * from './demo-breadcrumb.component';
+export * from './demo-tabs.component'; 
