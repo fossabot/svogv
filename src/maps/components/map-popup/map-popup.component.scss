@@ -49,13 +49,17 @@
 		font-size: 12px;
 	}
 
-	.map-popup__licence-plate {
+	.map-popup__header {
 		font-family: $font-head-bold;
 	}
 
-	.map-popup__driver-tel {
+	.map-popup__text {
 		margin-top: 18px;
 		font-family: $font-head-bold;
+	}
+
+	.map-popup__detail {
+		margin-top: 14px;
 	}
 }
 

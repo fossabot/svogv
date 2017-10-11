@@ -1,17 +1,13 @@
 <div class="map-popup__info">
-    <div class="map-popup__licence-plate" [routerLink]="['/', 'profile', 'vehicle', data.data.id]">
-        {{data.data.licencePlate}}
+    <div class="map-popup__header" [routerLink]="['/', 'profile', 'vehicle', data.data.id]">
+        {{data.header}}
     </div>
-    <div class="map-popup__vehicle-type">
-        {{data.data.modelName}}
+    <div class="map-popup__text">
+        {{data.text}}
     </div>
-    <div class="map-popup__driver-tel">
-        {{data.data.lastKnownDriver.phoneNumber}}
-    </div>
-    <div class="map-popup__driver-name">
-        {{data.data.lastKnownDriver.forename}} {{data.data.lastKnownDriver.surename}}
+    <div class="map-popup__detail" *ngFor="let detail of data.details">
+        {{detail}}
     </div>
 </div>
-<div class="map-popup__active">
-    {{(data.data.vehicleGPS.active? 'map.i18n_active_since' : 'map.i18n_inactive_since')}} {{data.data.vehicleGPS.timestamp | amTimeAgo:true }}(n)
+<div [ngClass]="{'map-popup__active': data.active}">
 </div>

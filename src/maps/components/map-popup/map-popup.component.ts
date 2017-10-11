@@ -3,6 +3,8 @@ import { Subscription } from 'rxjs/Subscription';
 import { getCustomOverlayView } from '../../services/gmaps-marker';
 import { MapComponent } from '../map/map.component';
 
+import { MapPupupDataViewmodel } from './map-popup.data.viewmodel';
+
 @Component({
 	selector: 'ac-map-popup',
 	templateUrl: 'map-popup.component.html',
@@ -10,7 +12,7 @@ import { MapComponent } from '../map/map.component';
 })
 export class MapPopupComponent implements OnInit, OnChanges, OnDestroy {
 
-	@Input() data: any;
+	@Input() data: MapPupupDataViewmodel;
 
 	private el: HTMLElement;
 	private position: google.maps.LatLng;
