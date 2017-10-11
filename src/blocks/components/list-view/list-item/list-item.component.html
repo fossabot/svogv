@@ -1,9 +1,6 @@
-<div class="list-row " >
+<div class="list-row ">
     <!-- is-main-panel-collapsed-left -->
-    <horizontal-bar-chart
-        *ngIf="showHorizontalBars"
-        [percentageAmount]="barPercentageAmount"
-        [maxValueReference]="maxValueReference"
+    <horizontal-bar-chart *ngIf="showHorizontalBars" [percentageAmount]="barPercentageAmount" [maxValueReference]="maxValueReference"
         [filterType]="filterType">
     </horizontal-bar-chart>
 
@@ -14,10 +11,9 @@
         <ng-content select="[custom-summary]"></ng-content>
 
         <div class="right-markers" *ngIf="isActive">
-            <bb-marker
-            *ngFor="let marker of rightMarkers ; let i = index "
-            [vm]="{type: marker.type, level: marker.level, caption: marker.caption, count: marker.count}" [iconSize]="'13px'">
-        </bb-marker>
+            <ac-marker *ngFor="let marker of rightMarkers ; let i = index " [vm]="{type: marker.type, level: marker.level, caption: marker.caption, count: marker.count}"
+                [iconSize]="'13px'">
+                </ac-marker>
         </div>
     </div>
 

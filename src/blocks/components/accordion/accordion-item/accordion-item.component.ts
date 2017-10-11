@@ -13,7 +13,7 @@ import { AccordionComponent } from '../accordion.component';
           <span class="accordion__header-inner">
 	          <ng-content select="[heading]"></ng-content>
           </span>
-          <bb-icon [iconName]="'arrow'" [size]="'12px'" class="accordion__header-icon"></bb-icon>
+          <ac-icon [iconName]="'arrow'" [size]="'12px'" class="accordion__header-icon"></ac-icon>
       </div>
       <div class="accordion__content">
         <div class="accordion__content-inner">
