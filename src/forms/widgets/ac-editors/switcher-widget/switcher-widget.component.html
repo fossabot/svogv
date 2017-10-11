@@ -5,15 +5,15 @@
     </div>
     
     <label for="{{props.id}}" class="switcher__label">
-        <markdown *ngIf="ui['ui:options']?.markdownLabel; else regularLabel" [data]="title | translate"
+        <div *ngIf="ui['ui:options']?.markdownLabel; else regularLabel" [data]="title "
                 class="is-white"
-                links-to-router [asExternalLinks]="true"></markdown>
-        <ng-template #regularLabel>{{ title | translate }}</ng-template>
+                links-to-router [asExternalLinks]="true"></div>
+        <ng-template #regularLabel>{{ title }}</ng-template>
         <abbr *ngIf="required" title="Required">*</abbr>
     </label>
 
     <span class="input__description is-description" *ngIf="props.description">
-        {{props.description | translate}}
+        {{props.description }}
     </span>
 
 </div>

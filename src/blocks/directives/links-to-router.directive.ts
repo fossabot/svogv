@@ -28,12 +28,12 @@ import { Router } from '@angular/router';
  *
  *
  * @example
- * <markdown links-to-router></markdown>
+ * <div links-to-router></div>
  *
  * Adding asExternalLinks param opens links in new tab
  *
  * @example
- * <markdown links-to-router [asExternalLinks]></markdown>
+ * <div links-to-router [asExternalLinks]></div>
  *
  */
 

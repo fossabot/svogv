@@ -3,12 +3,12 @@
 	       [attr.for]="props.id"
 	       class="input__label is-label"
 	>
-		{{props.title | translate}}
+		{{props.title }}
 		<abbr *ngIf="props.schema.required" title="Required">*</abbr>
 	</label>
 
 	<span class="input__description is-description" *ngIf="props.description">
-		{{props.description | translate}}
+		{{props.description }}
 	</span>
 
 	<div class="input__text-wrapper">
@@ -17,7 +17,7 @@
 		       id="{{props.id}}"
 		       name="{{props.id}}"
 		       [formControlName]="props.path"
-		       placeholder="{{props.ui['ui:placeholder'] | translate}}"
+		       placeholder="{{props.ui['ui:placeholder'] }}"
 		       type="text"
 			   (focus)="setFocus()"
 			   (blur)="clearFocus()"
@@ -29,6 +29,6 @@
 		>
 	</div>
 	<span class="input__error is-form-error" *ngIf="showErrorMessage && errorMessage">
-        {{ errorMessage | translate }}
+        {{ errorMessage  }}
     </span>
 </div>

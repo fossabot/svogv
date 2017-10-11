@@ -1,20 +1,20 @@
 <fieldset class="fieldset__wrapper is-fieldset" [formGroup]="formControl">
-	<legend class="fieldset__legend" *ngIf="legend">{{legend | translate}}</legend>
+	<legend class="fieldset__legend" *ngIf="legend">{{legend }}</legend>
 
 	<div *ngIf="description" class="fieldset__description">
-		<markdown *ngIf="ui['ui:options']?.markdownDescription;"
-				  [data]="description | translate"
+		<div *ngIf="ui['ui:options']?.markdownDescription;"
+				  [data]="description "
 				  class="is-white"
-				  links-to-router [asExternalLinks]="true"></markdown>
-		<ng-template #regularDescription>{{description | translate}}</ng-template>
+				  links-to-router [asExternalLinks]="true"></div>
+		<ng-template #regularDescription>{{description }}</ng-template>
 	</div>
 
 	<div *ngIf="help" class="fieldset__help">
-		<markdown *ngIf="ui['ui:options']?.markdownHelp; else regularHelp"
-				  [data]="help | translate"
+		<div *ngIf="ui['ui:options']?.markdownHelp; else regularHelp"
+				  [data]="help "
 				  class="is-white"
-				  links-to-router [asExternalLinks]="true"></markdown>
-		<ng-template #regularHelp>{{help | translate}}</ng-template>
+				  links-to-router [asExternalLinks]="true"></div>
+		<ng-template #regularHelp>{{help }}</ng-template>
 	</div>
 
 	<div class="fieldset__row">

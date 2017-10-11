@@ -3,12 +3,12 @@
 		   [attr.for]="props.id"
 		   class="input__label is-label"
 	>
-		{{props.title | translate}}
+		{{props.title }}
 		<abbr *ngIf="this.props.schema.required" title="Required">*</abbr>
 	</div>
 
 	<span class="input__description is-description" *ngIf="props.description">
-		{{props.description | translate}}
+		{{props.description }}
 	</span>
 
 	<div class="input__radio-wrapper" [control]="props.formControl" validate-on-blur>
@@ -18,10 +18,10 @@
 					type="radio"
 					value="{{option}}"
 					class="input__radio-input">
-			<label for="{{i}}" class="input__radio-label">{{props.schema.enumNames[i] | translate}}</label>
+			<label for="{{i}}" class="input__radio-label">{{props.schema.enumNames[i] }}</label>
 		</div>
 	</div>
 	<span class="input__error is-form-error" *ngIf="showErrorMessage && errorMessage">
-		{{ errorMessage | translate }}
+		{{ errorMessage  }}
 	</span>
 </div>

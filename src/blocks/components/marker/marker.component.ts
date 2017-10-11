@@ -32,9 +32,9 @@ export class MarkerComponent implements OnInit {
 	};
 
 	@Input() public vm: MarkerViewModel;
-	@Input() public iconSize;
+	@Input() public iconSize: string;
 	@Input() public markerSize = '30px';
-	@HostBinding('class.is-deactivated') @Input() public inactive;
+	@HostBinding('class.is-deactivated') @Input() public inactive: boolean;
 
 	constructor(private renderer: Renderer2, private elementRef: ElementRef) { }
 

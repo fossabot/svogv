@@ -3,14 +3,14 @@
 		<label *ngIf="props.title"
 		       [attr.for]="props.id"
 		       class="select__label is-label">
-			{{props.title | translate }}
+			{{props.title  }}
 			<abbr *ngIf="this.props.schema.required" title="Required">*</abbr>
 		</label>
 	</div>
 	<div class="select__wrapper">
 		<select id="{{props.id}}" name="{{props.id}}" [formControl]="props.formControl" class="is-ui-replaced" tabindex="-1">
 			<option *ngFor="let option of props.schema.enum; let i = index" value="{{option}}">
-				{{props.schema.enumNames[i] | translate}}
+				{{props.schema.enumNames[i] }}
 			</option>
 		</select>
 
@@ -26,7 +26,7 @@
 						readonly="readonly"
 						[attr.aria-controls]="instanceId"
 						[attr.aria-expanded]="ariaExpanded">
-					{{placeholder | translate}}
+					{{placeholder }}
 				</button>
 
 			</div>
@@ -44,7 +44,7 @@
 									value="{{option}}"
 									[attr.data-index]="i"
 							        (click)="selectItemHandler($event)">
-								{{props.schema.enumNames[i] | translate}}
+								{{props.schema.enumNames[i] }}
 							</button>
 						</li>
 					</ul>
@@ -53,7 +53,7 @@
 		</div>
 
 		<span class="select__error is-form-error" *ngIf="errorMessage && showErrorMessage">
-        {{ errorMessage | translate}}
+        {{ errorMessage }}
     	</span>
 	</div>
 </div>

@@ -13,5 +13,5 @@
     </div>
 </div>
 <div class="map-popup__active">
-    {{(data.data.vehicleGPS.active? 'map.i18n_active_since' : 'map.i18n_inactive_since') | translate}} {{data.data.vehicleGPS.timestamp | amTimeAgo:true }}(n)
+    {{(data.data.vehicleGPS.active? 'map.i18n_active_since' : 'map.i18n_inactive_since')}} {{data.data.vehicleGPS.timestamp | amTimeAgo:true }}(n)
 </div>
