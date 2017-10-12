@@ -11,14 +11,13 @@ import { SiteApiService } from './services/index';
 import * as cmp from './components/index';
 // routes' configuration
 import routes from './configurations/routes';
-// The SVOGV library (in the demo it's a hard link with paths info in tsconfig,
-// resolves against node_modules without changes)
+// The SVOGV library (in the demo it's a copy from build process so one can build and run without updating npm)
 import { SvogvFormsModule, FormValidatorService } from '@svogv/forms';
 import { SvogvBlocksModule } from '@svogv/blocks';
-// TODO: Rename and Peer Dev for google maps
 import { SvogvMapsModule } from '@svogv/maps';
 import { SvogvHudModule } from '@svogv/hud';
 
+import { environment } from '../../environments/environment';
 
 @NgModule({
   imports: [
@@ -64,5 +63,7 @@ import { SvogvHudModule } from '@svogv/hud';
 export class RootModule {
 }
 // uncomment to use in production
-enableProdMode();
+if (environment.production) {
+  enableProdMode();
+}
 platformBrowserDynamic().bootstrapModule(RootModule);
