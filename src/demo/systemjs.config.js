@@ -24,16 +24,13 @@
             '@svogv/forms': 'npm:@svogv/svogv-forms.umd.js',
             '@svogv/blocks': 'npm:@svogv/svogv-blocks.umd.js',
             '@svogv/maps': 'npm:@svogv/svogv-maps.umd.js',
-            '@svogv/hud': 'npm:@svogv/svogv-hud.umd.js'
+            '@svogv/hud': 'npm:@svogv/svogv-hud.umd.js',
+            'moment': 'npm:moment.js'
         },        
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
             'app': {
                 main: './app.js',
-                defaultExtension: 'js'
-            },
-            'moment': {
-                main: './assets/js/lib/moment.js',
                 defaultExtension: 'js'
             }
         },
