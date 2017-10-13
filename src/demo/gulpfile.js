@@ -32,7 +32,7 @@ var paths = {
   assets: upPath + "demo/assets/",
   views: upPath + "demo/views/",
   npm: "./node_modules/",
-  app: "./client/app/"
+  app: "./app/"
 };
 
 gulp.task('clean:assets', function (cb) {
@@ -61,7 +61,7 @@ gulp.task('copy:js', function () {
 
 // This is a simple loader while debugging without going through the WebPack hassle
 gulp.task('copy:systemjs', function () {
-  return gulp.src('./client/systemjs.config.js')
+  return gulp.src('./systemjs.config.js')
             .pipe(gulp.dest(paths.assets + 'js'));
 });
 
@@ -102,7 +102,7 @@ gulp.task('copy:rxjs', function () {
 // we write all css in sass 
 gulp.task('sass', function () {
   return gulp.src([
-    './client/styles/*.scss'
+    './assets/styles/*.scss'
   ])
     .pipe(sass())
     .pipe(uglifycss())
@@ -134,7 +134,7 @@ gulp.task('copy:views:templates', function () {
              .pipe(gulp.dest(paths.root + 'app/components/'));
 });
 gulp.task('copy:views:index', function () {
-  return gulp.src(['./client/views/index.html'])
+  return gulp.src(['./assets/views/index.html'])
              .pipe(remHtmlCom())
              //.pipe(htmlmin({ collapseWhitespace: true }))
              .pipe(gulp.dest(paths.root));
@@ -142,7 +142,7 @@ gulp.task('copy:views:index', function () {
 gulp.task('copy:views', ['copy:views:index', 'copy:views:templates']);
 
 gulp.task('copy:images', function () {
-  return gulp.src(['./client/images/**/*.*'])
+  return gulp.src(['./assets/images/**/*.*'])
              .pipe(gulp.dest(paths.assets + 'img'));
 });
 
@@ -166,8 +166,8 @@ gulp.task('watchts', ['ts'], function () {
 
 // to debug using source maps run this task. It copies the sources so one can use the browser debugger.
 gulp.task('debug', function () {
-  return gulp.src(['./client/app/**/*.*'])
-             .pipe(gulp.dest(paths.root + 'src/demo/client/app'));
+  return gulp.src(['./app/**/*.*'])
+             .pipe(gulp.dest(paths.root + 'src/demo/app'));
 });
 
 // complete setup (without tsc, it's in the package.json now)
