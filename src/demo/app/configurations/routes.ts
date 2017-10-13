@@ -11,12 +11,12 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     component: cmp.DashboardComponent,
-    data: { 'title': 'Dashboard', 'subtitle': 'Dashboard' }
+    data: { 'title': 'Dashboard', 'subtitle': 'Dashboard', 'icon': 'fa-dashboard' }
   },
   {
     path: 'widgets',
     component: cmp.WidgetDemoComponent,
-    data: { 'title': 'Widget Demo', 'subtitle': 'Diverse Components', 'breadcrumb': true },
+    data: { 'title': 'Widget Demo', 'subtitle': 'Diverse Components', 'icon': 'fa-clock-o', 'breadcrumb': true },
     children: [
       {
         path: '',
@@ -29,7 +29,7 @@ export const routes: Routes = [
         component: cmp.ListWidgetsComponent,
         data: {
           'title': 'Overview', 'subtitle': 'Show other widgets',
-          'active': true, 'disabled': false, 'breadcrumb': true
+          'active': true, 'disabled': false, 'breadcrumb': true, order: 10
         }
       },
       {
@@ -37,7 +37,7 @@ export const routes: Routes = [
         component: cmp.CommonComponent,
         data: {
           'title': 'Common', 'subtitle': 'Simple widgets',
-          'active': true, 'disabled': false, 'breadcrumb': true
+          'active': false, 'disabled': false, 'breadcrumb': true, order: 20
         }
       },
       {
@@ -45,7 +45,7 @@ export const routes: Routes = [
         component: cmp.AnalogClockComponent,
         data: {
           'title': 'Analog Clock', 'subtitle': 'Clock Demo',
-          'active': false, 'disabled': false, 'breadcrumb': true
+          'active': false, 'disabled': false, 'breadcrumb': true, order: 30
         }
       },
       {
@@ -53,7 +53,7 @@ export const routes: Routes = [
         component: cmp.LoaderIconComponent,
         data: {
           'title': 'Loader Icon', 'subtitle': 'Living Icons',
-          'active': false, 'disabled': false, 'breadcrumb': true
+          'active': false, 'disabled': false, 'breadcrumb': true, order: 40
         }
       },
       {
@@ -61,7 +61,7 @@ export const routes: Routes = [
         component: cmp.TreeviewComponent,
         data: {
           'title': 'Tree View', 'subtitle': 'Tree Demo',
-          'active': false, 'disabled': false, 'breadcrumb': true
+          'active': false, 'disabled': false, 'breadcrumb': true, order: 50
         }
       }
     ]
@@ -70,7 +70,7 @@ export const routes: Routes = [
   {
     path: 'editor',
     component: cmp.EditorDemoComponent,
-    data: { 'title': 'Editor Demo', 'subtitle': 'Editor and Grid', 'breadcrumb': true },
+    data: { 'title': 'Editor Demo', 'subtitle': 'Editor and Grid', 'icon': 'fa-edit', 'breadcrumb': true },
     children: [
       {
         path: '',
@@ -124,13 +124,13 @@ export const routes: Routes = [
   {
     path: 'huddashboard',
     component: cmp.HudDashboardComponent,
-    data: { 'title': 'HUD Widgets', 'subtitle': 'Head Up Display', 'breadcrumb': true }
+    data: { 'title': 'HUD Widgets', 'subtitle': 'Head Up Display', 'icon': 'fa-vcard-o', 'breadcrumb': true }
   },
   // standard component paths
   {
     path: 'about',
     component: cmp.SiteAboutComponent,
-    data: { 'title': 'About', 'subtitle': 'About this app', 'breadcrumb': true }
+    data: { 'title': 'About', 'subtitle': 'About this app', 'icon': 'fa-user-circle', 'breadcrumb': true, 'header': 'Info' }
   }
 ];
 
