@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp build",
-    "demoall": "gulp build && ng build",
-    "execdemo": "cd src/demo && npm run exec",
+    "demoall": "gulp build && npm run execdemo",
+    "demoall-cli": "gulp build && ng build",
+    "execdemo": "cd src/demo && npm run build",
     "test": "gulp test",
     "lint": "gulp lint",
     "tslint": "gulp tslint",
@@ -54,7 +55,6 @@
     "ajv": "^5.2.3",
     "core-js": "^2.5.1",
     "font-awesome": "^4.7.0",
-    "ng2-date-picker": "^2.5.1",
     "rxjs": "^5.4.3",
     "systemjs": "0.19.38",
     "zone.js": "^0.8.18"

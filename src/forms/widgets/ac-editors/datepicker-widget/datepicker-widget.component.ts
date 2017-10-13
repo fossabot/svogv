@@ -1,6 +1,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { AbstractControl } from '@angular/forms';
-import { IDatePickerDirectiveConfig } from 'ng2-date-picker';
+import { IDatePickerDirectiveConfig } from './picker-parts/index';
 import { WidgetErrorMessages } from '../../../shared/models/widget-error-messages.m';
 import { WidgetFieldProperties } from '../../../shared/models/widget-field-properties.m';
 import { Widget } from '../../../shared/models/widget.m';

@@ -3,17 +3,15 @@
 
 	<div *ngIf="description" class="fieldset__description">
 		<div *ngIf="ui['ui:options']?.markdownDescription;"
-				  [data]="description "
 				  class="is-white"
-				  links-to-router [asExternalLinks]="true"></div>
+				  links-to-router>{{ description }}</div>
 		<ng-template #regularDescription>{{description }}</ng-template>
 	</div>
 
 	<div *ngIf="help" class="fieldset__help">
 		<div *ngIf="ui['ui:options']?.markdownHelp; else regularHelp"
-				  [data]="help "
 				  class="is-white"
-				  links-to-router [asExternalLinks]="true"></div>
+				  links-to-router>{{ help }}</div>
 		<ng-template #regularHelp>{{help }}</ng-template>
 	</div>
 

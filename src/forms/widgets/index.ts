@@ -10,6 +10,7 @@ export * from './ac-treeview/models/ac-componenttreenode';
 export * from './ac-datagrid/ac-datagridpagination.component';
 export * from './ac-loadericon.component';
 export * from './ac-editors/ac-editor.component';
+export * from './ac-editors/datepicker-widget/picker-parts/index';
 export * from './ac-editors/checkbox-widget/checkbox-widget.component';
 export * from './ac-editors/datepicker-widget/datepicker-widget.component';
 export * from './ac-editors/fieldset-widget/fieldset-widget.component';

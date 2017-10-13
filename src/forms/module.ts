@@ -1,9 +1,12 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
-
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+// Third Party
+import { DpDatePickerModule } from 'ng2-date-picker';
+// Internal
 import * as wd from './widgets/index';
+import * as d from './directives/validate-on-blur.directive';
 
 import {
   FormValidatorService
@@ -25,14 +28,15 @@ const SVOGV_FORMS_COMPONENTS = [
   wd.RadioWidgetComponent,
   wd.SelectWidgetComponent,
   wd.StringWidgetComponent,
-  wd.SwitcherWidgetComponent
+  wd.SwitcherWidgetComponent,
+  d.ValidateOnBlurDirective
 ];
 
 /**
  * The root module with the global exports.
  */
 @NgModule({
-  imports: [BrowserModule, RouterModule, ReactiveFormsModule],
+  imports: [BrowserModule, RouterModule, ReactiveFormsModule, FormsModule, DpDatePickerModule],
   declarations: SVOGV_FORMS_COMPONENTS,
   providers: [FormValidatorService],
   exports: SVOGV_FORMS_COMPONENTS

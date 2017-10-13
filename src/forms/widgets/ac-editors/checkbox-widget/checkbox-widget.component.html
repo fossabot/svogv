@@ -9,16 +9,16 @@
 		       class="checkbox__input"/>
 		<label for="{{props.id}}"
 		       class="checkbox__label">
-			<div *ngIf="ui['ui:options']?.markdownLabel; else regularLabel" [data]="title "
+			<div *ngIf="ui['ui:options']?.markdownLabel; else regularLabel"
 					  class="is-white"
-					  links-to-router [asExternalLinks]="true"></div>
+					  links-to-router>{{ title }}</div>
 			<ng-template #regularLabel>{{ title }}</ng-template>
 			<abbr *ngIf="required" title="Required">*</abbr>
 		</label>
 
 		<div class="checkbox__description" *ngIf="description">
-			<div *ngIf="markdownDescription; else regularDescription" [data]="description "
-					  links-to-router [asExternalLinks]="true"></div>
+			<div *ngIf="markdownDescription; else regularDescription"
+					  links-to-router>{{ description }}</div>
 			<ng-template #regularDescription>{{ description }}</ng-template>
 		</div>
 
