@@ -30,16 +30,12 @@ var upPath = "../../dist/";
 var paths = {
   root: upPath + "demo/",
   assets: upPath + "demo/assets/",
-  views: upPath + "demo/views/",
   npm: "./node_modules/",
   app: "./app/"
 };
 
 gulp.task('clean:assets', function (cb) {
   return del(paths.assets, { force: true});
-});
-gulp.task('clean:views', function (cb) {
-  return del(paths.views, { force: true});
 });
 gulp.task('clean:views:index', function (cb) {
   return del(paths.root + "index.html", { force: true});
@@ -134,7 +130,7 @@ gulp.task('copy:views:templates', function () {
              .pipe(gulp.dest(paths.root + 'app/components/'));
 });
 gulp.task('copy:views:index', function () {
-  return gulp.src(['./assets/views/index.html'])
+  return gulp.src(['./index.html'])
              .pipe(remHtmlCom())
              //.pipe(htmlmin({ collapseWhitespace: true }))
              .pipe(gulp.dest(paths.root));

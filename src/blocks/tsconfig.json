@@ -28,6 +28,7 @@
     ],
   "angularCompilerOptions": {
     "genDir": "../../@svogv/blocks",
+    "entryModule": "./module#SvogvBlocksModule", 
     "skipTemplateCodegen": true,
     "debug": true
   }

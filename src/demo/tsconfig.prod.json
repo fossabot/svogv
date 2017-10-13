@@ -17,7 +17,7 @@
     ]
   },
   "files": [
-    "./client/app/app.ts"
+    "./app/app.ts"
   ],
   "compileOnSave": false,
   "exclude": [
@@ -25,5 +25,11 @@
   ],
   "types": [
     "node"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "genDir": "../../dist/prod",
+    "entryModule": "./app/app#RootModule",
+    "skipTemplateCodegen": true,
+    "debug": true
+  }
 }

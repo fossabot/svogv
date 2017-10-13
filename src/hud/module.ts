@@ -18,15 +18,5 @@ const SVOGV_HUD_MODULES = [
   declarations: SVOGV_HUD_MODULES,
   exports: SVOGV_HUD_MODULES
 })
-export class SvogvHudRootModule { }
-
-
-/**
- * The actual SVOGV Module definition using the root module.
- */
-@NgModule()
 export class SvogvHudModule {
-  static forRoot(): ModuleWithProviders {
-    return { ngModule: SvogvHudRootModule };
-  }
 }

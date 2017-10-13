@@ -71,7 +71,7 @@ module.exports = {
 	},
 	"entry": {
 		"main": [
-			"./src/demo/client/app/app.ts"
+			"./src/demo/app/app.ts"
 		],
 		"polyfills": [
 		],
@@ -82,7 +82,7 @@ module.exports = {
 			"script-loader!./node_modules/hammerjs/hammer.min.js"
 		],
 		"styles": [
-			"./src/demo/client/site.scss"
+			"./src/demo/assets/site.scss"
 		]
 	},
 	"output": {
@@ -118,7 +118,7 @@ module.exports = {
 			},
 			{
 				"exclude": [
-					path.join(process.cwd(), "src/demo/client/styles/site.scss")
+					path.join(process.cwd(), "src/demo/assets/site.scss")
 				],
 				"test": /\.css$/,
 				"use": [
@@ -141,7 +141,7 @@ module.exports = {
 			},
 			{
 				"exclude": [
-					path.join(process.cwd(), "src/demo/client/styles/site.scss")
+					path.join(process.cwd(), "src/demo/assets/site.scss")
 				],
 				"test": /\.scss$|\.sass$/,
 				"use": [
@@ -172,7 +172,7 @@ module.exports = {
 			},
 			{
 				"include": [
-					path.join(process.cwd(), "src/demo/client/styles/site.scss")
+					path.join(process.cwd(), "src/demo/assets/site.scss")
 				],
 				"test": /\.css$/,
 				"use": [
@@ -195,7 +195,7 @@ module.exports = {
 			},
 			{
 				"include": [
-					path.join(process.cwd(), "src/demo/client/styles/site.scss")
+					path.join(process.cwd(), "src/demo/assets/site.scss")
 				],
 				"test": /\.scss$|\.sass$/,
 				"use": [
@@ -246,7 +246,7 @@ module.exports = {
 		new StyleLintPlugin(),
 		new ProgressPlugin(),
 		new HtmlWebpackPlugin({
-			"template": "./src/demo/client/views/index.html",
+			"template": "./src/demo/index.html",
 			"filename": "./index.html",
 			"hash": false,
 			"inject": true,
@@ -286,10 +286,10 @@ module.exports = {
 			]
 		}),
 		new AotPlugin({
-			"mainPath": "main.ts",
-			"hostReplacementPaths": {
-				"environments/environment.ts": "environments/environment.ts"
-			},
+			"mainPath": "app.ts",
+			// "hostReplacementPaths": {
+			// 	"environments/environment.ts": "environments/environment.ts"
+			// },
 			"exclude": [],
 			"tsConfigPath": "src/demo/tsconfig.prod.json",
 			"skipCodeGeneration": true

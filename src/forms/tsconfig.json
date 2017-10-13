@@ -28,6 +28,7 @@
     ],
   "angularCompilerOptions": {
     "genDir": "../../dist",
+    "entryModule": "./module#SvogvFormsModule", 
     "skipTemplateCodegen": true,
     "debug": true
   }

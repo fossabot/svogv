@@ -1,7 +1,7 @@
 ﻿import { Routes } from '@angular/router';
 import * as cmp from '../components/index';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: '',
     redirectTo: 'dashboard',
@@ -134,4 +134,3 @@ const routes: Routes = [
   }
 ];
 
-export default routes;

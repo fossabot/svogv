@@ -28,6 +28,7 @@
     ],
   "angularCompilerOptions": {
     "genDir": "../../@svogv/maps",
+    "entryModule": "./module#SvogvMapsModule",
     "skipTemplateCodegen": true,
     "debug": true
   }

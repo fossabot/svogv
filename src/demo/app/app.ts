@@ -10,7 +10,7 @@ import { SiteApiService } from './services/index';
 // custom components
 import * as cmp from './components/index';
 // routes' configuration
-import routes from './configurations/routes';
+import { routes } from './configurations/routes';
 // The SVOGV library (in the demo it's a copy from build process so one can build and run without updating npm)
 import { SvogvFormsModule, FormValidatorService } from '@svogv/forms';
 import { SvogvBlocksModule } from '@svogv/blocks';
@@ -24,10 +24,10 @@ import { SvogvHudModule } from '@svogv/hud';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
-    SvogvFormsModule.forRoot(),
+    SvogvFormsModule,
     SvogvBlocksModule,
     SvogvMapsModule,
-    SvogvHudModule.forRoot()
+    SvogvHudModule
   ],
   declarations: [
     // Demo app

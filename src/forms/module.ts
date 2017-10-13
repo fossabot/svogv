@@ -9,7 +9,7 @@ import {
   FormValidatorService
 } from './services/formvalidator.service';
 
-const SVOGV_MODULES = [
+const SVOGV_FORMS_COMPONENTS = [
   wd.AcInfoBox,
   wd.AcDataGridPagination,
   wd.AcTreeView,
@@ -17,7 +17,15 @@ const SVOGV_MODULES = [
   wd.AcEditor,
   wd.AcAutoForm,
   wd.AcLoaderIcon,
-  wd.AcAnalogClock
+  wd.AcAnalogClock,
+  wd.CheckboxWidgetComponent,
+  wd.DatepickerWidgetComponent,
+  wd.FieldsetWidgetComponent,
+  wd.ImageWidgetComponent,
+  wd.RadioWidgetComponent,
+  wd.SelectWidgetComponent,
+  wd.StringWidgetComponent,
+  wd.SwitcherWidgetComponent
 ];
 
 /**
@@ -25,19 +33,9 @@ const SVOGV_MODULES = [
  */
 @NgModule({
   imports: [BrowserModule, RouterModule, ReactiveFormsModule],
-  declarations: SVOGV_MODULES,
+  declarations: SVOGV_FORMS_COMPONENTS,
   providers: [FormValidatorService],
-  exports: SVOGV_MODULES
+  exports: SVOGV_FORMS_COMPONENTS
 })
-export class SvogvFormsRootModule { }
-
-
-/**
- * The actual SVOGV Module definition using the root module.
- */
-@NgModule()
 export class SvogvFormsModule {
-  static forRoot(): ModuleWithProviders {
-    return { ngModule: SvogvFormsRootModule };
-  }
 }
