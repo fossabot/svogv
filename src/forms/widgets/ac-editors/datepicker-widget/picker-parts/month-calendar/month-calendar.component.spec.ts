@@ -3,7 +3,7 @@ import {MonthCalendarComponent} from './month-calendar.component';
 import {UtilsService} from '../common/services/utils/utils.service';
 import {CalendarNavComponent} from '../calendar-nav/calendar-nav.component';
 import {MonthCalendarService} from './month-calendar.service';
-import * as moment from 'moment';
+import moment from 'moment';
 import {IMonth} from './month.model';
 import {Moment} from 'moment';
 

@@ -30,7 +30,7 @@ import {DateValidator} from '../common/types/validator.type';
 @Component({
   selector: 'dp-month-calendar',
   templateUrl: 'month-calendar.component.html',
-  styleUrls: ['month-calendar.component.less'],
+  styleUrls: ['month-calendar.component.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [
     MonthCalendarService,

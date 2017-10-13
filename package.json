@@ -55,6 +55,7 @@
     "ajv": "^5.2.3",
     "core-js": "^2.5.1",
     "font-awesome": "^4.7.0",
+    "moment": "^2.19.1",
     "rxjs": "^5.4.3",
     "systemjs": "0.19.38",
     "zone.js": "^0.8.18"
@@ -71,6 +72,7 @@
     "@types/jasmine": "^2.6.0",
     "@types/merge2": "0.0.28",
     "@types/minimist": "^1.1.28",
+    "@types/moment": "^2.13.0",
     "@types/node": "^6.0.89",
     "@types/protractor": "^4.0.0",
     "@types/run-sequence": "0.0.27",

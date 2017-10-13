@@ -72,7 +72,8 @@ task(':build:forms:components:rollup', () => {
     '@angular/router': 'ng.router',
     '@angular/platform-browser': 'ng.platformBrowser',
     '@angular/platform-browser-dynamic': 'ng.platformBrowserDynamic',
-
+    // Third party
+    'moment': 'moment.lib',
     // Rxjs dependencies
     'rxjs/Subject': 'Rx',
     'rxjs/add/observable/fromEvent': 'Rx.Observable',

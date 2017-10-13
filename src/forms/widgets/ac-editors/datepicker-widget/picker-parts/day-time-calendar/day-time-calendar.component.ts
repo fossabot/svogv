@@ -32,7 +32,7 @@ import {DateValidator} from '../common/types/validator.type';
 @Component({
   selector: 'dp-day-time-calendar',
   templateUrl: 'day-time-calendar.component.html',
-  styleUrls: ['day-time-calendar.component.less'],
+  styleUrls: ['day-time-calendar.component.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [
     DayTimeCalendarService,

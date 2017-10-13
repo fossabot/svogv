@@ -14,7 +14,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import {TimeSelectService, TimeUnit} from './time-select.service';
-import * as moment from 'moment';
+import moment from 'moment';
 import {Moment} from 'moment';
 import {ITimeSelectConfig} from './time-select-config.model';
 import {
@@ -33,7 +33,7 @@ import {DateValidator} from '../common/types/validator.type';
 @Component({
   selector: 'dp-time-select',
   templateUrl: 'time-select.component.html',
-  styleUrls: ['time-select.component.less'],
+  styleUrls: ['time-select.component.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [
     TimeSelectService,

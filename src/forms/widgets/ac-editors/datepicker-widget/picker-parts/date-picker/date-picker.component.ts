@@ -43,14 +43,14 @@ import {
   ValidationErrors,
   Validator
 } from '@angular/forms';
-import * as moment from 'moment';
+import moment from 'moment';
 import {Moment, unitOfTime} from 'moment';
 import {DateValidator} from '../common/types/validator.type';
 
 @Component({
   selector: 'dp-date-picker',
   templateUrl: 'date-picker.component.html',
-  styleUrls: ['date-picker.component.less'],
+  styleUrls: ['date-picker.component.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [
     DatePickerService,

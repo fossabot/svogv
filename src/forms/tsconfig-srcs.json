@@ -9,6 +9,7 @@
     "moduleResolution": "node",
     "noEmitOnError": true,
     "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
     "outDir": "../../dist/@svogv/forms",
     "rootDir": ".",
     "sourceMap": true,

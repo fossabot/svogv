@@ -27,7 +27,15 @@ const SVOGV_FORMS_COMPONENTS = [
   wd.SelectWidgetComponent,
   wd.StringWidgetComponent,
   wd.SwitcherWidgetComponent,
-  d.ValidateOnBlurDirective
+  d.ValidateOnBlurDirective,
+  // Date Picker
+  wd.CalendarNavComponent,
+  wd.DatePickerComponent,
+  wd.DatePickerDirective,
+  wd.DayCalendarComponent,
+  wd.DayTimeCalendarComponent,
+  wd.TimeSelectComponent,
+  wd.MonthCalendarComponent
 ];
 
 /**

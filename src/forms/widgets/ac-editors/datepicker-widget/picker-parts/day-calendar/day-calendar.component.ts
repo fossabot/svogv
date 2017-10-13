@@ -14,7 +14,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { DayCalendarService } from './day-calendar.service';
-import * as moment from 'moment';
+import moment from 'moment';
 import { Moment } from 'moment';
 import { IDayCalendarConfig } from './day-calendar-config.model';
 import { IDay } from './day.model';
@@ -35,7 +35,7 @@ import { DateValidator } from '../common/types/validator.type';
 @Component({
   selector: 'dp-day-calendar',
   templateUrl: 'day-calendar.component.html',
-  styleUrls: ['day-calendar.component.less'],
+  styleUrls: ['day-calendar.component.scss'],
   encapsulation: ViewEncapsulation.None,
   providers: [
     DayCalendarService,
