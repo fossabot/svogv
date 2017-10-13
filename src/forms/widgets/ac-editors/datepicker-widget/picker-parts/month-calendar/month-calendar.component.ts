@@ -130,7 +130,7 @@ export class MonthCalendarComponent implements OnInit, OnChanges, ControlValueAc
     if (this.minDate || this.maxDate) {
       return this.validateFn(formControl.value);
     } else {
-      return () => null;
+      return (): any => null;
     }
   }
 

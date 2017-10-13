@@ -1,11 +1,11 @@
-import {Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import * as moment from 'moment';
-import {Moment} from 'moment';
-import {WeekDays} from '../common/types/week-days.type';
-import {UtilsService} from '../common/services/utils/utils.service';
-import {IDay} from './day.model';
-import {IDayCalendarConfig} from './day-calendar-config.model';
-import {IMonthCalendarConfig} from '../month-calendar/month-calendar-config';
+import { Moment } from 'moment';
+import { WeekDays } from '../common/types/week-days.type';
+import { UtilsService } from '../common/services/utils/utils.service';
+import { IDay } from './day.model';
+import { IDayCalendarConfig } from './day-calendar-config.model';
+import { IMonthCalendarConfig } from '../month-calendar/month-calendar-config';
 
 @Injectable()
 export class DayCalendarService {
@@ -35,20 +35,20 @@ export class DayCalendarService {
   }
 
   getConfig(config: IDayCalendarConfig): IDayCalendarConfig {
-    const _config = {...this.DEFAULT_CONFIG, ...this.utilsService.clearUndefined(config)};
+    const _config = { ...this.DEFAULT_CONFIG, ...this.utilsService.clearUndefined(config) };
     moment.locale(_config.locale);
 
     return _config;
   }
 
-  generateDaysMap(firstDayOfWeek: WeekDays) {
+  generateDaysMap(firstDayOfWeek: WeekDays): { [key: number]: string } {
     const firstDayIndex = this.DAYS.indexOf(firstDayOfWeek);
     const daysArr = this.DAYS.slice(firstDayIndex, 7).concat(this.DAYS.slice(0, firstDayIndex));
     return daysArr.reduce((map, day, index) => {
-      map[day] = index;
+      (<any>map)[day] = index;
 
       return map;
-    }, <{[key: number]: string}>{});
+    }, <{ [key: number]: string }>{});
   }
 
   generateMonthArray(config: IDayCalendarConfig, month: Moment, selected: Moment[]): IDay[][] {
@@ -102,7 +102,7 @@ export class DayCalendarService {
   }
 
   generateWeekdays(firstDayOfWeek: WeekDays): Moment[] {
-    const weekdayNames: {[key: string]: Moment} = {
+    const weekdayNames: { [key: string]: Moment } = {
       su: moment().day(0),
       mo: moment().day(1),
       tu: moment().day(2),
@@ -116,7 +116,7 @@ export class DayCalendarService {
 
     for (const dayKey in daysMap) {
       if (daysMap.hasOwnProperty(dayKey)) {
-        weekdays[daysMap[dayKey]] = weekdayNames[dayKey];
+        (<any>weekdays)[(<any>daysMap)[dayKey]] = weekdayNames[dayKey];
       }
     }
 
@@ -161,7 +161,7 @@ export class DayCalendarService {
       map[index] = day;
 
       return map;
-    }, <{[key: number]: string}>{});
+    }, <{ [key: number]: string }>{});
   }
 
   // todo:: add unit tests

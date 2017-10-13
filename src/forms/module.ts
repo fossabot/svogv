@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-// Third Party
-import { DpDatePickerModule } from 'ng2-date-picker';
 // Internal
 import * as wd from './widgets/index';
 import * as d from './directives/validate-on-blur.directive';
@@ -36,7 +34,7 @@ const SVOGV_FORMS_COMPONENTS = [
  * The root module with the global exports.
  */
 @NgModule({
-  imports: [BrowserModule, RouterModule, ReactiveFormsModule, FormsModule, DpDatePickerModule],
+  imports: [BrowserModule, RouterModule, ReactiveFormsModule, FormsModule],
   declarations: SVOGV_FORMS_COMPONENTS,
   providers: [FormValidatorService],
   exports: SVOGV_FORMS_COMPONENTS

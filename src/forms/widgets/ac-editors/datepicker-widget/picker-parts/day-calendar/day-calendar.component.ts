@@ -1,6 +1,6 @@
-import {ECalendarValue} from '../common/types/calendar-value-enum';
-import {SingleCalendarValue} from '../common/types/single-calendar-value';
-import {ECalendarMode} from '../common/types/calendar-mode-enum';
+import { ECalendarValue } from '../common/types/calendar-value-enum';
+import { SingleCalendarValue } from '../common/types/single-calendar-value';
+import { ECalendarMode } from '../common/types/calendar-mode-enum';
 import {
   Component,
   EventEmitter,
@@ -13,11 +13,11 @@ import {
   SimpleChanges,
   ViewEncapsulation
 } from '@angular/core';
-import {DayCalendarService} from './day-calendar.service';
+import { DayCalendarService } from './day-calendar.service';
 import * as moment from 'moment';
-import {Moment} from 'moment';
-import {IDayCalendarConfig} from './day-calendar-config.model';
-import {IDay} from './day.model';
+import { Moment } from 'moment';
+import { IDayCalendarConfig } from './day-calendar-config.model';
+import { IDay } from './day.model';
 import {
   ControlValueAccessor,
   FormControl,
@@ -26,11 +26,11 @@ import {
   ValidationErrors,
   Validator
 } from '@angular/forms';
-import {CalendarValue} from '../common/types/calendar-value';
-import {UtilsService} from '../common/services/utils/utils.service';
-import {IMonthCalendarConfig} from '../month-calendar/month-calendar-config';
-import {IMonth} from '../month-calendar/month.model';
-import {DateValidator} from '../common/types/validator.type';
+import { CalendarValue } from '../common/types/calendar-value';
+import { UtilsService } from '../common/services/utils/utils.service';
+import { IMonthCalendarConfig } from '../month-calendar/month-calendar-config';
+import { IMonth } from '../month-calendar/month.model';
+import { DateValidator } from '../common/types/validator.type';
 
 @Component({
   selector: 'dp-day-calendar',
@@ -91,7 +91,7 @@ export class DayCalendarComponent implements OnInit, OnChanges, ControlValueAcce
   }
 
   constructor(public dayCalendarService: DayCalendarService,
-              public utilsService: UtilsService) {
+    public utilsService: UtilsService) {
   }
 
   ngOnInit() {
@@ -117,7 +117,7 @@ export class DayCalendarComponent implements OnInit, OnChanges, ControlValueAcce
 
   ngOnChanges(changes: SimpleChanges) {
     if (this.isInited) {
-      const {minDate, maxDate} = changes;
+      const { minDate, maxDate } = changes;
       this.init();
 
       if (minDate || maxDate) {
@@ -157,7 +157,7 @@ export class DayCalendarComponent implements OnInit, OnChanges, ControlValueAcce
     if (this.minDate || this.maxDate) {
       return this.validateFn(formControl.value);
     } else {
-      return () => null;
+      return (): any => null;
     }
   }
 
@@ -171,7 +171,7 @@ export class DayCalendarComponent implements OnInit, OnChanges, ControlValueAcce
 
   initValidators() {
     this.validateFn = this.utilsService.createValidator(
-      {minDate: this.minDate, maxDate: this.maxDate},
+      { minDate: this.minDate, maxDate: this.maxDate },
       this.componentConfig.format,
       'day'
     );
@@ -199,8 +199,8 @@ export class DayCalendarComponent implements OnInit, OnChanges, ControlValueAcce
     return this.dayCalendarService.getDayBtnText(this.componentConfig, day.date);
   }
 
-  getDayBtnCssClass(day: IDay): {[klass: string]: boolean} {
-    const cssClasses: {[klass: string]: boolean} = {
+  getDayBtnCssClass(day: IDay): { [klass: string]: boolean } {
+    const cssClasses: { [klass: string]: boolean } = {
       'dp-selected': day.selected,
       'dp-current-month': day.currentMonth,
       'dp-prev-month': day.prevMonth,

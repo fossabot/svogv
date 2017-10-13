@@ -18,11 +18,11 @@ export interface DateLimits {
 @Injectable()
 export class UtilsService {
   static debounce(func: Function, wait: number) {
-    let timeout;
+    let timeout: any;
     return function () {
       const context = this, args = arguments;
-      timeout = clearTimeout(timeout);
-      setTimeout(() => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
         func.apply(context, args);
       }, wait);
     };
@@ -129,7 +129,7 @@ export class UtilsService {
       return obj;
     }
 
-    Object.keys(obj).forEach((key) => (obj[key] === undefined) && delete obj[key]);
+    Object.keys(obj).forEach((key) => ((<any>obj)[key] === undefined) && delete (<any>obj)[key]);
     return obj;
   }
 
@@ -175,7 +175,7 @@ export class UtilsService {
                   calendarType: CalendarMode): DateValidator {
     let isValid: boolean;
     let value: Moment[];
-    const validators = [];
+    const validators = new Array<any>();
     const granularity = this.granularityFromType(calendarType);
 
     if (minDate) {

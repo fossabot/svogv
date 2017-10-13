@@ -165,7 +165,7 @@ export class DatePickerDirective implements OnInit {
 
     let setup = true;
 
-    this.datePicker.registerOnChange((value) => {
+    this.datePicker.registerOnChange((value: any) => {
       if (value) {
         const isMultiselectEmpty = setup && Array.isArray(value) && !value.length;
 

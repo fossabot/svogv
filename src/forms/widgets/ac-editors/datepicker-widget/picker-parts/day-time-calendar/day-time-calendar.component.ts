@@ -128,7 +128,7 @@ export class DayTimeCalendarComponent implements OnInit, OnChanges, ControlValue
     if (this.minDate || this.maxDate) {
       return this.validateFn(formControl.value);
     } else {
-      return () => null;
+      return (): any => null;
     }
   }
 

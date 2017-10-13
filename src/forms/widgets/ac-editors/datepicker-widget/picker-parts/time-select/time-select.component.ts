@@ -142,7 +142,7 @@ export class TimeSelectComponent implements OnInit, OnChanges, ControlValueAcces
     if (this.minDate || this.maxDate || this.minTime || this.maxTime) {
       return this.validateFn(formControl.value);
     } else {
-      return () => null;
+      return (): any => null;
     }
   }
 

@@ -49,6 +49,7 @@ gulp.task('copy:js', function () {
               paths.npm + 'zone.js/dist/zone.js',
               paths.npm + 'reflect-metadata/Reflect.js',
               paths.npm + 'systemjs/dist/system.js',
+              paths.npm + 'moment/moment.js',
               '!/**/*.min.js' // we minify everything by ourselves
             ])
             .pipe(uglify())
