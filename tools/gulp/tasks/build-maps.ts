@@ -109,13 +109,12 @@ task(':build:maps:components:rollup', () => {
 
   return src(path.join(DIST_COMPONENTS_ROOT_MAPS, 'index.js'))
     .pipe(gulpRollup(rollupOptions, rollupGenerateOptions))
-    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_MAPS, 'bundles')))         // copy to dist for reference
-    .pipe(dest(path.join(SOURCE_ROOT, 'demo/dist/bundles')));       // copy to demo for immediate usage
+    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_MAPS, 'bundles')));
 });
 
 // refresh the package immediately to simplify local testing with current version
 task(':build:maps:components:copy-for-demo', () => {
-  let target = SOURCE_ROOT + 'demo/node_modules/@svogv/maps';
+  let target = PROJECT_ROOT + '/node_modules/@svogv/maps';
   console.log(`** immediate copy from ${DIST_COMPONENTS_ROOT_MAPS}  to ${target}`);
   return src(DIST_COMPONENTS_ROOT_MAPS + '**/*.*').pipe(dest(target));
 });

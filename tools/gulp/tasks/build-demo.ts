@@ -2,7 +2,7 @@ import { task, watch, src, dest } from 'gulp';
 import * as path from 'path';
 
 import {
-  DIST_COMPONENTS_ROOT_FORMS, PROJECT_ROOT, COMPONENTS_DIR_FORMS, HTML_MINIFIER_OPTIONS, LICENSE_BANNER, SOURCE_ROOT
+  DIST_COMPONENTS_ROOT_DEMO, PROJECT_ROOT, COMPONENTS_DIR_DEMO, HTML_MINIFIER_OPTIONS, LICENSE_BANNER, SOURCE_ROOT
 } from '../constants';
 import {
   sassBuildTask, tsBuildTask, execNodeTask, copyTask, sequenceTask,
@@ -26,43 +26,43 @@ const del = require('del');
 // for unit tests (karma).
 
 /** Path to the tsconfig used for ESM output. */
-const tsconfigPath = path.relative(PROJECT_ROOT, path.join(COMPONENTS_DIR_FORMS, 'tsconfig.json'));
+const tsconfigPath = path.relative(PROJECT_ROOT, path.join(COMPONENTS_DIR_DEMO, 'tsconfig.json'));
 
 console.log('Using this config file: ' + tsconfigPath);
 
 /** [Watch task] Rebuilds (ESM output) whenever ts, scss, or html sources change. */
-task(':watch:forms:components', () => {
-  watch(path.join(COMPONENTS_DIR_FORMS, '**/*.ts'), ['build:forms:components', triggerLivereload]);
-  watch(path.join(COMPONENTS_DIR_FORMS, '**/*.scss'), ['build:forms:components', triggerLivereload]);
-  watch(path.join(COMPONENTS_DIR_FORMS, '**/*.html'), ['build:forms:components', triggerLivereload]);
+task(':watch:demo:components', () => {
+  watch(path.join(COMPONENTS_DIR_DEMO, '**/*.ts'), ['build:demo:components', triggerLivereload]);
+  watch(path.join(COMPONENTS_DIR_DEMO, '**/*.scss'), ['build:demo:components', triggerLivereload]);
+  watch(path.join(COMPONENTS_DIR_DEMO, '**/*.html'), ['build:demo:components', triggerLivereload]);
 });
 
 
 /** Builds component typescript only (ESM output). */
-task(':build:forms:components:ts', tsBuildTask(path.join(COMPONENTS_DIR_FORMS, 'tsconfig-srcs.json')));
+task(':build:demo:components:ts', tsBuildTask(path.join(COMPONENTS_DIR_DEMO, 'tsconfig-prod.json')));
 
 /** Builds components typescript for tests (CJS output). */
-task(':build:forms:components:spec', tsBuildTask(COMPONENTS_DIR_FORMS));
+task(':build:demo:components:spec', tsBuildTask(COMPONENTS_DIR_DEMO));
 
 /** Copies assets (html, markdown) to build output. */
-task(':build:forms:components:assets', copyTask([
-  path.join(COMPONENTS_DIR_FORMS, '**/*.!(ts|spec.ts)'),
+task(':build:demo:components:assets', copyTask([
+  path.join(COMPONENTS_DIR_DEMO, '**/*.!(ts|spec.ts)'),
   path.join(PROJECT_ROOT, 'README.md'),
   path.join(PROJECT_ROOT, 'LICENSE'),
-], DIST_COMPONENTS_ROOT_FORMS));
+], DIST_COMPONENTS_ROOT_DEMO));
 
 /** Minifies the HTML and CSS assets in the distribution folder. */
-task(':build:forms:components:assets:minify', () => {
-  return src('**/*.+(html|css)', { cwd: DIST_COMPONENTS_ROOT_FORMS })
+task(':build:demo:components:assets:minify', () => {
+  return src('**/*.+(html|css)', { cwd: DIST_COMPONENTS_ROOT_DEMO })
     .pipe(gulpIf(/.css$/, gulpMinifyCss(), gulpMinifyHtml(HTML_MINIFIER_OPTIONS)))
-    .pipe(dest(DIST_COMPONENTS_ROOT_FORMS));
+    .pipe(dest(DIST_COMPONENTS_ROOT_DEMO));
 });
 
 /** Builds scss into css. */
-task(':build:forms:components:scss', sassBuildTask(DIST_COMPONENTS_ROOT_FORMS, COMPONENTS_DIR_FORMS));
+task(':build:demo:components:scss', sassBuildTask(DIST_COMPONENTS_ROOT_DEMO, COMPONENTS_DIR_DEMO));
 
 /** Builds the UMD bundle for all of SvOgV. */
-task(':build:forms:components:rollup', () => {
+task(':build:demo:components:rollup', () => {
   const globals: { [name: string]: string } = {
     // Angular dependencies
     '@angular/core': 'ng.core',
@@ -99,64 +99,56 @@ task(':build:forms:components:rollup', () => {
   const rollupGenerateOptions = {
     // Keep the moduleId empty because we don't want to force developers to a specific moduleId.
     moduleId: '',
-    moduleName: 'ac.svogv.forms',
-    format: 'umd',
+    moduleName: 'ac.svogv.demo',
+    format: 'cjs', // in the demo it's not a module but rather something we load using SystemJS
     globals,
     banner: LICENSE_BANNER,
-    dest: 'svogv-forms.umd.js'
+    dest: 'app.js'
   };
 
-  return src(path.join(DIST_COMPONENTS_ROOT_FORMS, 'index.js'))
+  return src(path.join(DIST_COMPONENTS_ROOT_DEMO, 'app.js'))
     .pipe(gulpRollup(rollupOptions, rollupGenerateOptions))
-    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_FORMS, 'bundles')));
+    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'prod')));
 });
 
-// refresh the package immediately to simplify local testing with current version
-task(':build:forms:components:copy-for-demo', () => {
-  let target = PROJECT_ROOT + '/node_modules/@svogv/forms';
-  console.log(`** immediate copy from ${DIST_COMPONENTS_ROOT_FORMS}  to ${target}`);
-  return src(DIST_COMPONENTS_ROOT_FORMS + '**/*.*').pipe(dest(target));
-});
-
-task(':build:forms:cleanup', () => {
-  return del(DIST_COMPONENTS_ROOT_FORMS);
+task(':build:demo:cleanup', () => {
+  return del(DIST_COMPONENTS_ROOT_DEMO);
 });
 
 /** Builds components with resources (html, css) inlined into the built JS (ESM output). */
-task(':build:forms:components:inline', sequenceTask(
-  ':build:forms:cleanup',
-  ':build:forms:components:ts',
-  ':build:forms:components:scss',
-  ':build:forms:components:assets',
-  ':build:forms:components:assets:minify',
-  ':build:forms:components:copy-for-demo',
-  ':forms:inline-resources'
+task(':build:demo:components:inline', sequenceTask(
+  ':build:demo:cleanup',
+  ':build:demo:components:ts',
+  ':build:demo:components:scss',
+  ':build:demo:components:assets',
+  ':build:demo:components:assets:minify',
+  ':demo:inline-resources'
 ));
 
 /** Builds components with minified HTML and CSS inlined into the built JS. */
-task(':build:forms:components:inline:release', sequenceTask(
-  ':build:forms:cleanup',
-  ':build:forms:components:ts',
-  ':build:forms:components:scss',
-  ':build:forms:components:assets',
-  ':build:forms:components:assets:minify',
-  ':forms:inline-resources'
+task(':build:demo:components:inline:release', sequenceTask(
+  ':build:demo:cleanup',
+  ':build:demo:components:ts',
+  ':build:demo:components:scss',
+  ':build:demo:components:assets',
+  ':build:demo:components:assets:minify',
+  ':demo:inline-resources'
 ));
 
 /** Inlines resources (html, css) into the JS output (for either ESM or CJS output). */
-task(':forms:inline-resources', () => inlineResources(DIST_COMPONENTS_ROOT_FORMS));
+task(':demo:inline-resources', () => inlineResources(DIST_COMPONENTS_ROOT_DEMO));
 
 /** Builds components to ESM output and UMD bundle. */
-task('build:forms', sequenceTask(
-  ':build:forms:components:inline',
-  ':build:forms:components:rollup'));
+task('build:demo', sequenceTask(
+  ':build:demo:components:inline',
+  ':build:demo:components:rollup'));
 
-task('build:forms:components:release', sequenceTask(
-  ':build:forms:components:inline:release',
-  ':build:forms:components:rollup'
+task('build:demo:components:release', sequenceTask(
+  ':build:demo:components:inline:release',
+  ':build:demo:components:rollup'
 ));
 
 /** Generates metadata.json files for all of the components. */
-task(':build:forms:components:ngc', ['build:forms:components:release'], execNodeTask(
+task(':build:demo:components:ngc', ['build:demo:components:release'], execNodeTask(
   '@angular/compiler-cli', 'ngc', ['-p', tsconfigPath]
 ));

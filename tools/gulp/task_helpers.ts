@@ -4,7 +4,7 @@ import * as gulp from 'gulp';
 import * as gulpTs from 'gulp-typescript';
 import * as path from 'path';
 
-import {NPM_VENDOR_FILES, PROJECT_ROOT, DIST_ROOT, SASS_AUTOPREFIXER_OPTIONS} from './constants';
+import { NPM_VENDOR_FILES, PROJECT_ROOT, DIST_ROOT, SASS_AUTOPREFIXER_OPTIONS } from './constants';
 
 
 /** Those imports lack typings. */
@@ -28,7 +28,7 @@ function _globify(maybeGlob: string, suffix = '**/*') {
     if (stat.isFile()) {
       return maybeGlob;
     }
-  } catch (e) {}
+  } catch (e) { }
   return path.join(maybeGlob, suffix);
 }
 
@@ -67,14 +67,16 @@ export function tsBuildTask(tsConfigPath: string, tsConfigName = 'tsconfig.json'
 
 
 /** Create a SASS Build Task. */
-export function sassBuildTask(dest: string, root: string) {  
+export function sassBuildTask(dest: string, root: string) {
   return () => {
+    console.log(path.join(__dirname, '../../node_modules/bootstrap/scss/bootstrap'));
     return gulp.src(_globify(root, '**/*.scss'))
       .pipe(gulpSourcemaps.init())
       .pipe(gulpSass({
         includePaths: [
           require('node-neat').includePaths,
-          require('include-media').includePath
+          require('include-media').includePath,
+          path.join(__dirname, '../../node_modules/bootstrap/scss/')
         ]
       }).on('error', gulpSass.logError))
       .pipe(gulpAutoprefixer(SASS_AUTOPREFIXER_OPTIONS))
@@ -129,7 +131,7 @@ export function execTask(binPath: string, args: string[], options: ExecTaskOptio
  * from the package. Examples are typescript, ngc and gulp itself.
  */
 export function execNodeTask(packageName: string, executable: string | string[], args?: string[],
-                             options: ExecTaskOptions = {}) {
+  options: ExecTaskOptions = {}) {
   if (!args) {
     args = <string[]>executable;
     executable = undefined;

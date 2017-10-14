@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp build",
-    "demoall": "gulp build && npm run execdemo",
+    "demoall": "gulp build && gulp build:demo && npm run execdemo",
     "demoall-cli": "gulp build && ng build",
-    "execdemo": "cd src/demo && npm run build",
+    "start": "http-server ./dist/demo -p 3000 -o",    
     "test": "gulp test",
     "lint": "gulp lint",
     "tslint": "gulp tslint",
@@ -18,7 +18,7 @@
     "codedoc-blocks": "./node_modules/.bin/compodoc -p src/blocks/tsconfig-srcs.json -d ./docs/api/blocks -t ",
     "codedoc-hud": "./node_modules/.bin/compodoc -p src/hud/tsconfig-srcs.json -d ./docs/api/hud -t ",
     "codedoc-maps": "./node_modules/.bin/compodoc -p src/maps/tsconfig-srcs.json -d ./docs/api/maps -t ",
-    "setup": "npm install && cd src/demo && npm install && cd ../../"
+    "setup": "npm install"
   },
   "repository": {
     "type": "git",
@@ -53,8 +53,11 @@
     "@angular/platform-server": "^4.4.5",
     "@angular/router": "^4.4.5",
     "ajv": "^5.2.3",
+    "bootstrap": "^4.0.0-beta",
+    "bourbon-neat": "^1.9.0",
     "core-js": "^2.5.1",
     "font-awesome": "^4.7.0",
+    "jquery": "^3.2.1",
     "moment": "^2.19.1",
     "rxjs": "^5.4.3",
     "systemjs": "0.19.38",
@@ -105,6 +108,7 @@
     "gulp-transform": "^1.1.0",
     "gulp-typescript": "^3.2.2",
     "highlight.js": "^9.12.0",
+    "http-server": "^0.10.0",
     "include-media": "^1.4.9",
     "jasmine-core": "^2.8.0",
     "karma": "^1.7.1",

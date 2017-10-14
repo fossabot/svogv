@@ -107,13 +107,12 @@ task(':build:hud:components:rollup', () => {
 
   return src(path.join(DIST_COMPONENTS_ROOT_HUD, 'index.js'))
     .pipe(gulpRollup(rollupOptions, rollupGenerateOptions))
-    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_HUD, 'bundles')))         // copy to dist for reference
-    .pipe(dest(path.join(SOURCE_ROOT, 'demo/dist/bundles')));       // copy to demo for immediate usage
+    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_HUD, 'bundles')));
 });
 
 // refresh the package immediately to simplify local testing with current version
 task(':build:hud:components:copy-for-demo', () => {
-  let target = SOURCE_ROOT + 'demo/node_modules/@svogv/hud';
+  let target = PROJECT_ROOT + '/node_modules/@svogv/hud';
   console.log(`** immediate copy from ${DIST_COMPONENTS_ROOT_HUD}  to ${target}`);
   return src(DIST_COMPONENTS_ROOT_HUD + '**/*.*').pipe(dest(target));
 });

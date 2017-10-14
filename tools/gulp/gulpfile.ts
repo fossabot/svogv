@@ -5,6 +5,7 @@ import './tasks/build-forms';
 import './tasks/build-blocks';
 import './tasks/build-maps';
 import './tasks/build-hud';
+import './tasks/build-demo';
 import './tasks/demo';
 import './tasks/default';
 import './tasks/development';

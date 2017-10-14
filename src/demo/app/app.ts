@@ -17,6 +17,9 @@ import { SvogvBlocksModule } from '@svogv/blocks';
 import { SvogvMapsModule } from '@svogv/maps';
 import { SvogvHudModule } from '@svogv/hud';
 
+/*tslint:disable-next-line*/
+import { } from '@types/googlemaps';
+
 @NgModule({
   imports: [
     BrowserModule,
