@@ -20,7 +20,7 @@ import { IUISchema, UISchemaBootstrap } from '../../utils/ui-schema';
   ],
   templateUrl: 'ac-editor.component.html'
 }) //
-export class AcEditor implements OnInit {
+export class AcEditorComponent implements OnInit {
 
   /**
    * Field name

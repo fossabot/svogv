@@ -7,7 +7,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
 	name: 'joinStrings'
 })
-export class ArrayToStringConverter implements PipeTransform {
+export class JoinStringsPipe implements PipeTransform {
 
 	/**
 	 * Joins  array of strings

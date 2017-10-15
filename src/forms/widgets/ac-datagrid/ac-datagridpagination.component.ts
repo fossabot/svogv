@@ -12,7 +12,7 @@ import {
   styleUrls: ['ac-datagridpagination.component.scss'],
   templateUrl: 'ac-datagridpagination.component.html'
 })
-export class AcDataGridPagination implements OnInit, OnChanges {
+export class AcDataGridPaginationComponent implements OnInit, OnChanges {
   /**
    * The parent component calculated the pages the component can handle.
    */

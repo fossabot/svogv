@@ -55,7 +55,7 @@
 </svg>
 `
 })
-export class AcLoaderIcon {
+export class AcLoaderIconComponent {
     /**
      * The speed in second per rotation. Fractions are allowed. 10 = very slow, 0.5 = really fast.
      */

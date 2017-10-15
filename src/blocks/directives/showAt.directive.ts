@@ -1,6 +1,6 @@
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
-@Directive({selector: '[appShowAt]'})
+@Directive({selector: '[ac-show-at]'})
 export class ShowAtDirective {
 
 	private hasView = false;

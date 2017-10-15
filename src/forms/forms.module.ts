@@ -11,14 +11,14 @@ import {
 } from './services/formvalidator.service';
 
 const SVOGV_FORMS_COMPONENTS = [
-  wd.AcInfoBox,
-  wd.AcDataGridPagination,
-  wd.AcTreeView,
+  wd.AcInfoBoxComponent,
+  wd.AcDataGridPaginationComponent,
+  wd.AcTreeViewComponent,
   wd.AcTreeViewNode,
-  wd.AcEditor,
-  wd.AcAutoForm,
-  wd.AcLoaderIcon,
-  wd.AcAnalogClock,
+  wd.AcEditorComponent,
+  wd.AcAutoFormComponent,
+  wd.AcLoaderIconComponent,
+  wd.AcAnalogClockComponent,
   wd.CheckboxWidgetComponent,
   wd.DatepickerWidgetComponent,
   wd.FieldsetWidgetComponent,
@@ -27,15 +27,14 @@ const SVOGV_FORMS_COMPONENTS = [
   wd.SelectWidgetComponent,
   wd.StringWidgetComponent,
   wd.SwitcherWidgetComponent,
-  d.ValidateOnBlurDirective,
-  // Date Picker
   wd.CalendarNavComponent,
   wd.DatePickerComponent,
-  wd.DatePickerDirective,
   wd.DayCalendarComponent,
   wd.DayTimeCalendarComponent,
   wd.TimeSelectComponent,
-  wd.MonthCalendarComponent
+  wd.MonthCalendarComponent,
+  d.ValidateOnBlurDirective,
+  wd.DatePickerDirective
 ];
 
 /**

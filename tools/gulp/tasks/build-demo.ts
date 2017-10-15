@@ -12,6 +12,7 @@ import {
 // No typings for these.
 const inlineResources = require('../inline-resources');
 const gulpRollup = require('gulp-better-rollup');
+const uglify = require('gulp-uglify');                      // minify JS
 const gulpMinifyCss = require('gulp-clean-css');
 const gulpMinifyHtml = require('gulp-htmlmin');
 const gulpIf = require('gulp-if');
@@ -44,20 +45,11 @@ task(':build:demo:components:ts', tsBuildTask(COMPONENTS_DIR_DEMO, 'tsconfig-pro
 /** Builds components typescript for tests (CJS output). */
 task(':build:demo:components:spec', tsBuildTask(COMPONENTS_DIR_DEMO));
 
-/** Copies assets (html, markdown) to build output. */
-task(':build:demo:components:assets', copyTask([
-  path.join(COMPONENTS_DIR_DEMO, 'app/**/*.html'),
-  path.join(COMPONENTS_DIR_DEMO, '**/*.!(ts|spec.ts)'),
-  path.join(PROJECT_ROOT, 'README.md'),
-  path.join(PROJECT_ROOT, 'LICENSE'),
-], DIST_COMPONENTS_ROOT_DEMO));
-
-
 /** Minifies the HTML and CSS assets in the distribution folder. */
-task(':build:demo:components:assets:minify', () => {
-  return src('**/*.+(html|css)', { cwd: DIST_COMPONENTS_ROOT_DEMO })
-    .pipe(gulpIf(/.css$/, gulpMinifyCss(), gulpMinifyHtml(HTML_MINIFIER_OPTIONS)))
-    .pipe(dest(DIST_COMPONENTS_ROOT_DEMO));
+task(':build:demo:components:views', () => {
+  return src('app/**/*.html', { cwd: COMPONENTS_DIR_DEMO })
+    .pipe(gulpMinifyHtml(HTML_MINIFIER_OPTIONS))
+    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'app')));
 });
 
 /** Builds scss into css. */
@@ -117,36 +109,43 @@ task(':build:demo:cleanup', () => {
   return del(DIST_COMPONENTS_ROOT_DEMO);
 });
 
+task(':build:demo:cleanup:inline-resources', () => {
+  return del(path.join(DIST_COMPONENTS_ROOT_DEMO, 'app/**/*.html'));
+});
 
 task('copy:js', function () {
   return src([
     './node_modules/jquery/dist/jquery.js',
     './node_modules/bootstrap/dist/js/bootstrap.js',
-    './node_modules/tether/dist/js/tether.js',
+    './node_modules/moment/moment.js',
     './node_modules/core-js/client/core.js',
     './node_modules/zone.js/dist/zone.js',
     './node_modules/reflect-metadata/Reflect.js',
     './node_modules/systemjs/dist/system.js'
   ])
-    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'js/lib')));
+    .pipe(uglify())
+    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'assets/js/lib')));
 });
 
 // This is a simple loader while debugging without going through the WebPack hassle
 task('copy:systemjs', function () {
   return src(path.join(COMPONENTS_DIR_DEMO, 'systemjs.config.js'))
-  .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'js')));
+  .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'assets/js')));
 });
 
 task('copy:angular', function () {
   return src([
     './node_modules/@angular/**/bundles/*.umd.js',
     '!' + './node_modules/@angular/**/bundles/*-testing.umd.js'
-  ]).pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'js/lib/@angular')));
+  ])
+  .pipe(uglify())
+  .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'assets/js/lib/@angular')));
 });
 
 task('copy:svogv', function () {
   return src(['./dist/@svogv/**/svogv-*.umd.js'])
-    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'js/lib/@svogv/')));
+    .pipe(uglify())
+    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'assets/js/lib/@svogv/')));
 });
 
 // Create RxJs bundle
@@ -157,8 +156,8 @@ task('copy:rxjs', function () {
     packages: { 'rxjs': { main: 'Rx.js', defaultExtension: 'js' } }
   });
   // create the bundle we use from systemjs.config.js
-  builder.bundle('rxjs', path.join(DIST_COMPONENTS_ROOT_DEMO, 'js/lib/rxjs/bundles/Rx.min.js'), {
-    sourceMaps: true,
+  builder.bundle('rxjs', path.join(DIST_COMPONENTS_ROOT_DEMO, 'assets/js/lib/rxjs/bundles/rx.min.js'), {
+    sourceMaps: false,
     minify: true,
     mangle: true
   });
@@ -169,14 +168,15 @@ task('copy:css', function () {
   return src([
     './node_modules/font-awesome/css/font-awesome.css'
   ])
-    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'styles')));
+  .pipe(gulpMinifyCss())
+  .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'assets/styles')));
 });
 // icons and symbols shall be fonts, never want to see a single GIF here
 task('copy:fonts', function () {
   return src([
     './node_modules/font-awesome/fonts/*.*'
   ])
-    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'fonts')));
+  .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'assets/fonts')));
 });
 // View HTML (component templates)
 
@@ -204,16 +204,15 @@ task(':build:demo:components:files', [
 ]);
 
 
-
 /** Builds components with resources (html, css) inlined into the built JS (ESM output). */
 task(':build:demo:components:inline', sequenceTask(
   ':build:demo:cleanup',
   ':build:demo:components:ts',
   ':build:demo:components:files',
   ':build:demo:components:scss',
-  ':build:demo:components:assets',
-  ':build:demo:components:assets:minify',
-  ':demo:inline-resources'
+  ':build:demo:components:views',
+  ':build:demo:inline-resources',
+  ':build:demo:cleanup:inline-resources'
 ));
 
 /** Builds components with minified HTML and CSS inlined into the built JS. */
@@ -222,13 +221,13 @@ task(':build:demo:components:inline:release', sequenceTask(
   ':build:demo:components:ts',
   ':build:demo:components:files',
   ':build:demo:components:scss',
-  ':build:demo:components:assets',
-  ':build:demo:components:assets:minify',
-  ':demo:inline-resources'
+  ':build:demo:components:views',
+  ':build:demo:inline-resources',
+  ':build:demo:cleanup:inline-resources'
 ));
 
 /** Inlines resources (html, css) into the JS output (for either ESM or CJS output). */
-task(':demo:inline-resources', () => inlineResources(DIST_COMPONENTS_ROOT_DEMO));
+task(':build:demo:inline-resources', () => inlineResources(DIST_COMPONENTS_ROOT_DEMO));
 
 /** Builds components to ESM output and UMD bundle. */
 task('build:demo', sequenceTask(

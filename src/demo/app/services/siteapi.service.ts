@@ -104,7 +104,7 @@ export class SiteApiService {
     user.id = nextId;
     // save
     this.users.push(user);
-    // always true 
+    // always true
     return Observable.create(o => true);
   }
 
@@ -118,7 +118,7 @@ export class SiteApiService {
   public deleteUser(id: number): Observable<boolean> {
     var user = this.users.filter(u => u.id == id)[0];
     this.users.splice(this.users.indexOf(user), 1);
-    // always true 
+    // always true
     return Observable.create(o => true);
   }
 
@@ -131,4 +131,3 @@ export class SiteApiService {
 
 
 }
-

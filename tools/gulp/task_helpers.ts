@@ -12,6 +12,7 @@ const gulpClean = require('gulp-clean');
 const gulpMerge = require('merge2');
 const gulpRunSequence = require('run-sequence');
 const gulpSass = require('gulp-sass');
+const gulpMinifyCss = require('gulp-clean-css');
 const gulpSourcemaps = require('gulp-sourcemaps');
 const gulpAutoprefixer = require('gulp-autoprefixer');
 const gulpConnect = require('gulp-connect');
@@ -68,7 +69,6 @@ export function tsBuildTask(tsConfigPath: string, tsConfigName = 'tsconfig.json'
 /** Create a SASS Build Task. */
 export function sassBuildTask(dest: string, root: string) {
   return () => {
-    console.log(path.join(__dirname, '../../node_modules/bootstrap/scss/bootstrap'));
     return gulp.src(_globify(root, '**/*.scss'))
       .pipe(gulpSourcemaps.init())
       .pipe(gulpSass({
@@ -80,6 +80,7 @@ export function sassBuildTask(dest: string, root: string) {
       }).on('error', gulpSass.logError))
       .pipe(gulpAutoprefixer(SASS_AUTOPREFIXER_OPTIONS))
       .pipe(gulpSourcemaps.write('.'))
+      .pipe(gulpMinifyCss())
       .pipe(gulp.dest(dest));
   };
 }

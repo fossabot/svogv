@@ -7,7 +7,6 @@ import { DemoTab, DemoTabData } from './index';
  * User Manager, defines the tabs that hold the child-outlets.
  */
 @Component({
-  
   selector: 'app-editor',
   templateUrl: './app-editor.component.html'
 })
@@ -31,6 +30,4 @@ export class EditorDemoComponent {
 
     this.editorTabs = new DemoTabData(userRoutes);
   }
-
-
 }

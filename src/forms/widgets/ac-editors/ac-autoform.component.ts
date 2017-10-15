@@ -9,7 +9,6 @@ import { IUISchema } from '../../utils/ui-schema';
  *
  */
 @Component({
-    
     selector: 'ac-autoform',
     styles: [
         'fieldset { border-top: 1px silver solid; padding: 10px; }',
@@ -17,7 +16,7 @@ import { IUISchema } from '../../utils/ui-schema';
     ],
     templateUrl: 'ac-autoform.component.html'
 })
-export class AcAutoForm implements OnInit {
+export class AcAutoFormComponent implements OnInit {
 
     /**
      * A reference to the form. Required.

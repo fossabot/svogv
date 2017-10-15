@@ -41,11 +41,12 @@ import { LinksToRouterDirective, TooltipDirective, ShowAtDirective } from './dir
 import { WindowSizeService } from './services/window-size.service';
 
 // Pipes
-import { ArrayToStringConverter
-	, CalculateThreshold
-	, OrderBy
+import { 
+	  JoinStringsPipe
+	, CalculateThresholdPipe
+	, OrderByPipe
 	, ReverseOrderPipe
-	, ShowNumberOfChars } from './pipes/index';
+	, ShowNumberOfCharsPipe } from './pipes/index';
 
 @NgModule({
 	imports: [
@@ -83,12 +84,12 @@ import { ArrayToStringConverter
 		AccordionItemComponent,
 		// Directives & Pipes
 		ReverseOrderPipe,
-		OrderBy,
-		ArrayToStringConverter,
-		CalculateThreshold,
+		OrderByPipe,
+		JoinStringsPipe,
+		CalculateThresholdPipe,
+		ShowNumberOfCharsPipe,
 		TooltipDirective,
 		ShowAtDirective,
-		ShowNumberOfChars,
 		LinksToRouterDirective,
 		PreloaderComponent,
 		DialogComponent
@@ -125,12 +126,12 @@ import { ArrayToStringConverter
 		AccordionItemComponent,
 		// Directives & Pipes
 		ReverseOrderPipe,
-		OrderBy,
-		ArrayToStringConverter,
-		CalculateThreshold,
+		OrderByPipe,
+		JoinStringsPipe,
+		CalculateThresholdPipe,
+		ShowNumberOfCharsPipe,
 		TooltipDirective,
 		ShowAtDirective,
-		ShowNumberOfChars,
 		LinksToRouterDirective,
 		DataSetModule,
 		PreloaderComponent,

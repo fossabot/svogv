@@ -8,9 +8,9 @@ import { Pipe, PipeTransform } from '@angular/core';
  * @implements {PipeTransform}
  */
 @Pipe({
-	name: 'showNrChars'
+	name: 'showNumOfChars'
 })
-export class ShowNumberOfChars implements PipeTransform {
+export class ShowNumberOfCharsPipe implements PipeTransform {
 
     /**
      * Transform the given  string.

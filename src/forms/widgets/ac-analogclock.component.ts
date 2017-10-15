@@ -60,7 +60,7 @@ import { DOCUMENT } from '@angular/platform-browser';
 </svg>     
 `
 })
-export class AcAnalogClock implements AfterViewInit, OnChanges {
+export class AcAnalogClockComponent implements AfterViewInit, OnChanges {
 
     /**
      * The background color of the clock's body.

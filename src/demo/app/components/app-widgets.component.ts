@@ -7,7 +7,6 @@ import { DemoTab, DemoTabData } from './index';
  * User Manager, defines the tabs that hold the child-outlets.
  */
 @Component({
-  
   selector: 'app-widgets',
   templateUrl: './app-widgets.component.html'
 })
@@ -29,6 +28,5 @@ export class WidgetDemoComponent {
                                                     !!subroute.data['disabled'])));
     this.widgetTabs = new DemoTabData(userRoutes);
   }
-
 
 }

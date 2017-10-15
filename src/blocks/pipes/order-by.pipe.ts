@@ -13,7 +13,7 @@ import { Pipe, PipeTransform } from '@angular/core';
  *  * @example
  * (vehicles$ | async).vehicles | orderBy:(sortedBy$ | async).current:ascending
  */
-export class OrderBy implements PipeTransform {
+export class OrderByPipe implements PipeTransform {
 
 	/**
 	 * Take a source array, the orderBy key to use and the direction.

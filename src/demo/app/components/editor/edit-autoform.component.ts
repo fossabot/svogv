@@ -8,8 +8,6 @@ import { FormValidatorService } from '@svogv/forms';
 import { SiteApiService, EmitterService } from '../../services/index';
 import { UserViewModel } from '../../viewmodels/index';
 
-
-
 @Component({
   templateUrl: './edit-autoform.component.html',
   styles: [

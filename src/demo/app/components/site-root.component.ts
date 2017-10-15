@@ -9,7 +9,6 @@ interface AppState {
 }
 
 @Component({
-  
   selector: 'site-root',
   templateUrl: './site-root.component.html'
 })

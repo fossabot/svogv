@@ -5,7 +5,7 @@ import { BaseTooltipDirective } from './basetooltip.directive';
  * The tooltip directive
  */
 @Directive({
-	selector: '[tooltip]'
+	selector: '[ac-tooltip]'
 })
 export class TooltipDirective extends BaseTooltipDirective {
 

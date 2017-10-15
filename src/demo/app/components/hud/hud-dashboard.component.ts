@@ -6,7 +6,6 @@ import { HudClock, HudClockOptions } from '@svogv/hud';
  * Dashboard to demonstrate HUD components.
  */
 @Component({
-    
     selector: 'hud-dashboard',
     templateUrl: './hud-dashboard.component.html',
     styles: ['#hudDemo { background-color: #000; }']

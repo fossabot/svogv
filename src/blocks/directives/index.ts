@@ -1,4 +1,5 @@
 // direct exports
+export * from './basetooltip.directive';
 export * from './tooltip.directive';
 export * from './showAt.directive';
 export * from './links-to-router.directive';

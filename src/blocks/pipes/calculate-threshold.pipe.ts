@@ -13,7 +13,7 @@ import { Pipe, PipeTransform } from '@angular/core';
  *  * @example
  * [max-value-reference]="(sortedBy.current.showHorizontalBars) ? (vehicles | calculateThreshold:sortedBy.current.id) : 0"
  */
-export class CalculateThreshold implements PipeTransform {
+export class CalculateThresholdPipe implements PipeTransform {
 
 	/**
 	 * Given a list of objects (for ex. vehicles or drivers),

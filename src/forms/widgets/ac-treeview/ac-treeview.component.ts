@@ -17,7 +17,7 @@ import { AcTreeNode } from './models/index';
                </ul>`,
     styles: ['.treeview { list-style: none; margin-left: -25px; }']
 }) //
-export class AcTreeView {
+export class AcTreeViewComponent {
     @Input() nodes: AcTreeNode;
     @Output() nodeClick: EventEmitter<AcTreeNode> = new EventEmitter<AcTreeNode>();
     @Output() checkChanged: EventEmitter<AcTreeNode> = new EventEmitter<AcTreeNode>();

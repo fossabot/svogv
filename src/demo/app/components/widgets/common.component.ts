@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
 @Component({
-  
   templateUrl: './common.component.html'
 })
 export class CommonComponent {
@@ -9,7 +8,7 @@ export class CommonComponent {
   constructor() {
   }
 
-  testButton(){
+  testButton() {
     alert('Yes!');
   }
 
