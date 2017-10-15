@@ -5,7 +5,7 @@ import { WidgetUiOptions } from '../../../shared/models/widget-ui-options.m';
 import { Widget } from '../../../shared/models/widget.m';
 
 @Component({
-	moduleId: module.id,
+	
 	selector: 'ac-editor-fieldset',
 	templateUrl: 'fieldset-widget.component.html',
 	styleUrls: ['fieldset-widget.component.scss']

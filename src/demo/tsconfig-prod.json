@@ -8,7 +8,7 @@
     "noEmitOnError": true,
     "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
-    "outDir": "../../dist/demo/app",
+    "outDir": "../../dist/demo/",
     "sourceMap": true,
     "target": "es5",
     "removeComments": false,
@@ -19,11 +19,14 @@
       "node"
     ]
   },
+  "include": [
+    "./app/**/*.ts"
+  ],
   "files": [
     "./app/app.ts"
   ],
   "angularCompilerOptions": {
-    "genDir": "../../dist/prod",
+    "genDir": "../../dist/demo",
     "entryModule": "./app/app#RootModule",
     "skipTemplateCodegen": true,
     "debug": true

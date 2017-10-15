@@ -2,7 +2,7 @@
 import { AcTreeNodeOptions, AcTextTreeNode, AcTreeNode } from '@svogv/forms';
 
 @Component({
-  moduleId: module.id,
+  
   selector: 'app-treeview',
   templateUrl: './treeview.component.html'
 })

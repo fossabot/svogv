@@ -7,7 +7,7 @@ import { IUISchema, UISchemaBootstrap } from '../../utils/ui-schema';
  * The Editor Widget. Creates a field with all required validators using decorators and forms service.
  */
 @Component({
-  moduleId: module.id,
+  
   selector: 'ac-editor',
   styles: [
     'input[type="checkbox"] { display: none; }',

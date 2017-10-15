@@ -97,16 +97,12 @@ task('copy:fonts', function () {
     .pipe(dest(paths.assets + 'fonts'));
 });
 // View HTML (component templates)
-task('copy:views:templates', function () {
-  console.log(paths.app + '**/*.html');
-  return src([paths.app + '**/*.html'], { base: paths.app + 'Components/' })
-    .pipe(dest(paths.assets + 'js/app/Components/'));
-});
+
 task('copy:views:index', function () {
   return src([DEMO_ROOT + 'index.html'])
     .pipe(dest(paths.root));
 });
-task('copy:views', ['copy:views:index', 'copy:views:templates']);
+task('copy:views', ['copy:views:index']);
 
 task('copy:images', function () {
   return src([ DEMO_ROOT + 'assets/images/**/*.*'])

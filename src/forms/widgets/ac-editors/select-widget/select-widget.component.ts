@@ -14,7 +14,7 @@ import 'rxjs/add/operator/filter';
  * TODO: Split component into multiple ones and use @Input/@Output. Here are too many DOM selections ...
  */
 @Component({
-	moduleId: module.id,
+	
 	selector: 'ac-editor-select',
 	templateUrl: 'select-widget.component.html',
 	styleUrls: ['select-widget.component.scss']

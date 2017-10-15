@@ -5,7 +5,7 @@ import { UserViewModelList } from '../../viewmodels/index';
 import { AcDataGridModel } from '@svogv/forms';
 
 @Component({
-  moduleId: module.id,
+  
   templateUrl: './list.component.html',
   styles: [
     `button.ac-supersmall { 

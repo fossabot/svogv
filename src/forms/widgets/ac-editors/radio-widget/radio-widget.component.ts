@@ -12,7 +12,7 @@ import { WidgetFieldProperties } from '../../../shared/models/widget-field-prope
 import { Widget } from '../../../shared/models/widget.m';
 
 @Component({
-	moduleId: module.id,
+	
 	selector: 'ac-editor-radio',
 	templateUrl: 'radio-widget.component.html',
 	styleUrls: ['radio-widget.component.scss']

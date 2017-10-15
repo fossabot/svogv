@@ -5,7 +5,7 @@ import { WidgetFieldProperties } from '../../../shared/models/widget-field-prope
 import { WidgetUiOptions } from '../../../shared/models/widget-ui-options.m';
 
 @Component({
-	moduleId: module.id,
+	
 	selector: 'ac-editor-image',
 	templateUrl: 'image-widget.component.html',
 	styleUrls: ['image-widget.component.scss']

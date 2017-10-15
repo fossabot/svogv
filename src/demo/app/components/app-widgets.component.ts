@@ -7,7 +7,7 @@ import { DemoTab, DemoTabData } from './index';
  * User Manager, defines the tabs that hold the child-outlets.
  */
 @Component({
-  moduleId: module.id,
+  
   selector: 'app-widgets',
   templateUrl: './app-widgets.component.html'
 })

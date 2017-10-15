@@ -6,7 +6,7 @@ import { WidgetFieldProperties } from '../../../shared/models/widget-field-prope
 import { Widget } from '../../../shared/models/widget.m';
 
 @Component({
-	moduleId: module.id,
+	
 	selector: 'ac-editor-datepicker',
 	templateUrl: 'datepicker-widget.component.html',
 	styleUrls: ['datepicker-widget.component.scss']

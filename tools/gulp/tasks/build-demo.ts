@@ -39,17 +39,19 @@ task(':watch:demo:components', () => {
 
 
 /** Builds component typescript only (ESM output). */
-task(':build:demo:components:ts', tsBuildTask(path.join(COMPONENTS_DIR_DEMO, 'tsconfig-prod.json')));
+task(':build:demo:components:ts', tsBuildTask(COMPONENTS_DIR_DEMO, 'tsconfig-prod.json'));
 
 /** Builds components typescript for tests (CJS output). */
 task(':build:demo:components:spec', tsBuildTask(COMPONENTS_DIR_DEMO));
 
 /** Copies assets (html, markdown) to build output. */
 task(':build:demo:components:assets', copyTask([
+  path.join(COMPONENTS_DIR_DEMO, 'app/**/*.html'),
   path.join(COMPONENTS_DIR_DEMO, '**/*.!(ts|spec.ts)'),
   path.join(PROJECT_ROOT, 'README.md'),
   path.join(PROJECT_ROOT, 'LICENSE'),
 ], DIST_COMPONENTS_ROOT_DEMO));
+
 
 /** Minifies the HTML and CSS assets in the distribution folder. */
 task(':build:demo:components:assets:minify', () => {

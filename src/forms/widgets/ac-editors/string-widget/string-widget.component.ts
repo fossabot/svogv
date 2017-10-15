@@ -5,7 +5,7 @@ import { WidgetFieldProperties } from '../../../shared/models/widget-field-prope
 import { Widget } from '../../../shared/models/widget.m';
 
 @Component({
-	moduleId: module.id,
+	
 	selector: 'ac-editor-string',
 	templateUrl: 'string-widget.component.html',
 	styleUrls: ['string-widget.component.scss']

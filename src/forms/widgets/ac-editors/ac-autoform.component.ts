@@ -9,7 +9,7 @@ import { IUISchema } from '../../utils/ui-schema';
  *
  */
 @Component({
-    moduleId: module.id,
+    
     selector: 'ac-autoform',
     styles: [
         'fieldset { border-top: 1px silver solid; padding: 10px; }',

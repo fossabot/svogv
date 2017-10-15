@@ -8,7 +8,6 @@ import {
  * all relevant data must be loaded first.
  */
 @Component({
-  moduleId: module.id,
   selector: 'ac-pagination',
   styleUrls: ['ac-datagridpagination.component.scss'],
   templateUrl: 'ac-datagridpagination.component.html'

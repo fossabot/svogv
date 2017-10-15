@@ -5,7 +5,7 @@ import { WidgetUiOptions } from '../../../shared/models/widget-ui-options.m';
 import { Widget } from '../../../shared/models/widget.m';
 
 @Component({
-	moduleId: module.id,
+	
 	selector: 'ac-editor-switcher',
 	templateUrl: 'switcher-widget.component.html',
 	styleUrls: ['switcher-widget.component.scss']
