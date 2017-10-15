@@ -16,7 +16,7 @@ const gulpMinifyCss = require('gulp-clean-css');
 const gulpMinifyHtml = require('gulp-htmlmin');
 const gulpIf = require('gulp-if');
 const del = require('del');
-
+var systemBuilder = require('systemjs-builder');            // create a rx bundle because the provided did not work
 
 // NOTE: there are two build "modes" in this file, based on which tsconfig is used.
 // When `tsconfig.json` is used, we are outputting ES6 modules and a UMD bundle. This is used
@@ -117,10 +117,99 @@ task(':build:demo:cleanup', () => {
   return del(DIST_COMPONENTS_ROOT_DEMO);
 });
 
+
+task('copy:js', function () {
+  return src([
+    './node_modules/jquery/dist/jquery.js',
+    './node_modules/bootstrap/dist/js/bootstrap.js',
+    './node_modules/tether/dist/js/tether.js',
+    './node_modules/core-js/client/core.js',
+    './node_modules/zone.js/dist/zone.js',
+    './node_modules/reflect-metadata/Reflect.js',
+    './node_modules/systemjs/dist/system.js'
+  ])
+    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'js/lib')));
+});
+
+// This is a simple loader while debugging without going through the WebPack hassle
+task('copy:systemjs', function () {
+  return src(path.join(COMPONENTS_DIR_DEMO, 'systemjs.config.js'))
+  .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'js')));
+});
+
+task('copy:angular', function () {
+  return src([
+    './node_modules/@angular/**/bundles/*.umd.js',
+    '!' + './node_modules/@angular/**/bundles/*-testing.umd.js'
+  ]).pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'js/lib/@angular')));
+});
+
+task('copy:svogv', function () {
+  return src(['./dist/@svogv/**/svogv-*.umd.js'])
+    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'js/lib/@svogv/')));
+});
+
+// Create RxJs bundle
+task('copy:rxjs', function () {
+  var builder = new systemBuilder('./', {
+    paths: { 'rxjs/*': 'node_modules/rxjs/*.js' },
+    map: { 'rxjs': 'node_modules/rxjs' },
+    packages: { 'rxjs': { main: 'Rx.js', defaultExtension: 'js' } }
+  });
+  // create the bundle we use from systemjs.config.js
+  builder.bundle('rxjs', path.join(DIST_COMPONENTS_ROOT_DEMO, 'js/lib/rxjs/bundles/Rx.min.js'), {
+    sourceMaps: true,
+    minify: true,
+    mangle: true
+  });
+});
+
+// except those css that's delivered "as is"
+task('copy:css', function () {
+  return src([
+    './node_modules/font-awesome/css/font-awesome.css'
+  ])
+    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'styles')));
+});
+// icons and symbols shall be fonts, never want to see a single GIF here
+task('copy:fonts', function () {
+  return src([
+    './node_modules/font-awesome/fonts/*.*'
+  ])
+    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'fonts')));
+});
+// View HTML (component templates)
+
+task('copy:views:index', function () {
+  return src([path.join(COMPONENTS_DIR_DEMO, 'index.html')])
+    .pipe(dest(DIST_COMPONENTS_ROOT_DEMO));
+});
+task('copy:views', ['copy:views:index']);
+
+task('copy:images', function () {
+  return src([path.join(COMPONENTS_DIR_DEMO, 'assets/images/**/*.*')])
+    .pipe(dest(path.join(DIST_COMPONENTS_ROOT_DEMO, 'images')));
+});
+
+task(':build:demo:components:files', [
+  'copy:svogv',
+  'copy:js',
+  'copy:rxjs',
+  'copy:angular',
+  'copy:systemjs',
+  'copy:css',
+  'copy:fonts',
+  'copy:views',
+  'copy:images'
+]);
+
+
+
 /** Builds components with resources (html, css) inlined into the built JS (ESM output). */
 task(':build:demo:components:inline', sequenceTask(
   ':build:demo:cleanup',
   ':build:demo:components:ts',
+  ':build:demo:components:files',
   ':build:demo:components:scss',
   ':build:demo:components:assets',
   ':build:demo:components:assets:minify',
@@ -131,6 +220,7 @@ task(':build:demo:components:inline', sequenceTask(
 task(':build:demo:components:inline:release', sequenceTask(
   ':build:demo:cleanup',
   ':build:demo:components:ts',
+  ':build:demo:components:files',
   ':build:demo:components:scss',
   ':build:demo:components:assets',
   ':build:demo:components:assets:minify',
