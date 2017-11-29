@@ -1,0 +1,32 @@
+@import "../../scss/helpers";
+
+:host {
+	display: flex;
+	align-items: center;
+	font-family: $font-text-regular;
+	line-height: 2.2rem;
+	margin-bottom: 2.3rem;
+
+	&:last-of-type {
+		margin-bottom: 3rem;
+	}
+
+	&.is-deactivated {
+		.description-item__headline {
+			color: $color-grey-soft;
+		}
+	}
+
+	.description-item__marker {
+		margin-right: 16px;
+	}
+
+	.description-item__headline {
+		font-family: $font-head-bold;
+	}
+
+	.description-item__subheadline,
+	.description-item__supraheadline {
+		color: $color-grey-soft;
+	}
+}

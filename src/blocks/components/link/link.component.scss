@@ -1,0 +1,53 @@
+@import "../../scss/helpers";
+
+:host {
+	position: static;
+	display: inline;
+	cursor: pointer;
+	outline: none;
+	text-decoration: none;
+	color: $link-color;
+	font-size: 1.5rem;
+	font-family: $font-head-bold;
+
+	&:hover {
+		color: $link-color-hover;
+	}
+
+	&.is-disabled {
+		cursor: not-allowed;
+		color: $button-font-color-disabled;
+	}
+
+	&.is-margin {
+		margin-right: 3.5rem;
+		line-height: 16px;
+
+		@include media($breakpoint-main-max) {
+			display: block;
+			margin-right: auto;
+			margin-bottom: 11px;
+		}
+
+		&:last-of-type {
+			margin-right: 0;
+
+			@include media($breakpoint-main-max) {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	&.is-loader {
+		display: inline-block;
+		margin-bottom: 5rem;
+	}
+}
+
+:host-context(bb-overlay) {
+	color: #fff;
+
+	&.is-disabled {
+		color: rgba(#fff, .2);
+	}
+}

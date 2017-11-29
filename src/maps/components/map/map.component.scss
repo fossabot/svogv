@@ -1,0 +1,33 @@
+:host {
+	display: block;
+	position: relative;
+
+	&.is-transparent {
+		opacity: .2;
+	}
+
+	.map__container {
+	}
+
+	.map__overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		pointer-events: none;
+	}
+}
+
+:host.map--default {
+	.map__container {
+		height: 500px;
+	}
+}
+
+:host.map--overlay {
+	height: 100%;
+
+	.map__container,
+	.map__wrapper {
+		height: 100%;
+	}
+}

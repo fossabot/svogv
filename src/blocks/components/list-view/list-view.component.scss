@@ -1,0 +1,13 @@
+@import "../../scss/helpers";
+
+:host {
+	.list__view-wrapper {
+		min-width: 300px;
+		cursor: pointer;
+		width: 100%;
+	}
+
+	.list__view-no-content {
+		text-align: center;
+	}
+}

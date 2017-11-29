@@ -1,0 +1,31 @@
+@import "../../scss/helpers";
+
+$sidebar-table-horizontal-spacing: 1rem; // ToDo: use global spacing var as soon as available
+$sidebar-table-vertical-spacing: .6rem; // ToDo: use global spacing var as soon as available
+$sidebar-table-outer-spacing: 1.5rem 0; // ToDo: use global spacing var as soon as available
+$sidebar-table-divider-style: 1px solid $color-grey-calm;
+
+:host {
+	display: block;
+	margin: $sidebar-table-outer-spacing 0;
+	color: $color-text-light;
+
+	.data-set__wrapper {
+		border: $sidebar-table-divider-style;
+		border-left: 0;
+		border-right: 0;
+		display: flex;
+		flex-direction: column;
+
+		@include media("<mobile-xl") {
+			flex-direction: row;
+			overflow: auto;
+			-webkit-overflow-scrolling: touch;
+		}
+
+		@include media("<mobile-xl") {
+			padding: $sidebar-table-outer-spacing $sidebar-table-horizontal-spacing;
+		}
+	}
+}
+

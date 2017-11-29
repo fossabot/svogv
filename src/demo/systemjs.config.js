@@ -21,8 +21,11 @@
             '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
             '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
             '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
-            'svogv': 'npm:svogv/bundles/svogv.umd.js',
-            'reflect-metadata': 'npm:reflect.js'
+            '@svogv/forms': 'npm:@svogv/forms/bundles/svogv-forms.umd.js',
+            '@svogv/blocks': 'npm:@svogv/blocks/bundles/svogv-blocks.umd.js',
+            '@svogv/maps': 'npm:@svogv/maps/bundles/svogv-maps.umd.js',
+            '@svogv/hud': 'npm:@svogv/hud/bundles/svogv-hud.umd.js',
+            'moment': 'npm:moment.js'
         },        
         // packages tells the System loader how to load when no filename and/or no extension
         packages: {
@@ -32,7 +35,7 @@
             }
         },
         bundles: {
-            '/assets/js/lib/rxjs/Bundles/Rx.min.js': [
+            '/assets/js/lib/rxjs/bundles/rx.min.js': [
             "rxjs/*",
             "rxjs/rx/*",
             "rxjs/symbol/*",

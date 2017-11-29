@@ -1,0 +1,134 @@
+/* ===================================================
+Input Widget
+=================================================== */
+
+/* ---------------------------------------------------
+Imports
+--------------------------------------------------- */
+@import "../../../scss/vars";
+@import "../../../scss/utilities";
+@import "../../../scss/global/grid";
+@import "include-media";
+
+/* ---------------------------------------------------
+Global Variables
+--------------------------------------------------- */
+$srf-string-color-error-text: #fff !default;
+$srf-string-color-error-bg: $srf-error-color !default;
+$srf-string-color-border: transparent !default;
+$srf-string-color-value: #000 !default;
+$srf-string-color-placeholder: #bbb !default;
+$srf-string-padding: 12px !default;
+$srf-string-border-radius: 4px !default;
+$srf-string-font-size: $srf-field-font-size !default;
+$srf-string-height: $srf-field-height !default;
+$srf-input-placeholder-color: rgba(#fff, .3);
+
+/* ---------------------------------------------------
+Host
+--------------------------------------------------- */
+
+:host {
+	display: block;
+	margin-top: $srf-margin-base;
+	margin-bottom: $srf-margin-base;
+
+	.input__label {
+		display: block;
+		margin-bottom: .5rem;
+
+		@include srf-label();
+	}
+
+	.input__radio-wrapper {
+		@include clearfix;
+	}
+
+	.input__radio-option {
+		float: left;
+		margin-left: 20px;
+
+		@include media($breakpoint-main-max) {
+			&:first-of-type {
+				margin-left: 0;
+			}
+		}
+	}
+
+	.input__radio-label {
+		position: relative;
+		padding-left: 45px;
+		line-height: 32px;
+		display: inline-block;
+
+		&::before {
+			content: '';
+			width: 32px;
+			height: 32px;
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			background: #fff;
+			border-radius: 50%;
+			border: 1px solid $color-grey-calm;
+		}
+	}
+
+	.input__radio-input {
+		@extend %visuallyhidden !optional;
+
+		&:checked {
+			& ~ .input__radio-label {
+				&::before {
+					box-shadow: inset 0 0 0 10px $color-blue;
+					border-color: $color-blue;
+				}
+			}
+		}
+	}
+
+	/*
+	Modifiers
+	----------------------- */
+	.is-error {
+		.input__text-wrapper {
+			border: none;
+		}
+
+		.input__text {
+			border: 2px solid $srf-string-color-error-bg;
+		}
+	}
+
+	.is-form-error {
+		display: block;
+		margin-top: $srf-margin-base;
+		padding: $srf-margin-base/2 $srf-margin-base/1.5;
+		background: $srf-string-color-error-bg;
+		color: $srf-string-color-error-text;
+	}
+
+	&.is-light {
+		.input__label {
+			color: $color-grey-warm;
+		}
+	}
+
+	&.is-label-inline {
+		@include clearfix;
+
+		.input__label {
+			float: left;
+		}
+
+		.input__radio-wrapper {
+			float: left;
+		}
+	}
+
+	&.is-margin {
+		margin-top: 33px;
+		margin-bottom: 23px;
+	}
+}

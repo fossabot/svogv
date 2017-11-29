@@ -1,0 +1,9 @@
+<button (click)="toggleOpenState()" class="fly-out-menu__toggle">
+  <ac-icon class="fly-out-menu__toggle-icon" [iconName]="toggleIcon"></ac-icon>
+</button>
+<div (swiperight)="toggleOpenState()">
+  <h4 class="fly-out-menu__title">{{menuTitle}}</h4>
+  <ul class="fly-out-menu__container" (click)="toggleOpenState()">
+    <ng-content></ng-content>
+  </ul>
+</div>

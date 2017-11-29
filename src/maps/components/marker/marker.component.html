@@ -1,0 +1,10 @@
+<i 
+	*ngIf="iconName && !(vm.count > 1)" 
+	class="marker__icon icon is-icon-{{iconName}}" 
+	[ngStyle]="{'width':markerSize, 'height':markerSize, 'color': (color ? color : 'inherit'), 'font-size': (size ? size : 'inherit')}" 
+	></i>
+<ng-template [ngIf]="!disableCaption">
+	{{vm.caption}}
+</ng-template>
+<div *ngIf="vm.count > 1" class="marker__icon is-text-white">{{vm.count}}</div>
+

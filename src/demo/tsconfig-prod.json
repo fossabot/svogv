@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": ["es6", "es2015", "dom"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noImplicitAny": false,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "../../dist/demo/",
+    "sourceMap": true,
+    "target": "es5",
+    "removeComments": false,
+    "typeRoots": [
+      "../../node_modules/@types"  
+    ],
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    "./app/**/*.ts"
+  ],
+  "files": [
+    "./app/app.ts"
+  ],
+  "angularCompilerOptions": {
+    "genDir": "../../dist/demo",
+    "entryModule": "./app/app#RootModule",
+    "skipTemplateCodegen": true,
+    "debug": true
+  }
+}

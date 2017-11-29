@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>Huge Button</h3>
+      <p>A huge, styled button for Login/Logout or other main options.</p>
+      <ac-button class="issubmitted-white is-center" [disabled]="hasChanges === false" (click)="testButton()">
+        Main Button
+      </ac-button>
+      <p>Compare this with the standard Bootstrap buttons here</p>
+      <button type="button" class="btn btn-large btn-info">Info Large</button>
+      <button type="button" class="btn btn-large btn-info">Info Large</button>
+      <div class="col">
+        <p>Code</p>
+        <pre>
+&lt;ac-button class="issubmitted-white is-center" [disabled]="hasChanges === false" (click)="testButton()"&gt;
+  Main Button
+&lt;/ac-button&gt;        
+        </pre>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+      </div>
+      <div class="col">
+      </div>
+    </div>
+  </div>

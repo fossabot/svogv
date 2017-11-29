@@ -1,0 +1,33 @@
+@import "../../scss/helpers";
+
+:host {
+	width: 100%;
+	overflow: hidden;
+	display: inline-block;
+
+	img {
+		&.lazyload {
+			filter: blur(10px);
+		}
+
+		&.lazyloaded {
+			filter: blur(0);
+		}
+
+		&.is-hidden {
+			display: none;
+		}
+	}
+
+	&.is-responsive {
+		img {
+			width: 100%;
+		}
+	}
+
+	&.is-round {
+		img {
+			border-radius: 50%;
+		}
+	}
+}

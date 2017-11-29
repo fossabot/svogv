@@ -1,0 +1,28 @@
+@import "../../scss/helpers";
+@import "../../scss/utilities";
+
+:host {
+	display: table;
+	line-height: 0;
+	margin: 0 auto;
+
+	.pill--container {
+		display: flex;
+		justify-content: center;
+		border-radius: ($button-height-med / 2);
+		background-image: linear-gradient(-225deg, #0099da 0%, #2ab8f5 100%);
+	}
+
+	&.is-bottom-center {
+		@include centering('h');
+		bottom: 30px;
+	}
+
+	&.is-route-details {
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+		padding-top: 4rem;
+		margin: 0;
+	}
+}

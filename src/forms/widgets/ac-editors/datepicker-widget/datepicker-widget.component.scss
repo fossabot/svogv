@@ -1,0 +1,121 @@
+/* ===================================================
+Input Widget
+=================================================== */
+
+/* ---------------------------------------------------
+Imports
+--------------------------------------------------- */
+@import "../../../scss/vars";
+@import "../../../scss/utilities";
+@import "../../../scss/global/grid";
+
+/* ---------------------------------------------------
+Global Variables
+--------------------------------------------------- */
+$srf-string-color-error-text: #fff !default;
+$srf-string-color-error-bg: $srf-error-color !default;
+$srf-string-color-border: transparent !default;
+$srf-string-color-value: #000 !default;
+$srf-string-color-placeholder: #bbb !default;
+$srf-string-padding: 12px !default;
+$srf-string-border-radius: 4px !default;
+$srf-string-font-size: $srf-field-font-size !default;
+$srf-string-height: $srf-field-height !default;
+$srf-input-placeholder-color: rgba(#fff, .3);
+$srf-input-icon-color: $color-blue !default;
+
+/* ---------------------------------------------------
+Host
+--------------------------------------------------- */
+
+:host {
+	display: block;
+	margin-top: $srf-margin-base;
+	margin-bottom: $srf-margin-base;
+
+	.input__label {
+		display: block;
+		margin-bottom: .5rem;
+
+		@include srf-label();
+	}
+
+	.input__text-wrapper {
+		border: 1px solid transparent;
+
+		&::after {
+			// @extend .is-icon-date:before;
+			// @extend .icon;
+			position: absolute;
+			bottom: 12px;
+			right: $srf-string-padding;
+			color: $srf-input-icon-color;
+			font-size: 22px;
+			pointer-events: none;
+		}
+	}
+
+	.input__datepicker {
+		border-radius: $srf-string-border-radius;
+		padding: $srf-string-padding;
+		border: 1px solid $srf-string-color-border;
+		width: 100%;
+		box-sizing: border-box;
+		font-size: $srf-string-font-size;
+		color: $srf-string-color-value;
+		background-color: $color-white;
+
+		&.is-empty {
+			background-color: $srf-field-background-color-empty;
+
+			&::after {
+				color: $color-white;
+			}
+		}
+
+		&:focus {
+			background-color: $color-white;
+
+			&::after {
+				color: $srf-input-icon-color;
+			}
+		}
+
+		&::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+			color: $srf-input-placeholder-color;
+		}
+
+		&::-moz-placeholder { /* Firefox 19+ */
+			color: $srf-input-placeholder-color;
+		}
+
+		&:-ms-input-placeholder { /* IE 10+ */
+			color: $srf-input-placeholder-color;
+		}
+
+		&:-moz-placeholder { /* Firefox 18- */
+			color: $srf-input-placeholder-color;
+		}
+	}
+
+	/*
+	Modifiers
+	----------------------- */
+	.is-error {
+		.input__text-wrapper {
+			border: none;
+		}
+
+		.input__text {
+			border: 2px solid $srf-string-color-error-bg;
+		}
+	}
+
+	.is-form-error {
+		display: block;
+		margin-top: $srf-margin-base;
+		padding: $srf-margin-base/2 $srf-margin-base/1.5;
+		background: $srf-string-color-error-bg;
+		color: $srf-string-color-error-text;
+	}
+}

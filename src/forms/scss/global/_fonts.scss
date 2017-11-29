@@ -1,0 +1,67 @@
+
+@font-face {
+	font-family: "Segoe-UI";
+	font-style: normal;
+	font-weight: normal;
+	src:
+		url("/assets/fonts/VWTextWeb-Regular.eot?#iefix") format("embedded-opentype"),
+		url("/assets/fonts/VWTextWeb-Regular.woff") format("woff"),
+		url("/assets/fonts/VWTextWeb-Regular.ttf") format("truetype"),
+		url("/assets/fonts/VWTextWeb-Regular.svg#Segoe-UI") format("svg");
+}
+
+@font-face {
+	font-family: "Segoe-UI-Bold";
+	font-style: normal;
+	font-weight: normal;
+	src:
+		url("/assets/fonts/VWTextWeb-Bold.eot?#iefix") format("embedded-opentype"),
+		url("/assets/fonts/VWTextWeb-Bold.woff") format("woff"),
+		url("/assets/fonts/VWTextWeb-Bold.ttf") format("truetype"),
+		url("/assets/fonts/VWTextWeb-Bold.svg#Segoe-UI-Bold") format("svg");
+}
+
+@font-face {
+	font-family: "Segoe-UI-Semibold-Regular";
+	font-style: normal;
+	font-weight: normal;
+	src:
+		url("/assets/fonts/VWHeadWeb-Light.eot?#iefix") format("embedded-opentype"),
+		url("/assets/fonts/VWHeadWeb-Light.woff") format("woff"),
+		url("/assets/fonts/VWHeadWeb-Light.ttf") format("truetype"),
+		url("/assets/fonts/VWHeadWeb-Light.svg#Segoe-UI-Light") format("svg");
+}
+
+@font-face {
+	font-family: 'VW-Head-Regular';
+	font-style: normal;
+	font-weight: normal;
+	src:
+		url('/assets/fonts/VWHeadWeb-Regular.eot?#iefix') format('embedded-opentype'),
+		url('/assets/fonts/VWHeadWeb-Regular.woff') format('woff'),
+		url('/assets/fonts/VWHeadWeb-Regular.ttf') format('truetype'),
+		url('/assets/fonts/VWHeadWeb-Regular.svg#VW-Head-Regular') format('svg');
+}
+
+@font-face {
+	font-family: "Segoe-UI-Bold";
+	font-style: normal;
+	font-weight: normal;
+	src:
+		url("/assets/fonts/VWHeadWeb-Bold.eot?#iefix") format("eot"),
+		// use "eot" format here as a workaround for IE exception: CSS3111: @font-face encountered unknown error.
+		url("/assets/fonts/VWHeadWeb-Bold.woff") format("woff"),
+		url("/assets/fonts/VWHeadWeb-Bold.ttf") format("truetype"),
+		url("/assets/fonts/VWHeadWeb-Bold.svg#Segoe-UI-Bold") format("svg");
+}
+
+@font-face {
+	font-family: "Segoe-UI-ExtraBold";
+	font-style: normal;
+	font-weight: normal;
+	src:
+		url("/assets/fonts/VWHeadWeb-ExtraBold.eot?#iefix") format("embedded-opentype"),
+		url("/assets/fonts/VWHeadWeb-ExtraBold.woff") format("woff"),
+		url("/assets/fonts/VWHeadWeb-ExtraBold.ttf") format("truetype"),
+		url("/assets/fonts/VWHeadWeb-ExtraBold.svg#VW-Text-ExtraBold") format("svg");
+}

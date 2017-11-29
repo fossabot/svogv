@@ -1,0 +1,51 @@
+@import "../../scss/helpers";
+@import "../../scss/utilities";
+
+:host {
+	display: flex;
+	justify-content: center;
+
+	@include media($breakpoint-main-max) {
+		height: $button-height-med;
+		padding-top: $button-height-med;
+		position: relative;
+		width: 280px;
+		display: block;
+		margin: 0 auto;
+		overflow: hidden;
+		border-radius: ($button-height-med / 2);
+	}
+
+	&::before {
+		// @extend .is-icon-arrow:before;
+		// @extend .icon;
+
+		@include media($breakpoint-main-min) {
+			display: none;
+		}
+
+		@include media($breakpoint-main-max) {
+			position: absolute;
+			right: ($button-height-med / 2);
+			z-index: 3;
+			color: #fff;
+			top: 50%;
+			transform: rotate(90deg) translateY(-50%);
+			transform-origin: 50% 0;
+		}
+	}
+
+	&.is-open {
+		z-index: 2;
+
+		&::before {
+			@include media($breakpoint-main-max) {
+				transform: scale(-1, 1) rotate(270deg) translateY(-50%);
+			}
+		}
+
+		@include media($breakpoint-main-max) {
+			overflow: visible;
+		}
+	}
+}

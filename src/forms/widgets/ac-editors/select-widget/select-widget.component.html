@@ -1,0 +1,59 @@
+<div class="select__select is-native" [ngClass]="{'is-error': props.formControl.touched && props.formControl.invalid}" role="group" [formGroup]="props.parentFormGroup">
+	<div class="select__label-wrapper">
+		<label *ngIf="props.title"
+		       [attr.for]="props.id"
+		       class="select__label is-label">
+			{{props.title  }}
+			<abbr *ngIf="this.props.schema.required" title="Required">*</abbr>
+		</label>
+	</div>
+	<div class="select__wrapper">
+		<select id="{{props.id}}" name="{{props.id}}" [formControl]="props.formControl" class="is-ui-replaced" tabindex="-1">
+			<option *ngFor="let option of props.schema.enum; let i = index" value="{{option}}">
+				{{props.schema.enumNames[i] }}
+			</option>
+		</select>
+
+		<div class="select__replacer" #replacer [ngClass]="props.ui.options?.multiSelect ? 'is-multi-select': ''">
+			<div class="select__replacer-btn-wrapper" #btnWrapper>
+				<button
+						#btn
+						(click)="buttonHandler($event)"
+						class="select__replacer-btn"
+						data-js-item="btn"
+						type="button"
+						value=""
+						readonly="readonly"
+						[attr.aria-controls]="instanceId"
+						[attr.aria-expanded]="ariaExpanded">
+					{{placeholder }}
+				</button>
+
+			</div>
+			<fieldset
+					class="select__replacer-list-wrapper"
+					data-js-item="list-wrapper"
+					id="{{instanceId}}"
+			        #listWrapper>
+				<div class="select__replacer-list-wrapper-inner" data-js-item="list-wrapper-inner" #listWrapperInner>
+					<ul class="select__replacer-list">
+						<li class="select__replacer-list-item" *ngFor="let option of props.schema.enum; let i = index">
+							<button
+									#optionListItem
+									class="select__replacer-list-button"
+									value="{{option}}"
+									[attr.data-index]="i"
+							        (click)="selectItemHandler($event)">
+								{{props.schema.enumNames[i] }}
+							</button>
+						</li>
+					</ul>
+				</div>
+			</fieldset>
+		</div>
+
+		<span class="select__error is-form-error" *ngIf="errorMessage && showErrorMessage">
+        {{ errorMessage }}
+    	</span>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+<div class="map-popup__info">
+    <div class="map-popup__header" [routerLink]="['/', 'profile', 'vehicle', data.data.id]">
+        {{data.header}}
+    </div>
+    <div class="map-popup__text">
+        {{data.text}}
+    </div>
+    <div class="map-popup__detail" *ngFor="let detail of data.details">
+        {{detail}}
+    </div>
+</div>
+<div [ngClass]="{'map-popup__active': data.active}">
+</div>

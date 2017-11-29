@@ -1,0 +1,38 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": ["es6", "es2015", "dom"],
+    "mapRoot": "",
+    "module": "es2015",
+    "moduleResolution": "node",
+    "noEmitOnError": true,
+    "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "../../dist/@svogv/forms",
+    "rootDir": ".",
+    "sourceMap": true,
+    "target": "es5",
+    "inlineSources": true,
+    "stripInternal": false,
+    "typeRoots": [
+      "../../node_modules/@types"
+    ],
+    "types": [
+      "jasmine", "node"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "typings/**",
+    "typings/*.d.ts",
+    "**/*.spec.*",
+    "system-config-spec.ts"
+  ],
+  "angularCompilerOptions": {
+    "genDir": "../../dist/@svogv/forms",
+    "skipTemplateCodegen": true,
+    "debug": true
+  }
+}

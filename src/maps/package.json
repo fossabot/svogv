@@ -1,0 +1,41 @@
+{
+  "name": "@svogv/maps",
+  "version": "0.3.0",
+  "description": "An advanced set of Angular widgets with integrated CSS. This part is a Google Maps wrapper library.",
+  "main": "./bundles/svogv-maps.umd.js",
+  "module": "./index.js",
+  "typings": "./index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joergkrause/svogv.git"
+  },
+  "keywords": [
+    "angular",
+    "angular2",
+    "angular4",
+    "angular5",
+    "Reactive",
+    "Forms",
+    "Google",
+    "Maps",
+    "decorators",
+    "components"
+  ],
+  "license": "ICS",
+  "bugs": {
+    "url": "https://github.com/joergkrause/svogv/issues"
+  },
+  "homepage": "https://github.com/joergkrause/svogv#readme",
+  "peerDependencies": {
+    "@angular/common": ">= 2.2.0",
+    "@angular/compiler": ">= 2.2.0",
+    "@angular/core": ">= 2.2.0",
+    "@angular/forms": ">= 2.2.0",
+    "@angular/http": ">= 2.2.0",
+    "@angular/platform-browser": ">= 2.2.0",
+    "@angular/platform-browser-dynamic": ">= 2.2.0",
+    "@angular/router": ">= 3.1.0",
+    "@types/googlemaps": "^3.29.2",
+    "typescript": "^2.3.2"
+  }
+}

@@ -15,7 +15,10 @@ export * from './editor/edit.component';
 export * from './editor/edit-autoform.component';
 export * from './editor/new.component';
 // app : widgets
+export * from './widgets/common.component';
 export * from './widgets/list.component';
 export * from './widgets/analogclock.component';
 export * from './widgets/loadericon.component';
 export * from './widgets/treeview.component';
+// app: hud
+export * from './hud/hud-dashboard.component';

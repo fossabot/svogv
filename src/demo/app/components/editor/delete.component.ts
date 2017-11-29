@@ -2,13 +2,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormValidatorService } from 'svogv';
+import { FormValidatorService } from '@svogv/forms';
 // private
 import { SiteApiService, EmitterService } from '../../services/index';
 import { UserViewModel } from '../../viewmodels/index';
 
-@Component({
-  moduleId: module.id,
+@Component({  
   templateUrl: './delete.component.html',
   styles: [
     'fieldset { margin: 16px; padding: 0px 16px 16px 16px; border: 1px solid silver; border-radius: 2px; }',

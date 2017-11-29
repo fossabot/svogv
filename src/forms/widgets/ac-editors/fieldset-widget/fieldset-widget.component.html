@@ -1,0 +1,22 @@
+<fieldset class="fieldset__wrapper is-fieldset" [formGroup]="formControl">
+	<legend class="fieldset__legend" *ngIf="legend">{{legend }}</legend>
+
+	<div *ngIf="description" class="fieldset__description">
+		<div *ngIf="ui['ui:options']?.markdownDescription;"
+				  class="is-white"
+				  links-to-router>{{ description }}</div>
+		<ng-template #regularDescription>{{description }}</ng-template>
+	</div>
+
+	<div *ngIf="help" class="fieldset__help">
+		<div *ngIf="ui['ui:options']?.markdownHelp; else regularHelp"
+				  class="is-white"
+				  links-to-router>{{ help }}</div>
+		<ng-template #regularHelp>{{help }}</ng-template>
+	</div>
+
+	<div class="fieldset__row">
+		<ac-editor [formGroup]="formControl"></ac-editor>
+	</div>
+
+</fieldset>

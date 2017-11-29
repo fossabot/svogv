@@ -1,0 +1,475 @@
+/* ===================================================
+Select Widget
+=================================================== */
+
+/* ---------------------------------------------------
+Imports
+--------------------------------------------------- */
+@import "../../../scss/vars";
+@import "../../../scss/utilities";
+@import "../../../scss/global/grid";
+@import "include-media";
+
+/* ---------------------------------------------------
+Global Variables
+--------------------------------------------------- */
+
+/*
+Animation
+----------------------- */
+$srf-select-animation-duration: 300ms !default;
+$srf-select-animation-easing: ease-in !default;
+
+/*
+Colors
+----------------------- */
+$srf-select-color-border: #333 !default;
+$srf-select-color-btn: #fefefe !default;
+$srf-select-color-error: $color-red-darker !default;
+$srf-select-color-error-string: $color-light !default;
+$srf-select-color-focus: #dcdcdc !default;
+$srf-select-color-light: #fff !default;
+$srf-select-color-selected: #204b7a !default;
+$srf-select-color-shadow: #000 !default;
+$srf-select-color-text: #333 !default;
+$srf-select-font-size: $srf-field-font-size !default;
+$srf-select-placeholder-color: $srf-select-color-selected !default;
+$srf-select-height: $srf-field-height !default;
+
+/*
+Borders
+----------------------- */
+$srf-select-border-radius: 4px !default;
+
+/*
+Fonts
+----------------------- */
+$srf-select-font-family: 'sans-serif' !default;
+
+/*
+Media Queries
+----------------------- */
+$srf-select-bp-tablet: '768px' !default;
+
+/*
+Layout
+----------------------- */
+$srf-select-padding-btn: 10px 12px !default;
+
+/* ---------------------------------------------------
+Host Context
+--------------------------------------------------- */
+:host {
+	display: block;
+	margin-top: $srf-margin-base;
+	margin-bottom: $srf-margin-base;
+
+	/*
+	Modifiers
+	----------------------- */
+	.is-error {
+		.select__replacer-btn {
+			-webkit-appearance: none;
+			border: 2px solid $srf-select-color-error;
+			margin: 0;
+		}
+	}
+
+	&.is-label-inline {
+		.select__select {
+			@include clearfix;
+		}
+
+		.select__label-wrapper {
+			@include media($breakpoint-main-min) {
+				float: left;
+				width: 84px;
+				padding: 12px 0;
+			}
+		}
+
+		.select__wrapper {
+			@include media($breakpoint-main-min) {
+				float: left;
+				width: calc(100% - 84px);
+			}
+		}
+	}
+
+	&.is-light {
+		.select__wrapper {
+			max-width: 260px;
+		}
+
+		.select__label {
+			color: $color-grey-warm;
+		}
+
+		.select__replacer-btn {
+			border-color: $color-grey-calm;
+			color: $color-grey-dark;
+
+			&:hover {
+				border-color: darken($color-grey-calm, 10%);
+			}
+		}
+
+		.select__replacer-btn-wrapper.is-open {
+			.select__replacer-btn {
+				border-left: 1px solid darken($color-grey-calm, 10%);
+				border-right: 1px solid darken($color-grey-calm, 10%);
+				border-top: 1px solid darken($color-grey-calm, 10%);
+			}
+		}
+
+		.select__replacer-list-wrapper {
+			border-left: 1px solid darken($color-grey-calm, 10%);
+			border-right: 1px solid darken($color-grey-calm, 10%);
+			border-bottom: 1px solid darken($color-grey-calm, 10%);
+		}
+	}
+
+	/*
+	Elements
+	----------------------- */
+	.select__wrapper {
+		display: block;
+		width: 100%;
+	}
+
+	.select__label {
+		@include srf-label();
+	}
+
+	.select__error {
+		@include error-message($srf-select-color-error, $srf-select-color-error-string);
+	}
+
+	.touch & {
+		.select__label.is-touch-behaviour {
+			height: auto;
+			width: auto;
+			position: relative;
+			margin-top: 10px;
+		}
+	}
+
+	.select__field {
+		width: 100%;
+		text-align: left;
+		margin: 0;
+		border: 1px solid rgba($srf-select-color-border, .3);
+		padding: 14px 40px 15px 19px;
+		border-radius: 3px;
+		background-color: $srf-select-color-light;
+		color: rgba($srf-select-color-text, .4);
+		transition: border-color $srf-select-animation-duration, color $srf-select-animation-duration, border-radius $srf-select-animation-duration, box-shadow $srf-select-animation-duration;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		@include bp($srf-select-bp-tablet) {
+			appearance: none;
+		}
+
+		&.is-disabled,
+		&[disabled=disabled],
+		&:disabled {
+			opacity: .3;
+			border: 1px solid rgba($srf-select-color-text, 1);
+
+			&:hover {
+				cursor: not-allowed;
+			}
+		}
+	}
+
+	/*
+	Select replace
+	----------------------- */
+	.select__replacer {
+		position: relative;
+		//min-width: 100%;
+
+		/*
+		MODIFIERS
+		----------------------- */
+		&.is-multi-select {
+			.select__replacer-list-button {
+				padding: 12px 50px 12px 17px;
+
+				&::before {
+					content: '';
+					position: absolute;
+					right: 15px;
+					top: 15px;
+					width: 20px;
+					height: 20px;
+					background-color: $srf-select-color-btn;
+					display: block;
+					border-radius: $srf-select-border-radius;
+					transition: background-color $srf-select-animation-duration $srf-select-animation-easing;
+				}
+
+				&::after {
+					content: '';
+					position: absolute;
+					right: 23px;
+					top: 20px;
+					width: 5px;
+					height: 9px;
+					display: block;
+					transition: background-color $srf-select-animation-duration $srf-select-animation-easing, opacity $srf-select-animation-duration*20 $srf-select-animation-easing;
+					border-right: 2px solid $srf-select-color-light;
+					border-bottom: 2px solid $srf-select-color-light;
+					transform: rotate(45deg);
+					opacity: 0;
+				}
+
+				&:hover,
+				&.a11y-focus-key {
+					&::before {
+						background-color: $srf-select-color-light;
+					}
+				}
+
+				/*
+				MODIFIERS
+				----------------------- */
+				&.is-disabled,
+				&[disabled=disabled],
+				&:disabled {
+					opacity: .3;
+
+					&:hover {
+						cursor: not-allowed;
+					}
+				}
+
+				&.is-selected {
+					border-left-color: transparent;
+
+					&::before {
+						background-color: $srf-select-color-selected;
+					}
+
+					&::after {
+						opacity: 1;
+
+						.is-dark-theme & {
+							border-right-color: $srf-select-color-text;
+							border-bottom-color: $srf-select-color-text;
+						}
+					}
+
+					&.is-disabled {
+						&::before {
+							background-color: $srf-select-color-btn;
+						}
+
+						&::after {
+							border-right: 2px solid rgba($srf-select-color-selected, .3);
+							border-bottom: 2px solid rgba($srf-select-color-selected, .3);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.select__replacer-btn-wrapper {
+		position: relative;
+
+		&::after {
+			// @extend .is-icon-arrow:before;
+			// @extend .icon;
+			pointer-events: none;
+			position: absolute;
+			right: 15px;
+			top: 16px;
+			transform: rotate(90deg);
+			color: $srf-select-color-btn;
+			font-size: 1.4rem;
+			transform-origin: center center;
+		}
+
+		/*
+		MODIFIERS
+		----------------------- */
+		&.is-open {
+			box-shadow: 0 2px 33px 0 rgba($srf-select-color-shadow, .1);
+			border-radius: $srf-select-border-radius $srf-select-border-radius 0 0;
+			width: inherit;
+
+			&::after {
+				transform: rotate(270deg);
+			}
+
+			.select__replacer-btn {
+				border: 1px solid rgba($srf-select-color-light, 1);
+				border-radius: $srf-select-border-radius $srf-select-border-radius 0 0;
+			}
+		}
+
+		&.is-active {
+			.select__replacer-btn {
+				color: $srf-select-color-selected;
+				font-weight: 900;
+			}
+		}
+	}
+
+	.select__replacer-btn {
+		@include reset-btn();
+		text-align: left;
+		font-size: $srf-select-font-size;
+		width: 100%;
+		margin: 0;
+		border: 1px solid rgba($srf-select-color-border, .3);
+		padding: 12px 40px 12px 16px;
+		border-radius: $srf-select-border-radius;
+		background-color: $srf-select-color-light;
+		color: rgba($srf-select-placeholder-color, .8);
+		transition: border-color $srf-select-animation-duration, color $srf-select-animation-duration, border-radius $srf-select-animation-duration, box-shadow $srf-select-animation-duration;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		min-height: 40px;
+
+		@include media("<tablet-p") {
+			white-space: normal;
+			word-break: break-all;
+		}
+
+		&:hover,
+		&.a11y-focus-key {
+			cursor: pointer;
+			border: 1px solid $color-white;
+			color: rgba($srf-select-color-text, .6);
+		}
+
+		/*
+		MODIFIERS
+		----------------------- */
+		&.is-disabled,
+		&[disabled=disabled],
+		&:disabled {
+			opacity: .3;
+			border: 1px solid rgba($srf-select-color-text, .3);
+
+			&:hover {
+				cursor: not-allowed;
+			}
+		}
+	}
+
+	.select__replacer-list-wrapper {
+		position: absolute;
+		pointer-events: none;
+		z-index: 10;
+		border-radius: 0 0 $srf-select-border-radius $srf-select-border-radius;
+		background-color: $srf-select-color-light;
+		transition: max-height $srf-select-animation-duration*1.5, opacity $srf-select-animation-duration*1.5;
+		box-shadow: 0 10px 33px 0 rgba($srf-select-color-shadow, .1); // 0px with unit fixes some bugs
+		max-height: 0;
+		opacity: 0;
+		overflow: hidden;
+		padding: 0;
+		margin: 0;
+		border: none 0;
+		width: 100%;
+
+		/*
+		MODIFIERS
+		----------------------- */
+		&.is-open {
+			pointer-events: all;
+			z-index: 105;
+			max-height: 400px;
+			opacity: 1;
+			overflow-x: hidden;
+			overflow-y: auto;
+		}
+	}
+
+	.select__replacer-list-wrapper-inner {
+		width: inherit;
+	}
+
+	.select__replacer-list {
+		margin: 0;
+		padding: 0;
+	}
+
+	.select__replacer-list-item {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	.select__replacer-list-button {
+		@include reset-btn();
+
+		position: relative;
+		display: block;
+		width: 100%;
+		text-align: left;
+		font-size: $srf-select-font-size;
+		color: $srf-select-color-text;
+		padding: $srf-select-padding-btn;
+		border-top: 1px solid rgba($srf-select-color-shadow, .1);
+		background-color: transparent;
+		transition: color $srf-select-animation-duration $srf-select-animation-easing, background-color $srf-select-animation-duration $srf-select-animation-easing;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		border-left: 4px solid transparent;
+
+		@include media("<tablet-p") {
+			white-space: normal;
+			word-break: break-all;
+		}
+
+		&:hover,
+		&.a11y-focus-key {
+			cursor: pointer;
+			color: $srf-select-color-selected;
+			background-color: rgba($srf-select-color-focus, .5);
+		}
+
+		&:focus {
+			outline: 0;
+		}
+
+		/*
+		MODIFIERS
+		----------------------- */
+		&.is-selected {
+			padding-left: 13px;
+			border-left: 4px solid $srf-select-color-selected;
+		}
+
+		&.is-disabled,
+		&[disabled=disabled],
+		&:disabled {
+			&:hover {
+				cursor: not-allowed;
+				background-color: transparent;
+				color: $srf-select-color-text;
+
+				&::before {
+					background-color: $srf-select-color-btn;
+				}
+			}
+		}
+	}
+
+	.is-ui-replaced {
+		display: none;
+	}
+
+	// prevent select from getting wider than its parent element
+	select {
+		width: 100%;
+	}
+}

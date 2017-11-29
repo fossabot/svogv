@@ -1,0 +1,44 @@
+/* ===================================================
+Fieldset Widget
+=================================================== */
+
+/* ---------------------------------------------------
+Imports
+--------------------------------------------------- */
+@import "../../../scss/vars";
+
+/* ---------------------------------------------------
+Global Variables
+--------------------------------------------------- */
+$srf-fieldset-legend-color: $srf-label-color !default;
+$srf-fieldset-legend-description-color: $srf-label-color !default;
+$srf-fieldset-legend-description-link-color: $srf-label-color !default;
+$srf-fieldset-legend-fontsize: 2rem !default;
+$srf-fieldset-color-borderline: #4db2dc !default;
+
+/* ---------------------------------------------------
+Host Context
+--------------------------------------------------- */
+:host {
+	margin-top: $srf-margin-base * 2;
+
+	.fieldset__legend {
+		padding-bottom: $srf-margin-base * 1.7;
+		margin-bottom: $srf-margin-base * 2;
+		margin-top: $srf-margin-base * 2;
+		font-size: $srf-fieldset-legend-fontsize;
+		font-weight: bold;
+		color: $srf-fieldset-legend-color;
+		border-bottom: 1px solid $srf-fieldset-color-borderline;
+		width: 100%;
+		float: left;
+	}
+
+	.fieldset__description {
+		color: $srf-fieldset-legend-description-color;
+	}
+
+	.fieldset__help {
+		color: $srf-fieldset-legend-description-color;
+	}
+}

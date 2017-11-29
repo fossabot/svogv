@@ -1,0 +1,15 @@
+<div class="description-item__marker" *ngIf="markerType && markerLevel">
+    <ac-marker [markerSize]="'42px'" [iconSize]="'20px'" [vm]="marker" [inactive]='inactive' ></ac-marker>
+</div>
+<div class="description-item__content">
+    <div class="description-item__supraheadline" *ngIf="supraHeadline">{{supraHeadline}}</div>
+    <div class="description-item__headline">
+        <ng-content select="[headline]"></ng-content>
+    </div>
+    <div class="description-item__subheadline" *ngIf="subHeadline">{{subHeadline}}</div>
+    <ng-content select="[subheadline]"></ng-content>
+</div>
+<ng-content select="[link]"></ng-content>
+
+
+

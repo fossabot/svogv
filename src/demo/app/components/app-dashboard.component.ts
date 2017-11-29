@@ -7,7 +7,6 @@ import { UserViewModel } from '../viewmodels/index';
  * the broadcaster can use redux to store as state.
  */
 @Component({
-  moduleId: module.id,
   selector: 'app-dashboard',
   templateUrl: './app-dashboard.component.html'
 })
@@ -30,5 +29,6 @@ export class DashboardComponent {
       this.users = data;
     });
   }
+
 
 }

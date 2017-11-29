@@ -1,0 +1,70 @@
+@import "../../scss/helpers";
+@import "../../scss/utilities";
+
+:host {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	transform: translateX(100%);
+	background-color: $color-blue;
+	min-width: 23rem;
+	min-height: 40rem;
+	transition: transform $transition-duration-xs ease-in;
+
+	@include media($breakpoint-main-max) {
+		min-width: initial;
+		max-width: 23rem;
+		width: 80%;
+	}
+
+	&.is-open {
+		transition-timing-function: ease-out;
+		transform: translateX(0);
+		right: 0;
+
+		.fly-out-menu__toggle-icon {
+			font-size: 1.6rem;
+		}
+	}
+
+	.fly-out-menu__title {
+		text-align: center;
+		margin: 0;
+		line-height: $button-height-med;
+		height: $button-height-med;
+	}
+
+	.fly-out-menu__toggle {
+		display: block;
+		width: 5rem;
+		height: 5rem;
+		font-size: 2.4rem;
+		line-height: 0;
+		text-align: center;
+		background-color: $color-blue;
+		color: $color-white;
+		position: absolute;
+		top: 0;
+		right: 100%;
+
+		&:hover {
+			background-color: $button-hover-bg-color;
+
+			@include media($breakpoint-main-max) {
+				background-color: inherit;
+			}
+		}
+	}
+
+	.fly-out-menu__toggle-icon {
+		@include centering(hv);
+		font-size: 2rem;
+	}
+
+	.fly-out-menu__container {
+		border-bottom: 1px solid #00adde;
+		margin: 6rem 2rem 0;
+	}
+}
