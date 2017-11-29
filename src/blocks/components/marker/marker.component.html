@@ -1,6 +1,0 @@
-<ac-icon *ngIf="iconName && !(vm.count > 1)" class="marker__icon" [ngStyle]="{'width':markerSize, 'height':markerSize}" [color]="'#fff'" [size]="iconSize" [iconName]="iconName"></ac-icon>
-<ng-template [ngIf]="!disableCaption">
-	{{vm.caption}}
-</ng-template>
-<div *ngIf="vm.count > 1" class="marker__icon is-text-white">{{vm.count}}</div>
-

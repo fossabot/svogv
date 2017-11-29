@@ -1,0 +1,88 @@
+<div [formGroup]="userForm" *ngIf="type != 'hidden'">
+    <mat-form-field>
+        <textarea *ngIf="type == 'textarea'" 
+                matInput matTextareaAutosize [matAutosizeMinRows]="autoResizeMin" [matAutosizeMaxRows]="autoResizeMax"
+                [id]="name" 
+                [readOnly]='readonly'
+                [formControlName]="name" 
+                [attr.rows]="getParams('rows')" 
+                [attr.cols]="getParams('cols')">
+        </textarea>
+        <mat-select *ngIf="type == 'enum' && enumValues"  
+            [id]="name" 
+            [placeholder]="label + labelDivider"
+            [formControlName]="name" 
+            [disabled]='readonly'>
+            <mat-option *ngFor="let option of enumValues" [value]="option.key">{{option.val}}</mat-option>
+        </mat-select>
+        <mat-select *ngIf="type == 'list' && listValues" 
+            [id]="name" 
+            [placeholder]="label + labelDivider"
+            [formControlName]="name" 
+            [disabled]='readonly'>
+            <mat-option *ngFor="let option of listValues" [value]="option.key">{{option.val}}</mat-option>
+        </mat-select>
+        <div>
+            <label>{{ label }}{{ labelDivider }}</label>
+            <mat-radio-group *ngIf="type == 'radio' && (listValues || enumValues)" 
+                [id]="name"             
+                [formControlName]="name" 
+                [disabled]='readonly'>
+                <mat-radio-button *ngIf="listValues" *ngFor="let option of listValues" [value]="option.key">{{option.val}}</mat-radio-button>
+                <mat-radio-button *ngIf="enumValues" *ngFor="let option of enumValues" [value]="option.key">{{option.val}}</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <input *ngIf="type == 'range'" 
+            type="range" 
+            matInput
+            [placeholder]="label + labelDivider" 
+            [attr.minvalue]="fromValue" 
+            [attr.maxvalue]="toValue" 
+            [attr.min]="fromValue" 
+            [attr.max]="toValue" 
+            [id]="name" 
+            [formControlName]="name" 
+            [title]="tooltip" />
+        <input *ngIf="type == 'calendar'" 
+            type="date"
+            matInput
+            [placeholder]="label + labelDivider" 
+            [readOnly]='readonly'
+            [id]="name" 
+            [formControlName]="name" 
+            [title]="tooltip" />
+        <input *ngIf="type == 'number'" 
+            type="number" 
+            matInput
+            [placeholder]="label + labelDivider" 
+            [readOnly]='readonly'
+            [id]="name" 
+            [formControlName]="name" 
+            [title]="tooltip" />
+        <mat-checkbox *ngIf="type == 'boolean'"                         
+            [readOnly]='readonly'
+            [id]="name" 
+            [formControlName]="name" 
+            [title]="tooltip" >
+            {{ label }}
+        </mat-checkbox>
+        <input *ngIf="type == 'text' || type == ''" 
+            [placeholder]="label + labelDivider" 
+            [readOnly]='readonly'
+            type="text" 
+            [id]="name" 
+            [formControlName]="name" />
+        <mat-hint>{{ waterMark }}</mat-hint>
+        <ng-container *ngIf="type == 'template'">
+            <ng-content></ng-content>
+        </ng-container>
+        <ng-container *ngIf="!userForm.controls[name].valid && !userForm.controls[name].pristine">
+            <mat-error *ngFor="let error of errors" >
+                <span>{{ userForm.controls[name].messages[error] }}</span>
+            </mat-error>
+        </ng-container>
+    </mat-form-field>
+</div>
+<div [formGroup]="userForm">
+    <input *ngIf="type == 'hidden'" [id]="name" [formControlName]="name" type="hidden" />
+</div>

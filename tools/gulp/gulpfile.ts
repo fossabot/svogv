@@ -1,7 +1,11 @@
 import './tasks/ci';
 import './tasks/clean';
 import './tasks/build';
+import './tasks/builds/bootstrap-build';
+import './tasks/builds/material-build';
 import './tasks/demo';
+import './tasks/demos/bootstrap-demo';
+import './tasks/demos/material-demo';
 import './tasks/default';
 import './tasks/development';
 import './tasks/docs';

@@ -1,0 +1,41 @@
+{
+  "name": "@svogv/bootstrap",
+  "version": "0.3.6",
+  "description": "A decorator based approach for model driven forms and some time saving form widgets. This lib requires Bootstrap 4.",
+  "main": "./bundles/svogv.umd.js",
+  "module": "./index.js",
+  "typings": "./index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joergkrause/svogv.git"
+  },
+  "keywords": [
+    "angular",
+    "angular2",
+    "angular4",
+    "angular5",
+    "Reactive",
+    "Forms",
+    "Validation",
+    "Viewmodel",
+    "decorators",
+    "components",
+    "bootstrap"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joergkrause/svogv/issues"
+  },
+  "homepage": "https://github.com/joergkrause/svogv#readme",
+  "peerDependencies": {
+    "@angular/common": ">= 2.2.0",
+    "@angular/compiler": ">= 2.2.0",
+    "@angular/core": ">= 2.2.0",
+    "@angular/forms": ">= 2.2.0",
+    "@angular/http": ">= 2.2.0",
+    "@angular/platform-browser": ">= 2.2.0",
+    "@angular/platform-browser-dynamic": ">= 2.2.0",
+    "@angular/router": ">= 3.1.0",
+    "typescript": "^2.3.2"
+  }
+}
