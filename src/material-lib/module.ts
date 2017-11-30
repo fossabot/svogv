@@ -2,6 +2,7 @@ import { NgModule, ModuleWithProviders, Injector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from './modules/material.module';
 
 import * as wd from './widgets/index';
 
@@ -26,7 +27,7 @@ const SVOGV_COMPONENTS = [
  * The actual SVOGV Module definition using the root module.
  */
 @NgModule({
-  imports: [BrowserModule, RouterModule, ReactiveFormsModule, FormsModule],
+  imports: [BrowserModule, RouterModule, ReactiveFormsModule, FormsModule, MaterialModule],
   declarations: SVOGV_COMPONENTS,
   providers: [FormValidatorService, FormValidatorFromJsonService],
   exports: SVOGV_COMPONENTS

@@ -1,23 +1,24 @@
 <div [formGroup]="userForm" *ngIf="type != 'hidden'">
     <mat-form-field>
+        <!-- https://github.com/creativetimofficial/material-dashboard-pro-angular/issues/107 
+            [matAutosizeMinRows]="autoResizeMin" [matAutosizeMaxRows]="autoResizeMax" -->
         <textarea *ngIf="type == 'textarea'" 
-                matInput matTextareaAutosize [matAutosizeMinRows]="autoResizeMin" [matAutosizeMaxRows]="autoResizeMax"
+                matInput matTextareaAutosize 
                 [id]="name" 
                 [readOnly]='readonly'
                 [formControlName]="name" 
                 [attr.rows]="getParams('rows')" 
                 [attr.cols]="getParams('cols')">
         </textarea>
+        <label *ngIf="(type == 'enum' && enumValues) || (type == 'list' && listValues)">{{label}} {{labelDivider}}</label>
         <mat-select *ngIf="type == 'enum' && enumValues"  
             [id]="name" 
-            [placeholder]="label + labelDivider"
             [formControlName]="name" 
             [disabled]='readonly'>
             <mat-option *ngFor="let option of enumValues" [value]="option.key">{{option.val}}</mat-option>
         </mat-select>
         <mat-select *ngIf="type == 'list' && listValues" 
             [id]="name" 
-            [placeholder]="label + labelDivider"
             [formControlName]="name" 
             [disabled]='readonly'>
             <mat-option *ngFor="let option of listValues" [value]="option.key">{{option.val}}</mat-option>
