@@ -117,7 +117,7 @@ task(':bt-build:components:inline', sequenceTask(
   ':bt-build:components:scss',
   ':bt-build:components:assets',
   ':bt-build:components:assets:minify',
-  ':inline-resources'
+  ':bt-build:inline-resources'
 ));
 
 /** Builds components with minified HTML and CSS inlined into the built JS. */
@@ -127,11 +127,11 @@ task(':bt-build:components:inline:release', sequenceTask(
   ':bt-build:components:scss',
   ':bt-build:components:assets',
   ':bt-build:components:assets:minify',
-  ':inline-resources'
+  ':bt-build:inline-resources'
 ));
 
 /** Inlines resources (html, css) into the JS output (for either ESM or CJS output). */
-task(':inline-resources', function () {
+task(':bt-build:inline-resources', function () {
   return inlineResources(DIST_BOOTSTRAP_COMPONENTS_ROOT);
 });
 

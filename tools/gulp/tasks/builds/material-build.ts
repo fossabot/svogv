@@ -122,7 +122,7 @@ task(':mt-build:components:inline', sequenceTask(
   ':mt-build:components:scss',
   ':mt-build:components:assets',
   ':mt-build:components:assets:minify',
-  ':inline-resources'
+  ':mt-build:inline-resources'
 ));
 
 /** Builds components with minified HTML and CSS inlined into the built JS. */
@@ -132,11 +132,11 @@ task(':mt-build:components:inline:release', sequenceTask(
   ':mt-build:components:scss',
   ':mt-build:components:assets',
   ':mt-build:components:assets:minify',
-  ':inline-resources'
+  ':mt-build:inline-resources'
 ));
 
 /** Inlines resources (html, css) into the JS output (for either ESM or CJS output). */
-task(':inline-resources', function () {
+task(':mt-build:inline-resources', function () {
   return inlineResources(DIST_MATERIAL_COMPONENTS_ROOT);
 });
 
