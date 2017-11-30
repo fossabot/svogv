@@ -2,7 +2,7 @@ import gulp = require('gulp');
 import path = require('path');
 import gulpMerge = require('merge2');
 
-import {PROJECT_ROOT, COMPONENTS_DIR} from '../constants';
+import {PROJECT_ROOT, BOOTSTRAP_COMPONENTS_DIR, MATERIAL_COMPONENTS_DIR} from '../constants';
 import {sequenceTask} from '../task_helpers';
 
 const karma = require('karma');
@@ -60,8 +60,33 @@ gulp.task('test:single-run', [':test:deps:inline'], (done: () => void) => {
  *
  * This task should be used when running unit tests locally.
  */
-gulp.task('test', [':test:deps'], () => {
-  let patternRoot = path.join(COMPONENTS_DIR, '**/*');
+gulp.task('test@bootstrap', [':test:deps'], () => {
+  let patternRoot = path.join(BOOTSTRAP_COMPONENTS_DIR, '**/*');
+
+  // Configure the Karma server and override the autoWatch and singleRun just in case.
+  let server = new karma.Server({
+    configFile: path.join(PROJECT_ROOT, 'test/karma.conf.js'),
+    autoWatch: false,
+    singleRun: false
+  });
+
+  // Refreshes Karma's file list and schedules a test run.
+  let runTests = () => {
+    server.refreshFiles().then(() => server._injector.get('executor').schedule());
+  };
+
+  // Boot up the test server and run the tests whenever a new browser connects.
+  server.start();
+  server.on('browser_register', runTests);
+
+  // Watch for file changes, rebuild and run the tests.
+  gulp.watch(patternRoot + '.ts', () => runSequence(':build:components:spec', runTests));
+  gulp.watch(patternRoot + '.scss', () => runSequence(':build:components:scss', runTests));
+  gulp.watch(patternRoot + '.html', () => runSequence(':build:components:assets', runTests));
+});
+
+gulp.task('test@material', [':test:deps'], () => {
+  let patternRoot = path.join(MATERIAL_COMPONENTS_DIR, '**/*');
 
   // Configure the Karma server and override the autoWatch and singleRun just in case.
   let server = new karma.Server({

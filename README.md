@@ -9,12 +9,34 @@
 
 ## Available Versions
 
+Currently we support two versions, one for Bootstrap and one for Angular Material. You can use one or the other, but not both at the same time.
+
+> In the repository we have these versions in branches. The main branch (master) contains the former single version, 
+> which is primarily the Bootstrap one. In the branch named **split** the project has been splitted into one single source
+> for two different packages. That makes development easier and usage more convenience. 
+
+**We strongly recommend users of the *svogv* package to update to `@svogv/bootstrap` as soon as as possible.**
+
+We plan to make the **svogv** branch deprecated in 2018, January, 31rd. Feel free to drop a mail or open an issue if you have trouble migrating.
+
+**Why oh why?**
+
+Good question. It's hard to say what's the future of Bootstrap. As Material gets mature and better it has big potential. And it's very close for Angular Devs. Having something built exclusively for Angular it's hard to avoid Material. So we're going both ways. Along with this step the new project structure is going to be able to handle even more CSS frameworks natively. 
+
 ### Bootstrap 4
+
+~~~
+npm i @svogv/bootstrap
+~~~
 
 [![Bootstrap Package](https://img.shields.io/npm/dm/svogv.svg?style=flat-square)](https://npmjs.com/packages/@svogv/bootstrap)
 [![Bootstrap Version](https://img.shields.io/npm/v/svogv.svg?style=flat-square)](https://npmjs.com/packages/@svogv/bootstrap)
 
 ### Material 2
+
+~~~
+npm i @svogv/material
+~~~
 
 [![Material Package](https://img.shields.io/npm/dm/svogv.svg?style=flat-square)](https://npmjs.com/packages/@svogv/material)
 [![Material Version](https://img.shields.io/npm/v/svogv.svg?style=flat-square)](https://npmjs.com/packages/@svog/material)
@@ -23,7 +45,7 @@
 
 The purpose of this project is productivity. It allows developers to create Angular apps faster and more reliable. One of the main pain points of apps are forms. And especially the way we deal with validation and user interaction. While a form in itself is more or less simple, the way we handle changes is not. If the API adds a field the dev must add th markup, the service proxy, the field specific validation and often the whole UI needs some tweaking. If the new data appear at several localtions, the amount of work can be tremendous.
 
-@svogv is probably a clever solution to handle this. It's a small collection of widgets that can interact with a model. The model can be build by decorators on top of a class (that's, then, a view model) or provided by JSON send from the backend. It makes use of the ReactiveFormsModule from Angular. 
+**@svogv** is probably a clever solution to handle this. It's a small collection of widgets that can interact with a model. The model can be build by decorators on top of a class (that's, then, a view model) or provided by JSON send from the backend. It makes use of the ReactiveFormsModule from Angular. 
 
 The components require a lot of CSS and hence do have dependencies to other libs. Therefore there are currently two versions that support either Bootstrap 4 projects or thiose made on top of the Angular Material 2 toolkit and extend the Angular Material CDK.
 
@@ -39,9 +61,7 @@ It's available as source or as ready to use umd-bundle. The bundle is plane Java
 
 ## Issues?
 
-We experiencing an issue with the demo on MS Edge browser (crash). IE 11, Chrome and FF are working fine.
-
-The SVG stuff (Analog Clock and Loader Icons) both do not work in IE 11. The Loader Icons do not work in Edge either.
+The fun controls (Analog Clock and Loader Icons) both do not work in IE 11. The Loader Icons do not work in Edge either. 
 
 ## Angular Data Annotations
 
