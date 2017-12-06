@@ -6,10 +6,10 @@ import { MaterialModule } from './modules/material.module';
 
 import * as wd from './widgets/index';
 
-import { FormValidatorService } from './services/formvalidator.service';
-import { FormValidatorFromJsonService } from './services/formvalidator-fromjson.service';
+import { FormValidatorService } from '../core/services/formvalidator.service';
+import { FormValidatorFromJsonService } from '../core/services/formvalidator-fromjson.service';
 
-export * from './decorators/index';
+export * from '../core/decorators/index';
 
 const SVOGV_COMPONENTS = [
   wd.AcInfoBox,

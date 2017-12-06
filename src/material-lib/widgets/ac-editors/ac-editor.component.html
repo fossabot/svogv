@@ -29,8 +29,12 @@
                 [id]="name"             
                 [formControlName]="name" 
                 [disabled]='readonly'>
-                <mat-radio-button *ngIf="listValues" *ngFor="let option of listValues" [value]="option.key">{{option.val}}</mat-radio-button>
-                <mat-radio-button *ngIf="enumValues" *ngFor="let option of enumValues" [value]="option.key">{{option.val}}</mat-radio-button>
+                <ng-container *ngIf="listValues">
+                    <mat-radio-button *ngFor="let option of listValues" [value]="option.key">{{option.val}}</mat-radio-button>
+                </ng-container>
+                <ng-container *ngIf="enumValues">
+                    <mat-radio-button *ngFor="let option of enumValues" [value]="option.key">{{option.val}}</mat-radio-button>
+                </ng-container>
             </mat-radio-group>
         </div>
         <input *ngIf="type == 'range'" 
@@ -61,7 +65,7 @@
             [formControlName]="name" 
             [title]="tooltip" />
         <mat-checkbox *ngIf="type == 'boolean'"                         
-            [readOnly]='readonly'
+            [disabled]='readonly'
             [id]="name" 
             [formControlName]="name" 
             [title]="tooltip" >
