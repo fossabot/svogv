@@ -60,6 +60,7 @@ task(':mt-build:components:rollup', () => {
     // Angular dependencies
     '@angular/core': 'ng.core',
     '@angular/common': 'ng.common',
+    '@angular/common/http': 'ng.commonHttp',
     '@angular/forms': 'ng.forms',
     '@angular/http': 'ng.http',
     '@angular/router': 'ng.router',

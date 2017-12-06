@@ -117,6 +117,7 @@ task(':mt-demo:bundle:create', function () {
       '@angular/platform-browser/animations': 'npm:@angular/platform-browser/bundles/platform-browser-animations.umd.js',         
       '@angular/core': 'npm:@angular/core/bundles/core.umd.js',
       '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
+      '@angular/common/http': 'npm:@angular/common/bundles/common-http.umd.js',
       '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',
       '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
       '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
@@ -146,10 +147,11 @@ task(':mt-demo:bundle:create', function () {
       'rxjs': { main: 'Rx.js', defaultExtension: 'js' }
     }
   });
-  //builder.reset();
+  // builder.reset();
   builder.loader.defaultJSExtensions = true;
   return builder
-    .buildStatic(path.join(DIST_MATERIAL_DEMO_ROOT, 'app/app.js'), path.join(DIST_MATERIAL_DEMO_ROOT, './app.bundle.js'), {
+    .buildStatic(path.join(DIST_MATERIAL_DEMO_ROOT, 'app/app.js'),
+      path.join(DIST_MATERIAL_DEMO_ROOT, './app.bundle.js'), {
       sourceMaps: true,
       minify: true,
       mangle: true,
