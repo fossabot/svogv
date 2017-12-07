@@ -2,7 +2,7 @@
   "name": "@svogv/material",
   "version": "0.3.6",
   "description": "A decorator based approach for model driven forms and some time saving form widgets. Requires Material 2.",
-  "main": "./bundles/svogv.umd.js",
+  "main": "./bundles/svogv-core.umd.js",
   "module": "./index.js",
   "typings": "./index.d.ts",
   "repository": {
@@ -28,18 +28,13 @@
   },
   "homepage": "https://github.com/joergkrause/svogv#readme",
   "peerDependencies": {
-    "@svogv/core": "0.3.6",
-    "@angular/common": ">= 4.4.0",
-    "@angular/compiler": ">= 4.4.0",
-    "@angular/core": ">= 4.4.0",
-    "@angular/forms": ">= 4.4.0",
-    "@angular/http": ">= 4.4.0",
-    "@angular/platform-browser": ">= 4.4.0",
-    "@angular/platform-browser-dynamic": ">= 4.4.0",
-    "@angular/router": ">= 4.4.0",
-    "@angular/animations": "^4.4.0",
-    "@angular/cdk": "^2.0.0-beta.12",
-    "@angular/material": "^5.0.0-rc.1",
+    "@angular/common": "^2.2.0 || >= 4.4.0",
+    "@angular/compiler": "^2.2.0 || >= 4.4.0",
+    "@angular/core": "^2.2.0 || >= 4.4.0",
+    "@angular/forms": "^2.2.0 || >= 4.4.0",
+    "@angular/platform-browser": "^2.2.0 || >= 4.4.0",
+    "@angular/platform-browser-dynamic": "^2.2.0 || >= 4.4.0",
+    "@angular/router": "^2.2.0 || >= 4.4.0",
     "typescript": "^2.3.2"
   }
 }
