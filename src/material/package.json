@@ -1,6 +1,6 @@
 {
   "name": "@svogv/material",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "A decorator based approach for model driven forms and some time saving form widgets. Requires Material 2.",
   "main": "./bundles/svogv.umd.js",
   "module": "./index.js",
@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/joergkrause/svogv#readme",
   "peerDependencies": {
-    "@svogv/core": "0.3.6",
+    "@svogv/core": "0.3.7",
     "@angular/common": ">= 4.4.0",
     "@angular/compiler": ">= 4.4.0",
     "@angular/core": ">= 4.4.0",

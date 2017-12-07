@@ -1,6 +1,6 @@
 {
   "name": "svogv",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "A decorator based approach for model driven forms and some time saving form widgets.",
   "main": "index.js",
   "scripts": {

@@ -1,6 +1,6 @@
 {
   "name": "svogv",
-  "version": "0.3.6",
+  "version": "0.3.7",
   "description": "A placeholder for the former svogv project. See readme for details.",
   "module": "./index.js",
   "typings": "./index.d.ts",
