@@ -19,7 +19,7 @@ task(':watch:devapp', () => {
 
 
 task(':build:devapp:vendor', vendorTask());
-task(':build:devapp:ts', tsBuildTask(appDir));
+task(':build:devapp:ts', tsBuildTask(SOURCE_ROOT, appDir));
 task(':build:devapp:scss', sassBuildTask(outDir, appDir));
 task(':build:devapp:assets', copyTask(appDir, outDir));
 task('build:devapp', buildAppTask('devapp'));

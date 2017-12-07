@@ -9,7 +9,7 @@ import * as wd from './widgets/index';
 import { FormValidatorService } from '../core/services/formvalidator.service';
 import { FormValidatorFromJsonService } from '../core/services/formvalidator-fromjson.service';
 
-export * from '../core/decorators/index';
+import * as d from '../core/decorators/index';
 
 const SVOGV_COMPONENTS = [
   wd.AcInfoBox,
@@ -22,6 +22,10 @@ const SVOGV_COMPONENTS = [
   wd.AcAnalogClock,
   wd.AcFormatDataPipe
 ];
+const SVOGV_EXPORTS = [
+  [ d.Compare, d.Display, d.DisplayGroup, d.Email, d.Format, d.Range, d.Readonly, d.Required,
+    d.Hidden, d.MaxLength, d.MinLength, d.StringLength, d.Pattern, d.TemplateHint]
+];
 
 /**
  * The actual SVOGV Module definition using the root module.
@@ -30,7 +34,7 @@ const SVOGV_COMPONENTS = [
   imports: [BrowserModule, RouterModule, ReactiveFormsModule, FormsModule, MaterialModule],
   declarations: SVOGV_COMPONENTS,
   providers: [FormValidatorService, FormValidatorFromJsonService],
-  exports: SVOGV_COMPONENTS
+  exports: [...SVOGV_COMPONENTS, ...SVOGV_EXPORTS]
 })
 export class SvogvModule {
 
