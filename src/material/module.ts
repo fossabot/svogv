@@ -9,7 +9,8 @@ import * as wd from './widgets/index';
 import { FormValidatorService } from '@svogv/core';
 import { FormValidatorFromJsonService } from '@svogv/core';
 
-import * as d from '../core/decorators/index';
+import { SvogvCoreModule } from '@svogv/core';
+import * as d from '@svogv/core';
 
 const SVOGV_COMPONENTS = [
   wd.AcInfoBox,
@@ -42,6 +43,7 @@ export class SvogvModule {
   static injector: Injector;
 
   constructor(injector: Injector) {
+    SvogvCoreModule.forRoot();
     SvogvModule.injector = injector;
   }
 

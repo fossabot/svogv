@@ -1,4 +1,4 @@
-import '../../../../core/utils/object-extensions';
+import 'object-extensions' from '@svogv/core';
 import { AcDataGridHeader } from './ac-datagridheader';
 import { AcDataGridItem } from './ac-datagriditem';
 

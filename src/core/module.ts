@@ -30,7 +30,7 @@ export class SvogvCoreModule {
     return {
       ngModule: SvogvCoreModule,
       providers: [ FormValidatorService, FormValidatorFromJsonService ]
-    }
+    };
   }
 
 }

@@ -5,10 +5,11 @@ import { RouterModule } from '@angular/router';
 
 import * as wd from './widgets/index';
 
-import { FormValidatorService } from '../core/services/formvalidator.service';
-import { FormValidatorFromJsonService } from '../core/services/formvalidator-fromjson.service';
+import { FormValidatorService } from '@svogv/core';
+import { FormValidatorFromJsonService } from '@svogv/core';
 
-import * as d from '../core/decorators/index';
+import { SvogvCoreModule } from '@svogv/core';
+import * as d from '@svogv/core';
 
 const SVOGV_COMPONENTS = [
   wd.AcInfoBox,
@@ -21,6 +22,7 @@ const SVOGV_COMPONENTS = [
   wd.AcAnalogClock,
   wd.AcFormatDataPipe
 ];
+
 const SVOGV_EXPORTS = [
   [ d.Compare, d.Display, d.DisplayGroup, d.Email, d.Format, d.Range, d.Readonly, d.Required,
     d.Hidden, d.MaxLength, d.MinLength, d.StringLength, d.Pattern, d.TemplateHint]
@@ -30,7 +32,7 @@ const SVOGV_EXPORTS = [
  * The actual SVOGV Module definition using the root module.
  */
 @NgModule({
-  imports: [BrowserModule, RouterModule, ReactiveFormsModule, FormsModule],
+  imports: [BrowserModule, RouterModule, ReactiveFormsModule, FormsModule, SvogvCoreModule],
   declarations: SVOGV_COMPONENTS,
   providers: [FormValidatorService, FormValidatorFromJsonService],
   exports: [...SVOGV_COMPONENTS, ...SVOGV_EXPORTS]
@@ -41,6 +43,7 @@ export class SvogvModule {
   static injector: Injector;
 
   constructor(injector: Injector) {
+    SvogvCoreModule.forRoot();
     SvogvModule.injector = injector;
   }
 

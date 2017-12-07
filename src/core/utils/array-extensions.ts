@@ -18,4 +18,4 @@ Array.prototype.remove = function(valueOrPredicate: any): any[] {
       }
 
       return removedValues;
-}
+};
