@@ -72,7 +72,7 @@ task(':mt-build:components:rollup', () => {
     '@angular/platform-browser/animations': 'ng.platformBrowserAnimations',
     '@angular/material': 'ng.material',
     '@angular/cdk': 'nd.cdk',
-
+    '@svogv/core': 'svogv.core',
     // Rxjs dependencies
     'rxjs/Subject': 'Rx',
     'rxjs/add/observable/fromEvent': 'Rx.Observable',

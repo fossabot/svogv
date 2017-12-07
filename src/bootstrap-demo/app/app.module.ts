@@ -12,7 +12,9 @@ import * as cmp from './components/index';
 import routes from './configurations/routes';
 
 // The SVOGV library (in the demo it's a hard link with paths info in tsconfig,
-import { FormValidatorService, FormValidatorFromJsonService, WindowRef, SvogvModule } from '@svogv/bootstrap';
+import { SvogvModule } from '@svogv/bootstrap';
+import { FormValidatorService, FormValidatorFromJsonService } from '@svogv/core'; // TODO: is in root call?
+import { WindowRef } from '@svogv/core';
 
 @NgModule({
   imports: [

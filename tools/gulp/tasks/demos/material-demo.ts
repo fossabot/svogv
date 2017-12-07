@@ -135,6 +135,7 @@ task(':mt-demo:bundle:create', function () {
       // '@angular/cdk/rxjs': 'npm:/@angular/cdk/bundles/cdk-rxjs.umd.js',
       '@angular/cdk/table': 'npm:/@angular/cdk/bundles/cdk-table.umd.js',
       'rxjs': 'npm:rxjs',
+      '@svogv/core': 'npm:@svogv/core/bundles/svogv-core.umd.js',
       '@svogv/material': 'npm:@svogv/material/bundles/svogv.umd.js',
       'tslib': 'npm:tslib/tslib.js'
     },

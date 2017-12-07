@@ -32,7 +32,7 @@ const SVOGV_EXPORTS = [
  * The actual SVOGV Module definition using the root module.
  */
 @NgModule({
-  imports: [BrowserModule, RouterModule, ReactiveFormsModule, FormsModule, MaterialModule],
+  imports: [BrowserModule, RouterModule, ReactiveFormsModule, FormsModule, MaterialModule, SvogvCoreModule],
   declarations: SVOGV_COMPONENTS,
   providers: [FormValidatorService, FormValidatorFromJsonService],
   exports: [...SVOGV_COMPONENTS, ...SVOGV_EXPORTS]

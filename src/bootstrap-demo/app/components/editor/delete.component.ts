@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormValidatorService } from '@svogv/bootstrap';
+import { FormValidatorService } from '@svogv/core';
 // private
 import { SiteApiService, EmitterService } from '../../services/index';
 import { UserViewModel } from '../../viewmodels/index';

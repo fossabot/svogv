@@ -67,6 +67,7 @@ task(':bt-build:components:rollup', () => {
     '@angular/router': 'ng.router',
     '@angular/platform-browser': 'ng.platformBrowser',
     '@angular/platform-browser-dynamic': 'ng.platformBrowserDynamic',
+    '@svogv/core': 'svogv.core',
 
     // Rxjs dependencies
     'rxjs/Subject': 'Rx',

@@ -59,7 +59,7 @@ task(':core-build:components:rollup', () => {
     format: 'umd',
     globals,
     banner: LICENSE_BANNER,
-    dest: 'svogv.umd.js'
+    dest: 'svogv-core.umd.js'
   };
 
   return src(path.join(DIST_CORE_COMPONENTS_ROOT, 'index.js'))
