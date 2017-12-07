@@ -6,8 +6,8 @@ import { MaterialModule } from './modules/material.module';
 
 import * as wd from './widgets/index';
 
-import { FormValidatorService } from '../core/services/formvalidator.service';
-import { FormValidatorFromJsonService } from '../core/services/formvalidator-fromjson.service';
+import { FormValidatorService } from '@svogv/core';
+import { FormValidatorFromJsonService } from '@svogv/core';
 
 import * as d from '../core/decorators/index';
 

@@ -1,6 +1,7 @@
 import './tasks/ci';
 import './tasks/clean';
 import './tasks/build';
+import './tasks/builds/core-build';
 import './tasks/builds/bootstrap-build';
 import './tasks/builds/material-build';
 import './tasks/demo';

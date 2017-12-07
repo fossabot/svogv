@@ -12,6 +12,7 @@ export const DIST_BOOTSTRAP_DEMO_ROOT = join(DIST_ROOT, 'bootstrap-demo');
 export const DIST_MATERIAL_DEMO_ROOT = join(DIST_ROOT, 'material-demo');
 export const DIST_BOOTSTRAP_COMPONENTS_ROOT = join(DIST_ROOT, 'bootstrap-package/bootstrap');
 export const DIST_MATERIAL_COMPONENTS_ROOT = join(DIST_ROOT, 'material-package/material');
+export const DIST_CORE_COMPONENTS_ROOT = join(DIST_ROOT, 'core-package/core');
 
 export const SASS_AUTOPREFIXER_OPTIONS = {
   browsers: [
@@ -41,3 +42,4 @@ export const NPM_VENDOR_FILES = [
 
 export const BOOTSTRAP_COMPONENTS_DIR = join(SOURCE_ROOT, 'bootstrap/');
 export const MATERIAL_COMPONENTS_DIR = join(SOURCE_ROOT, 'material/');
+export const CORE_COMPONENTS_DIR = join(SOURCE_ROOT, 'core/');
