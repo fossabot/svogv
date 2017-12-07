@@ -30,12 +30,13 @@ task(':watch:components', () => {
 });
 
 /** Builds component typescript only (ESM output). */
-task(':mt-build:components:ts', tsBuildTask(path.join(MATERIAL_COMPONENTS_DIR, 'tsconfig-srcs.json')));
+task(':mt-build:components:ts', tsBuildTask(MATERIAL_COMPONENTS_DIR,
+                                path.join(MATERIAL_COMPONENTS_DIR, 'tsconfig-srcs.json')));
 
 /** Path to the tsconfig used for ESM output. */
 const tsconfigPath = path.relative(PROJECT_ROOT, path.join(MATERIAL_COMPONENTS_DIR, 'tsconfig.json'));
 /** Builds components typescript for tests (CJS output). */
-task(':mt-build:components:spec', tsBuildTask(tsconfigPath));
+task(':mt-build:components:spec', tsBuildTask(MATERIAL_COMPONENTS_DIR, tsconfigPath));
 
 /** Copies assets (html, markdown) to build output. */
 task(':mt-build:components:assets', copyTask([

@@ -1,5 +1,6 @@
 import { task, watch, src, dest } from 'gulp';
 import * as path from 'path';
+import includePaths from '../../../../scripts/release/rollup-includepaths-plugin';
 
 import {
   DIST_BOOTSTRAP_COMPONENTS_ROOT, PROJECT_ROOT, BOOTSTRAP_COMPONENTS_DIR, HTML_MINIFIER_OPTIONS, LICENSE_BANNER
@@ -30,12 +31,13 @@ task(':watch:components', () => {
 });
 
 /** Builds component typescript only (ESM output). */
-task(':bt-build:components:ts', tsBuildTask(path.join(BOOTSTRAP_COMPONENTS_DIR, 'tsconfig-srcs.json')));
+task(':bt-build:components:ts', tsBuildTask(BOOTSTRAP_COMPONENTS_DIR,
+                                path.join(BOOTSTRAP_COMPONENTS_DIR, 'tsconfig-srcs.json')));
 
 /** Path to the tsconfig used for ESM output. */
 const tsconfigPath = path.relative(PROJECT_ROOT, path.join(BOOTSTRAP_COMPONENTS_DIR, 'tsconfig.json'));
 /** Builds components typescript for tests (CJS output). */
-task(':bt-build:components:spec', tsBuildTask(tsconfigPath));
+task(':bt-build:components:spec', tsBuildTask(BOOTSTRAP_COMPONENTS_DIR, tsconfigPath));
 
 /** Copies assets (html, markdown) to build output. */
 task(':bt-build:components:assets', copyTask([
@@ -83,9 +85,17 @@ task(':bt-build:components:rollup', () => {
     'rxjs/Observable': 'Rx'
   };
 
+  const includePathsOptions = {
+    paths: ['src/core', 'src/core/utils' ],
+    include: {
+      '../../../core/utils/enum-colors': 'src/core/utils/enum-colors.js'
+    }
+  };
+
   const rollupOptions = {
     context: 'this',
-    external: Object.keys(globals)
+    external: Object.keys(globals),
+    plugins: [ includePaths(includePathsOptions) ]
   };
 
   const rollupGenerateOptions = {

@@ -75,13 +75,12 @@ Add two more options to the config file:
         "target": "es5",
         "noImplicitAny": false,
         "sourceMap": false,
-        "outDir": "./dist",
-        "rootDir": "./src"
+        "outDir": "./dist"
     }
 }
 ~~~
 
-Whereas `outDir` controls where the compiled files go and `rootDir` is where the transpiler starts. 
+Whereas `outDir` controls where the compiled files. 
 
 Now add a file named *index.ts* with some basic TypeScript in it:
 

@@ -9,8 +9,7 @@
     "moduleResolution": "node",
     "noEmitOnError": true,
     "noImplicitAny": true,
-    "outDir": "../../dist/@svogv/bootstrap",
-    "rootDir": ".",
+    "outDir": "../../dist/bootstrap-package",
     "sourceMap": true,
     "target": "es5",
     "inlineSources": true,
@@ -22,6 +21,9 @@
       "jasmine", "node"
     ]
   },
+  "files": [
+    "module.ts"
+  ],  
   "exclude": [
     "node_modules",
     "typings/**",
@@ -30,7 +32,7 @@
     "system-config-spec.ts"
   ],
   "angularCompilerOptions": {
-    "genDir": "../../dist/@svogv/bootstrap",
+    "genDir": "../../dist/bootstrap-package",
     "skipTemplateCodegen": true,
     "debug": true
   }

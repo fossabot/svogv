@@ -58,21 +58,14 @@ task(':mt-demo:sass', function () {
     .pipe(dest(path.join(DIST_MATERIAL_DEMO_ROOT, 'assets/styles')));
 });
 
-// except those css that's delivered "as is"
-task(':mt-demo:copy:css', function () {
-  return src([
-    './node_modules/font-awesome/css/font-awesome.css'
-  ])
-    .pipe(cssmin())
-    .pipe(dest(path.join(DIST_MATERIAL_DEMO_ROOT, 'assets/styles')));
-});
-// icons and symbols shall be fonts, never want to see a single GIF here
+// icons and symbols are solely material
 task(':mt-demo:copy:fonts', function () {
   return src([
-    './node_modules/font-awesome/fonts/*.*'
+    path.join(MATERIAL_DEMO_ROOT, '/fonts/*.*')
   ])
     .pipe(dest(path.join(DIST_MATERIAL_DEMO_ROOT, 'assets/fonts')));
 });
+
 task(':mt-demo:copy:favicon', function () {
   return src([
     path.join(MATERIAL_DEMO_ROOT, 'favicon.ico')
@@ -97,7 +90,7 @@ task(':mt-demo:copy:images', function () {
     .pipe(dest(path.join(DIST_MATERIAL_DEMO_ROOT, 'assets/images')));
 });
 
-task(':mt-demo:copy', [':mt-demo:copy:css', ':mt-demo:copy:fonts', ':mt-demo:copy:favicon', ':mt-demo:copy:views', ':mt-demo:copy:images', ':mt-demo:copy:js']);
+task(':mt-demo:copy', [':mt-demo:copy:fonts', ':mt-demo:copy:favicon', ':mt-demo:copy:views', ':mt-demo:copy:images', ':mt-demo:copy:js']);
 
 // complete setup and rollup
 /** Builds components typescript for tests (CJS output). */

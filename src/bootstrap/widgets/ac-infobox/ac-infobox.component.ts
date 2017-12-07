@@ -1,7 +1,7 @@
 ﻿import { Component, Input, OnInit } from '@angular/core';
-import { InputConverter, EnumConverter } from '../../utils/convert-inputconverter';
+import { InputConverter, EnumConverter } from '../../../core/utils/convert-inputconverter';
 import { AcInfoBoxOptions } from './models/options-infobox';
-import { Meaning } from '../../utils/enum-colors';
+import { Meaning } from '../../../core/utils/enum-colors';
 
 /**
  * The InfoBox is a rectangle area to show dynamic data. It has icon, text, and additional information.

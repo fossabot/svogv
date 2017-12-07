@@ -34,7 +34,7 @@ function _globify(maybeGlob: string, suffix = '**/*') {
 
 
 /** Create a TS Build Task, based on the options. */
-export function tsBuildTask(tsConfigPath: string, tsConfigName = 'tsconfig.json') {
+export function tsBuildTask(sourceDir, tsConfigPath: string, tsConfigName = 'tsconfig.json') {
   let tsConfigDir = tsConfigPath;
   if (fs.existsSync(path.join(tsConfigDir, tsConfigName))) {
     // Append tsconfig.json
@@ -47,10 +47,11 @@ export function tsBuildTask(tsConfigPath: string, tsConfigName = 'tsconfig.json'
     const tsConfig: any = JSON.parse(fs.readFileSync(tsConfigPath, 'utf-8'));
     const dest: string = path.join(tsConfigDir, tsConfig['compilerOptions']['outDir']);
     const tsProject = gulpTs.createProject(tsConfigPath, {
-      typescript: require('typescript'),
+      typescript: require('typescript')
+      // , rootDir: './src'
     });
     console.log('** Using Config for Build: ' + tsProject.configFileName);
-    let pipe = tsProject.src()
+    let pipe = gulp.src([path.join(sourceDir, '**/*.ts'), './src/core/**/*.ts'], {base: './src'})
       .pipe(gulpSourcemaps.init())
       .pipe(tsProject());
     let dts = pipe.dts.pipe(gulp.dest(dest));

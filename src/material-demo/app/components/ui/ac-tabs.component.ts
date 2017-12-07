@@ -42,24 +42,21 @@ export class AcTabData {
  */
 @Component({
   selector: 'ac-tabs',
-  template: `<ul class="nav nav-tabs" role="tablist">
-                <li class="nav-item" *ngFor="let tab of tabs.tabs" [ngClass]="{ active: tab.active }">
-                    <a class="nav-link " *ngIf="!tab.disabled"                        
+  template: `<mat-tab-group>
+                <mat-tab *ngFor="let tab of tabs.tabs" [label]="tab.text">
+                    <a  *ngIf="!tab.disabled"
                        (click)="activateTab(tab)"
                        [ngClass]="{ active: tab.active }"
                        href="#" [routerLink]="tab.link"
                        role="tab" >{{ tab.text }}</a>
-                    <a class="nav-link text-muted" *ngIf="tab.disabled"                      
+                    <a *ngIf="tab.disabled"
                        href="#" disabled="disabled" onclick="return false;"
                        role="tab" >{{ tab.text }}</a>
                 </li>
-            </ul>
-            <div class="tab-content">
-              <br />
-              <div role="tabpanel" class="tab-pane active">
+            </mat-tab-group>
+            <mat-card fxFlex="80">
                 <router-outlet></router-outlet>
-              </div>
-            </div>
+            </mat-card>
 `
 }) //
 export class AcTabsComponent {

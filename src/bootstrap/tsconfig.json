@@ -3,15 +3,18 @@
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "lib": ["es6", "es2015", "dom"],
+    "lib": [
+      "es6",
+      "es2015",
+      "dom"
+    ],
     "mapRoot": "",
     "module": "commonjs",
     "moduleResolution": "node",
     "noEmitOnError": true,
     "noImplicitAny": false,
     "suppressImplicitAnyIndexErrors": true,
-    "outDir": "../../dist/svogv",
-    "rootDir": ".",
+    "outDir": "../../dist/@svogv/bootstrap",
     "sourceMap": true,
     "target": "es5",
     "inlineSources": true,
@@ -20,12 +23,13 @@
       "../../node_modules/@types"
     ],
     "types": [
-      "jasmine", "node"
+      "jasmine",
+      "node"
     ]
   },
-    "files": [
-      "module.ts"
-    ],
+  "files": [
+    "module.ts"
+  ],
   "angularCompilerOptions": {
     "genDir": "../../dist",
     "skipTemplateCodegen": true,

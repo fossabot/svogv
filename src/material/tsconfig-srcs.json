@@ -5,13 +5,11 @@
     "experimentalDecorators": true,
     "lib": ["es6", "es2015", "dom"],
     "mapRoot": "",
-    "module": "commonjs",
+    "module": "es2015",
     "moduleResolution": "node",
     "noEmitOnError": true,
-    "noImplicitAny": false,
-    "suppressImplicitAnyIndexErrors": true,
-    "outDir": "../../dist/svogv",
-    "rootDir": ".",
+    "noImplicitAny": true,
+    "outDir": "../../dist/material-package",
     "sourceMap": true,
     "target": "es5",
     "inlineSources": true,
@@ -23,11 +21,15 @@
       "jasmine", "node"
     ]
   },
-    "files": [
-      "module.ts"
-    ],
+  "exclude": [
+    "node_modules",
+    "typings/**",
+    "typings/*.d.ts",
+    "**/*.spec.*",
+    "system-config-spec.ts"
+  ],
   "angularCompilerOptions": {
-    "genDir": "../../dist",
+    "genDir": "../../dist/material-package",
     "skipTemplateCodegen": true,
     "debug": true
   }

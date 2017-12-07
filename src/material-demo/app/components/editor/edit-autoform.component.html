@@ -1,26 +1,26 @@
-<div class="container-fluid">
+<div class="content">
   <form (ngSubmit)="saveUser()" [formGroup]="userForm" role="form" class="row" autoform>
     <fieldset style="width:100%">
       <legend>Edit current user</legend>
       <ac-autoform [formGroup]="userForm"></ac-autoform>      
       <div class="row">
-        <button class="btn btn-sm btn-success" type="submit" [disabled]="!userForm.valid">
+        <button mat-button type="submit" [disabled]="!userForm.valid">
           <i class="fa fa-save"></i> Save
         </button>
-        <button class="btn btn-sm btn-secondary" type="submit" [disabled]="!userForm.valid">
+        <button mat-button type="submit" [disabled]="!userForm.valid">
           <i class="fa fa-close"></i> Save &amp; Close
         </button>
-        <button class="btn btn-sm btn-warning" type="button" (click)="closeForm()">
+        <button mat-button type="button" (click)="closeForm()">
           <i class="fa fa-remove"></i> Cancel &amp; Return to List
         </button>
       </div>
     </fieldset>
   </form>
-  <div class="card card-block">
-    <div class="card-header card-success">
+  <mat-card>
+    <mat-card-title>
       Techniques used
-    </div>
-    <div class="card-body">
+    </mat-card-title>
+    <mat-card-content>
       <p>This form makes use of the &lt;ac-editor&gt; component.</p>
       <code><pre>
  &lt;form (ngSubmit)="saveUser()" [formGroup]="myForm" role="form" class="row"><br/>
@@ -71,6 +71,6 @@ export class UserViewModel {{ '{' }}<br/>
 {{ '}' }}
 </pre>
 </code>
-    </div>
-  </div>
+    </mat-card-content>
+  </mat-card>
 </div>

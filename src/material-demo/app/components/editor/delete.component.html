@@ -1,14 +1,16 @@
 <div class="alert alert-info">
 	<h3>Delete User</h3>
-	<div class="alert alert-warning">
-		Confirm deleting the user {{ user.userName }}.
-	</div>
+	<mat-card>
+		<mat-card-content>
+			Confirm deleting the user {{ user.userName }}.
+		</mat-card-content>
+	</mat-card>
 	<div class="row">
-		<button class="btn btn-sm btn-success" type="button" (click)="deleteItem()">
-          <i class="fa fa-save"></i> Delete
-        </button>
-		<button class="btn btn-sm btn-warning" type="button" (click)="closeForm()">
-          <i class="fa fa-remove"></i> Cancel &amp; Return to List
-        </button>
+		<button mat-button type="button" (click)="deleteItem()">
+			<i class="fa fa-save"></i> Delete
+		</button>
+		<button mat-button type="button" (click)="closeForm()">
+			<i class="fa fa-remove"></i> Cancel &amp; Return to List
+		</button>
 	</div>
 </div>

@@ -14,8 +14,8 @@
     "lint": "gulp lint",
     "docs": "gulp docs",
     "codedoc": "npm run codedoc-bootstrap && npm run codedoc-material",
-    "codedoc-bootstrap": "./node_modules/.bin/compodoc -p src/boostrap-lib/tsconfig-srcs.json",
-    "codedoc-material": "./node_modules/.bin/compodoc -p src/material-lib/tsconfig-srcs.json",
+    "codedoc-bootstrap": "./node_modules/.bin/compodoc -p src/boostrap/tsconfig-srcs.json",
+    "codedoc-material": "./node_modules/.bin/compodoc -p src/material/tsconfig-srcs.json",
     "setup": "npm install && npm run build"
   },
   "repository": {
@@ -129,6 +129,7 @@
     "protractor": "^4.0.8",
     "resolve-bin": "^0.4.0",
     "rimraf": "^2.6.2",
+    "rollup-plugin-includepaths": "^0.2.2",
     "run-sequence": "^1.2.2",
     "sass": "^0.5.0",
     "selenium-webdriver": "^3.5.0",

@@ -12,12 +12,12 @@
     "noEmitOnError": true,
     "noImplicitAny": false,
     "outDir": "../../dist/gulp",
-    "rootDir": ".",
     "sourceMap": true,
     "target": "es5",
     "inlineSources": true,
     "stripInternal": false,
     "baseUrl": "",
+    "allowJs": true,
     "typeRoots": [
       "../../node_modules/@types"
     ],
