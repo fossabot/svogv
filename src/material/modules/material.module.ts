@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatButtonModule,
   MatMenuModule,
@@ -77,7 +77,8 @@ const IMPORT_EXPORT = [
   MatTableModule,
   MatTabsModule,
   MatTooltipModule,
-  NativeDateModule
+  NativeDateModule,
+  BrowserAnimationsModule
 ];
 
 @NgModule({
