@@ -52,7 +52,7 @@ export class AcTabData {
                     <a *ngIf="tab.disabled"
                        href="#" disabled="disabled" onclick="return false;"
                        role="tab" >{{ tab.text }}</a>
-                </li>
+                </mat-tab>
             </mat-tab-group>
             <mat-card fxFlex="80">
                 <router-outlet></router-outlet>

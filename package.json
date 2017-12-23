@@ -6,8 +6,9 @@
   "scripts": {
     "build": "gulp build && gulp demo:build",
     "demoall": "gulp build && gulp demo:build && npm start",
-    "start": "http-server ./dist/bootstrap-demo -a localhost -p 3000 -g -c-1 -o",
-    "start-mat": "http-server ./dist/material-demo -a localhost -p 3001 -g -c-1 -o",
+    "start-bt": "http-server ./dist/bootstrap-demo -a localhost -p 3000 -g -c-1 -o",
+    "start-mt": "http-server ./dist/material-demo -a localhost -p 3001 -g -c-1 -o",
+    "start": "npm run start-bt & npm run start-mt & wait",
     "test": "gulp test",
     "lint": "gulp lint",
     "docs": "gulp docs",

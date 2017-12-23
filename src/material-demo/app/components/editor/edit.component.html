@@ -1,5 +1,5 @@
 <div class="content">
-  <form (ngSubmit)="saveUser()" [formGroup]="userForm" role="form" class="row">
+  <form (ngSubmit)="saveUser()" [formGroup]="userForm" role="form">
     <fieldset style="width: 100%">
       <legend>Edit current user</legend>
       <ac-editor [userForm]="userForm" name="userName"></ac-editor>
@@ -12,13 +12,13 @@
       <ac-editor [userForm]="userForm" name="passWordTwo"></ac-editor>
       <div class="row">
         <button mat-button type="submit" [disabled]="!userForm.valid">
-          <i class="fa fa-save"></i> Save
+          <mat-icon>save</mat-icon> Save
         </button>
         <button mat-button type="submit" [disabled]="!userForm.valid">
-          <i class="fa fa-close"></i> Save &amp; Close
+            <mat-icon>save</mat-icon> Save &amp; Close
         </button>
-        <button mat-button type="button" (click)="closeForm()">
-          <i class="fa fa-remove"></i> Cancel &amp; Return to List
+        <button mat-button color="warn" type="button" (click)="closeForm()">
+            <mat-icon>remove</mat-icon> Cancel &amp; Return to List
         </button>
       </div>
     </fieldset>

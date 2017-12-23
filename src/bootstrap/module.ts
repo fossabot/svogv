@@ -5,10 +5,8 @@ import { RouterModule } from '@angular/router';
 
 import * as wd from './widgets/index';
 
-import { FormValidatorService } from '@svogv/core';
-import { FormValidatorFromJsonService } from '@svogv/core';
+import { SvogvCoreModule, FormValidatorService, FormValidatorFromJsonService } from '@svogv/core';
 
-import { SvogvCoreModule } from '@svogv/core';
 import * as d from '@svogv/core';
 
 const SVOGV_COMPONENTS = [
@@ -35,7 +33,7 @@ const SVOGV_EXPORTS = [
   imports: [BrowserModule, RouterModule, ReactiveFormsModule, FormsModule, SvogvCoreModule],
   declarations: SVOGV_COMPONENTS,
   providers: [FormValidatorService, FormValidatorFromJsonService],
-  exports: [...SVOGV_COMPONENTS, ...SVOGV_EXPORTS]
+  exports: [...SVOGV_COMPONENTS]
 })
 export class SvogvModule {
 

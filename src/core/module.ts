@@ -3,9 +3,9 @@ import { NgModule, ModuleWithProviders, Injector } from '@angular/core';
 import { FormValidatorService } from './services/formvalidator.service';
 import { FormValidatorFromJsonService } from './services/formvalidator-fromjson.service';
 
-import * as d from '../core/decorators/index';
+import * as d from './decorators/index';
 
-const SVOGV_EXPORTS = [
+const SVOGV_IMPORTS_EXPORTS = [
   [ d.Compare, d.Display, d.DisplayGroup, d.Email, d.Format, d.Range, d.Readonly, d.Required,
     d.Hidden, d.MaxLength, d.MinLength, d.StringLength, d.Pattern, d.TemplateHint]
 ];
@@ -14,8 +14,7 @@ const SVOGV_EXPORTS = [
  * The actual SVOGV Module definition using the root module.
  */
 @NgModule({
-  providers: [FormValidatorService, FormValidatorFromJsonService],
-  exports: SVOGV_EXPORTS
+  providers: [FormValidatorService, FormValidatorFromJsonService]
 })
 export class SvogvCoreModule {
 

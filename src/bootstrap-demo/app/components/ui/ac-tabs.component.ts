@@ -44,12 +44,12 @@ export class AcTabData {
   selector: 'ac-tabs',
   template: `<ul class="nav nav-tabs" role="tablist">
                 <li class="nav-item" *ngFor="let tab of tabs.tabs" [ngClass]="{ active: tab.active }">
-                    <a class="nav-link " *ngIf="!tab.disabled"                        
+                    <a class="nav-link " *ngIf="!tab.disabled"
                        (click)="activateTab(tab)"
                        [ngClass]="{ active: tab.active }"
                        href="#" [routerLink]="tab.link"
                        role="tab" >{{ tab.text }}</a>
-                    <a class="nav-link text-muted" *ngIf="tab.disabled"                      
+                    <a class="nav-link text-muted" *ngIf="tab.disabled"
                        href="#" disabled="disabled" onclick="return false;"
                        role="tab" >{{ tab.text }}</a>
                 </li>
@@ -123,14 +123,14 @@ export class AcTabsComponent {
       let rx = new RegExp('^((\/.*?)\/\:[^\/]*?\/?)$');
       let lastmatch = (l: any) => l.match(rx) && <any>l.match(rx).filter((m: any) => <any>m === <any>l).length > 0;
       var matchTab = this.tabs.tabs.filter(t => {
-          if (typeof(t.link) === 'string') {
-            return t.link == routeURL || lastmatch(t.link);
-          } else {
-            return ((<any>t.link).length > 0
-                     && t.link.filter(sublink => sublink === routeURL || lastmatch(sublink)).length > 0);
-          }
+        if (typeof (t.link) === 'string') {
+          return t.link == routeURL || lastmatch(t.link);
+        } else {
+          return ((<any>t.link).length > 0
+            && t.link.filter(sublink => sublink === routeURL || lastmatch(sublink)).length > 0);
         }
-    );
+      }
+      );
       if (matchTab && matchTab.length == 1) {
         this.activateTab(matchTab[0]);
         return;

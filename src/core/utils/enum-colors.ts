@@ -1,5 +1,5 @@
 ﻿/**
- * Colors specific to Boostrap.
+ * Colors specific to Bootstrap.
  */
 export enum Meaning {
     Success,
@@ -22,7 +22,7 @@ export enum Actions {
 }
 
 /**
- * Sizes of menus and buttons
+ * Sizes of menus and buttons, specific to Bootstrap
  */
 export enum Sizes {
     XSmall,

@@ -1,4 +1,4 @@
-﻿export const EnumConverter = <T>(value: number, enumerationType: T) : string => {
+﻿export const EnumConverter = <T>(value: number, enumerationType: T): string => {
     let sanitizedValue = value.toString();
     let color: T = <T>((<any>enumerationType)[sanitizedValue]);
     return color.toString();
