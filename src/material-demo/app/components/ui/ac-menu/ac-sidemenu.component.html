@@ -29,7 +29,7 @@
     </mat-tab-group>
 
   </mat-sidenav>
-  <div class="content" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px">
+  <div class="content" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px" *ngIf="selectedUser">
 
     <mat-card fxFlex="80">
       <mat-icon>avatar</mat-icon>
@@ -37,7 +37,7 @@
       <p>{{selectedUser.details}}</p>
     </mat-card>
 
-    <mat-card fxFlex fxLayout="column" fxLayoutGap="14px" *ngIf="selectedUser">
+    <mat-card fxFlex fxLayout="column" fxLayoutGap="14px">
       <mat-slide-toggle [(ngModel)]="selectedUser.isAdmin">Is Admin?</mat-slide-toggle>
       <mat-slide-toggle [(ngModel)]="selectedUser.isCool">Is Cool?</mat-slide-toggle>
     </mat-card>

@@ -118,6 +118,7 @@ task(':mt-demo:bundle:create', function () {
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       '@angular/material': 'npm:@angular/material/bundles/material.umd.js',
+      '@angular/flex-layout': 'npm:@angular/flex-layout/bundles/flex-layout.umd.js',
       '@angular/cdk': 'npm:@angular/cdk/bundles/cdk.umd.js',
       '@angular/cdk/accordion': 'npm:@angular/cdk/bundles/cdk-accordion.umd.js',
       '@angular/cdk/a11y': 'npm:/@angular/cdk/bundles/cdk-a11y.umd.js',
@@ -150,8 +151,8 @@ task(':mt-demo:bundle:create', function () {
     .buildStatic(path.join(DIST_MATERIAL_DEMO_ROOT, 'app/app.js'),
       path.join(DIST_MATERIAL_DEMO_ROOT, './app.bundle.js'), {
       sourceMaps: true,
-      minify: true,
-      mangle: true,
+      minify: false,
+      mangle: false,
       rollup: true
     })
     .then(function () {
