@@ -122,11 +122,13 @@ task(':bt-demo:bundle:create', function () {
       '@angular/common': 'npm:@angular/common/bundles/common.umd.js',
       '@angular/compiler': 'npm:@angular/compiler/bundles/compiler.umd.js',
       '@angular/platform-browser': 'npm:@angular/platform-browser/bundles/platform-browser.umd.js',
+      // tslint:disable-next-line:max-line-length
       '@angular/platform-browser-dynamic': 'npm:@angular/platform-browser-dynamic/bundles/platform-browser-dynamic.umd.js',
       '@angular/http': 'npm:@angular/http/bundles/http.umd.js',
       '@angular/router': 'npm:@angular/router/bundles/router.umd.js',
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
       'rxjs': 'npm:rxjs',
+      'tslib': 'npm:tslib/tslib.js',
       '@svogv/core': 'npm:@svogv/core/bundles/svogv-core.umd.js',
       '@svogv/bootstrap': 'npm:@svogv/bootstrap/bundles/svogv.umd.js'
     },
@@ -136,13 +138,13 @@ task(':bt-demo:bundle:create', function () {
     }
   });
 
-  // builder.reset();
   builder.loader.defaultJSExtensions = true;
   return builder
-    .buildStatic(path.join(DIST_BOOTSTRAP_DEMO_ROOT, 'app/app.js'), path.join(DIST_BOOTSTRAP_DEMO_ROOT, './app.bundle.js'), {
+    .buildStatic(path.join(DIST_BOOTSTRAP_DEMO_ROOT, 'app/app.js'),
+                 path.join(DIST_BOOTSTRAP_DEMO_ROOT, './app.bundle.js'), {
       sourceMaps: true,
-      minify: true,
-      mangle: true,
+      minify: false,
+      mangle: false,
       rollup: true
     })
     .then(function () {
@@ -151,7 +153,9 @@ task(':bt-demo:bundle:create', function () {
 });
 
 task(':bt-demo:bundle:zip', function () {
-  return src(path.join(DIST_BOOTSTRAP_DEMO_ROOT, './app.bundle.js')).pipe(gzip('app.bundle.js.gz')).pipe(dest(DIST_BOOTSTRAP_DEMO_ROOT));
+  return src(path.join(DIST_BOOTSTRAP_DEMO_ROOT, './app.bundle.js'))
+  .pipe(gzip('app.bundle.js.gz'))
+  .pipe(dest(DIST_BOOTSTRAP_DEMO_ROOT));
 });
 
 task(':bt-demo:del:build-folder', function () {

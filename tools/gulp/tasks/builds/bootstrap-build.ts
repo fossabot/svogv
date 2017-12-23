@@ -1,5 +1,5 @@
 import { task, watch, src, dest } from 'gulp';
-import * as path from 'path';
+import { join, relative } from 'path';
 import includePaths from '../../../../scripts/release/rollup-includepaths-plugin';
 
 import {
@@ -15,6 +15,8 @@ const inlineResources = require('../../../../scripts/release/inline-resources');
 const gulpRollup = require('gulp-better-rollup');
 const gulpMinifyCss = require('gulp-clean-css');
 const gulpMinifyHtml = require('gulp-htmlmin');
+const gulpMinifyJs = require('gulp-uglify');
+const gulpRename = require('gulp-rename');
 const gulpIf = require('gulp-if');
 const del = require('del');
 
@@ -25,25 +27,25 @@ task(':bt-build:cleanup', () => {
 
 /** [Watch task] Rebuilds (ESM output) whenever ts, scss, or html sources change. */
 task(':watch:components', () => {
-  watch(path.join(BOOTSTRAP_COMPONENTS_DIR, '**/*.ts'), ['bt-build:components', triggerLivereload]);
-  watch(path.join(BOOTSTRAP_COMPONENTS_DIR, '**/*.scss'), ['bt-build:components', triggerLivereload]);
-  watch(path.join(BOOTSTRAP_COMPONENTS_DIR, '**/*.html'), ['bt-build:components', triggerLivereload]);
+  watch(join(BOOTSTRAP_COMPONENTS_DIR, '**/*.ts'), ['bt-build:components', triggerLivereload]);
+  watch(join(BOOTSTRAP_COMPONENTS_DIR, '**/*.scss'), ['bt-build:components', triggerLivereload]);
+  watch(join(BOOTSTRAP_COMPONENTS_DIR, '**/*.html'), ['bt-build:components', triggerLivereload]);
 });
 
 /** Builds component typescript only (ESM output). */
 task(':bt-build:components:ts', tsBuildTask(BOOTSTRAP_COMPONENTS_DIR,
-                                path.join(BOOTSTRAP_COMPONENTS_DIR, 'tsconfig-srcs.json')));
+  join(BOOTSTRAP_COMPONENTS_DIR, 'tsconfig-srcs.json')));
 
 /** Path to the tsconfig used for ESM output. */
-const tsconfigPath = path.relative(PROJECT_ROOT, path.join(BOOTSTRAP_COMPONENTS_DIR, 'tsconfig.json'));
+const tsconfigPath = relative(PROJECT_ROOT, join(BOOTSTRAP_COMPONENTS_DIR, 'tsconfig.json'));
 /** Builds components typescript for tests (CJS output). */
 task(':bt-build:components:spec', tsBuildTask(BOOTSTRAP_COMPONENTS_DIR, tsconfigPath));
 
 /** Copies assets (html, markdown) to build output. */
 task(':bt-build:components:assets', copyTask([
-  path.join(BOOTSTRAP_COMPONENTS_DIR, '**/*.!(ts|spec.ts)'),
-  path.join(PROJECT_ROOT, 'README.md'),
-  path.join(PROJECT_ROOT, 'LICENSE'),
+  join(BOOTSTRAP_COMPONENTS_DIR, '**/*.!(ts|spec.ts)'),
+  join(PROJECT_ROOT, 'README.md'),
+  join(PROJECT_ROOT, 'LICENSE'),
 ], DIST_BOOTSTRAP_COMPONENTS_ROOT));
 
 /** Minifies the HTML and CSS assets in the distribution folder. */
@@ -87,7 +89,7 @@ task(':bt-build:components:rollup', () => {
   };
 
   const includePathsOptions = {
-    paths: ['src/core', 'src/core/utils' ],
+    paths: ['src/core', 'src/core/utils'],
     include: {
       '../../../core/utils/enum-colors': 'src/core/utils/enum-colors.js'
     }
@@ -96,7 +98,7 @@ task(':bt-build:components:rollup', () => {
   const rollupOptions = {
     context: 'this',
     external: Object.keys(globals),
-    plugins: [ includePaths(includePathsOptions) ]
+    plugins: [includePaths(includePathsOptions)]
   };
 
   const rollupGenerateOptions = {
@@ -109,16 +111,24 @@ task(':bt-build:components:rollup', () => {
     dest: 'svogv.umd.js'
   };
 
-  return src(path.join(DIST_BOOTSTRAP_COMPONENTS_ROOT, 'index.js'))
+  return src(join(DIST_BOOTSTRAP_COMPONENTS_ROOT, 'index.js'))
     .pipe(gulpRollup(rollupOptions, rollupGenerateOptions))
-    .pipe(dest(path.join(DIST_BOOTSTRAP_COMPONENTS_ROOT, 'bundles')));      // copy to dist for reference
+    .pipe(dest(join(DIST_BOOTSTRAP_COMPONENTS_ROOT, 'bundles')));      // copy to dist for reference
+});
+
+task(':bt-build:components:rollup-minify', () => {
+  return src(
+    join(DIST_BOOTSTRAP_COMPONENTS_ROOT, 'bundles/svogv.umd.js'))
+    .pipe(gulpRename('svogv.umd.min.js'))
+    .pipe(gulpMinifyJs())
+    .pipe(dest(join(DIST_BOOTSTRAP_COMPONENTS_ROOT, 'bundles')));
 });
 
 // refresh the package immediately to simplify local testing with current version
 task(':bt-build:components:copy-for-demo', () => {
   let target = './node_modules/@svogv/bootstrap';
   console.log(`** immediate copy from ${DIST_BOOTSTRAP_COMPONENTS_ROOT}  to ${target}`);
-  return src(path.join(DIST_BOOTSTRAP_COMPONENTS_ROOT, '**/*.*')).pipe(dest(target));
+  return src(join(DIST_BOOTSTRAP_COMPONENTS_ROOT, '**/*.*')).pipe(dest(target));
 });
 
 /** Builds components with resources (html, css) inlined into the built JS (ESM output). */
@@ -150,10 +160,12 @@ task(':bt-build:inline-resources', function () {
 task('bt-build', sequenceTask(
   ':bt-build:components:inline',
   ':bt-build:components:rollup',
+  ':bt-build:components:rollup-minify',
   ':bt-build:components:copy-for-demo'));
 
 task('bt-build:components:release', sequenceTask(
   ':bt-build:components:inline:release',
-  ':bt-build:components:rollup'
+  ':bt-build:components:rollup',
+  ':bt-build:components:rollup-minify'
 ));
 

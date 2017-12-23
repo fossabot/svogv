@@ -1,5 +1,5 @@
 import { task, watch, src, dest } from 'gulp';
-import * as path from 'path';
+import { join, relative } from 'path';
 
 import {
   DIST_MATERIAL_COMPONENTS_ROOT, PROJECT_ROOT, MATERIAL_COMPONENTS_DIR, HTML_MINIFIER_OPTIONS, LICENSE_BANNER
@@ -14,6 +14,8 @@ const inlineResources = require('../../../../scripts/release/inline-resources');
 const gulpRollup = require('gulp-better-rollup');
 const gulpMinifyCss = require('gulp-clean-css');
 const gulpMinifyHtml = require('gulp-htmlmin');
+const gulpMinifyJs = require('gulp-uglify');
+const gulpRename = require('gulp-rename');
 const gulpIf = require('gulp-if');
 const del = require('del');
 
@@ -24,25 +26,25 @@ task(':mt-build:cleanup', () => {
 
 /** [Watch task] Rebuilds (ESM output) whenever ts, scss, or html sources change. */
 task(':watch:components', () => {
-  watch(path.join(MATERIAL_COMPONENTS_DIR, '**/*.ts'), ['mt-build:components', triggerLivereload]);
-  watch(path.join(MATERIAL_COMPONENTS_DIR, '**/*.scss'), ['mt-build:components', triggerLivereload]);
-  watch(path.join(MATERIAL_COMPONENTS_DIR, '**/*.html'), ['mt-build:components', triggerLivereload]);
+  watch(join(MATERIAL_COMPONENTS_DIR, '**/*.ts'), ['mt-build:components', triggerLivereload]);
+  watch(join(MATERIAL_COMPONENTS_DIR, '**/*.scss'), ['mt-build:components', triggerLivereload]);
+  watch(join(MATERIAL_COMPONENTS_DIR, '**/*.html'), ['mt-build:components', triggerLivereload]);
 });
 
 /** Builds component typescript only (ESM output). */
 task(':mt-build:components:ts', tsBuildTask(MATERIAL_COMPONENTS_DIR,
-                                path.join(MATERIAL_COMPONENTS_DIR, 'tsconfig-srcs.json')));
+                                join(MATERIAL_COMPONENTS_DIR, 'tsconfig-srcs.json')));
 
 /** Path to the tsconfig used for ESM output. */
-const tsconfigPath = path.relative(PROJECT_ROOT, path.join(MATERIAL_COMPONENTS_DIR, 'tsconfig.json'));
+const tsconfigPath = relative(PROJECT_ROOT, join(MATERIAL_COMPONENTS_DIR, 'tsconfig.json'));
 /** Builds components typescript for tests (CJS output). */
 task(':mt-build:components:spec', tsBuildTask(MATERIAL_COMPONENTS_DIR, tsconfigPath));
 
 /** Copies assets (html, markdown) to build output. */
 task(':mt-build:components:assets', copyTask([
-  path.join(MATERIAL_COMPONENTS_DIR, '**/*.!(ts|spec.ts)'),
-  path.join(PROJECT_ROOT, 'README.md'),
-  path.join(PROJECT_ROOT, 'LICENSE'),
+  join(MATERIAL_COMPONENTS_DIR, '**/*.!(ts|spec.ts)'),
+  join(PROJECT_ROOT, 'README.md'),
+  join(PROJECT_ROOT, 'LICENSE'),
 ], DIST_MATERIAL_COMPONENTS_ROOT));
 
 /** Minifies the HTML and CSS assets in the distribution folder. */
@@ -105,16 +107,24 @@ task(':mt-build:components:rollup', () => {
     dest: 'svogv.umd.js'
   };
 
-  return src(path.join(DIST_MATERIAL_COMPONENTS_ROOT, 'index.js'))
+  return src(join(DIST_MATERIAL_COMPONENTS_ROOT, 'index.js'))
     .pipe(gulpRollup(rollupOptions, rollupGenerateOptions))
-    .pipe(dest(path.join(DIST_MATERIAL_COMPONENTS_ROOT, 'bundles')));      // copy to dist for reference
+    .pipe(dest(join(DIST_MATERIAL_COMPONENTS_ROOT, 'bundles')));      // copy to dist for reference
+});
+
+task(':mt-build:components:rollup-minify', () => {
+  return src(
+    join(DIST_MATERIAL_COMPONENTS_ROOT, 'bundles/svogv.umd.js'))
+    .pipe(gulpRename('svogv.umd.min.js'))
+    .pipe(gulpMinifyJs())
+    .pipe(dest(join(DIST_MATERIAL_COMPONENTS_ROOT, 'bundles')));
 });
 
 // refresh the package immediately to simplify local testing with current version
 task(':mt-build:components:copy-for-demo', () => {
   let target = './node_modules/@svogv/material';
   console.log(`** immediate copy from ${DIST_MATERIAL_COMPONENTS_ROOT}  to ${target}`);
-  return src(path.join(DIST_MATERIAL_COMPONENTS_ROOT, '**/*.*')).pipe(dest(target));
+  return src(join(DIST_MATERIAL_COMPONENTS_ROOT, '**/*.*')).pipe(dest(target));
 });
 
 /** Builds components with resources (html, css) inlined into the built JS (ESM output). */
@@ -146,10 +156,12 @@ task(':mt-build:inline-resources', function () {
 task('mt-build', sequenceTask(
   ':mt-build:components:inline',
   ':mt-build:components:rollup',
+  ':mt-build:components:rollup-minify',
   ':mt-build:components:copy-for-demo'));
 
 task('mt-build:components:release', sequenceTask(
   ':mt-build:components:inline:release',
-  ':mt-build:components:rollup'
+  ':mt-build:components:rollup',
+  ':mt-build:components:rollup-minify'
 ));
 
