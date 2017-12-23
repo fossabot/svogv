@@ -32,12 +32,12 @@
   <div class="content" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px">
 
     <mat-card fxFlex="80">
-      <mat-icon svgIcon="avatars:{{selectedUser.avatar}}" class="avatar"></mat-icon>
+      <mat-icon>avatar</mat-icon>
       <h2>{{selectedUser.name}}</h2>
       <p>{{selectedUser.details}}</p>
     </mat-card>
 
-    <mat-card fxFlex fxLayout="column" fxLayoutGap="14px">
+    <mat-card fxFlex fxLayout="column" fxLayoutGap="14px" *ngIf="selectedUser">
       <mat-slide-toggle [(ngModel)]="selectedUser.isAdmin">Is Admin?</mat-slide-toggle>
       <mat-slide-toggle [(ngModel)]="selectedUser.isCool">Is Cool?</mat-slide-toggle>
     </mat-card>

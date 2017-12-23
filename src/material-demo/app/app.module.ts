@@ -4,6 +4,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 // access to WebAPI
 import { SiteApiService } from './services/index';
 // custom components
@@ -21,6 +23,7 @@ import { FormValidatorService, FormValidatorFromJsonService, WindowRef, SvogvMod
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
+    FlexLayoutModule,
     SvogvModule
   ],
   declarations: [
