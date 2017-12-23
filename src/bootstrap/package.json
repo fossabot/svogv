@@ -1,6 +1,6 @@
 {
   "name": "@svogv/bootstrap",
-  "version": "0.3.7",
+  "version": "0.4.0",
   "description": "A decorator based approach for model driven forms and some time saving form widgets. This lib requires Bootstrap 4.",
   "main": "./bundles/svogv.umd.js",
   "module": "./index.js",
@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/joergkrause/svogv#readme",
   "peerDependencies": {
-    "@svogv/core": "0.3.7",
+    "@svogv/core": "0.4.0",
     "@angular/common": ">= 2.2.0",
     "@angular/compiler": ">= 2.2.0",
     "@angular/core": ">= 2.2.0",

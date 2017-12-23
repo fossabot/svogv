@@ -1,6 +1,6 @@
 {
   "name": "@svogv/core",
-  "version": "0.3.7",
+  "version": "0.4.0",
   "description": "A decorator based approach for model driven forms and some time saving form widgets. Requires Material 2.",
   "main": "./bundles/svogv-core.umd.js",
   "module": "./index.js",
