@@ -156,7 +156,7 @@ export function copyTask(srcGlobOrDir: string | string[], outRoot: string) {
 
 
 /** Delete files. */
-export function cleanTask(glob: string) {
+export function cleanTask(glob: string | string[]) {
   return () => gulp.src(glob, { read: false }).pipe(gulpClean(null));
 }
 

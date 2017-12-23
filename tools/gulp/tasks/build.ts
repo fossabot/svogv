@@ -12,4 +12,4 @@ task('placeholder', function () {
     .pipe(dest(join(DIST_ROOT, 'svogv')));
 });
 
-task('build', sequenceTask('core-build', ['bt-build', 'mt-build', 'placeholder']));
+task('build', sequenceTask('clean', 'core-build', ['bt-build', 'mt-build', 'placeholder']));

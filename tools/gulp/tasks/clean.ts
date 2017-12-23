@@ -1,9 +1,8 @@
 import {task} from 'gulp';
 import {cleanTask} from '../task_helpers';
 
+task('clean:package', cleanTask(['./dist/material-package', './dist/bootstrap-package', './dist/core-package']));
 
-task('clean:svogv', cleanTask('dist/svogv'));
+task('clean:demo', cleanTask(['./dist/material-demo', './dist/bootstrap-demo']));
 
-task('clean:svogv-material', cleanTask('dist/svogv-material'));
-
-task('clean', ['clean:svogv', 'clean:svogv-material']);
+task('clean', ['clean:demo', 'clean:package']);
