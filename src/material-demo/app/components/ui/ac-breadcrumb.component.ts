@@ -1,6 +1,6 @@
 ﻿import { Component, Input, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, NavigationEnd, Params, PRIMARY_OUTLET } from "@angular/router";
-import "rxjs/add/operator/filter";
+import { Router, ActivatedRoute, NavigationEnd, Params, PRIMARY_OUTLET } from '@angular/router';
+import 'rxjs/add/operator/filter';
 
 export interface IBreadcrumb {
     label: string;
@@ -10,13 +10,13 @@ export interface IBreadcrumb {
 
 @Component({
     selector: 'ac-breadcrumb',
-    template: `<ol class="list-inline breadcrumb" >
-                 <li class="list-inline-item"><a routerLink=""><i class="fa " [ngClass]="icon"></i>{{ home }}</a></li>
-                 <li class="list-inline-item" *ngFor="let breadcrumb of breadcrumbs; let lastItem=last">
+    template: `<mat-card class="breadcrumb">
+                 <a routerLink=""><mat-icon>{{ icon}} </mat-icon> {{ home }}</a>
+                 <ng-container *ngFor="let breadcrumb of breadcrumbs; let lastItem=last">
                     <a [routerLink]="[breadcrumb.url, breadcrumb.params]">{{ breadcrumb.label }}</a>
                     <span *ngIf="!lastItem">&nbsp;/&nbsp;</span>
-                 </li>
-               </ol>`,
+                 </ng-container>
+               </mat-card>`,
     styles: [
         `.breadcrumb {
             position: relative;

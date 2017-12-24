@@ -22,10 +22,6 @@ export class AcSideMenuComponent {
     // create Menu dynamically
   }
 
-  ngOnInit() {
-    console.log('AcSideMenu onInit');
-  }
-
   // tslint:disable-next-line:no-unused-variable
   private itemType(item: any): string {
     if (item === undefined || item === null) {

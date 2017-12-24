@@ -14,11 +14,9 @@
               <mat-icon>{{ item.icon }}</mat-icon>
               <span>{{ item.text }}</span>
             </mat-list-item>
-            <mat-list-item *ngSwitchCase="'AcMenuLinkItem'">
-              <a href="#" [routerLink]="item.link">
-                <mat-icon>{{ item.icon }}</mat-icon>
-                <span>{{ item.text }}</span>
-              </a>
+            <mat-list-item *ngSwitchCase="'AcMenuLinkItem'" [routerLink]="item.link">
+              <mat-icon>{{ item.icon }}</mat-icon>
+              <span>{{ item.text }}</span>
             </mat-list-item>
           </ng-container>
         </mat-nav-list>

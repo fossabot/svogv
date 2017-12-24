@@ -43,20 +43,13 @@ export class AcTabData {
 @Component({
   selector: 'ac-tabs',
   template: `<mat-tab-group>
-                <mat-tab *ngFor="let tab of tabs.tabs" [label]="tab.text">
-                    <a  *ngIf="!tab.disabled"
-                       (click)="activateTab(tab)"
-                       [ngClass]="{ active: tab.active }"
-                       href="#" [routerLink]="tab.link"
-                       role="tab" >{{ tab.text }}</a>
-                    <a *ngIf="tab.disabled"
-                       href="#" disabled="disabled" onclick="return false;"
-                       role="tab" >{{ tab.text }}</a>
+                <mat-tab *ngFor="let tab of tabs.tabs"
+                         [label]="tab.text"
+                         [disabled]="tab.disabled"
+                         [routerLink]="tab.link">
                 </mat-tab>
             </mat-tab-group>
-            <mat-card fxFlex="80">
-                <router-outlet></router-outlet>
-            </mat-card>
+            <router-outlet></router-outlet>
 `
 }) //
 export class AcTabsComponent {
