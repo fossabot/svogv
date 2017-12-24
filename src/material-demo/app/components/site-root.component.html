@@ -7,27 +7,29 @@
     <site-nav></site-nav>
   </mat-toolbar-row>
 </mat-toolbar>
-<div class="content" id="main" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px">
+<div id="main" fxLayout="row" fxLayout.sm="column" fxLayoutGap="8px">
   <ac-sidemenu [menu]="dynamicMenu"></ac-sidemenu>
   <!--/col-->
   <mat-card fxFlex="80">
-    <h2>
+    <mat-card-title>
       {{ currentRoute.title }}
       <small>{{ currentRoute.subTitle }}</small>
-    </h2>
-    <p class="lead">Welcome to SVOGV &ndash; the 'Simple Validation and Other Great View components' library</p>
-    <!-- Global navigation path -->
-    <ac-breadcrumb></ac-breadcrumb>
-    <!-- the global outlet, within the parts the named tab outlet shows sub parts -->
-    <div class="container">
-      <router-outlet></router-outlet>
-    </div>
+    </mat-card-title>
+    <mat-card-content>
+      Welcome to SVOGV &ndash; the 'Simple Validation and Other Great View components' library
   </mat-card>
+  </mat-card-content>
+  <!-- Global navigation path -->
+  <ac-breadcrumb></ac-breadcrumb>
+  <!-- the global outlet, within the parts the named tab outlet shows sub parts -->
+  <div class="container">
+    <router-outlet></router-outlet>
+  </div>
   <!--/main col-->
 </div>
 <!--/.container-->
-<footer class="container-fluid">
-  <p class="text-right small">&copy; 2011 - {{ currentYear }} Joerg &lt;isageek&gt; Krause
-    <i>www.joergkrause.de</i>
+<footer>
+  <p>&copy; 2011 - {{ currentYear }} Joerg &lt;isageek&gt; Krause
+    <em>www.joergkrause.de</em>
   </p>
 </footer>
