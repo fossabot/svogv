@@ -17,24 +17,29 @@ import { Meaning } from '../../../core/utils/enum-colors';
  */
 @Component({
     selector: 'ac-infobox',
-    template: `<div class="card card-inverse" [ngClass]="getColor('card')">
-                  <div class="card-body" [ngClass]="getColor('bg')">
+    styles: [
+        '.rotate { transform: rotate(45deg); }',
+        '.progress-description { text-align: left; font-size: 75%; }'
+    ],
+    template: `<mat-card [ngClass]="getColor('card')">
+                  <mat-card-header [ngClass]="getColor('bg')">
                     <div class="rotate">
-                        <i class="fa fa-5x" [ngClass]="icon"></i>
+                        <mat-icon>{{ icon }}</mat-icon>
                     </div>
                     <h6 class="text-uppercase">{{ text }}</h6>
+                  </mat-card-header>
+                  <mat-card-content>
                     <h1 class="display-1">{{ number }}</h1>
-                    <div class="progress" *ngIf="options.hasProgress">
-                        <div class="progress-bar" [style.width]="progressValue"></div>
-                    </div>
+                    <mat-progress-bar *ngIf="options.hasProgress" [value]="progressValue" mode="determinate">
+                    </mat-progress-bar>
                     <span class="progress-description" *ngIf="options.hasProgress">
                         {{progressText}}
                     </span>
-                  </div>
-                  <div class="card-footer text-muted" *ngIf="options.hasFooter">
-                      <a href="#" class="card-link" [routerLink]="footerLink">{{footerText}}</a>
-                  </div>
-                </div>`
+                  </mat-card-content>
+                  <mat-card-footer *ngIf="options.hasFooter">
+                      <button mat-button [routerLink]="footerLink">{{footerText}}</button>
+                  </mat-card-footer>
+                </mat-card>`
 }) //
 export class AcInfoBox implements OnInit {
     @Input() icon: string;
