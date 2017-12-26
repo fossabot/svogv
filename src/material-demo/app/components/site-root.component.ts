@@ -11,6 +11,7 @@ interface AppState {
 @Component({
   moduleId: module.id,
   selector: 'site-root',
+  styles: ['mat-card, article { width: 100% }'],
   templateUrl: './site-root.component.html'
 })
 export class SiteRootComponent implements OnInit {
@@ -38,11 +39,11 @@ export class SiteRootComponent implements OnInit {
     // the menu is forwarded to the sideMenu component through binding
     this.dynamicMenu = new AcMenu(
       new AcMenuHeaderItem('Tasks'),
-      new AcMenuLinkItem('Dashboard', ['/dashboard'], 'fa-dashboard'),
-      new AcMenuLinkItem('Forms Demo', ['/editor'], 'fa-user'),
-      new AcMenuLinkItem('About', ['/about'], 'fa-database'),
+      new AcMenuLinkItem('Dashboard', ['/dashboard'], 'dashboard'),
+      new AcMenuLinkItem('Forms Demo', ['/editor'], 'person'),
+      new AcMenuLinkItem('About', ['/about'], 'business'),
       new AcMenuHeaderItem('Widgets'),
-      new AcMenuLinkItem('Overview', ['/widgets'], 'fa-clock')
+      new AcMenuLinkItem('Overview', ['/widgets'], 'alarm_on')
     );
     // get dashboard data on load and distribute to all listening components
     this.apiService.getUsers().subscribe(data => {

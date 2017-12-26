@@ -32,7 +32,7 @@ export class TreeviewComponent {
     optionsi.checkable = false;
     optionsi.color = 'green';
     optionsi.collapsable = true;
-    optionsi.icon = 'fa-glass';
+    optionsi.icon = 'glass';
     optionsi.iconColor = 'silver';
     optionsi.selectable = false;
 

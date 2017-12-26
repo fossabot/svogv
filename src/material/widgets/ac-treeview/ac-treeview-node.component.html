@@ -1,7 +1,7 @@
 ﻿<li class="treeview" (click)="handleClick($event)">
-    <i class="ac-collapse" [ngClass]="collapseClasses" *ngIf="node.hasChildren" (click)="handleCollapse()"></i>
-    <i class="ac-collapse" *ngIf="!node.hasChildren"></i>
-    <i class="ac-icon" [ngClass]="iconClasses" [style.color]="node.options.iconColor" *ngIf="!node.options.checkable"></i>
+    <mat-icon class="ac-collapse" [ngClass]="collapseClasses" *ngIf="node.hasChildren" (click)="handleCollapse()"></mat-icon>
+    <mat-icon class="ac-collapse" *ngIf="!node.hasChildren"></mat-icon>
+    <mat-icon class="ac-icon" [ngClass]="iconClasses" [style.color]="node.options.iconColor" *ngIf="!node.options.checkable"></mat-icon>
     <input type="checkbox" [id]="node.name" *ngIf="node.options.checkable" 
            [checked]="node.stateIsChecked" (click)="handleCheckChange()">
     <label [attr.for]="node.name"></label>

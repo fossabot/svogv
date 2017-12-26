@@ -1,16 +1,16 @@
-<div class="alert alert-info">
-	<h3>Delete User</h3>
-	<mat-card>
-		<mat-card-content>
-			Confirm deleting the user {{ user.userName }}.
-		</mat-card-content>
-	</mat-card>
-	<div class="row">
+<mat-card>
+	<mat-card-header>
+		<h3>Delete User</h3>
+	</mat-card-header>
+	<mat-card-content>
+		Confirm deleting the user {{ user.userName }}.
+	</mat-card-content>
+	<mat-card-footer>
 		<button mat-button type="button" (click)="deleteItem()">
-			<i class="fa fa-save"></i> Delete
+			<mat-icon>save</mat-icon> Delete
 		</button>
 		<button mat-button type="button" (click)="closeForm()">
-			<i class="fa fa-remove"></i> Cancel &amp; Return to List
+			<mat-icon>cancel</mat-icon> Cancel &amp; Return to List
 		</button>
-	</div>
-</div>
+	</mat-card-footer>
+</mat-card>

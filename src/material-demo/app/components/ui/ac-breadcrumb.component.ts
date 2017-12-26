@@ -10,27 +10,17 @@ export interface IBreadcrumb {
 
 @Component({
     selector: 'ac-breadcrumb',
-    template: `<mat-card class="breadcrumb">
+    template: `<mat-card>
+                 <mat-card-content>
                  <a routerLink=""><mat-icon>{{ icon}} </mat-icon> {{ home }}</a>
                  <ng-container *ngFor="let breadcrumb of breadcrumbs; let lastItem=last">
                     <a [routerLink]="[breadcrumb.url, breadcrumb.params]">{{ breadcrumb.label }}</a>
                     <span *ngIf="!lastItem">&nbsp;/&nbsp;</span>
                  </ng-container>
+                 </mat-card-content>
                </mat-card>`,
-    styles: [
-        `.breadcrumb {
-            position: relative;
-            margin-top: 5px;
-            margin-bottom: 5px;
-            top: 0;
-            right: 0;
-            float: none;
-            padding: 7px 5px;
-            padding-left: 10px;
-            font-size: 12px;
-            border-radius: 2px;
-         }`]
-}) //
+    styles: ['mat-card { width: 100%; }', 'mat-card a { text-decoration: none;}']
+})
 export class AcBreadCrumbComponent implements OnInit {
     @Input() icon: string;
     @Input() home: string;
@@ -39,7 +29,7 @@ export class AcBreadCrumbComponent implements OnInit {
 
     constructor(private activatedRoute: ActivatedRoute, private router: Router) {
         this.home = 'Home';
-        this.icon = 'fa-dashboard';
+        this.icon = 'dashboard';
         this.breadcrumbs = new Array<IBreadcrumb>();
     }
 
@@ -57,7 +47,7 @@ export class AcBreadCrumbComponent implements OnInit {
             let currentRoute: ActivatedRoute = this.activatedRoute.root;
 
             // set the url to an empty string
-            let url: string = '';
+            let url = '';
 
             // iterate from activated route to children
             while (currentRoute.children.length > 0) {

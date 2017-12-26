@@ -6,7 +6,7 @@ import { Meaning } from '../../../core/utils/enum-colors';
 /**
  * The InfoBox is a rectangle area to show dynamic data. It has icon, text, and additional information.
  * 
- * @param icon The name of an FontAwesome icon, such as "fa-circle"
+ * @param icon The name of an Material icon, such as "circle"
  * @param text The text that appears prominently
  * @param number A number that covers the element as the value
  * @param footerText A smaller explanation text at the end
@@ -62,7 +62,7 @@ export class AcInfoBox implements OnInit {
         this.progressText = '';
         this.footerLink = '/';
         this.footerText = '';
-        this.icon = 'fa-user';
+        this.icon = 'user';
     }
 
     ngOnInit(): void {

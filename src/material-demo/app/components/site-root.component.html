@@ -1,35 +1,39 @@
-﻿<!-- Main Header -->
-<mat-toolbar color="primary">
-  <mat-toolbar-row>
-    <a class="navbar-brand" href="/index.html">
-      <img src="/assets/images/logo.png" />
-    </a>
-    <site-nav></site-nav>
-  </mat-toolbar-row>
-</mat-toolbar>
-<div id="main" fxLayout="row" fxLayout.sm="column" fxLayoutGap="8px">
-  <ac-sidemenu [menu]="dynamicMenu"></ac-sidemenu>
-  <!--/col-->
-  <mat-card fxFlex="80">
-    <mat-card-title>
-      {{ currentRoute.title }}
-      <small>{{ currentRoute.subTitle }}</small>
-    </mat-card-title>
-    <mat-card-content>
-      Welcome to SVOGV &ndash; the 'Simple Validation and Other Great View components' library
-    </mat-card-content>
-  </mat-card>
-  <!-- Global navigation path -->
-  <ac-breadcrumb></ac-breadcrumb>
-  <!-- the global outlet, within the parts the named tab outlet shows sub parts -->
-  <div class="container">
-    <router-outlet></router-outlet>
+﻿<div fxLayout="column" fxLayout.xs="column" fxLayoutGap="8px">
+  <header>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <a class="navbar-brand" href="/index.html">
+          <img src="/assets/images/logo.png" />
+        </a>
+        <site-nav></site-nav>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </header>
+  <div fxLayout="row">
+    <ac-sidemenu [menu]="dynamicMenu"></ac-sidemenu>
+    <article>
+      <mat-card>
+        <mat-card-title>
+          {{ currentRoute.title }}
+        </mat-card-title>
+        <mat-card-subtitle>
+          {{ currentRoute.subTitle }}
+        </mat-card-subtitle>
+        <mat-card-content>
+          Welcome to SVOGV &ndash; the 'Simple Validation and Other Great View components' library
+        </mat-card-content>
+      </mat-card>
+      <!-- Global navigation path -->
+      <ac-breadcrumb fxLayoutWrap></ac-breadcrumb>
+      <!-- the global outlet, within the parts the named tab outlet shows sub parts -->
+      <div fxLayoutWrap>
+        <router-outlet></router-outlet>
+      </div>
+    </article>
   </div>
-  <!--/main col-->
+  <footer>
+    <p>&copy; 2011 - {{ currentYear }} Joerg &lt;isageek&gt; Krause
+      <em>www.joergkrause.de</em>
+    </p>
+  </footer>
 </div>
-<!--/.container-->
-<footer>
-  <p>&copy; 2011 - {{ currentYear }} Joerg &lt;isageek&gt; Krause
-    <em>www.joergkrause.de</em>
-  </p>
-</footer>

@@ -1,44 +1,19 @@
 <mat-sidenav-container fxFlex>
   <mat-sidenav mode="side" opened>
-
-    <mat-tab-group *ngIf="menu && menu.children && menu.children.length > 0">
-      <mat-tab label="Users">
-        <mat-nav-list>
-          <ng-container *ngFor="let item of menu.children" class="nav-item" [ngSwitch]="itemType(item)">
-            <mat-list-item *ngSwitchCase="'AcMenuHeaderItem'">
-              <span>
-                <strong>{{ item.text }}</strong>
-              </span>
-            </mat-list-item>
-            <mat-list-item *ngSwitchCase="'AcMenuLabelItem'" class="nav-link">
-              <mat-icon>{{ item.icon }}</mat-icon>
-              <span>{{ item.text }}</span>
-            </mat-list-item>
-            <mat-list-item *ngSwitchCase="'AcMenuLinkItem'" [routerLink]="item.link">
-              <mat-icon>{{ item.icon }}</mat-icon>
-              <span>{{ item.text }}</span>
-            </mat-list-item>
-          </ng-container>
-        </mat-nav-list>
-      </mat-tab>
-      <mat-tab label="Settings">
-        <span>Settings</span>
-      </mat-tab>
-    </mat-tab-group>
-
+    <mat-list *ngIf="menu && menu.children && menu.children.length > 0">
+      <ng-container *ngFor="let item of menu.children" [ngSwitch]="itemType(item)">
+        <h3 *ngSwitchCase="'AcMenuHeaderItem'">
+          {{ item.text }}
+        </h3>
+        <mat-list-item *ngSwitchCase="'AcMenuLabelItem'">
+          <mat-icon>{{ item.icon }}</mat-icon>
+          <h4>{{ item.text }}</h4>
+        </mat-list-item>
+        <mat-list-item *ngSwitchCase="'AcMenuLinkItem'" [routerLink]="item.link">
+          <mat-icon>{{ item.icon }}</mat-icon>
+          <h4>{{ item.text }}</h4>
+        </mat-list-item>
+      </ng-container>
+    </mat-list>
   </mat-sidenav>
-  <div class="content" fxLayout="row" fxLayout.sm="column" fxLayoutGap="16px" *ngIf="selectedUser">
-
-    <mat-card fxFlex="80">
-      <mat-icon>avatar</mat-icon>
-      <h2>{{selectedUser.name}}</h2>
-      <p>{{selectedUser.details}}</p>
-    </mat-card>
-
-    <mat-card fxFlex fxLayout="column" fxLayoutGap="14px">
-      <mat-slide-toggle [(ngModel)]="selectedUser.isAdmin">Is Admin?</mat-slide-toggle>
-      <mat-slide-toggle [(ngModel)]="selectedUser.isCool">Is Cool?</mat-slide-toggle>
-    </mat-card>
-
-  </div>
 </mat-sidenav-container>

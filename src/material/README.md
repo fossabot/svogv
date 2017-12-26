@@ -133,8 +133,8 @@ Even simpler, you can create a complete form with just one tag. Just go like thi
     <legend>Edit current user</legend>
     <ac-autoform [formGroup]="userForm"></ac-autoform> 
     <div class="row">
-      <button class="btn btn-sm btn-success" type="submit" [disabled]="!userForm.valid">
-        <i class="fa fa-save"></i> Save
+      <button mat-button type="submit" [disabled]="!userForm.valid">
+        <mat-icon>save</mat-icon> Save
       </button>
     </div>
   </fieldset>

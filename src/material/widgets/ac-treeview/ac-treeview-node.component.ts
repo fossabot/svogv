@@ -11,16 +11,16 @@ import { AcTextTreeNode, AcTreeNode, AcTreeNodeState } from './models/index';
  *
  * * @Input() node: AcTextTreeNode;
  *
- * The several options are set through the AcTreeNodeOptions object that is being held by the   
- * AcTextTreeNode class. This includes colors, icons, and other styles. 
+ * The several options are set through the AcTreeNodeOptions object that is being held by the
+ * AcTextTreeNode class. This includes colors, icons, and other styles.
  *
  * The component can fire these events:
  *
  * * @Output() nodeClick: EventEmitter<AcTreeNode>;
  * * @Output() checkChanged: EventEmitter<AcTreeNode>;
  * * @Output() selectedChanged: EventEmitter<AcTreeNode>;
- * * @Output() collapseChanged: EventEmitter<AcTreeNode>; 
- * 
+ * * @Output() collapseChanged: EventEmitter<AcTreeNode>;
+ *
  */
 @Component({
     selector: 'ac-treenode',
@@ -48,16 +48,16 @@ export class AcTreeViewNode implements OnInit {
      * Fired if a node collapses or expands.
      */
     @Output() collapseChanged: EventEmitter<AcTreeNode>;
-    
+
     private href: string;
     private collapseClasses: Array<string>;
     private iconClasses: Array<string>;
     private foreColor: string;
     private backColor: string;
     private isExpanded = false;
-    private static pfxIcon = 'fa';
-    private static opnIcon = 'fa-plus';
-    private static clsIcon = 'fa-minus';
+    private static pfxIcon = '';
+    private static opnIcon = 'plus';
+    private static clsIcon = 'minus';
 
     constructor(private el: ElementRef, private renderer: Renderer) {
         this.nodeClick = new EventEmitter<AcTreeNode>();
