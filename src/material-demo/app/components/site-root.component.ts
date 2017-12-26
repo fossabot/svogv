@@ -11,7 +11,7 @@ interface AppState {
 @Component({
   moduleId: module.id,
   selector: 'site-root',
-  styles: ['mat-card, article { width: 100% }'],
+  styles: ['mat-card, article { width: 100% }', 'header { box-shadow: 5px 0px 5 3 black; }'],
   templateUrl: './site-root.component.html'
 })
 export class SiteRootComponent implements OnInit {

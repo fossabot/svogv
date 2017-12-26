@@ -1,4 +1,4 @@
-<mat-sidenav-container fxFlex>
+<mat-sidenav-container fxFlex="250px">
   <mat-sidenav mode="side" opened>
     <mat-list *ngIf="menu && menu.children && menu.children.length > 0">
       <ng-container *ngFor="let item of menu.children" [ngSwitch]="itemType(item)">

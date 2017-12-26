@@ -1,5 +1,9 @@
-﻿<div fxLayout="row" fxLayout.xs="row" fxLayoutGap="24px">
-	<ac-infobox icon="account_circle" text="Widgets" number="3" footerText="Show widgets" [footerLink]="['/widgets/list']" color="Warning"></ac-infobox>
-	<ac-infobox icon="view_list" text="Forms" [number]="users.length" footerText="Show some demo data" [footerLink]="['/editor/list']"
-	 color="Info"></ac-infobox>
-</div>
+﻿<mat-grid-list cols="2" rowHeight="200px">
+	<mat-grid-tile>
+		<ac-infobox icon="account_circle" text="Widgets" number="3" footerText="Show widgets" [footerLink]="['/widgets/list']" color="Warning"></ac-infobox>
+	</mat-grid-tile>
+	<mat-grid-tile>
+		<ac-infobox icon="view_list" text="Forms" [number]="users.length" footerText="Show some demo data" [footerLink]="['/editor/list']"
+		 color="Info"></ac-infobox>
+	</mat-grid-tile>
+</mat-grid-list>
