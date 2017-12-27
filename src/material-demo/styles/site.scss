@@ -1,4 +1,4 @@
-﻿@import '../../../node_modules/@angular/material/prebuilt-themes/purple-green';
+﻿@import '../../../node_modules/@angular/material/prebuilt-themes/indigo-pink';
 
 @font-face {
   font-family: 'Material Icons';
@@ -22,6 +22,11 @@
   font-feature-settings: 'liga';
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
+
+  .small {
+    font-size: 12px;
+  }
+
 }
 
 body, html {

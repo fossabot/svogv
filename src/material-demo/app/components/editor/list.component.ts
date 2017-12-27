@@ -10,15 +10,15 @@ import { AcDataGridModel } from '@svogv/material';
   styles: [
     `.colborders col { border-right: 1px solid azure; } `,
     `col.last { border-right: none !important; } `,
-    `col.first { background-color: #EEE; } `,
+    `col.first { background-color: #000; } `,
     `th { background: none; } `,
-    `button.ac-supersmall { 
-      width: 16px; 
-      height: 16px; 
-      border-radius: 0; 
-      padding: 1px; 
-      border: 0px; 
-      background-color: transparent !important; 
+    `button.ac-supersmall {
+      width: 16px;
+      height: 16px;
+      border-radius: 0;
+      padding: 1px;
+      border: 0px;
+      background-color: transparent !important;
       cursor: hand;
     }`,
     'button.ac-supersmall i { font-size: 0.8em; }',
@@ -46,6 +46,7 @@ export class ListEditorComponent {
     var t = new UserViewModelList();
     // we get a regular array here, but grid expects GridData for proper rendering
     this.users = new AcDataGridModel<UserViewModelList>(data, t);
+    this.users.pageSize = 5;
   }
 
   editUser(user) {

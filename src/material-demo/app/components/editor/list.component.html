@@ -21,16 +21,20 @@
     <mat-form-field *ngIf="users">
       <input type="text" placeholder="Search" id="searchUsers" matInput title="Search" name="searchItem" [(ngModel)]="users.searchValue.userName"
       />
-      <mat-icon>search</mat-icon>
+      <mat-icon matSuffix>search</mat-icon>
     </mat-form-field>
   </form>
 </mat-card>
 <mat-card>
-  <p>Currently invisible columns. Click to add:
+  <mat-card-title>
+      Currently invisible columns
+  </mat-card-title>
+  <mat-card-content>
+    Click to add:
     <span *ngFor="let col of users.headersNotVisible; let l = last">
-      <button class="btn btn-xs btn-danger" (click)="users.addColumn(col.prop)">Add {{ col.text }}</button>
+      <button mat-button color="warn" (click)="users.addColumn(col.prop)">Add {{ col.text }}</button>
     </span>&nbsp;
-  </p>
+  </mat-card-content>
 </mat-card>
 <mat-card *ngIf="users">
   <table class="table table-condensed">
@@ -46,19 +50,19 @@
         <th *ngFor="let header of users.headers" [title]="header.desc">{{ header.text }}
           <div class="ac-sortsmall">
             <button mat-icon-button (click)="users.sortColumn(header.prop, 'asc')">
-             <mat-icon>sort asc</mat-icon>
+             <mat-icon class="small">keyboard_arrow_up</mat-icon>
             </button>
             <button mat-icon-button (click)="users.sortColumn(header.prop, 'desc')">
-              <mat-icon>sort desc</mat-icon>
+              <mat-icon class="small">keyboard_arrow_down</mat-icon>
             </button>
           </div>
           <button mat-icon-button color="warn" (click)="users.removeColumn(header.prop)">
-            <mat-icon>remove</mat-icon>
+            <mat-icon class="small">delete</mat-icon>
           </button>
         </th>
         <th>Action
           <button mat-mini-fab color="primary" (click)="addUser()">
-            New User
+            <mat-icon>add</mat-icon>
           </button>
         </th>
       </tr>
@@ -76,14 +80,14 @@
           {{ data }}
         </td>
         <td>
-          <button mat-button type="button" (click)="editUser(user)">
+          <button mat-raised-button type="button" (click)="editUser(user)">
             Edit (Fields)
           </button>
-          <button mat-button color="primary" type="button" (click)="editUserAutoform(user)">
+          <button mat-raised-button color="primary" type="button" (click)="editUserAutoform(user)">
             Edit (Auto)
           </button>
-          <button mat-button color="warn" type="button" (click)="removeUser(user)">
-            Delete
+          <button mat-raised-button color="warn" type="button" (click)="removeUser(user)">
+            <mat-icon>delete_forever</mat-icon>
           </button>
         </td>
       </tr>

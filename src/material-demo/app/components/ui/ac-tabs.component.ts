@@ -37,18 +37,20 @@ export class AcTabData {
 }
 
 /**
- * The Tab Component. It looks like a Bootstrap component, but the active part
- * is the Angular router, so no data-toggle is required.
+ * The Tab Component. It uses the nav-tabs Material component.
+ * The active part is the Angular router.
  */
 @Component({
   selector: 'ac-tabs',
-  template: `<mat-tab-group>
-                <mat-tab *ngFor="let tab of tabs.tabs"
-                         [label]="tab.text"
+  template: `<nav mat-tab-nav-bar>
+                <a mat-tab-link *ngFor="let tab of tabs.tabs"
                          [disabled]="tab.disabled"
+                         routerLinkActive #rla="routerLinkActive"
+                         [active]="rla.isActive"
                          [routerLink]="tab.link">
-                </mat-tab>
-            </mat-tab-group>
+                  {{ tab.text }}
+                </a>
+            </nav>
             <router-outlet></router-outlet>
 `
 }) //
