@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
   <form (ngSubmit)="saveUser()" [formGroup]="userForm" role="form" class="row">
     <fieldset style="width:100%">
       <legend>Add new User</legend>
@@ -6,11 +6,11 @@
       <ac-editor [userForm]="userForm" [name]="'email'" ></ac-editor>
       <ac-editor [userForm]="userForm" [name]="'phoneNumber'" ></ac-editor>
       <div class="row">
-        <button mat-button type="submit" [disabled]="!userForm.valid">
+        <button mat-raised-button type="submit" [disabled]="!userForm.valid">
             <mat-icon>save</mat-icon> Save
         </button>
-        <button mat-button color="warn" type="button" (click)="closeForm()">
-            <mat-icon>remove</mat-icon> Cancel &amp; Return to List
+        <button mat-raised-button color="warn" type="button" (click)="closeForm()">
+            <mat-icon>cancel</mat-icon> Cancel &amp; Return to List
         </button>
       </div>
     </fieldset>

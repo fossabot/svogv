@@ -12,7 +12,8 @@ export interface IBreadcrumb {
     selector: 'ac-breadcrumb',
     template: `<mat-card>
                  <mat-card-content>
-                 <a routerLink=""><mat-icon>{{ icon}} </mat-icon> {{ home }}</a>
+                 <a routerLink=""><mat-icon>{{ icon}}</mat-icon> {{ home }}</a>
+                 <span *ngIf="breadcrumbs && breadcrumbs.length > 0">&nbsp;/&nbsp;</span>
                  <ng-container *ngFor="let breadcrumb of breadcrumbs; let lastItem=last">
                     <a [routerLink]="[breadcrumb.url, breadcrumb.params]">{{ breadcrumb.label }}</a>
                     <span *ngIf="!lastItem">&nbsp;/&nbsp;</span>
@@ -34,7 +35,8 @@ export class AcBreadCrumbComponent implements OnInit {
     }
 
     ngOnInit() {
-        // put data: { "breadcrumb": true, "subtitle": "Sub Route Name" } in the router config for those items that shall appear in the breadcrumb 
+        // put data: { "breadcrumb": true, "subtitle": "Sub Route Name" }
+        // in the router config for those items that shall appear in the breadcrumb
         const ROUTE_DATA_BREADCRUMB = 'breadcrumb';
         const ROUTE_DATA_SUBTITLE = 'subtitle';
 

@@ -18,15 +18,14 @@ import { Meaning } from '../../../core/utils/enum-colors';
 @Component({
     selector: 'ac-infobox',
     styles: [
-        '.rotate { transform: rotate(45deg); }',
+        '.rotate { transform: rotate(45deg); font-size: 125%; }',
+        '.text-uppercase { text-transform: uppercase; }',
         '.progress-description { text-align: left; font-size: 75%; }'
     ],
     template: `<mat-card [ngClass]="getColor('card')">
                   <mat-card-header [ngClass]="getColor('bg')">
-                    <div class="rotate">
-                        <mat-icon>{{ icon }}</mat-icon>
-                    </div>
-                    <h6 class="text-uppercase">{{ text }}</h6>
+                    <mat-icon class="rotate">{{ icon }}</mat-icon>
+                    <h5 class="text-uppercase">{{ text }}</h5>
                   </mat-card-header>
                   <mat-card-content>
                     <h1 class="display-1">{{ number }}</h1>

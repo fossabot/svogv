@@ -6,10 +6,10 @@
 		Confirm deleting the user {{ user.userName }}.
 	</mat-card-content>
 	<mat-card-footer>
-		<button mat-button type="button" (click)="deleteItem()">
+		<button mat-raised-button color="primary" type="button" (click)="deleteItem()">
 			<mat-icon>save</mat-icon> Delete
 		</button>
-		<button mat-button type="button" (click)="closeForm()">
+		<button mat-raised-button color="warn" type="button" (click)="closeForm()">
 			<mat-icon>cancel</mat-icon> Cancel &amp; Return to List
 		</button>
 	</mat-card-footer>

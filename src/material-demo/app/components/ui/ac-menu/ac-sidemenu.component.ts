@@ -4,7 +4,7 @@ import { AcMenu } from './models/ac-menu';
 @Component({
   moduleId: module.id,
   selector: 'ac-sidemenu',
-  styles: ['.spacer { padding-left: 16px'],
+  styles: ['.spacer { padding-left: 16px; cursor: hand; }'],
   templateUrl: './ac-sidemenu.component.html'
 })
 export class AcSideMenuComponent {
