@@ -2,7 +2,7 @@
     Component, Input, Output,
     EventEmitter, OnInit, ElementRef, Renderer
 } from '@angular/core';
-import { AcTextTreeNode, AcTreeNode, AcTreeNodeState } from './models/index';
+import { AcTextTreeNode, AcTreeNode, AcTreeNodeState } from '@svogv/core';
 
 /**
  * The treenode class represents a single treenode for the treeview. Actually, this renders the real UI.
@@ -11,7 +11,7 @@ import { AcTextTreeNode, AcTreeNode, AcTreeNodeState } from './models/index';
  *
  * * @Input() node: AcTextTreeNode;
  *
- * The several options are set through the AcTreeNodeOptions object that is being held by the   
+ * The several options are set through the AcTreeNodeOptions object that is being held by the
  * AcTextTreeNode class. This includes colors, icons, and other styles. 
  *
  * The component can fire these events:

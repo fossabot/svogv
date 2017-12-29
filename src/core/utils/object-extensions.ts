@@ -3,7 +3,7 @@ declare interface ObjectConstructor {
   same(x: any, y: any): boolean;
 }
 
-Object.same = function (source, target): boolean {
+Object.same = function (source: any, target: any): boolean {
   if (source === target) {
     return true;
   }

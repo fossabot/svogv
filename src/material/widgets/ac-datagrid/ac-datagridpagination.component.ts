@@ -101,7 +101,7 @@ export class AcDataGridPagination implements OnInit, OnChanges {
       if (this.currentPageNumber > change.currentValue) {
         // throws ExpressionChangedAfterItHasBeenCheckedException
         // if there's no setTimeout.
-        // no need to add setTimeout if ngOnChanges 
+        // no need to add setTimeout if ngOnChanges
         // is fired after changes made on root component.
         setTimeout(() => this.setCurrentPage(1), 1);
       }

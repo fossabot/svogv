@@ -77,20 +77,20 @@ task(':mt-build:components:rollup', () => {
     '@angular/flex-layout': 'nd.flex-layout',
     '@svogv/core': 'svogv.core',
     // Rxjs dependencies
-    'rxjs/Subject': 'Rx',
+    'rxjs/Subject': 'Rx.Subject',
     'rxjs/add/observable/fromEvent': 'Rx.Observable',
     'rxjs/add/observable/forkJoin': 'Rx.Observable',
     'rxjs/add/observable/of': 'Rx.Observable',
     'rxjs/add/observable/throw': 'Rx.Observable',
-    'rxjs/add/operator/toPromise': 'Rx.Observable.prototype',
-    'rxjs/add/operator/map': 'Rx.Observable.prototype',
-    'rxjs/add/operator/filter': 'Rx.Observable.prototype',
-    'rxjs/add/operator/do': 'Rx.Observable.prototype',
-    'rxjs/add/operator/share': 'Rx.Observable.prototype',
-    'rxjs/add/operator/finally': 'Rx.Observable.prototype',
-    'rxjs/add/operator/catch': 'Rx.Observable.prototype',
-    'rxjs/add/operator/first': 'Rx.Observable.prototype',
-    'rxjs/Observable': 'Rx'
+    'rxjs/add/operator/toPromise': 'Rx.Observable.operator',
+    'rxjs/add/operator/map': 'Rx.Observable.operator',
+    'rxjs/add/operator/filter': 'Rx.Observable.operator',
+    'rxjs/add/operator/do': 'Rx.Observable.operator',
+    'rxjs/add/operator/share': 'Rx.Observable.operator',
+    'rxjs/add/operator/finally': 'Rx.Observable.operator',
+    'rxjs/add/operator/catch': 'Rx.Observable.operator',
+    'rxjs/add/operator/first': 'Rx.Observable.operator',
+    'rxjs/Observable': 'Rx.Observable'
   };
 
   const rollupOptions = {

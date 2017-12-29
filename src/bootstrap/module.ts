@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import * as wd from './widgets/index';
 
-import { SvogvCoreModule, FormValidatorService, FormValidatorFromJsonService } from '@svogv/core';
+import { SvogvCoreModule, FormValidatorService, FormValidatorFromJsonService, AcFormatDataPipe } from '@svogv/core';
 
 import * as d from '@svogv/core';
 
@@ -16,9 +16,7 @@ const SVOGV_COMPONENTS = [
   wd.AcTreeViewNode,
   wd.AcEditor,
   wd.AcAutoForm,
-  wd.AcLoaderIcon,
-  wd.AcAnalogClock,
-  wd.AcFormatDataPipe
+  AcFormatDataPipe
 ];
 
 const SVOGV_EXPORTS = [

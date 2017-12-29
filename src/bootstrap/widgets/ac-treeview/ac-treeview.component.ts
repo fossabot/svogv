@@ -1,5 +1,5 @@
 ﻿import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { AcTreeNode } from './models/index';
+import { AcTreeNode } from '@svogv/core';
 
 /**
  * A treeview that can handle @see AcTreeNode objects that create text, checkboxes, or highlights.

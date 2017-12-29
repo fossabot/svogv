@@ -1,4 +1,4 @@
-﻿import { SvogvModule } from '../../../module';
+﻿import { Injector } from '@angular/core';
 
 /**
  * The item with data and meta data.
@@ -10,7 +10,7 @@ export class AcDataGridItem {
    * @param prop: The name of the property.
    * @param pipe: An attached pipe, if any. Used for dynamic formatting 
    */
-  constructor() {
+  constructor(private injector: Injector = null) {
   }
 
   value: any;
@@ -19,7 +19,7 @@ export class AcDataGridItem {
   pipeToken?: any;
 
   public getFormatted(pipeArgs: any[]): any {
-    let pipe = SvogvModule.injector.get(this.pipeToken);
+    let pipe = this.injector.get(this.pipeToken);
     return pipe.transform(this.value, ...pipeArgs);
   }
 

@@ -49,22 +49,6 @@
   </mat-paginator>
 </div>
 <mat-card>
-  <form>
-    <mat-form-field *ngIf="users">
-      <label for="pageSize">Items per Page</label>
-      <mat-select name="pageSize" [(ngModel)]="users.pageSize" name="itemsPerPage">
-        <mat-option [value]="2">2</mat-option>
-        <mat-option [value]="5">5</mat-option>
-        <mat-option [value]="10">10</mat-option>
-      </mat-select>
-    </mat-form-field>
-    <div class="pull-right">
-      <ac-pagination *ngIf="users" [maxPageIndex]="users.maxPageIndex" (pageNumberChanged)="users.currentPageIndex = $event">
-      </ac-pagination>
-    </div>
-  </form>
-</mat-card>
-<mat-card>
   <mat-card-title>
     Techniques used
   </mat-card-title>

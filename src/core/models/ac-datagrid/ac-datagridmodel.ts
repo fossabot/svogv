@@ -1,6 +1,10 @@
-import '../../../../core/utils/object-extensions';
+import { Injector } from '@angular/core';
+
+import '../../utils/object-extensions';
 import { AcDataGridHeader } from './ac-datagridheader';
 import { AcDataGridItem } from './ac-datagriditem';
+
+import { Observable } from 'rxjs/Observable';
 
 export enum Direction {
   Ascending,
@@ -71,6 +75,10 @@ export class AcDataGridModel<T> {
     return this._items;
   }
 
+  get itemsAsync(): T[] {
+    return Observable.create(this._items);
+  }
+
   getItemSorted(sortColumn: string, sortDirection: Direction): T[] {
     if (sortDirection === Direction.Ascending) {
       return this.items.sort((a: any, b: any) => a[sortColumn] > b[sortColumn] ? 1 : -1);
@@ -121,7 +129,11 @@ export class AcDataGridModel<T> {
     return columns;
   }
 
-  public sortColumn(colName: string, dir: string) {
+  public columnsOfItemAsync(item: T): Observable<Array<AcDataGridItem>> {
+    return Observable.create(this.columnsOfItem(item));
+  }
+
+  public sortColumn(colName: string, dir: string): void {
     this.items.sort((a: any, b: any) => dir === 'desc' ? (a[colName] > b[colName] ? 1 : -1) : (a[colName] > b[colName] ? -1 : 1));
   }
 
@@ -131,8 +143,16 @@ export class AcDataGridModel<T> {
     return this._headers.filter(h => !h.hidden);
   }
 
+  public get headersAsync(): Observable<Array<AcDataGridHeader>> {
+    return Observable.create(this._headers.filter(h => !h.hidden));
+  }
+
   public get headersNotVisible(): Array<AcDataGridHeader> {
     return this._headers.filter(h => h.hidden);
+  }
+
+  public get headersNotVisibleAsync(): Observable<Array<AcDataGridHeader>> {
+    return Observable.create(this._headers.filter(h => h.hidden));
   }
 
   public removeColumn(colname: string) {

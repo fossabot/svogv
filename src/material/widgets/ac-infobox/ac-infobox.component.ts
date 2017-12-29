@@ -1,6 +1,6 @@
 ﻿import { Component, Input, OnInit } from '@angular/core';
 import { InputConverter, EnumConverter } from '../../../core/utils/convert-inputconverter';
-import { AcInfoBoxOptions } from './models/options-infobox';
+import { AcInfoBoxOptions } from '@svogv/core';
 import { Meaning } from '../../../core/utils/enum-colors';
 
 /**
