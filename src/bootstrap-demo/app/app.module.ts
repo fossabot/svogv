@@ -41,9 +41,7 @@ import { WindowRef } from '@svogv/core';
     // Widget Demos
     , cmp.WidgetDemoComponent
     , cmp.ListWidgetsComponent
-    , cmp.AnalogClockComponent
     , cmp.TreeviewComponent
-    , cmp.LoaderIconComponent
     // Custom Widgets just for Demo
     , cmp.AcSideMenuComponent
     , cmp.AcBreadCrumbComponent

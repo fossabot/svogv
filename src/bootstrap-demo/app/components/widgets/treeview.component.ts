@@ -1,5 +1,5 @@
 ﻿import { Component } from '@angular/core';
-import { AcTreeNodeOptions, AcTextTreeNode, AcTreeNode } from '@svogv/bootstrap';
+import { AcTreeNodeOptions, AcTextTreeNode, AcTreeNode } from '@svogv/core';
 
 @Component({
   moduleId: module.id,
