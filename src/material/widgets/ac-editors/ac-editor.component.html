@@ -23,9 +23,9 @@
             [disabled]='readonly'>
             <mat-option *ngFor="let option of listValues" [value]="option.key">{{option.val}}</mat-option>
         </mat-select>
-        <div>
+        <div *ngIf="type == 'radio' && (listValues || enumValues)">
             <label>{{ label }}{{ labelDivider }}</label>
-            <mat-radio-group *ngIf="type == 'radio' && (listValues || enumValues)" 
+            <mat-radio-group 
                 [id]="name"             
                 [formControlName]="name" 
                 [disabled]='readonly'>
@@ -38,7 +38,7 @@
             </mat-radio-group>
         </div>
         <input *ngIf="type == 'range'" 
-            type="range" 
+            type="number" 
             matInput
             [placeholder]="label + labelDivider" 
             [attr.minvalue]="fromValue" 

@@ -27,7 +27,7 @@
 </mat-card>
 <mat-card>
   <mat-card-title>
-      Currently invisible columns
+    Currently invisible columns
   </mat-card-title>
   <mat-card-content>
     Click to add:
@@ -36,64 +36,18 @@
     </span>&nbsp;
   </mat-card-content>
 </mat-card>
-<mat-card *ngIf="users">
-  <table class="table table-condensed">
-    <colgroup class="colborders">
-      <col class="first" />
-      <col class="middle" />
-      <col class="middle" />
-      <col class="middle" />
-      <col class="last" />
-    </colgroup>
-    <thead>
-      <tr>
-        <th *ngFor="let header of users.headers" [title]="header.desc">{{ header.text }}
-          <div class="ac-sortsmall">
-            <button mat-icon-button (click)="users.sortColumn(header.prop, 'asc')">
-             <mat-icon class="small">keyboard_arrow_up</mat-icon>
-            </button>
-            <button mat-icon-button (click)="users.sortColumn(header.prop, 'desc')">
-              <mat-icon class="small">keyboard_arrow_down</mat-icon>
-            </button>
-          </div>
-          <button mat-icon-button color="warn" (click)="users.removeColumn(header.prop)">
-            <mat-icon class="small">delete</mat-icon>
-          </button>
-        </th>
-        <th>Action
-          <button mat-mini-fab color="primary" (click)="addUser()">
-            <mat-icon>add</mat-icon>
-          </button>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngIf="!users.totalFilteredRows">
-        <td colspan="4" class="text-center">
-          <mat-card>
-            There are no users available.
-          </mat-card>
-        </td>
-      </tr>
-      <tr *ngFor="let user of users.itemsOnCurrentPage">
-        <td *ngFor="let data of users.columnsOfItemValues(user)">
-          {{ data }}
-        </td>
-        <td>
-          <button mat-raised-button type="button" (click)="editUser(user)">
-            Edit (Fields)
-          </button>
-          <button mat-raised-button color="primary" type="button" (click)="editUserAutoform(user)">
-            Edit (Auto)
-          </button>
-          <button mat-raised-button color="warn" type="button" (click)="removeUser(user)">
-            <mat-icon>delete_forever</mat-icon>
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-</mat-card>
+<div *ngIf="users" mat-elevation-z8>
+  <mat-table #table [dataSource]="users">
+    <ng-container [matColumnDef]="header" *ngFor="let header of users.headers">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>{{ header.text }}</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{ element.columnsOfItemValues }}</mat-cell>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+  <mat-paginator #paginator [pageSize]="5" [pageSizeOptions]="[2, 5, 10]">
+  </mat-paginator>
+</div>
 <mat-card>
   <form>
     <mat-form-field *ngIf="users">
